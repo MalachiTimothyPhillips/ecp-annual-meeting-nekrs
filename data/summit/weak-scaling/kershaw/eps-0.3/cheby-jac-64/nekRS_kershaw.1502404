@@ -1,0 +1,245 @@
+                 __    ____  _____
+   ____   ___   / /__ / __ \/ ___/
+  / __ \ / _ \ / //_// /_/ /\__ \ 
+ / / / //  __// ,<  / _, _/___/ / 
+/_/ /_/ \___//_/|_|/_/ |_|/____/  v21.1.1 (e0ae2987)
+
+COPYRIGHT (c) 2019-2021 UCHICAGO ARGONNE, LLC
+
+MPI tasks: 384
+
+reading par file ...
+
+using NEKRS_HOME: /ccs/home/malachi/.local/nekrs
+using NEKRS_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/kershaw/weak-scaling-study/eps-0.3/cheby-jac-64/.cache
+using OCCA_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/kershaw/weak-scaling-study/eps-0.3/cheby-jac-64/.cache/occa/
+
+Initializing device 
+active occa mode: CUDA
+
+building udf ... 
+Consolidate compiler generated dependencies of target UDF
+[100%] Built target UDF
+done (0.361947s)
+skip building nekInterface (SIZE has not changed)
+loading nek ... 
+done
+loading udf kernels ... done (0.0516107s)
+
+loading kernels ... done (2.49696s)
+
+ Reading /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/kershaw/weak-scaling-study/eps-0.3/cheby-jac-64/kershaw.re2                          
+ reading mesh 
+ reading bc for ifld           1
+ done :: read .re2 file     1.3     sec
+
+Running parCon ... (tol=0.2)
+Running parRSB ...
+parRSB finished in 2.56118 s
+
+ reading mesh 
+ reading bc for ifld           1
+ done :: read .re2 file    0.65     sec
+
+ setup mesh topology
+   Right-handed check complete for     2985984 elements. OK.
+gs_setup: 21741999 unique labels shared
+   handle bytes (avg, min, max): 2.80221e+07 26872132 28517132
+   buffer bytes (avg, min, max): 1.86521e+06 1068672 2245728
+   setupds time 8.6647E-01 seconds   0  8   382271185     2985984
+ 
+ nElements   max/min/bal: 7776 7776 1.00
+ nMessages   max/min/avg: 29 5 16.11
+ msgSize     max/min/avg: 26006 1 7757.15
+ msgSizeSum  max/min/avg: 140358 66792 116575.44
+ 
+ max multiplicity            8
+ done :: setup mesh topology
+  
+ call usrdat
+ epsy=  0.29999999999999999      epsz=  0.29999999999999999     
+ done :: usrdat
+
+ generate geometry data
+ done :: generate geometry data
+  
+ call usrdat2
+ done :: usrdat2
+
+  1.1102E-16  1.1102E-16  1.1102E-16  1.1102E-16  1.1102E-16  1.1102E-16 xyz repair 1
+  5.5511E-17  1.1102E-16  1.1102E-16  1.4586E-16  1.8867E-16  1.8867E-16 xyz repair 2
+  1.1102E-16  1.1102E-16  1.1102E-16  1.4919E-16  1.4940E-16  1.4940E-16 xyz repair 3
+  5.5511E-17  5.5511E-17  5.5511E-17  5.5511E-17  5.5511E-17  5.5511E-17 xyz repair 4
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ verify mesh topology
+ -0.50000000000000000       0.50000000000000000       Xrange
+ -0.50000000000000000       0.50000000000000000       Yrange
+ -0.50000000000000000       0.50000000000000000       Zrange
+ done :: verify mesh topology
+  
+ mesh metrics:
+ GLL grid spacing min/max    : 1.34E-04 8.75E-03
+ scaled Jacobian  min/max/avg: 7.01E-01 1.00E+00 9.53E-01
+ aspect ratio     min/max/avg: 1.02E+00 2.01E+01 4.15E+00
+
+ call usrdat3
+ done :: usrdat3
+
+gridpoints unique/tot:    1027243729   1528823808
+dofs vel/pr:              1027243729   1021147343
+ nek setup done in    1.3554E+01 s
+
+ set initial conditions
+ nekuic (1) for ifld            1
+ call nekuic for vel  
+ xyz min   -0.50000     -0.50000     -0.50000    
+ uvwpt min  -1.0000      0.81910E-06  0.58953E-06   0.0000       0.0000    
+ PS min      0.0000       0.0000       0.0000      0.99000E+22
+ xyz max    0.50000      0.50000      0.50000    
+ uvwpt max   1.0000       1.0000       1.0000       0.0000       0.0000    
+ PS max      0.0000       0.0000       0.0000     -0.99000E+22
+ done :: set initial conditions
+  
+calling nek_userchk ...
+
+loading mesh from nek ... NboundaryIDs: 1, NboundaryFaces: 124416 done (0.00118991s)
+generating mesh ... Nq: 8 cubNq: 11
+computing geometric factors ... J [3.7676e-09,1.20982e-07] done (0.474346s)
+timing oogs modes: 0.000475958s 0.000351501s 0.000334432s 0.000338756s 0.000269488s 0.000231409s used config: 3.0.1
+min 68% of the local elements are internal
+timing oogs modes: 0.00179423s 0.000844874s 0.000837288s 0.000847312s 0.000548737s 0.000541595s used config: 3.0.1
+loading ns kernels ... done (0.000465378s)
+copying solution from nek
+calling udf_setup ... done
+================ ELLIPTIC SETUP VELOCITY ================
+bID 1 -> bcType zeroGradient
+allNeumann = 0 
+loading elliptic kernels ... done (0.000227397s)
+timing oogs modes: 0.00160567s 0.000854818s 0.000848672s 0.000827737s 0.00054927s 0.000543455s used config: 3.0.1
+timing oogs modes: 0.00158428s 0.00141657s 0.0014253s 0.00139391s 0.000721549s 0.000706829s used config: 3.0.1
+building Jacobi preconditioner ... done (0.369867s)
+done (1.74637s)
+================ ELLIPTIC SETUP PRESSURE ================
+WARNING: Cannot find oudf function: pressureDirichletConditions!
+allNeumann = 0 
+loading elliptic kernels ... done (0.000488983s)
+timing oogs modes: 0.000474517s 0.000359784s 0.000334209s 0.000340966s 0.000260999s 0.000236409s used config: 3.0.1
+timing oogs modes: 0.000629364s 0.000713466s 0.000710749s 0.000709221s 0.000427932s 0.000423295s used config: 3.0.1
+building MG preconditioner ... 
+loading elliptic preconditioner kernels ... done (0.000267143s)
+=============BUILDING MULTIGRID LEVEL OF DEGREE 7==================
+timing oogs modes: 0.000477502s 0.000235403s 0.000242201s 0.000236421s 0.000246312s 0.000222179s used config: 3.0.1
+timing oogs modes: 0.000504747s 0.00040373s 0.000396244s 0.000397863s 0.000297334s 0.000281934s used config: 3.0.1
+building Jacobi ... done (0.222918s)
+estimating maxEigenvalue ... [b11n04:674059] *** Process received signal ***
+[b11n04:674059] Signal: Segmentation fault (11)
+[b11n04:674059] Signal code: Address not mapped (1)
+[b11n04:674059] Failing at address: 0x2005574e0000
+[b11n04:674059] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[b11n04:674059] [ 1] /lib64/power9/libc.so.6(+0xad844)[0x20003e78d844]
+[b11n04:674059] [ 2] /lib64/libcuda.so.1(+0x24e674)[0x200000ace674]
+[b11n04:674059] [ 3] /lib64/libcuda.so.1(+0x41427c)[0x200000c9427c]
+[b11n04:674059] [ 4] /lib64/libcuda.so.1(+0x414a68)[0x200000c94a68]
+[b11n04:674059] [ 5] /lib64/libcuda.so.1(+0x24fcbc)[0x200000acfcbc]
+[b11n04:674059] [ 6] /lib64/libcuda.so.1(+0x116cb8)[0x200000996cb8]
+[b11n04:674059] [ 7] /lib64/libcuda.so.1(+0x1184c4)[0x2000009984c4]
+[b11n04:674059] [ 8] /lib64/libcuda.so.1(cuMemcpyHtoD_v2+0x84)[0x200000bf5814]
+[b11n04:674059] [ 9] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda6memory8copyFromEPKvmmRKNS_4jsonE+0x98)[0x20000071dab8]
+[b11n04:674059] [10] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6memory8copyFromEPKvllRKNS_4jsonE+0x90)[0x2000005db3a0]
+[b11n04:674059] [11] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN7MGLevel14maxEigSmoothAxEv+0x674)[0x20000023a464]
+[b11n04:674059] [12] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN7MGLevel13setupSmootherEP10elliptic_t+0xa04)[0x20000023be24]
+[b11n04:674059] [13] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN7MGLevelC2EP10elliptic_tdi9setupAideN9parAlmond10KrylovTypeEP19ompi_communicator_tb+0x30c)[0x20000023cb7c]
+[b11n04:674059] [14] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z22ellipticMultiGridSetupP10elliptic_tP8precon_t+0x454)[0x200000245664]
+[b11n04:674059] [15] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z27ellipticPreconditionerSetupP10elliptic_tP5ogs_t+0x174)[0x20000024ba54]
+[b11n04:674059] [16] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z18ellipticSolveSetupP10elliptic_t+0x1e98)[0x200000252568]
+[b11n04:674059] [17] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z8nrsSetupP19ompi_communicator_tR9setupAideP5nrs_t+0xa324)[0x200000155344]
+[b11n04:674059] [18] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN5nekrs5setupEP19ompi_communicator_tS1_iiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_+0x12dc)[0x2000001107dc]
+[b11n04:674059] [19] /ccs/home/malachi/.local/nekrs/bin/nekrs[0x10004300]
+[b11n04:674059] [20] /lib64/power9/libc.so.6(+0x24078)[0x20003e704078]
+[b11n04:674059] [21] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x20003e704264]
+[b11n04:674059] *** End of error message ***
+ERROR:  One or more process (first noticed rank 2) terminated with signal 11 (core dumped)
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@batch2>
+Subject: Job 1502404: <nekRS_kershaw> in cluster <summit> Exited
+
+Job <nekRS_kershaw> was submitted from host <login2> by user <malachi> in cluster <summit> at Fri Oct  8 20:41:26 2021
+Job was executed on host(s) <1*batch2>, in queue <batch>, as user <malachi> in cluster <summit> at Fri Oct  8 20:50:49 2021
+                            <42*b11n04>
+                            <42*b11n05>
+                            <42*b11n06>
+                            <42*b11n07>
+                            <42*b11n08>
+                            <42*b11n09>
+                            <42*b11n10>
+                            <42*b11n11>
+                            <42*b11n12>
+                            <42*b11n13>
+                            <42*b11n14>
+                            <42*b11n15>
+                            <42*b11n16>
+                            <42*b11n17>
+                            <42*b11n18>
+                            <42*b12n01>
+                            <42*b12n02>
+                            <42*b12n03>
+                            <42*b12n04>
+                            <42*b12n05>
+                            <42*b12n06>
+                            <42*b12n07>
+                            <42*b12n08>
+                            <42*c31n08>
+                            <42*c31n09>
+                            <42*c31n10>
+                            <42*c31n17>
+                            <42*c31n18>
+                            <42*c32n01>
+                            <42*c32n02>
+                            <42*c32n03>
+                            <42*c32n04>
+                            <42*c32n05>
+                            <42*c32n13>
+                            <42*c32n16>
+                            <42*c32n18>
+                            <42*d05n02>
+                            <42*e12n12>
+                            <42*e12n13>
+                            <42*e29n12>
+                            <42*e35n07>
+                            <42*e35n09>
+                            <42*e35n10>
+                            <42*f11n03>
+                            <42*f11n04>
+                            <42*f14n04>
+                            <42*f14n05>
+                            <42*f14n06>
+                            <42*f14n07>
+                            <42*f14n08>
+                            <42*f14n09>
+                            <42*f14n10>
+                            <42*f14n11>
+                            <42*f14n12>
+                            <42*f14n13>
+                            <42*f14n14>
+                            <42*f17n14>
+                            <42*f17n15>
+                            <42*f17n16>
+                            <42*f18n03>
+                            <42*f18n04>
+                            <42*f18n05>
+                            <42*f18n06>
+                            <42*f18n07>
+</ccs/home/malachi> was used as the home directory.
+</gpfs/alpine/scratch/malachi/csc262/siam-pp-22/kershaw/weak-scaling-study/eps-0.3/cheby-jac-64> was used as the working directory.
+Started at Fri Oct  8 20:50:49 2021
+Terminated at Fri Oct  8 20:52:00 2021
+Results reported at Fri Oct  8 20:52:00 2021
+
+The output (if any) is above this job summary.
+

@@ -1,0 +1,81 @@
+Error (No such file or directory) executing process: /ccs/home/malachi/.local/nekrs-preco-auto/bin/nekrs
+Error (No such file or directory) executing process: /ccs/home/malachi/.local/nekrs-preco-auto/bin/nekrs
+Error (No such file or directory) executing process: /ccs/home/malachi/.local/nekrs-preco-auto/bin/nekrs
+Error (No such file or directory) executing process: /ccs/home/malachi/.local/nekrs-preco-auto/bin/nekrs
+Error (No such file or directory) executing process: /ccs/home/malachi/.local/nekrs-preco-auto/bin/nekrs
+Error (No such file or directory) executing process: /ccs/home/malachi/.local/nekrs-preco-auto/bin/nekrs
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@batch1>
+Subject: Job 1495644: <nekRS_BoeingSpeedBump> in cluster <summit> Exited
+
+Job <nekRS_BoeingSpeedBump> was submitted from host <login2> by user <malachi> in cluster <summit> at Wed Oct  6 17:27:59 2021
+Job was executed on host(s) <1*batch1>, in queue <batch>, as user <malachi> in cluster <summit> at Wed Oct  6 17:55:04 2021
+                            <42*a19n14>
+                            <42*a19n15>
+                            <42*a19n16>
+                            <42*a19n17>
+                            <42*a19n18>
+                            <42*a20n01>
+                            <42*a20n02>
+                            <42*a20n03>
+                            <42*a20n04>
+                            <42*a27n10>
+                            <42*a27n11>
+                            <42*a27n15>
+                            <42*a27n16>
+                            <42*c35n11>
+                            <42*d11n04>
+                            <42*d11n09>
+                            <42*d11n15>
+                            <42*d11n17>
+                            <42*d12n02>
+                            <42*d12n07>
+                            <42*d12n09>
+                            <42*d13n06>
+                            <42*d13n07>
+                            <42*d14n10>
+                            <42*d15n09>
+                            <42*d27n17>
+                            <42*d28n04>
+                            <42*d32n05>
+                            <42*d32n07>
+                            <42*d32n08>
+                            <42*d32n11>
+                            <42*d32n12>
+                            <42*f34n10>
+                            <42*g04n17>
+                            <42*g26n04>
+                            <42*g26n05>
+                            <42*g26n06>
+                            <42*g26n07>
+                            <42*g26n08>
+                            <42*g26n09>
+                            <42*g26n10>
+                            <42*g31n13>
+                            <42*g31n14>
+                            <42*g31n15>
+                            <42*g31n16>
+                            <42*g31n17>
+                            <42*g31n18>
+                            <42*g32n01>
+                            <42*g32n02>
+                            <42*g32n03>
+                            <42*g32n04>
+                            <42*g32n05>
+                            <42*g32n06>
+                            <42*g32n07>
+                            <42*g32n08>
+                            <42*g32n09>
+                            <42*g32n10>
+                            <42*g32n11>
+                            <42*g32n12>
+                            <42*g32n13>
+</ccs/home/malachi> was used as the home directory.
+</gpfs/alpine/scratch/malachi/csc262/siam-pp-22/speed-bump/auto-fp32-60> was used as the working directory.
+Started at Wed Oct  6 17:55:04 2021
+Terminated at Wed Oct  6 17:55:23 2021
+Results reported at Wed Oct  6 17:55:23 2021
+
+The output (if any) is above this job summary.
+

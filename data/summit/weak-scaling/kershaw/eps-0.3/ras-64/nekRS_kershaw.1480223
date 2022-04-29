@@ -1,0 +1,91 @@
+ERROR: ld.so: object '/sw/summit/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-9.1.0/spectrum-mpi-10.4.0.3-20210112-b5zk3valzzwupvryqfd7ouwwir73wats/container/../lib/libpami_cudahook.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object '/sw/summit/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-9.1.0/spectrum-mpi-10.4.0.3-20210112-b5zk3valzzwupvryqfd7ouwwir73wats/container/../lib/libpami_cudahook.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object '/sw/summit/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-9.1.0/spectrum-mpi-10.4.0.3-20210112-b5zk3valzzwupvryqfd7ouwwir73wats/container/../lib/libpami_cudahook.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object '/sw/summit/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-9.1.0/spectrum-mpi-10.4.0.3-20210112-b5zk3valzzwupvryqfd7ouwwir73wats/container/../lib/libpami_cudahook.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object '/sw/summit/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-9.1.0/spectrum-mpi-10.4.0.3-20210112-b5zk3valzzwupvryqfd7ouwwir73wats/container/../lib/libpami_cudahook.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object '/sw/summit/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-9.1.0/spectrum-mpi-10.4.0.3-20210112-b5zk3valzzwupvryqfd7ouwwir73wats/container/../lib/libpami_cudahook.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+/ccs/home/malachi/.local/nekrs/bin/nekrs: error while loading shared libraries: libcudart.so.11.0: cannot open shared object file: No such file or directory
+/ccs/home/malachi/.local/nekrs/bin/nekrs: error while loading shared libraries: libcudart.so.11.0: cannot open shared object file: No such file or directory
+/ccs/home/malachi/.local/nekrs/bin/nekrs: error while loading shared libraries: libcudart.so.11.0: cannot open shared object file: No such file or directory
+/ccs/home/malachi/.local/nekrs/bin/nekrs: error while loading shared libraries: libcudart.so.11.0: cannot open shared object file: No such file or directory
+/ccs/home/malachi/.local/nekrs/bin/nekrs: error while loading shared libraries: libcudart.so.11.0: cannot open shared object file: No such file or directory
+/ccs/home/malachi/.local/nekrs/bin/nekrs: error while loading shared libraries: libcudart.so.11.0: cannot open shared object file: No such file or directory
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@batch2>
+Subject: Job 1480223: <nekRS_kershaw> in cluster <summit> Exited
+
+Job <nekRS_kershaw> was submitted from host <login2> by user <malachi> in cluster <summit> at Sat Oct  2 20:35:43 2021
+Job was executed on host(s) <1*batch2>, in queue <batch>, as user <malachi> in cluster <summit> at Sat Oct  2 20:36:43 2021
+                            <42*g24n05>
+                            <42*g24n09>
+                            <42*g24n11>
+                            <42*g24n12>
+                            <42*g24n13>
+                            <42*g24n15>
+                            <42*g24n16>
+                            <42*g25n09>
+                            <42*g25n10>
+                            <42*g25n11>
+                            <42*g25n12>
+                            <42*g25n13>
+                            <42*g25n14>
+                            <42*g25n15>
+                            <42*g25n16>
+                            <42*g25n17>
+                            <42*g25n18>
+                            <42*g26n01>
+                            <42*g26n02>
+                            <42*g26n03>
+                            <42*g26n04>
+                            <42*g26n05>
+                            <42*g26n06>
+                            <42*g26n07>
+                            <42*g26n08>
+                            <42*g26n09>
+                            <42*g26n10>
+                            <42*g26n11>
+                            <42*g26n12>
+                            <42*g26n13>
+                            <42*g26n14>
+                            <42*g26n15>
+                            <42*g26n16>
+                            <42*g26n17>
+                            <42*g26n18>
+                            <42*g27n01>
+                            <42*g27n02>
+                            <42*g27n03>
+                            <42*g27n04>
+                            <42*g27n05>
+                            <42*g27n06>
+                            <42*g27n07>
+                            <42*g27n08>
+                            <42*g27n14>
+                            <42*g27n15>
+                            <42*g28n07>
+                            <42*g28n08>
+                            <42*g28n09>
+                            <42*g28n10>
+                            <42*g28n11>
+                            <42*g28n12>
+                            <42*g28n13>
+                            <42*g28n14>
+                            <42*g28n15>
+                            <42*g28n16>
+                            <42*g28n17>
+                            <42*g28n18>
+                            <42*g29n01>
+                            <42*g29n02>
+                            <42*g29n03>
+                            <42*g29n04>
+                            <42*g29n05>
+                            <42*g29n06>
+                            <42*g29n07>
+</ccs/home/malachi> was used as the home directory.
+</gpfs/alpine/scratch/malachi/csc262/siam-pp-22/kershaw/weak-scaling-study/eps-0.3/ras-64> was used as the working directory.
+Started at Sat Oct  2 20:36:43 2021
+Terminated at Sat Oct  2 20:37:11 2021
+Results reported at Sat Oct  2 20:37:11 2021
+
+The output (if any) is above this job summary.
+

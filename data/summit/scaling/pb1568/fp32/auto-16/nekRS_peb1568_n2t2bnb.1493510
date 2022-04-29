@@ -1,0 +1,1166 @@
+                 __    ____  _____
+   ____   ___   / /__ / __ \/ ___/
+  / __ \ / _ \ / //_// /_/ /\__ \ 
+ / / / //  __// ,<  / _, _/___/ / 
+/_/ /_/ \___//_/|_|/_/ |_|/____/  v21.1.1 (7d6ec9bc)
+
+COPYRIGHT (c) 2019-2021 UCHICAGO ARGONNE, LLC
+
+MPI tasks: 96
+
+reading par file ...
+general::filtering is deprecated and might be removed in the future!
+general::filtermodes is deprecated and might be removed in the future!
+general::filterweight is deprecated and might be removed in the future!
+
+using NEKRS_HOME: /ccs/home/malachi/.local/nekrs-preco-auto
+using NEKRS_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb1568/auto-fp32-16/.cache
+using OCCA_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb1568/auto-fp32-16/.cache/occa/
+
+Initializing device 
+active occa mode: CUDA
+
+building udf ... 
+Consolidate compiler generated dependencies of target UDF
+[100%] Built target UDF
+done (0.936956s)
+skip building nekInterface (SIZE has not changed)
+loading nek ... 
+done
+loading udf kernels ... done (0.0561048s)
+
+loading kernels ... done (3.20884s)
+
+ Reading /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb1568/auto-fp32-16/peb1568_n2t2bnb.re2                                              
+ reading mesh 
+ reading bc for ifld           1
+ done :: read .re2 file    0.86     sec
+
+Running parCon ... (tol=0.2)
+
+ Error: elementCheck
+Running parCon ... (tol=0.02)
+Running parRSB ...
+Warning: Partitioner only reached a tolerance of 1.286499 given 0.000500 after 50 x 50 iterations in Level=1!
+parRSB finished in 3.86079 s
+
+ reading mesh 
+ reading curved sides 
+ reading bc for ifld           1
+ done :: read .re2 file    0.86     sec
+
+ setup mesh topology
+   Right-handed check complete for      524386 elements. OK.
+gs_setup: 5051223 unique labels shared
+   handle bytes (avg, min, max): 1.93642e+07 18908452 19992628
+   buffer bytes (avg, min, max): 1.72934e+06 1268464 2409744
+   setupds time 5.6162E-01 seconds   0  8    70904907      524386
+ 
+ nElements   max/min/bal: 5463 5462 1.00
+ nMessages   max/min/avg: 20 6 12.17
+ msgSize     max/min/avg: 40020 1 9349.57
+ msgSizeSum  max/min/avg: 150609 79279 108083.75
+ 
+ max multiplicity           44
+ done :: setup mesh topology
+  
+ call usrdat
+ done :: usrdat
+
+ generate geometry data
+ done :: generate geometry data
+  
+ call usrdat2
+ done :: usrdat2
+
+  3.9629E-15  3.9299E-15  7.1054E-15  7.6927E-16  7.6927E-16  9.8206E-16 xyz repair 1
+  3.9629E-15  3.9299E-15  7.1054E-15  6.9253E-15  6.5223E-15  9.3390E-15 xyz repair 2
+  3.5527E-15  3.5527E-15  7.1054E-15  5.9808E-15  6.1523E-15  8.9797E-15 xyz repair 3
+  2.6787E-15  2.8937E-15  3.3063E-15  2.6787E-15  2.8937E-15  3.3063E-15 xyz repair 4
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ verify mesh topology
+  -13.858251128023300        13.858078221547562       Xrange
+  -13.858092645782323        13.858190303122345       Yrange
+  -14.673319816589355        17.691219329833984       Zrange
+ done :: verify mesh topology
+  
+ mesh metrics:
+ GLL grid spacing min/max    : 2.21E-04 3.02E-01
+ scaled Jacobian  min/max/avg: 2.59E-02 9.91E-01 3.71E-01
+ aspect ratio     min/max/avg: 1.12E+00 1.08E+02 1.26E+01
+
+ call usrdat3
+ done :: usrdat3
+
+gridpoints unique/tot:     184172283    268485632
+dofs vel/pr:               175531272    184064426
+ nek setup done in    1.1536E+01 s
+
+ set initial conditions
+ Checking restart options: r5.fld                                                                                                                              
+ nekuic (1) for ifld            1
+ Reading checkpoint data 
+       FILE:/gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb1568/auto-fp32-16/r5.fld                                                           
+
+        0  2.0000E+01 done :: Read checkpoint data
+                              avg data-throughput =     3.4GB/s
+                              io-nodes =    96
+
+ xyz min    -13.858      -13.858      -14.673    
+ uvwpt min  -6.4231      -7.8486      -7.9142      -20.893       0.0000    
+ PS min      0.0000       0.0000       0.0000      0.99000E+22
+ xyz max     13.858       13.858       17.691    
+ uvwpt max   6.5953       7.1037       10.614       19.461       0.0000    
+ PS max      0.0000       0.0000       0.0000     -0.99000E+22
+ Restart: recompute geom. factors.
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ done :: set initial conditions
+  
+calling nek_userchk ...
+ xyz min    -13.858      -13.858      -14.673    
+ xyz max     13.858       13.858       17.691    
+
+loading mesh from nek ... NboundaryIDs: 4, NboundaryFaces: 178458 done (0.000727428s)
+generating mesh ... Nq: 8 cubNq: 11
+computing geometric factors ... J [1.11222e-05,0.168148] done (0.311315s)
+timing oogs modes: 0.000566378s 0.000340745s 0.00033328s 0.000338919s 0.000290093s 0.000246594s used config: 3.0.1
+min 50% of the local elements are internal
+timing oogs modes: 0.00196345s 0.000785263s 0.000773096s 0.0007864s 0.000505224s 0.000499969s used config: 3.0.1
+loading ns kernels ... done (0.000428352s)
+copying solution from nek
+calling udf_setup ... done
+================ ELLIPTIC SETUP VELOCITY ================
+bID 1 -> bcType fixedValue
+bID 2 -> bcType zeroGradient
+bID 3 -> bcType zeroValue
+bID 4 -> bcType zeroValue
+allNeumann = 0 
+loading elliptic kernels ... done (0.000159602s)
+timing oogs modes: 0.00210396s 0.000807157s 0.000770867s 0.000770446s 0.000494098s 0.000515481s used config: 3.0.0
+timing oogs modes: 0.00194123s 0.00121657s 0.00131869s 0.0012455s 0.000580547s 0.000561725s used config: 3.0.1
+building Jacobi preconditioner ... done (0.232397s)
+done (1.54007s)
+================ ELLIPTIC SETUP PRESSURE ================
+allNeumann = 0 
+loading elliptic kernels ... done (0.000167465s)
+timing oogs modes: 0.000559489s 0.000360164s 0.00033783s 0.000334496s 0.000267831s 0.00024882s used config: 3.0.1
+timing oogs modes: 0.000597855s 0.000585684s 0.000591099s 0.000609923s 0.000410094s 0.000300834s used config: 3.0.1
+building MG preconditioner ... 
+loading elliptic preconditioner kernels ... done (0.000140112s)
+=============BUILDING MULTIGRID LEVEL OF DEGREE 7==================
+timing oogs modes: 0.000553216s 0.0002463s 0.000243804s 0.000242433s 0.000238177s 0.000197063s used config: 3.0.1
+timing oogs modes: 0.000567611s 0.00035084s 0.000347675s 0.000345887s 0.00027015s 0.000250998s used config: 3.0.1
+timing oogs modes: 0.000608284s 0.000277907s 0.000268874s 0.000283305s 0.000231747s 0.000209406s used config: 3.0.1
+estimating maxEigenvalue ... 11.8078 done (0.394408s)
+estimating maxEigenvalue ... 15.9661 done (0.0961288s)
+building Jacobi ... done (0.153504s)
+estimating maxEigenvalue ... 3.59652 done (0.0888716s)
+=============BUILDING MULTIGRID LEVEL OF DEGREE 5==================
+computing geometric factors ... J [1.11206e-05,0.168147] done (0.124958s)
+loading elliptic preconditioner kernels ... done (0.000171813s)
+done (0.000293086s)
+timing oogs modes: 0.000350294s 0.000190628s 0.000186389s 0.000194742s 0.000223813s 0.000205063s used config: 2.0.1
+timing oogs modes: 0.000375033s 0.000252106s 0.000250736s 0.000252067s 0.000258624s 0.000226979s used config: 3.0.1
+timing oogs modes: 0.000393256s 0.000204072s 0.000203164s 0.000199013s 0.000222123s 0.00019758s used config: 3.0.1
+estimating maxEigenvalue ... 9.70735 done (0.322109s)
+estimating maxEigenvalue ... 12.4195 done (0.0561857s)
+building Jacobi ... done (0.0549533s)
+estimating maxEigenvalue ... 3.1016 done (0.0463829s)
+=============BUILDING MULTIGRID LEVEL OF DEGREE 3==================
+computing geometric factors ... J [1.11284e-05,0.16815] done (0.0337347s)
+loading elliptic preconditioner kernels ... done (0.00016605s)
+done (0.000277849s)
+timing oogs modes: 0.000201307s 0.000146808s 0.0001433s 0.000143427s 0.000211368s 0.000197195s used config: 2.0.1
+timing oogs modes: 0.000226667s 0.00018011s 0.000177896s 0.00018036s 0.000245856s 0.000223684s used config: 2.0.1
+timing oogs modes: 0.000238989s 0.000157081s 0.000157821s 0.000157628s 0.000211502s 0.000193696s used config: 2.0.0
+estimating maxEigenvalue ... 8.15639 done (0.0895762s)
+estimating maxEigenvalue ... 7.79134 done (0.0912867s)
+building Jacobi ... done (0.0145352s)
+estimating maxEigenvalue ... 2.422 done (0.0261374s)
+=============BUILDING MULTIGRID LEVEL OF DEGREE 1==================
+computing geometric factors ... J [1.11737e-05,0.168688] done (0.00449818s)
+loading elliptic preconditioner kernels ... done (0.000144789s)
+done (0.000258948s)
+timing oogs modes: 0.000129565s 0.000125327s 0.000122338s 0.000123176s 0.000211937s 0.000189939s used config: 2.0.1
+timing oogs modes: 0.000154024s 0.000147451s 0.000144841s 0.000146086s 0.000239013s 0.000215491s used config: 2.0.1
+building full FEM matrix ... done.
+done (0.194662s)
+Setting up AMG...
+
+ Num MPI tasks = 96
+
+ Num OpenMP threads = 1
+
+
+BoomerAMG SETUP PARAMETERS:
+
+ Max levels = 25
+ Num levels = 8
+
+ Strength Threshold = 0.250000
+ Interpolation Truncation Factor = 0.000000
+ Maximum Row Sum Threshold for Dependency Weakening = 0.900000
+
+ Coarsening Type = PMIS 
+ measures are determined locally
+
+ Interpolation = extended+i interpolation
+
+Operator Matrix Information:
+
+             nonzero            entries/row          row sums
+lev    rows  entries sparse   min  max     avg      min         max
+======================================================================
+  0  603488 10696902  0.000     8   91    17.7  -2.083e-07   2.251e+00
+  1  260138  7220404  0.000     9  180    27.8  -2.474e-06   3.324e+00
+  2   84524  2767472  0.000     7  186    32.7  -6.729e-03   4.093e+00
+  3   18970   631948  0.002    10  123    33.3  -1.048e-02   5.152e+00
+  4    3228   123342  0.012    12  116    38.2  -9.897e-03   6.878e+00
+  5     369    13009  0.096    12   90    35.3  -2.591e-03   9.002e+00
+  6      49     1155  0.481    10   41    23.6  -9.698e-04   1.326e+01
+  7       7       49  1.000     7    7     7.0   5.103e-02   1.089e+01
+
+
+Interpolation Matrix Information:
+                      entries/row        min        max            row sums
+lev   rows x cols   min  max  avgW     weight      weight       min         max
+==================================================================================
+  0 603488 x 260138   1    4   2.1  -2.604e-01   1.000e+00   6.871e-01   1.000e+00
+  1 260138 x 84524    1    4   3.1  -9.830e-02   1.055e+00   4.119e-01   1.000e+00
+  2  84524 x 18970    1    4   3.7  -1.198e-01   1.031e+00   2.605e-01   1.008e+00
+  3  18970 x 3228     1    4   3.9   8.443e-03   1.005e+00   2.055e-01   1.011e+00
+  4   3228 x 369      1    4   4.0  -7.354e-02   1.001e+00   1.343e-01   1.009e+00
+  5    369 x 49       1    4   4.0   1.428e-02   6.944e-01   2.614e-01   1.002e+00
+  6     49 x 7        1    4   3.8   1.104e-02   5.465e-01   2.069e-01   1.000e+00
+
+
+     Complexity:    grid = 1.608604
+                operator = 2.005654
+                memory = 2.187114
+
+
+
+
+BoomerAMG SOLVER PARAMETERS:
+
+  Maximum number of cycles:         1 
+  Stopping Tolerance:               0.000000e+00 
+  Cycle type (1 = V, 2 = W, etc.):  1
+
+  Relaxation Parameters:
+   Visiting Grid:                     down   up  coarse
+            Number of sweeps:            1    1     1 
+   Type 0=Jac, 3=hGS, 6=hSGS, 9=GE:     16   16     9 
+   Point types, partial sweeps (1=C, -1=F):
+                  Pre-CG relaxation (down):   0
+                   Post-CG relaxation (up):   0
+                             Coarsest grid:   0
+
+done (0.227288s)
+--------------------Multigrid Report---------------------
+---------------------------------------------------------
+level|    Type    |                 |     Smoother      |
+     |            |                 |                   |
+---------------------------------------------------------
+   0 |    pMG     |   Matrix-free   | Chebyshev+ASM     |
+     |            |     Degree  7   |                   |
+   1 |    pMG     |   Matrix-free   | Chebyshev+ASM     |
+     |            |     Degree  5   |                   |
+   2 |    pMG     |   Matrix-free   | Chebyshev+ASM     |
+     |            |     Degree  3   |                   |
+   3 |    AMG     |   Matrix        | BoomerAMG         |
+     |            |     Degree  1   |                   |
+---------------------------------------------------------
+done (27.1844s)
+done (30.1608s)
+copying solution to nek
+
+settings:
+
+key: CHECKPOINT OUTPUT MESH,                                  value: FALSE
+key: FORMAT,                                                  value: 1.0
+key: CONSTANT FLOW RATE,                                      value: FALSE
+key: ELEMENT TYPE,                                            value: 12
+key: ELEMENT MAP,                                             value: ISOPARAMETRIC
+key: MESH DIMENSION,                                          value: 3
+key: NUMBER OF SCALARS,                                       value: 0
+key: SCALAR MAXIMUM ITERATIONS,                               value: 200
+key: TIME INTEGRATOR,                                         value: TOMBO2
+key: MESH INTEGRATION ORDER,                                  value: 3
+key: SUBCYCLING STEPS,                                        value: 2
+key: SUBCYCLING TIME ORDER,                                   value: 4
+key: SUBCYCLING TIME STAGE NUMBER,                            value: 4
+key: CASENAME,                                                value: peb1568_n2t2bnb
+key: UDF OKL FILE,                                            value: peb1568_n2t2bnb.oudf
+key: UDF FILE,                                                value: peb1568_n2t2bnb.udf
+key: NEK USR FILE,                                            value: peb1568_n2t2bnb.usr
+key: MESH FILE,                                               value: peb1568_n2t2bnb.re2
+key: DEVICE NUMBER,                                           value: 0
+key: PLATFORM NUMBER,                                         value: 0
+key: VERBOSE,                                                 value: FALSE
+key: ADVECTION,                                               value: TRUE
+key: ADVECTION TYPE,                                          value: CUBATURE+CONVECTIVE
+key: RESTART FROM FILE,                                       value: 1
+key: SOLUTION OUTPUT INTERVAL,                                value: 0.000000
+key: SOLUTION OUTPUT CONTROL,                                 value: STEPS
+key: REGULARIZATION METHOD,                                   value: RELAXATION
+key: START TIME,                                              value: 2.000000e+01
+key: VELOCITY MAXIMUM ITERATIONS,                             value: 200
+key: VELOCITY BLOCK SOLVER,                                   value: TRUE
+key: VELOCITY KRYLOV SOLVER,                                  value: PCG
+key: VELOCITY BASIS,                                          value: NODAL
+key: VELOCITY PRECONDITIONER,                                 value: JACOBI
+key: VELOCITY DISCRETIZATION,                                 value: CONTINUOUS
+key: STRESSFORMULATION,                                       value: FALSE
+key: ELLIPTIC INTEGRATION,                                    value: NODAL
+key: PRESSURE MAXIMUM ITERATIONS,                             value: 200
+key: GALERKIN COARSE MATRIX,                                  value: FALSE
+key: PRESSURE KRYLOV SOLVER,                                  value: PGMRES+FLEXIBLE
+key: PRESSURE PRECONDITIONER,                                 value: MULTIGRID
+key: PRESSURE DISCRETIZATION,                                 value: CONTINUOUS
+key: PRESSURE AUTO PRECONDITIONER,                            value: TRUE
+key: PRESSURE BASIS,                                          value: NODAL
+key: AMG SOLVER,                                              value: BOOMERAMG
+key: AMG SOLVER PRECISION,                                    value: FP64
+key: AMG SOLVER LOCATION,                                     value: CPU
+key: PRESSURE PARALMOND CYCLE,                                value: VCYCLE
+key: PRESSURE MULTIGRID COARSE SOLVE,                         value: TRUE
+key: PRESSURE MULTIGRID COARSE SEMFEM,                        value: FALSE
+key: PRESSURE MULTIGRID SMOOTHER,                             value: CHEBYSHEV+ASM
+key: PRESSURE MULTIGRID CHEBYSHEV DEGREE,                     value: 2
+key: PRESSURE MULTIGRID CHEBYSHEV MIN EIGENVALUE BOUND FACTOR,value: 0.1
+key: PRESSURE MULTIGRID CHEBYSHEV MAX EIGENVALUE BOUND FACTOR,value: 1.1
+key: PRESSURE INITIAL GUESS,                                  value: PROJECTION-ACONJ
+key: PRESSURE RESIDUAL PROJECTION VECTORS,                    value: 10
+key: PRESSURE RESIDUAL PROJECTION START,                      value: 5
+key: PARALMOND SMOOTH COARSEST,                               value: FALSE
+key: ENABLE FLOATCOMMHALF GS SUPPORT,                         value: FALSE
+key: MOVING MESH,                                             value: FALSE
+key: ENABLE OVERLAP,                                          value: TRUE
+key: VARIABLE DT,                                             value: FALSE
+key: THREAD MODEL,                                            value: CUDA
+key: RESTART FILE NAME,                                       value: r5.fld
+key: POLYNOMIAL DEGREE,                                       value: 7
+key: DT,                                                      value: 5.000000e-04
+key: NUMBER TIMESTEPS,                                        value: 2000
+key: CUBATURE POLYNOMIAL DEGREE,                              value: 10
+key: HPFRT STRENGTH,                                          value: 2.000000e+02
+key: HPFRT MODES,                                             value: 2.000000e+00
+key: VELOCITY REGULARIZATION METHOD,                          value: RELAXATION
+key: VELOCITY HPFRT MODES,                                    value: 2.000000e+00
+key: VELOCITY HPFRT STRENGTH,                                 value: 2.000000e+02
+key: PRESSURE SOLVER TOLERANCE,                               value: 1.000000e-04
+key: PRESSURE AUTO PRECONDITIONER TRIAL FREQUENCY,            value: 5000
+key: PRESSURE AUTO PRECONDITIONER START,                      value: 100
+key: PRESSURE AUTO PRECONDITIONER MAX CHEBY ORDER,            value: 3
+key: PRESSURE AUTO PRECONDITIONER MIN CHEBY ORDER,            value: 1
+key: PRESSURE AUTO PRECONDITIONER NUM SAMPLES,                value: 3
+key: PRESSURE SEMFEM SOLVER,                                  value: BOOMERAMG
+key: VELOCITY SOLVER TOLERANCE,                               value: 1.000000e-06
+key: DENSITY,                                                 value: 1.000000e+00
+key: VISCOSITY,                                               value: 1.000000e-04
+key: BUILD ONLY,                                              value: FALSE
+key: DATA FILE,                                               value: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb1568/auto-fp32-16/.cache/udf/udf.okl
+key: CI-MODE,                                                 value: 0
+
+occa memory usage: 4.68332 GB
+initialization took 57.8609 s
+
+timestepping for 2000 steps ...
+  P  : iter 012  resNorm00 1.21e+00  resNorm0 1.21e+00  resNorm 5.60e-05
+  UVW: iter 003  resNorm00 1.17e-01  resNorm0 1.17e-01  resNorm 4.27e-07  divErrNorms 9.76e-07 4.95e-01
+step= 1  t= 2.00005000e+01  dt=5.0e-04  C= 2.05  UVW: 3  P: 12  eTimeStep= 1.25e+00s eTime= 1.24656e+00s
+  P  : iter 013  resNorm00 1.50e+00  resNorm0 1.50e+00  resNorm 8.97e-05
+  UVW: iter 003  resNorm00 1.76e-01  resNorm0 1.76e-01  resNorm 2.10e-07  divErrNorms 9.17e-07 4.93e-01
+step= 2  t= 2.00010000e+01  dt=5.0e-04  C= 1.98  UVW: 3  P: 13  eTimeStep= 5.09e-01s eTime= 1.75543e+00s
+  P  : iter 011  resNorm00 3.99e-01  resNorm0 3.99e-01  resNorm 6.83e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.09e-07  divErrNorms 8.65e-07 4.90e-01
+step= 3  t= 2.00015000e+01  dt=5.0e-04  C= 1.93  UVW: 3  P: 11  eTimeStep= 4.07e-01s eTime= 2.16249e+00s
+  P  : iter 010  resNorm00 2.17e-01  resNorm0 2.17e-01  resNorm 6.42e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 8.24e-07 4.87e-01
+step= 4  t= 2.00020000e+01  dt=5.0e-04  C= 1.97  UVW: 3  P: 10  eTimeStep= 3.77e-01s eTime= 2.53971e+00s
+  P  : iter 009  resNorm00 1.71e-01  resNorm0 1.71e-01  resNorm 7.66e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 7.89e-07 4.85e-01
+step= 5  t= 2.00025000e+01  dt=5.0e-04  C= 1.98  UVW: 3  P: 9  eTimeStep= 3.42e-01s eTime= 2.88157e+00s
+  P  : iter 007  resNorm00 1.54e-01  resNorm0 3.45e-02  resNorm 7.97e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 7.60e-07 4.83e-01
+step= 6  t= 2.00030000e+01  dt=5.0e-04  C= 1.98  UVW: 3  P: 7  eTimeStep= 2.84e-01s eTime= 3.16601e+00s
+  P  : iter 006  resNorm00 1.47e-01  resNorm0 1.43e-02  resNorm 7.44e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 7.36e-07 4.82e-01
+step= 7  t= 2.00035000e+01  dt=5.0e-04  C= 1.97  UVW: 3  P: 6  eTimeStep= 2.48e-01s eTime= 3.41419e+00s
+  P  : iter 005  resNorm00 1.43e-01  resNorm0 6.75e-03  resNorm 7.59e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 7.14e-07 4.81e-01
+step= 8  t= 2.00040000e+01  dt=5.0e-04  C= 1.94  UVW: 3  P: 5  eTimeStep= 2.17e-01s eTime= 3.63161e+00s
+  P  : iter 005  resNorm00 1.41e-01  resNorm0 3.47e-03  resNorm 5.90e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 6.95e-07 4.80e-01
+step= 9  t= 2.00045000e+01  dt=5.0e-04  C= 1.89  UVW: 3  P: 5  eTimeStep= 2.24e-01s eTime= 3.85609e+00s
+  P  : iter 005  resNorm00 1.40e-01  resNorm0 1.54e-03  resNorm 5.17e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 6.78e-07 4.79e-01
+step= 10  t= 2.00050000e+01  dt=5.0e-04  C= 1.83  UVW: 3  P: 5  eTimeStep= 2.22e-01s eTime= 4.07782e+00s
+  P  : iter 004  resNorm00 1.39e-01  resNorm0 1.01e-03  resNorm 9.41e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 6.62e-07 4.78e-01
+step= 11  t= 2.00055000e+01  dt=5.0e-04  C= 1.76  UVW: 3  P: 4  eTimeStep= 1.89e-01s eTime= 4.26686e+00s
+  P  : iter 005  resNorm00 1.38e-01  resNorm0 9.69e-04  resNorm 5.68e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 6.48e-07 4.77e-01
+step= 12  t= 2.00060000e+01  dt=5.0e-04  C= 1.69  UVW: 3  P: 5  eTimeStep= 2.14e-01s eTime= 4.48089e+00s
+  P  : iter 005  resNorm00 1.38e-01  resNorm0 9.07e-04  resNorm 5.34e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 6.34e-07 4.77e-01
+step= 13  t= 2.00065000e+01  dt=5.0e-04  C= 1.74  UVW: 3  P: 5  eTimeStep= 2.21e-01s eTime= 4.70160e+00s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 7.28e-04  resNorm 5.59e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 6.22e-07 4.76e-01
+step= 14  t= 2.00070000e+01  dt=5.0e-04  C= 1.79  UVW: 3  P: 5  eTimeStep= 2.17e-01s eTime= 4.91897e+00s
+  P  : iter 004  resNorm00 1.37e-01  resNorm0 6.64e-04  resNorm 9.09e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 6.10e-07 4.76e-01
+step= 15  t= 2.00075000e+01  dt=5.0e-04  C= 1.82  UVW: 3  P: 4  eTimeStep= 1.87e-01s eTime= 5.10642e+00s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 8.01e-03  resNorm 9.58e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 5.98e-07 4.76e-01
+step= 16  t= 2.00080000e+01  dt=5.0e-04  C= 1.86  UVW: 3  P: 5  eTimeStep= 2.19e-01s eTime= 5.32564e+00s
+  P  : iter 004  resNorm00 1.37e-01  resNorm0 9.86e-04  resNorm 6.31e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 5.88e-07 4.75e-01
+step= 17  t= 2.00085000e+01  dt=5.0e-04  C= 1.91  UVW: 3  P: 4  eTimeStep= 1.87e-01s eTime= 5.51220e+00s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 9.00e-04  resNorm 7.79e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 5.77e-07 4.75e-01
+step= 18  t= 2.00090000e+01  dt=5.0e-04  C= 1.95  UVW: 3  P: 5  eTimeStep= 2.22e-01s eTime= 5.73467e+00s
+  P  : iter 004  resNorm00 1.37e-01  resNorm0 6.60e-04  resNorm 9.22e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 5.67e-07 4.75e-01
+step= 19  t= 2.00095000e+01  dt=5.0e-04  C= 1.99  UVW: 3  P: 4  eTimeStep= 1.87e-01s eTime= 5.92192e+00s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 7.49e-04  resNorm 7.56e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 5.57e-07 4.75e-01
+step= 20  t= 2.00100000e+01  dt=5.0e-04  C= 2.08  UVW: 3  P: 5  eTimeStep= 2.19e-01s eTime= 6.14055e+00s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 8.23e-04  resNorm 7.07e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 5.48e-07 4.75e-01
+step= 21  t= 2.00105000e+01  dt=5.0e-04  C= 2.24  UVW: 3  P: 5  eTimeStep= 2.21e-01s eTime= 6.36153e+00s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 7.75e-04  resNorm 8.77e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 5.38e-07 4.75e-01
+step= 22  t= 2.00110000e+01  dt=5.0e-04  C= 2.34  UVW: 3  P: 5  eTimeStep= 2.22e-01s eTime= 6.58340e+00s
+  P  : iter 004  resNorm00 1.37e-01  resNorm0 6.86e-04  resNorm 9.20e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 5.29e-07 4.74e-01
+step= 23  t= 2.00115000e+01  dt=5.0e-04  C= 2.39  UVW: 3  P: 4  eTimeStep= 1.90e-01s eTime= 6.77345e+00s
+  P  : iter 004  resNorm00 1.37e-01  resNorm0 6.93e-04  resNorm 8.58e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 5.20e-07 4.74e-01
+step= 24  t= 2.00120000e+01  dt=5.0e-04  C= 2.37  UVW: 3  P: 4  eTimeStep= 1.85e-01s eTime= 6.95846e+00s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 7.41e-04  resNorm 5.80e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 5.11e-07 4.74e-01
+step= 25  t= 2.00125000e+01  dt=5.0e-04  C= 2.30  UVW: 3  P: 5  eTimeStep= 2.13e-01s eTime= 7.17154e+00s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 8.00e-03  resNorm 9.18e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 5.03e-07 4.74e-01
+step= 26  t= 2.00130000e+01  dt=5.0e-04  C= 2.17  UVW: 3  P: 5  eTimeStep= 2.20e-01s eTime= 7.39104e+00s
+  P  : iter 004  resNorm00 1.36e-01  resNorm0 9.28e-04  resNorm 6.60e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 4.94e-07 4.74e-01
+step= 27  t= 2.00135000e+01  dt=5.0e-04  C= 2.02  UVW: 3  P: 4  eTimeStep= 1.93e-01s eTime= 7.58357e+00s
+  P  : iter 005  resNorm00 1.36e-01  resNorm0 7.70e-04  resNorm 7.45e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 4.85e-07 4.74e-01
+step= 28  t= 2.00140000e+01  dt=5.0e-04  C= 2.00  UVW: 3  P: 5  eTimeStep= 2.18e-01s eTime= 7.80175e+00s
+  P  : iter 004  resNorm00 1.36e-01  resNorm0 6.22e-04  resNorm 9.22e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 4.77e-07 4.74e-01
+step= 29  t= 2.00145000e+01  dt=5.0e-04  C= 1.98  UVW: 3  P: 4  eTimeStep= 1.85e-01s eTime= 7.98655e+00s
+  P  : iter 005  resNorm00 1.36e-01  resNorm0 8.28e-04  resNorm 7.73e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 4.68e-07 4.74e-01
+step= 30  t= 2.00150000e+01  dt=5.0e-04  C= 1.96  UVW: 3  P: 5  eTimeStep= 2.18e-01s eTime= 8.20438e+00s
+  P  : iter 005  resNorm00 1.36e-01  resNorm0 8.54e-04  resNorm 7.28e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 4.60e-07 4.74e-01
+step= 31  t= 2.00155000e+01  dt=5.0e-04  C= 1.93  UVW: 3  P: 5  eTimeStep= 2.18e-01s eTime= 8.42230e+00s
+  P  : iter 005  resNorm00 1.36e-01  resNorm0 7.63e-04  resNorm 7.67e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 4.52e-07 4.74e-01
+step= 32  t= 2.00160000e+01  dt=5.0e-04  C= 1.90  UVW: 3  P: 5  eTimeStep= 2.18e-01s eTime= 8.64006e+00s
+  P  : iter 005  resNorm00 1.36e-01  resNorm0 7.55e-04  resNorm 6.04e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 4.43e-07 4.74e-01
+step= 33  t= 2.00165000e+01  dt=5.0e-04  C= 1.87  UVW: 3  P: 5  eTimeStep= 2.18e-01s eTime= 8.85840e+00s
+  P  : iter 005  resNorm00 1.36e-01  resNorm0 8.13e-04  resNorm 6.54e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 4.35e-07 4.74e-01
+step= 34  t= 2.00170000e+01  dt=5.0e-04  C= 1.86  UVW: 3  P: 5  eTimeStep= 2.21e-01s eTime= 9.07941e+00s
+  P  : iter 005  resNorm00 1.36e-01  resNorm0 7.59e-04  resNorm 6.04e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 4.27e-07 4.74e-01
+step= 35  t= 2.00175000e+01  dt=5.0e-04  C= 2.02  UVW: 3  P: 5  eTimeStep= 2.24e-01s eTime= 9.30359e+00s
+  P  : iter 005  resNorm00 1.36e-01  resNorm0 8.02e-03  resNorm 9.51e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 4.18e-07 4.74e-01
+step= 36  t= 2.00180000e+01  dt=5.0e-04  C= 2.22  UVW: 3  P: 5  eTimeStep= 2.15e-01s eTime= 9.51902e+00s
+  P  : iter 004  resNorm00 1.36e-01  resNorm0 9.96e-04  resNorm 5.57e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 4.10e-07 4.74e-01
+step= 37  t= 2.00185000e+01  dt=5.0e-04  C= 2.34  UVW: 3  P: 4  eTimeStep= 1.83e-01s eTime= 9.70179e+00s
+  P  : iter 005  resNorm00 1.36e-01  resNorm0 8.47e-04  resNorm 8.05e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 4.02e-07 4.74e-01
+step= 38  t= 2.00190000e+01  dt=5.0e-04  C= 2.46  UVW: 3  P: 5  eTimeStep= 2.21e-01s eTime= 9.92283e+00s
+  P  : iter 005  resNorm00 1.36e-01  resNorm0 7.82e-04  resNorm 6.37e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 3.94e-07 4.74e-01
+step= 39  t= 2.00195000e+01  dt=5.0e-04  C= 2.58  UVW: 3  P: 5  eTimeStep= 2.19e-01s eTime= 1.01416e+01s
+  P  : iter 005  resNorm00 1.36e-01  resNorm0 8.63e-04  resNorm 8.85e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 3.85e-07 4.74e-01
+step= 40  t= 2.00200000e+01  dt=5.0e-04  C= 2.64  UVW: 3  P: 5  eTimeStep= 2.21e-01s eTime= 1.03623e+01s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 9.28e-04  resNorm 9.33e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 3.77e-07 4.74e-01
+step= 41  t= 2.00205000e+01  dt=5.0e-04  C= 2.62  UVW: 3  P: 5  eTimeStep= 2.18e-01s eTime= 1.05801e+01s
+  P  : iter 006  resNorm00 1.37e-01  resNorm0 9.11e-04  resNorm 5.45e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 3.69e-07 4.74e-01
+step= 42  t= 2.00210000e+01  dt=5.0e-04  C= 2.55  UVW: 3  P: 6  eTimeStep= 2.53e-01s eTime= 1.08327e+01s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 8.88e-04  resNorm 7.62e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 3.61e-07 4.74e-01
+step= 43  t= 2.00215000e+01  dt=5.0e-04  C= 2.47  UVW: 3  P: 5  eTimeStep= 2.19e-01s eTime= 1.10521e+01s
+  P  : iter 004  resNorm00 1.37e-01  resNorm0 8.37e-04  resNorm 9.11e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 3.53e-07 4.74e-01
+step= 44  t= 2.00220000e+01  dt=5.0e-04  C= 2.47  UVW: 3  P: 4  eTimeStep= 1.91e-01s eTime= 1.12429e+01s
+  P  : iter 004  resNorm00 1.37e-01  resNorm0 8.06e-04  resNorm 9.27e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 3.44e-07 4.74e-01
+step= 45  t= 2.00225000e+01  dt=5.0e-04  C= 2.43  UVW: 3  P: 4  eTimeStep= 1.88e-01s eTime= 1.14314e+01s
+  P  : iter 006  resNorm00 1.37e-01  resNorm0 8.06e-03  resNorm 7.18e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 3.36e-07 4.74e-01
+step= 46  t= 2.00230000e+01  dt=5.0e-04  C= 2.36  UVW: 3  P: 6  eTimeStep= 2.50e-01s eTime= 1.16811e+01s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 1.00e-03  resNorm 6.98e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 3.28e-07 4.74e-01
+step= 47  t= 2.00235000e+01  dt=5.0e-04  C= 2.25  UVW: 3  P: 5  eTimeStep= 2.19e-01s eTime= 1.18997e+01s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 9.70e-04  resNorm 6.89e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 3.20e-07 4.74e-01
+step= 48  t= 2.00240000e+01  dt=5.0e-04  C= 2.13  UVW: 3  P: 5  eTimeStep= 2.17e-01s eTime= 1.21164e+01s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 8.55e-04  resNorm 7.88e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 3.12e-07 4.74e-01
+step= 49  t= 2.00245000e+01  dt=5.0e-04  C= 1.99  UVW: 3  P: 5  eTimeStep= 2.13e-01s eTime= 1.23295e+01s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 7.88e-04  resNorm 6.95e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 3.04e-07 4.74e-01
+step= 50  t= 2.00250000e+01  dt=5.0e-04  C= 1.97  UVW: 3  P: 5  eTimeStep= 2.20e-01s eTime= 1.25498e+01s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 7.63e-04  resNorm 8.37e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 2.96e-07 4.74e-01
+step= 51  t= 2.00255000e+01  dt=5.0e-04  C= 1.98  UVW: 3  P: 5  eTimeStep= 2.20e-01s eTime= 1.27696e+01s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 7.65e-04  resNorm 6.95e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 2.88e-07 4.74e-01
+step= 52  t= 2.00260000e+01  dt=5.0e-04  C= 1.98  UVW: 3  P: 5  eTimeStep= 2.18e-01s eTime= 1.29880e+01s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 7.70e-04  resNorm 6.94e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 2.79e-07 4.74e-01
+step= 53  t= 2.00265000e+01  dt=5.0e-04  C= 1.98  UVW: 3  P: 5  eTimeStep= 2.22e-01s eTime= 1.32097e+01s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 7.22e-04  resNorm 5.66e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 2.71e-07 4.74e-01
+step= 54  t= 2.00270000e+01  dt=5.0e-04  C= 1.96  UVW: 3  P: 5  eTimeStep= 2.21e-01s eTime= 1.34306e+01s
+  P  : iter 004  resNorm00 1.37e-01  resNorm0 6.17e-04  resNorm 8.21e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 2.63e-07 4.74e-01
+step= 55  t= 2.00275000e+01  dt=5.0e-04  C= 1.94  UVW: 3  P: 4  eTimeStep= 1.87e-01s eTime= 1.36176e+01s
+  P  : iter 006  resNorm00 1.37e-01  resNorm0 8.07e-03  resNorm 6.98e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 2.55e-07 4.74e-01
+step= 56  t= 2.00280000e+01  dt=5.0e-04  C= 1.95  UVW: 3  P: 6  eTimeStep= 2.52e-01s eTime= 1.38695e+01s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 1.01e-03  resNorm 6.90e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 2.47e-07 4.74e-01
+step= 57  t= 2.00285000e+01  dt=5.0e-04  C= 1.98  UVW: 3  P: 5  eTimeStep= 2.15e-01s eTime= 1.40843e+01s
+  P  : iter 004  resNorm00 1.37e-01  resNorm0 8.87e-04  resNorm 8.50e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 2.39e-07 4.74e-01
+step= 58  t= 2.00290000e+01  dt=5.0e-04  C= 2.00  UVW: 3  P: 4  eTimeStep= 1.88e-01s eTime= 1.42722e+01s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 7.30e-04  resNorm 5.85e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 2.31e-07 4.74e-01
+step= 59  t= 2.00295000e+01  dt=5.0e-04  C= 2.02  UVW: 3  P: 5  eTimeStep= 2.18e-01s eTime= 1.44897e+01s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 8.06e-04  resNorm 6.02e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 2.23e-07 4.74e-01
+step= 60  t= 2.00300000e+01  dt=5.0e-04  C= 2.03  UVW: 3  P: 5  eTimeStep= 2.15e-01s eTime= 1.47047e+01s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 7.91e-04  resNorm 7.72e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 2.15e-07 4.74e-01
+step= 61  t= 2.00305000e+01  dt=5.0e-04  C= 2.03  UVW: 3  P: 5  eTimeStep= 2.14e-01s eTime= 1.49182e+01s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 8.31e-04  resNorm 8.18e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 2.07e-07 4.74e-01
+step= 62  t= 2.00310000e+01  dt=5.0e-04  C= 2.04  UVW: 3  P: 5  eTimeStep= 2.19e-01s eTime= 1.51375e+01s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 8.03e-04  resNorm 7.94e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 1.99e-07 4.74e-01
+step= 63  t= 2.00315000e+01  dt=5.0e-04  C= 2.03  UVW: 3  P: 5  eTimeStep= 2.19e-01s eTime= 1.53567e+01s
+  P  : iter 004  resNorm00 1.37e-01  resNorm0 8.43e-04  resNorm 9.89e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 1.91e-07 4.74e-01
+step= 64  t= 2.00320000e+01  dt=5.0e-04  C= 2.03  UVW: 3  P: 4  eTimeStep= 1.89e-01s eTime= 1.55461e+01s
+  P  : iter 004  resNorm00 1.37e-01  resNorm0 7.40e-04  resNorm 9.12e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 1.83e-07 4.74e-01
+step= 65  t= 2.00325000e+01  dt=5.0e-04  C= 2.02  UVW: 3  P: 4  eTimeStep= 1.87e-01s eTime= 1.57335e+01s
+  P  : iter 006  resNorm00 1.37e-01  resNorm0 8.13e-03  resNorm 9.29e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 1.75e-07 4.74e-01
+step= 66  t= 2.00330000e+01  dt=5.0e-04  C= 2.01  UVW: 3  P: 6  eTimeStep= 2.51e-01s eTime= 1.59840e+01s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 1.16e-03  resNorm 9.94e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 1.67e-07 4.74e-01
+step= 67  t= 2.00335000e+01  dt=5.0e-04  C= 2.01  UVW: 3  P: 5  eTimeStep= 2.18e-01s eTime= 1.62017e+01s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 1.14e-03  resNorm 6.60e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 1.59e-07 4.74e-01
+step= 68  t= 2.00340000e+01  dt=5.0e-04  C= 2.01  UVW: 3  P: 5  eTimeStep= 2.20e-01s eTime= 1.64219e+01s
+  P  : iter 006  resNorm00 1.37e-01  resNorm0 1.11e-03  resNorm 6.14e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 1.52e-07 4.74e-01
+step= 69  t= 2.00345000e+01  dt=5.0e-04  C= 2.00  UVW: 3  P: 6  eTimeStep= 2.51e-01s eTime= 1.66727e+01s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 1.10e-03  resNorm 8.05e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 1.44e-07 4.74e-01
+step= 70  t= 2.00350000e+01  dt=5.0e-04  C= 1.99  UVW: 3  P: 5  eTimeStep= 2.20e-01s eTime= 1.68925e+01s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 1.06e-03  resNorm 9.91e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 1.36e-07 4.74e-01
+step= 71  t= 2.00355000e+01  dt=5.0e-04  C= 1.99  UVW: 3  P: 5  eTimeStep= 2.23e-01s eTime= 1.71154e+01s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 1.08e-03  resNorm 8.35e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 1.28e-07 4.74e-01
+step= 72  t= 2.00360000e+01  dt=5.0e-04  C= 2.00  UVW: 3  P: 5  eTimeStep= 2.21e-01s eTime= 1.73363e+01s
+  P  : iter 006  resNorm00 1.37e-01  resNorm0 1.17e-03  resNorm 5.98e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 1.20e-07 4.74e-01
+step= 73  t= 2.00365000e+01  dt=5.0e-04  C= 2.00  UVW: 3  P: 6  eTimeStep= 2.43e-01s eTime= 1.75794e+01s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 9.54e-04  resNorm 8.26e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 1.13e-07 4.74e-01
+step= 74  t= 2.00370000e+01  dt=5.0e-04  C= 1.98  UVW: 3  P: 5  eTimeStep= 2.19e-01s eTime= 1.77980e+01s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 8.73e-04  resNorm 6.72e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 1.05e-07 4.74e-01
+step= 75  t= 2.00375000e+01  dt=5.0e-04  C= 1.95  UVW: 3  P: 5  eTimeStep= 2.24e-01s eTime= 1.80223e+01s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 8.14e-03  resNorm 8.76e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 9.72e-08 4.74e-01
+step= 76  t= 2.00380000e+01  dt=5.0e-04  C= 1.90  UVW: 3  P: 5  eTimeStep= 2.22e-01s eTime= 1.82439e+01s
+  P  : iter 004  resNorm00 1.37e-01  resNorm0 1.10e-03  resNorm 7.63e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 8.96e-08 4.74e-01
+step= 77  t= 2.00385000e+01  dt=5.0e-04  C= 1.86  UVW: 3  P: 4  eTimeStep= 1.88e-01s eTime= 1.84323e+01s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 8.86e-04  resNorm 7.45e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 8.20e-08 4.74e-01
+step= 78  t= 2.00390000e+01  dt=5.0e-04  C= 1.83  UVW: 3  P: 5  eTimeStep= 2.24e-01s eTime= 1.86563e+01s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 7.82e-04  resNorm 7.13e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 7.44e-08 4.74e-01
+step= 79  t= 2.00395000e+01  dt=5.0e-04  C= 1.83  UVW: 3  P: 5  eTimeStep= 2.21e-01s eTime= 1.88777e+01s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 7.99e-04  resNorm 9.64e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 6.69e-08 4.74e-01
+step= 80  t= 2.00400000e+01  dt=5.0e-04  C= 1.82  UVW: 3  P: 5  eTimeStep= 2.21e-01s eTime= 1.90985e+01s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 8.84e-04  resNorm 7.89e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 5.94e-08 4.74e-01
+step= 81  t= 2.00405000e+01  dt=5.0e-04  C= 1.81  UVW: 3  P: 5  eTimeStep= 2.19e-01s eTime= 1.93172e+01s
+  P  : iter 006  resNorm00 1.37e-01  resNorm0 9.56e-04  resNorm 5.63e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 5.19e-08 4.74e-01
+step= 82  t= 2.00410000e+01  dt=5.0e-04  C= 1.80  UVW: 3  P: 6  eTimeStep= 2.52e-01s eTime= 1.95689e+01s
+  P  : iter 004  resNorm00 1.37e-01  resNorm0 8.33e-04  resNorm 9.95e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 4.45e-08 4.74e-01
+step= 83  t= 2.00415000e+01  dt=5.0e-04  C= 1.80  UVW: 3  P: 4  eTimeStep= 1.87e-01s eTime= 1.97561e+01s
+  P  : iter 004  resNorm00 1.37e-01  resNorm0 7.13e-04  resNorm 6.64e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 3.72e-08 4.74e-01
+step= 84  t= 2.00420000e+01  dt=5.0e-04  C= 1.79  UVW: 3  P: 4  eTimeStep= 1.87e-01s eTime= 1.99434e+01s
+  P  : iter 004  resNorm00 1.37e-01  resNorm0 8.21e-04  resNorm 9.93e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 2.99e-08 4.74e-01
+step= 85  t= 2.00425000e+01  dt=5.0e-04  C= 1.78  UVW: 3  P: 4  eTimeStep= 1.83e-01s eTime= 2.01263e+01s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 8.11e-03  resNorm 8.65e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 2.26e-08 4.74e-01
+step= 86  t= 2.00430000e+01  dt=5.0e-04  C= 1.76  UVW: 3  P: 5  eTimeStep= 2.22e-01s eTime= 2.03479e+01s
+  P  : iter 004  resNorm00 1.37e-01  resNorm0 1.05e-03  resNorm 8.70e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 1.54e-08 4.74e-01
+step= 87  t= 2.00435000e+01  dt=5.0e-04  C= 1.75  UVW: 3  P: 4  eTimeStep= 1.88e-01s eTime= 2.05357e+01s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 1.00e-03  resNorm 8.14e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 8.24e-09 4.74e-01
+step= 88  t= 2.00440000e+01  dt=5.0e-04  C= 1.73  UVW: 3  P: 5  eTimeStep= 2.22e-01s eTime= 2.07577e+01s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 1.00e-03  resNorm 7.31e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.09e-07  divErrNorms 1.13e-09 4.74e-01
+step= 89  t= 2.00445000e+01  dt=5.0e-04  C= 1.71  UVW: 3  P: 5  eTimeStep= 2.15e-01s eTime= 2.09723e+01s
+  P  : iter 005  resNorm00 1.37e-01  resNorm0 1.24e-03  resNorm 9.93e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.09e-07  divErrNorms 5.92e-09 4.74e-01
+step= 90  t= 2.00450000e+01  dt=5.0e-04  C= 1.68  UVW: 3  P: 5  eTimeStep= 2.14e-01s eTime= 2.11864e+01s
+terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 91
+    Function : finish
+    Message  : Device: Finish
+               CUDA Error [ 700 ]: CUDA_ERROR_ILLEGAL_ADDRESS
+    Stack
+      19 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      18 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      17 occa::cuda::device::finish() const
+      16 occa::device::finish()
+      15 oogs::start(occa::memory&, int, int, char const*, char const*, oogs_t*)
+      14 oogs::startFinish(occa::memory&, int, int, char const*, char const*, oogs_t*)
+      13 MGLevel::coarsen(occa::memory, occa::memory)
+      12 parAlmond::solver_t::device_vcycle(int)
+      11 parAlmond::Precon(parAlmond::solver_t*, occa::memory, occa::memory)
+      10 ellipticPreconditioner(elliptic_t*, occa::memory&, occa::memory&)
+       9 pgmres(elliptic_t*, occa::memory&, occa::memory&, double, int, double&)
+       8 ellipticSolve(elliptic_t*, occa::memory&, occa::memory&, int)
+       7 tombo::pressureSolve(nrs_t*, double, int, int, bool&)
+       6 timeStepper::fluidSolve(nrs_t*, double, occa::memory, occa::memory, int, int)
+       5 timeStepper::step(nrs_t*, double, double, int)
+       4 nekrs::runStep(double, double, int)
+       3 /ccs/home/malachi/.local/nekrs-preco-auto/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+[e03n06:937810] *** Process received signal ***
+[e03n06:937810] Signal: Aborted (6)
+[e03n06:937810] Signal code:  (-6)
+[e03n06:937810] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[e03n06:937810] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x2000023e3618]
+[e03n06:937810] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x2000023c3a2c]
+[e03n06:937810] [ 3] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x200001f9ccc8]
+[e03n06:937810] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x200001f982e4]
+[e03n06:937810] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x200001f983a0]
+[e03n06:937810] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x200001f98868]
+[e03n06:937810] [ 7] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007c626c]
+[e03n06:937810] [ 8] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x64)[0x2000007c6474]
+[e03n06:937810] [ 9] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x300)[0x2000007347c0]
+[e03n06:937810] [10] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZNK4occa4cuda6device6finishEv+0x300)[0x200000720540]
+[e03n06:937810] [11] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa6device6finishEv+0x210)[0x2000005d4470]
+[e03n06:937810] [12] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN4oogs5startERN4occa6memoryEiiPKcS4_P6oogs_t+0x434)[0x20000030cca4]
+[e03n06:937810] [13] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN4oogs11startFinishERN4occa6memoryEiiPKcS4_P6oogs_t+0x48)[0x20000030fae8]
+[e03n06:937810] [14] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN7MGLevel7coarsenEN4occa6memoryES1_+0x388)[0x2000002378f8]
+[e03n06:937810] [15] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN9parAlmond8solver_t13device_vcycleEi+0x210)[0x200000216620]
+[e03n06:937810] [16] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN9parAlmond6PreconEPNS_8solver_tEN4occa6memoryES3_+0xac)[0x20000021774c]
+[e03n06:937810] [17] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_Z22ellipticPreconditionerP10elliptic_tRN4occa6memoryES3_+0x7b4)[0x20000025d2f4]
+[e03n06:937810] [18] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_Z6pgmresP10elliptic_tRN4occa6memoryES3_diRd+0x564)[0x2000002230a4]
+[e03n06:937810] [19] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_Z13ellipticSolveP10elliptic_tRN4occa6memoryES3_i+0x149c)[0x2000002624fc]
+[e03n06:937810] [20] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN5tombo13pressureSolveEP5nrs_tdiiRb+0x1ac0)[0x200000178ac0]
+[e03n06:937810] [21] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN11timeStepper10fluidSolveEP5nrs_tdN4occa6memoryES3_ii+0x1bc)[0x2000001648fc]
+[e03n06:937810] [22] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN11timeStepper4stepEP5nrs_tddi+0xc54)[0x200000174494]
+[e03n06:937810] [23] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN5nekrs7runStepEddi+0x24)[0x200000110a24]
+[e03n06:937810] [24] /ccs/home/malachi/.local/nekrs-preco-auto/bin/nekrs[0x10004e08]
+[e03n06:937810] [25] /lib64/power9/libc.so.6(+0x24078)[0x2000023c4078]
+[e03n06:937810] [26] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x2000023c4264]
+[e03n06:937810] *** End of error message ***
+terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 91
+    Function : finish
+    Message  : Device: Finish
+               CUDA Error [ 700 ]: CUDA_ERROR_ILLEGAL_ADDRESS
+    Stack
+      19 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      18 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      17 occa::cuda::device::finish() const
+      16 occa::device::finish()
+      15 oogs::start(occa::memory&, int, int, char const*, char const*, oogs_t*)
+      14 oogs::startFinish(occa::memory&, int, int, char const*, char const*, oogs_t*)
+      13 MGLevel::coarsen(occa::memory, occa::memory)
+      12 parAlmond::solver_t::device_vcycle(int)
+      11 parAlmond::Precon(parAlmond::solver_t*, occa::memory, occa::memory)
+      10 ellipticPreconditioner(elliptic_t*, occa::memory&, occa::memory&)
+       9 pgmres(elliptic_t*, occa::memory&, occa::memory&, double, int, double&)
+       8 ellipticSolve(elliptic_t*, occa::memory&, occa::memory&, int)
+       7 tombo::pressureSolve(nrs_t*, double, int, int, bool&)
+       6 timeStepper::fluidSolve(nrs_t*, double, occa::memory, occa::memory, int, int)
+       5 timeStepper::step(nrs_t*, double, double, int)
+       4 nekrs::runStep(double, double, int)
+       3 /ccs/home/malachi/.local/nekrs-preco-auto/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+[e03n07:2027235] *** Process received signal ***
+[e03n07:2027235] Signal: Aborted (6)
+[e03n07:2027235] Signal code:  (-6)
+[e03n07:2027235] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[e03n07:2027235] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x2000023e3618]
+[e03n07:2027235] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x2000023c3a2c]
+[e03n07:2027235] [ 3] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x200001f9ccc8]
+[e03n07:2027235] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x200001f982e4]
+[e03n07:2027235] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x200001f983a0]
+[e03n07:2027235] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x200001f98868]
+[e03n07:2027235] [ 7] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007c626c]
+[e03n07:2027235] [ 8] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x64)[0x2000007c6474]
+[e03n07:2027235] [ 9] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x300)[0x2000007347c0]
+[e03n07:2027235] [10] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZNK4occa4cuda6device6finishEv+0x300)[0x200000720540]
+[e03n07:2027235] [11] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa6device6finishEv+0x210)[0x2000005d4470]
+[e03n07:2027235] [12] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN4oogs5startERN4occa6memoryEiiPKcS4_P6oogs_t+0x434)[0x20000030cca4]
+[e03n07:2027235] [13] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN4oogs11startFinishERN4occa6memoryEiiPKcS4_P6oogs_t+0x48)[0x20000030fae8]
+[e03n07:2027235] [14] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN7MGLevel7coarsenEN4occa6memoryES1_+0x388)[0x2000002378f8]
+[e03n07:2027235] [15] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN9parAlmond8solver_t13device_vcycleEi+0x210)[0x200000216620]
+[e03n07:2027235] [16] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN9parAlmond6PreconEPNS_8solver_tEN4occa6memoryES3_+0xac)[0x20000021774c]
+[e03n07:2027235] [17] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_Z22ellipticPreconditionerP10elliptic_tRN4occa6memoryES3_+0x7b4)[0x20000025d2f4]
+[e03n07:2027235] [18] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_Z6pgmresP10elliptic_tRN4occa6memoryES3_diRd+0x564)[0x2000002230a4]
+[e03n07:2027235] [19] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_Z13ellipticSolveP10elliptic_tRN4occa6memoryES3_i+0x149c)[0x2000002624fc]
+[e03n07:2027235] [20] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN5tombo13pressureSolveEP5nrs_tdiiRb+0x1ac0)[0x200000178ac0]
+[e03n07:2027235] [21] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN11timeStepper10fluidSolveEP5nrs_tdN4occa6memoryES3_ii+0x1bc)[0x2000001648fc]
+[e03n07:2027235] [22] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN11timeStepper4stepEP5nrs_tddi+0xc54)[0x200000174494]
+[e03n07:2027235] [23] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN5nekrs7runStepEddi+0x24)[0x200000110a24]
+[e03n07:2027235] [24] /ccs/home/malachi/.local/nekrs-preco-auto/bin/nekrs[0x10004e08]
+[e03n07:2027235] [25] /lib64/power9/libc.so.6(+0x24078)[0x2000023c4078]
+[e03n07:2027235] [26] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x2000023c4264]
+[e03n07:2027235] *** End of error message ***
+terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 91
+    Function : finish
+    Message  : Device: Finish
+               CUDA Error [ 700 ]: CUDA_ERROR_ILLEGAL_ADDRESS
+    Stack
+      19 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      18 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      17 occa::cuda::device::finish() const
+      16 occa::device::finish()
+      15 oogs::start(occa::memory&, int, int, char const*, char const*, oogs_t*)
+      14 oogs::startFinish(occa::memory&, int, int, char const*, char const*, oogs_t*)
+      13 MGLevel::coarsen(occa::memory, occa::memory)
+      12 parAlmond::solver_t::device_vcycle(int)
+      11 parAlmond::Precon(parAlmond::solver_t*, occa::memory, occa::memory)
+      10 ellipticPreconditioner(elliptic_t*, occa::memory&, occa::memory&)
+       9 pgmres(elliptic_t*, occa::memory&, occa::memory&, double, int, double&)
+       8 ellipticSolve(elliptic_t*, occa::memory&, occa::memory&, int)
+       7 tombo::pressureSolve(nrs_t*, double, int, int, bool&)
+       6 timeStepper::fluidSolve(nrs_t*, double, occa::memory, occa::memory, int, int)
+       5 timeStepper::step(nrs_t*, double, double, int)
+       4 nekrs::runStep(double, double, int)
+       3 /ccs/home/malachi/.local/nekrs-preco-auto/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+[e02n15:3372188] *** Process received signal ***
+[e02n15:3372188] Signal: Aborted (6)
+[e02n15:3372188] Signal code:  (-6)
+[e02n15:3372188] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[e02n15:3372188] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x2000023e3618]
+[e02n15:3372188] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x2000023c3a2c]
+[e02n15:3372188] [ 3] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x200001f9ccc8]
+[e02n15:3372188] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x200001f982e4]
+[e02n15:3372188] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x200001f983a0]
+[e02n15:3372188] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x200001f98868]
+[e02n15:3372188] [ 7] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007c626c]
+[e02n15:3372188] [ 8] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x64)[0x2000007c6474]
+[e02n15:3372188] [ 9] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x300)[0x2000007347c0]
+[e02n15:3372188] [10] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZNK4occa4cuda6device6finishEv+0x300)[0x200000720540]
+[e02n15:3372188] [11] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa6device6finishEv+0x210)[0x2000005d4470]
+[e02n15:3372188] [12] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN4oogs5startERN4occa6memoryEiiPKcS4_P6oogs_t+0x434)[0x20000030cca4]
+[e02n15:3372188] [13] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN4oogs11startFinishERN4occa6memoryEiiPKcS4_P6oogs_t+0x48)[0x20000030fae8]
+[e02n15:3372188] [14] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN7MGLevel7coarsenEN4occa6memoryES1_+0x388)[0x2000002378f8]
+[e02n15:3372188] [15] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN9parAlmond8solver_t13device_vcycleEi+0x210)[0x200000216620]
+[e02n15:3372188] [16] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN9parAlmond6PreconEPNS_8solver_tEN4occa6memoryES3_+0xac)[0x20000021774c]
+[e02n15:3372188] [17] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_Z22ellipticPreconditionerP10elliptic_tRN4occa6memoryES3_+0x7b4)[0x20000025d2f4]
+[e02n15:3372188] [18] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_Z6pgmresP10elliptic_tRN4occa6memoryES3_diRd+0x564)[0x2000002230a4]
+[e02n15:3372188] [19] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_Z13ellipticSolveP10elliptic_tRN4occa6memoryES3_i+0x149c)[0x2000002624fc]
+[e02n15:3372188] [20] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN5tombo13pressureSolveEP5nrs_tdiiRb+0x1ac0)[0x200000178ac0]
+[e02n15:3372188] [21] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN11timeStepper10fluidSolveEP5nrs_tdN4occa6memoryES3_ii+0x1bc)[0x2000001648fc]
+[e02n15:3372188] [22] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN11timeStepper4stepEP5nrs_tddi+0xc54)[0x200000174494]
+[e02n15:3372188] [23] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN5nekrs7runStepEddi+0x24)[0x200000110a24]
+[e02n15:3372188] [24] /ccs/home/malachi/.local/nekrs-preco-auto/bin/nekrs[0x10004e08]
+[e02n15:3372188] [25] /lib64/power9/libc.so.6(+0x24078)[0x2000023c4078]
+[e02n15:3372188] [26] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x2000023c4264]
+[e02n15:3372188] *** End of error message ***
+terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 91
+    Function : finish
+    Message  : Device: Finish
+               CUDA Error [ 700 ]: CUDA_ERROR_ILLEGAL_ADDRESS
+    Stack
+      19 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      18 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      17 occa::cuda::device::finish() const
+      16 occa::device::finish()
+      15 oogs::start(occa::memory&, int, int, char const*, char const*, oogs_t*)
+      14 oogs::startFinish(occa::memory&, int, int, char const*, char const*, oogs_t*)
+      13 MGLevel::coarsen(occa::memory, occa::memory)
+      12 parAlmond::solver_t::device_vcycle(int)
+      11 parAlmond::Precon(parAlmond::solver_t*, occa::memory, occa::memory)
+      10 ellipticPreconditioner(elliptic_t*, occa::memory&, occa::memory&)
+       9 pgmres(elliptic_t*, occa::memory&, occa::memory&, double, int, double&)
+       8 ellipticSolve(elliptic_t*, occa::memory&, occa::memory&, int)
+       7 tombo::pressureSolve(nrs_t*, double, int, int, bool&)
+       6 timeStepper::fluidSolve(nrs_t*, double, occa::memory, occa::memory, int, int)
+       5 timeStepper::step(nrs_t*, double, double, int)
+       4 nekrs::runStep(double, double, int)
+       3 /ccs/home/malachi/.local/nekrs-preco-auto/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+[e03n04:3324061] *** Process received signal ***
+[e03n04:3324061] Signal: Aborted (6)
+[e03n04:3324061] Signal code:  (-6)
+[e03n04:3324061] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[e03n04:3324061] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x2000023e3618]
+[e03n04:3324061] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x2000023c3a2c]
+[e03n04:3324061] [ 3] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x200001f9ccc8]
+[e03n04:3324061] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x200001f982e4]
+[e03n04:3324061] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x200001f983a0]
+[e03n04:3324061] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x200001f98868]
+[e03n04:3324061] [ 7] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007c626c]
+[e03n04:3324061] [ 8] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x64)[0x2000007c6474]
+[e03n04:3324061] [ 9] terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 91
+    Function : finish
+    Message  : Device: Finish
+               CUDA Error [ 700 ]: CUDA_ERROR_ILLEGAL_ADDRESS
+    Stack
+      19 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      18 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      17 occa::cuda::device::finish() const
+      16 occa::device::finish()
+      15 oogs::start(occa::memory&, int, int, char const*, char const*, oogs_t*)
+      14 oogs::startFinish(occa::memory&, int, int, char const*, char const*, oogs_t*)
+      13 MGLevel::coarsen(occa::memory, occa::memory)
+      12 parAlmond::solver_t::device_vcycle(int)
+      11 parAlmond::Precon(parAlmond::solver_t*, occa::memory, occa::memory)
+      10 ellipticPreconditioner(elliptic_t*, occa::memory&, occa::memory&)
+       9 pgmres(elliptic_t*, occa::memory&, occa::memory&, double, int, double&)
+       8 ellipticSolve(elliptic_t*, occa::memory&, occa::memory&, int)
+       7 tombo::pressureSolve(nrs_t*, double, int, int, bool&)
+       6 timeStepper::fluidSolve(nrs_t*, double, occa::memory, occa::memory, int, int)
+       5 timeStepper::step(nrs_t*, double, double, int)
+       4 nekrs::runStep(double, double, int)
+       3 /ccs/home/malachi/.local/nekrs-preco-auto/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+[e03n05:3551287] *** Process received signal ***
+[e03n05:3551287] Signal: Aborted (6)
+[e03n05:3551287] Signal code:  (-6)
+[e03n05:3551287] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[e03n05:3551287] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x2000023e3618]
+[e03n05:3551287] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x2000023c3a2c]
+[e03n05:3551287] [ 3] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x300)[0x2000007347c0]
+[e03n04:3324061] [10] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZNK4occa4cuda6device6finishEv+0x300)[0x200000720540]
+[e03n04:3324061] [11] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa6device6finishEv+0x210)[0x2000005d4470]
+[e03n04:3324061] [12] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN4oogs5startERN4occa6memoryEiiPKcS4_P6oogs_t+0x434)[0x20000030cca4]
+[e03n04:3324061] [13] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN4oogs11startFinishERN4occa6memoryEiiPKcS4_P6oogs_t+0x48)[0x20000030fae8]
+[e03n04:3324061] [14] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN7MGLevel7coarsenEN4occa6memoryES1_+0x388)[0x2000002378f8]
+[e03n04:3324061] [15] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN9parAlmond8solver_t13device_vcycleEi+0x210)[0x200000216620]
+[e03n04:3324061] [16] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x200001f9ccc8]
+[e03n05:3551287] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x200001f982e4]
+[e03n05:3551287] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x200001f983a0]
+[e03n05:3551287] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x200001f98868]
+[e03n05:3551287] [ 7] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007c626c]
+[e03n05:3551287] [ 8] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x64)[0x2000007c6474]
+[e03n05:3551287] [ 9] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x300)[0x2000007347c0]
+[e03n05:3551287] [10] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZNK4occa4cuda6device6finishEv+0x300)[0x200000720540]
+[e03n05:3551287] [11] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN9parAlmond6PreconEPNS_8solver_tEN4occa6memoryES3_+0xac)[0x20000021774c]
+[e03n04:3324061] [17] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_Z22ellipticPreconditionerP10elliptic_tRN4occa6memoryES3_+0x7b4)[0x20000025d2f4]
+[e03n04:3324061] [18] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_Z6pgmresP10elliptic_tRN4occa6memoryES3_diRd+0x564)[0x2000002230a4]
+[e03n04:3324061] [19] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_Z13ellipticSolveP10elliptic_tRN4occa6memoryES3_i+0x149c)[0x2000002624fc]
+[e03n04:3324061] [20] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN5tombo13pressureSolveEP5nrs_tdiiRb+0x1ac0)[0x200000178ac0]
+[e03n04:3324061] [21] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN11timeStepper10fluidSolveEP5nrs_tdN4occa6memoryES3_ii+0x1bc)[0x2000001648fc]
+[e03n04:3324061] [22] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN11timeStepper4stepEP5nrs_tddi+0xc54)[0x200000174494]
+[e03n04:3324061] [23] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa6device6finishEv+0x210)[0x2000005d4470]
+[e03n05:3551287] [12] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN4oogs5startERN4occa6memoryEiiPKcS4_P6oogs_t+0x434)[0x20000030cca4]
+[e03n05:3551287] [13] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN4oogs11startFinishERN4occa6memoryEiiPKcS4_P6oogs_t+0x48)[0x20000030fae8]
+[e03n05:3551287] [14] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN7MGLevel7coarsenEN4occa6memoryES1_+0x388)[0x2000002378f8]
+[e03n05:3551287] [15] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN5nekrs7runStepEddi+0x24)[0x200000110a24]
+[e03n04:3324061] [24] /ccs/home/malachi/.local/nekrs-preco-auto/bin/nekrs[0x10004e08]
+[e03n04:3324061] [25] /lib64/power9/libc.so.6(+0x24078)[0x2000023c4078]
+[e03n04:3324061] [26] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x2000023c4264]
+[e03n04:3324061] *** End of error message ***
+/ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN9parAlmond8solver_t13device_vcycleEi+0x210)[0x200000216620]
+[e03n05:3551287] [16] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN9parAlmond6PreconEPNS_8solver_tEN4occa6memoryES3_+0xac)[0x20000021774c]
+[e03n05:3551287] [17] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_Z22ellipticPreconditionerP10elliptic_tRN4occa6memoryES3_+0x7b4)[0x20000025d2f4]
+[e03n05:3551287] [18] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_Z6pgmresP10elliptic_tRN4occa6memoryES3_diRd+0x564)[0x2000002230a4]
+[e03n05:3551287] [19] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_Z13ellipticSolveP10elliptic_tRN4occa6memoryES3_i+0x149c)[0x2000002624fc]
+[e03n05:3551287] [20] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN5tombo13pressureSolveEP5nrs_tdiiRb+0x1ac0)[0x200000178ac0]
+[e03n05:3551287] [21] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN11timeStepper10fluidSolveEP5nrs_tdN4occa6memoryES3_ii+0x1bc)[0x2000001648fc]
+[e03n05:3551287] [22] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN11timeStepper4stepEP5nrs_tddi+0xc54)[0x200000174494]
+[e03n05:3551287] [23] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN5nekrs7runStepEddi+0x24)[0x200000110a24]
+[e03n05:3551287] [24] /ccs/home/malachi/.local/nekrs-preco-auto/bin/nekrs[0x10004e08]
+[e03n05:3551287] [25] /lib64/power9/libc.so.6(+0x24078)[0x2000023c4078]
+[e03n05:3551287] [26] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x2000023c4264]
+[e03n05:3551287] *** End of error message ***
+terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 91
+    Function : finish
+    Message  : Device: Finish
+               CUDA Error [ 700 ]: CUDA_ERROR_ILLEGAL_ADDRESS
+    Stack
+      19 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      18 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      17 occa::cuda::device::finish() const
+      16 occa::device::finish()
+      15 oogs::start(occa::memory&, int, int, char const*, char const*, oogs_t*)
+      14 oogs::startFinish(occa::memory&, int, int, char const*, char const*, oogs_t*)
+      13 MGLevel::coarsen(occa::memory, occa::memory)
+      12 parAlmond::solver_t::device_vcycle(int)
+      11 parAlmond::Precon(parAlmond::solver_t*, occa::memory, occa::memory)
+      10 ellipticPreconditioner(elliptic_t*, occa::memory&, occa::memory&)
+       9 pgmres(elliptic_t*, occa::memory&, occa::memory&, double, int, double&)
+       8 ellipticSolve(elliptic_t*, occa::memory&, occa::memory&, int)
+       7 tombo::pressureSolve(nrs_t*, double, int, int, bool&)
+       6 timeStepper::fluidSolve(nrs_t*, double, occa::memory, occa::memory, int, int)
+       5 timeStepper::step(nrs_t*, double, double, int)
+       4 nekrs::runStep(double, double, int)
+       3 /ccs/home/malachi/.local/nekrs-preco-auto/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+[e02n17:3048791] *** Process received signal ***
+[e02n17:3048791] Signal: Aborted (6)
+[e02n17:3048791] Signal code:  (-6)
+[e02n17:3048791] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[e02n17:3048791] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x2000023e3618]
+[e02n17:3048791] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x2000023c3a2c]
+[e02n17:3048791] [ 3] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x200001f9ccc8]
+[e02n17:3048791] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x200001f982e4]
+[e02n17:3048791] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x200001f983a0]
+[e02n17:3048791] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x200001f98868]
+[e02n17:3048791] [ 7] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007c626c]
+[e02n17:3048791] [ 8] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x64)[0x2000007c6474]
+[e02n17:3048791] [ 9] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x300)[0x2000007347c0]
+[e02n17:3048791] [10] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZNK4occa4cuda6device6finishEv+0x300)[0x200000720540]
+[e02n17:3048791] [11] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa6device6finishEv+0x210)[0x2000005d4470]
+[e02n17:3048791] [12] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN4oogs5startERN4occa6memoryEiiPKcS4_P6oogs_t+0x434)[0x20000030cca4]
+[e02n17:3048791] [13] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN4oogs11startFinishERN4occa6memoryEiiPKcS4_P6oogs_t+0x48)[0x20000030fae8]
+[e02n17:3048791] [14] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN7MGLevel7coarsenEN4occa6memoryES1_+0x388)[0x2000002378f8]
+[e02n17:3048791] [15] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN9parAlmond8solver_t13device_vcycleEi+0x210)[0x200000216620]
+[e02n17:3048791] [16] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN9parAlmond6PreconEPNS_8solver_tEN4occa6memoryES3_+0xac)[0x20000021774c]
+[e02n17:3048791] [17] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_Z22ellipticPreconditionerP10elliptic_tRN4occa6memoryES3_+0x7b4)[0x20000025d2f4]
+[e02n17:3048791] [18] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_Z6pgmresP10elliptic_tRN4occa6memoryES3_diRd+0x564)[0x2000002230a4]
+[e02n17:3048791] [19] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_Z13ellipticSolveP10elliptic_tRN4occa6memoryES3_i+0x149c)[0x2000002624fc]
+[e02n17:3048791] [20] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN5tombo13pressureSolveEP5nrs_tdiiRb+0x1ac0)[0x200000178ac0]
+[e02n17:3048791] [21] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN11timeStepper10fluidSolveEP5nrs_tdN4occa6memoryES3_ii+0x1bc)[0x2000001648fc]
+[e02n17:3048791] [22] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN11timeStepper4stepEP5nrs_tddi+0xc54)[0x200000174494]
+[e02n17:3048791] [23] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN5nekrs7runStepEddi+0x24)[0x200000110a24]
+[e02n17:3048791] [24] /ccs/home/malachi/.local/nekrs-preco-auto/bin/nekrs[0x10004e08]
+[e02n17:3048791] [25] /lib64/power9/libc.so.6(+0x24078)[0x2000023c4078]
+[e02n17:3048791] [26] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x2000023c4264]
+[e02n17:3048791] *** End of error message ***
+terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 91
+    Function : finish
+    Message  : Device: Finish
+               CUDA Error [ 700 ]: CUDA_ERROR_ILLEGAL_ADDRESS
+    Stack
+      19 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      18 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      17 occa::cuda::device::finish() const
+      16 occa::device::finish()
+      15 oogs::start(occa::memory&, int, int, char const*, char const*, oogs_t*)
+      14 oogs::startFinish(occa::memory&, int, int, char const*, char const*, oogs_t*)
+      13 MGLevel::coarsen(occa::memory, occa::memory)
+      12 parAlmond::solver_t::device_vcycle(int)
+      11 parAlmond::Precon(parAlmond::solver_t*, occa::memory, occa::memory)
+      10 ellipticPreconditioner(elliptic_t*, occa::memory&, occa::memory&)
+       9 pgmres(elliptic_t*, occa::memory&, occa::memory&, double, int, double&)
+       8 ellipticSolve(elliptic_t*, occa::memory&, occa::memory&, int)
+       7 tombo::pressureSolve(nrs_t*, double, int, int, bool&)
+       6 timeStepper::fluidSolve(nrs_t*, double, occa::memory, occa::memory, int, int)
+       5 timeStepper::step(nrs_t*, double, double, int)
+       4 nekrs::runStep(double, double, int)
+       3 /ccs/home/malachi/.local/nekrs-preco-auto/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+[e03n01:3354224] *** Process received signal ***
+[e03n01:3354224] Signal: Aborted (6)
+[e03n01:3354224] Signal code:  (-6)
+[e03n01:3354224] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[e03n01:3354224] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x2000023e3618]
+[e03n01:3354224] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x2000023c3a2c]
+[e03n01:3354224] [ 3] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x200001f9ccc8]
+[e03n01:3354224] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x200001f982e4]
+[e03n01:3354224] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x200001f983a0]
+[e03n01:3354224] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x200001f98868]
+[e03n01:3354224] [ 7] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007c626c]
+[e03n01:3354224] [ 8] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x64)[0x2000007c6474]
+[e03n01:3354224] [ 9] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x300)[0x2000007347c0]
+[e03n01:3354224] [10] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZNK4occa4cuda6device6finishEv+0x300)[0x200000720540]
+[e03n01:3354224] [11] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa6device6finishEv+0x210)[0x2000005d4470]
+[e03n01:3354224] [12] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN4oogs5startERN4occa6memoryEiiPKcS4_P6oogs_t+0x434)[0x20000030cca4]
+[e03n01:3354224] [13] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN4oogs11startFinishERN4occa6memoryEiiPKcS4_P6oogs_t+0x48)[0x20000030fae8]
+[e03n01:3354224] [14] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN7MGLevel7coarsenEN4occa6memoryES1_+0x388)[0x2000002378f8]
+[e03n01:3354224] [15] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN9parAlmond8solver_t13device_vcycleEi+0x210)[0x200000216620]
+[e03n01:3354224] [16] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN9parAlmond6PreconEPNS_8solver_tEN4occa6memoryES3_+0xac)[0x20000021774c]
+[e03n01:3354224] [17] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_Z22ellipticPreconditionerP10elliptic_tRN4occa6memoryES3_+0x7b4)[0x20000025d2f4]
+[e03n01:3354224] [18] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_Z6pgmresP10elliptic_tRN4occa6memoryES3_diRd+0x564)[0x2000002230a4]
+[e03n01:3354224] [19] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_Z13ellipticSolveP10elliptic_tRN4occa6memoryES3_i+0x149c)[0x2000002624fc]
+[e03n01:3354224] [20] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN5tombo13pressureSolveEP5nrs_tdiiRb+0x1ac0)[0x200000178ac0]
+[e03n01:3354224] [21] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN11timeStepper10fluidSolveEP5nrs_tdN4occa6memoryES3_ii+0x1bc)[0x2000001648fc]
+[e03n01:3354224] [22] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN11timeStepper4stepEP5nrs_tddi+0xc54)[0x200000174494]
+[e03n01:3354224] [23] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN5nekrs7runStepEddi+0x24)[0x200000110a24]
+[e03n01:3354224] [24] /ccs/home/malachi/.local/nekrs-preco-auto/bin/nekrs[0x10004e08]
+[e03n01:3354224] [25] /lib64/power9/libc.so.6(+0x24078)[0x2000023c4078]
+[e03n01:3354224] [26] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x2000023c4264]
+[e03n01:3354224] *** End of error message ***
+terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 91
+    Function : finish
+    Message  : Device: Finish
+               CUDA Error [ 700 ]: CUDA_ERROR_ILLEGAL_ADDRESS
+    Stack
+      19 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      18 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      17 occa::cuda::device::finish() const
+      16 occa::device::finish()
+      15 oogs::start(occa::memory&, int, int, char const*, char const*, oogs_t*)
+      14 oogs::startFinish(occa::memory&, int, int, char const*, char const*, oogs_t*)
+      13 MGLevel::coarsen(occa::memory, occa::memory)
+      12 parAlmond::solver_t::device_vcycle(int)
+      11 parAlmond::Precon(parAlmond::solver_t*, occa::memory, occa::memory)
+      10 ellipticPreconditioner(elliptic_t*, occa::memory&, occa::memory&)
+       9 pgmres(elliptic_t*, occa::memory&, occa::memory&, double, int, double&)
+       8 ellipticSolve(elliptic_t*, occa::memory&, occa::memory&, int)
+       7 tombo::pressureSolve(nrs_t*, double, int, int, bool&)
+       6 timeStepper::fluidSolve(nrs_t*, double, occa::memory, occa::memory, int, int)
+       5 timeStepper::step(nrs_t*, double, double, int)
+       4 nekrs::runStep(double, double, int)
+       3 /ccs/home/malachi/.local/nekrs-preco-auto/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+[e03n01:3354227] *** Process received signal ***
+[e03n01:3354227] Signal: Aborted (6)
+[e03n01:3354227] Signal code:  (-6)
+[e03n01:3354227] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[e03n01:3354227] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x2000023e3618]
+[e03n01:3354227] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x2000023c3a2c]
+[e03n01:3354227] [ 3] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x200001f9ccc8]
+[e03n01:3354227] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x200001f982e4]
+[e03n01:3354227] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x200001f983a0]
+[e03n01:3354227] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x200001f98868]
+[e03n01:3354227] [ 7] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007c626c]
+[e03n01:3354227] [ 8] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x64)[0x2000007c6474]
+[e03n01:3354227] [ 9] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x300)[0x2000007347c0]
+[e03n01:3354227] [10] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZNK4occa4cuda6device6finishEv+0x300)[0x200000720540]
+[e03n01:3354227] [11] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa6device6finishEv+0x210)[0x2000005d4470]
+[e03n01:3354227] [12] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN4oogs5startERN4occa6memoryEiiPKcS4_P6oogs_t+0x434)[0x20000030cca4]
+[e03n01:3354227] [13] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN4oogs11startFinishERN4occa6memoryEiiPKcS4_P6oogs_t+0x48)[0x20000030fae8]
+[e03n01:3354227] [14] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN7MGLevel7coarsenEN4occa6memoryES1_+0x388)[0x2000002378f8]
+[e03n01:3354227] [15] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN9parAlmond8solver_t13device_vcycleEi+0x210)[0x200000216620]
+[e03n01:3354227] [16] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN9parAlmond6PreconEPNS_8solver_tEN4occa6memoryES3_+0xac)[0x20000021774c]
+[e03n01:3354227] [17] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_Z22ellipticPreconditionerP10elliptic_tRN4occa6memoryES3_+0x7b4)[0x20000025d2f4]
+[e03n01:3354227] [18] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_Z6pgmresP10elliptic_tRN4occa6memoryES3_diRd+0x564)[0x2000002230a4]
+[e03n01:3354227] [19] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_Z13ellipticSolveP10elliptic_tRN4occa6memoryES3_i+0x149c)[0x2000002624fc]
+[e03n01:3354227] [20] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN5tombo13pressureSolveEP5nrs_tdiiRb+0x1ac0)[0x200000178ac0]
+[e03n01:3354227] [21] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN11timeStepper10fluidSolveEP5nrs_tdN4occa6memoryES3_ii+0x1bc)[0x2000001648fc]
+[e03n01:3354227] [22] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN11timeStepper4stepEP5nrs_tddi+0xc54)[0x200000174494]
+[e03n01:3354227] [23] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN5nekrs7runStepEddi+0x24)[0x200000110a24]
+[e03n01:3354227] [24] /ccs/home/malachi/.local/nekrs-preco-auto/bin/nekrs[0x10004e08]
+[e03n01:3354227] [25] /lib64/power9/libc.so.6(+0x24078)[0x2000023c4078]
+[e03n01:3354227] [26] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x2000023c4264]
+[e03n01:3354227] *** End of error message ***
+ERROR:  One or more process (first noticed rank 68) terminated with signal 6 (core dumped)
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@batch5>
+Subject: Job 1493510: <nekRS_peb1568_n2t2bnb> in cluster <summit> Exited
+
+Job <nekRS_peb1568_n2t2bnb> was submitted from host <login5> by user <malachi> in cluster <summit> at Tue Oct  5 22:44:54 2021
+Job was executed on host(s) <1*batch5>, in queue <batch>, as user <malachi> in cluster <summit> at Tue Oct  5 22:46:02 2021
+                            <42*d29n04>
+                            <42*e02n14>
+                            <42*e02n15>
+                            <42*e02n16>
+                            <42*e02n17>
+                            <42*e02n18>
+                            <42*e03n01>
+                            <42*e03n02>
+                            <42*e03n03>
+                            <42*e03n04>
+                            <42*e03n05>
+                            <42*e03n06>
+                            <42*e03n07>
+                            <42*e06n02>
+                            <42*e06n03>
+                            <42*e30n16>
+</ccs/home/malachi> was used as the home directory.
+</gpfs/alpine/scratch/malachi/csc262/siam-pp-22/pb1568/auto-fp32-16> was used as the working directory.
+Started at Tue Oct  5 22:46:02 2021
+Terminated at Tue Oct  5 22:47:48 2021
+Results reported at Tue Oct  5 22:47:48 2021
+
+The output (if any) is above this job summary.
+

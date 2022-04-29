@@ -1,0 +1,249 @@
+                 __    ____  _____
+   ____   ___   / /__ / __ \/ ___/
+  / __ \ / _ \ / //_// /_/ /\__ \ 
+ / / / //  __// ,<  / _, _/___/ / 
+/_/ /_/ \___//_/|_|/_/ |_|/____/  v21.1 (63a5a122)
+
+COPYRIGHT (c) 2019-2021 UCHICAGO ARGONNE, LLC
+
+MPI tasks: 96
+
+reading par file ...
+
+using NEKRS_HOME: /ccs/home/malachi/.local/nekrs-next-fp64
+using NEKRS_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb146/runs/semfem-fp64-16/.cache
+using OCCA_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb146/runs/semfem-fp64-16/.cache/occa/
+
+Initializing device 
+active occa mode: CUDA
+
+building udf ... 
+Consolidate compiler generated dependencies of target UDF
+[100%] Built target UDF
+done (0.486387s)
+loading nek ... 
+done
+loading udf kernels ... done (0.0345744s)
+
+loading kernels ... done (69.5335s)
+
+ Reading /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb146/runs/semfem-fp64-16/pb.re2                                                     
+ reading mesh 
+ reading bc for ifld           1
+ done :: read .re2 file    0.20     sec
+
+Running parCon ... (tol=0.2)
+
+ Error: elementCheck
+Running parCon ... (tol=0.02)
+Running parRSB ...
+Warning: Partition created 1/2 (min/max) disconnected components.
+parRSB finished in 0.608959 s
+
+ reading mesh 
+ reading curved sides 
+ reading bc for ifld           1
+ done :: read .re2 file    0.13     sec
+
+ setup mesh topology
+   Right-handed check complete for       62132 elements. OK.
+gs_setup: 1220600 unique labels shared
+   handle bytes (avg, min, max): 2.49296e+06 2377004 2625692
+   buffer bytes (avg, min, max): 430524 318352 573088
+   setupds time 5.4928E-02 seconds   0  8     8417073       62132
+ 
+ nElements   max/min/bal: 648 647 1.00
+ nMessages   max/min/avg: 23 7 13.90
+ msgSize     max/min/avg: 11760 1 2032.78
+ msgSizeSum  max/min/avg: 35818 19897 26907.77
+ 
+ max multiplicity           36
+ done :: setup mesh topology
+  
+ call usrdat
+ done :: usrdat
+
+ generate geometry data
+ done :: generate geometry data
+  
+ call usrdat2
+ done :: usrdat2
+
+  2.8727E-15  2.8726E-15  3.5527E-15  2.4015E-15  2.0761E-15  2.9238E-15 xyz repair 1
+  2.9268E-15  2.9229E-15  3.5527E-15  6.0357E-15  6.1979E-15  6.1973E-15 xyz repair 2
+  2.6645E-15  2.7357E-15  3.5527E-15  3.5360E-15  4.9493E-15  5.2152E-15 xyz repair 3
+  1.2080E-15  1.5428E-15  1.7369E-15  1.2080E-15  1.5428E-15  1.7369E-15 xyz repair 4
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ verify mesh topology
+  -7.0710093434474661        7.0706370325493424       Xrange
+  -7.0707404234460585        7.0704326927458965       Yrange
+  -8.9079642973243462        10.752399444580080       Zrange
+ done :: verify mesh topology
+  
+ mesh metrics:
+ GLL grid spacing min/max    : 1.01E-03 3.20E-01
+ scaled Jacobian  min/max/avg: 4.31E-02 9.77E-01 4.19E-01
+ aspect ratio     min/max/avg: 1.07E+00 5.69E+01 7.14E+00
+
+ call usrdat3
+ done :: usrdat3
+
+gridpoints unique/tot:      21837585     31811584
+dofs vel/pr:                20800116     21807162
+ nek setup done in    1.8243E+00 s
+
+ set initial conditions
+ Checking restart options: restart.fld                                                                                                                         
+ nekuic (1) for ifld            1
+ nekuic (1) for ifld            2
+ Reading checkpoint data 
+       FILE:/gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb146/runs/semfem-fp64-16/restart.fld                                                
+
+        0  1.0000E+01 done :: Read checkpoint data
+                              avg data-throughput =     1.6GB/s
+                              io-nodes =    96
+
+ xyz min    -7.0710      -7.0707      -8.9080    
+ uvwpt min  -4.7484      -4.7327      -4.8061      -8.3382      -126.94    
+ PS min      0.0000       0.0000       0.0000       0.0000    
+ xyz max     7.0706       7.0704       10.752    
+ uvwpt max   4.9805       4.8828       7.1716       6.3114       315.95    
+ PS max      0.0000       0.0000       0.0000       0.0000    
+ Restart: recompute geom. factors.
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ done :: set initial conditions
+  
+calling nek_userchk ...
+
+loading mesh from nek ... NboundaryIDs: 4, NboundaryFaces: 21776 done (0.00081147s)
+generating mesh ... Nq: 8 cubNq: 11
+computing geometric factors ... J [1.34276e-05,0.293651] done (0.0363541s)
+timing oogs modes: 0.000241842s 0.000158681s 0.000159403s 0.000159142s 0.000219448s 0.000187165s used config: 2.0.0
+min 21% of the local elements are internal
+timing oogs modes: 0.000558503s 0.000251602s 0.000235061s 0.000238461s 0.000247568s 0.000222006s used config: 3.0.1
+loading ns kernels ... done (0.000347403s)
+loading cds kernels ... done (0.000190048s)
+copying solution from nek
+calling udf_setup ... done
+================= ELLIPTIC SETUP SCALAR00 ===============
+bID 1 -> bcType fixedValue
+bID 2 -> bcType zeroGradient
+bID 3 -> bcType zeroGradient
+bID 4 -> bcType fixedGradient
+allNeumann = 0 
+loading elliptic kernels ... done (0.000144098s)
+timing oogs modes: 0.000238957s 0.000160917s 0.000157461s 0.00016183s 0.00020644s 0.000188485s used config: 2.0.1
+timing oogs modes: 0.000267643s 0.000206222s 0.000204967s 0.000204934s 0.000236813s 0.000211969s used config: 2.1.0
+building Jacobi preconditioner ... done (0.00428041s)
+done (3.88192s)
+================ ELLIPTIC SETUP VELOCITY ================
+bID 1 -> bcType fixedValue
+bID 2 -> bcType zeroGradient
+bID 3 -> bcType zeroValue
+bID 4 -> bcType zeroValue
+allNeumann = 0 
+loading elliptic kernels ... done (0.000164138s)
+timing oogs modes: 0.000528475s 0.000252995s 0.000251798s 0.000244292s 0.000246589s 0.000222478s used config: 3.0.1
+timing oogs modes: 0.000555858s 0.00029514s 0.000295118s 0.000289228s 0.000259643s 0.000237745s used config: 3.0.1
+building Jacobi preconditioner ... done (0.00717907s)
+done (4.16212s)
+================ ELLIPTIC SETUP PRESSURE ================
+allNeumann = 0 
+loading elliptic kernels ... done (0.000158296s)
+timing oogs modes: 0.000240558s 0.000162897s 0.000162866s 0.000159777s 0.000214332s 0.000189916s used config: 2.1.0
+timing oogs modes: 0.000277253s 0.000210597s 0.000208445s 0.000204853s 0.000241592s 0.000218634s used config: 2.1.0
+setup SEMFEM preconditioner ... 
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 25 in communicator MPI COMMUNICATOR 4 DUP FROM 3
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 26 in communicator MPI COMMUNICATOR 4 DUP FROM 3
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 74 in communicator MPI COMMUNICATOR 4 DUP FROM 3
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 24 in communicator MPI COMMUNICATOR 4 DUP FROM 3
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 8 in communicator MPI COMMUNICATOR 4 DUP FROM 3
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 55 in communicator MPI COMMUNICATOR 4 DUP FROM 3
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 73 in communicator MPI COMMUNICATOR 4 DUP FROM 3
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@batch5>
+Subject: Job 1450766: <nekRS_pb> in cluster <summit> Exited
+
+Job <nekRS_pb> was submitted from host <login3> by user <malachi> in cluster <summit> at Thu Sep 23 15:04:20 2021
+Job was executed on host(s) <1*batch5>, in queue <batch>, as user <malachi> in cluster <summit> at Fri Sep 24 22:34:08 2021
+                            <42*h14n09>
+                            <42*h19n04>
+                            <42*h19n05>
+                            <42*h19n06>
+                            <42*h19n07>
+                            <42*h19n08>
+                            <42*h19n09>
+                            <42*h20n11>
+                            <42*h20n12>
+                            <42*h20n13>
+                            <42*h20n14>
+                            <42*h24n13>
+                            <42*h24n18>
+                            <42*h25n01>
+                            <42*h25n02>
+                            <42*h25n03>
+</ccs/home/malachi> was used as the home directory.
+</gpfs/alpine/scratch/malachi/csc262/siam-pp-22/pb146/runs/semfem-fp64-16> was used as the working directory.
+Started at Fri Sep 24 22:34:08 2021
+Terminated at Fri Sep 24 22:36:04 2021
+Results reported at Fri Sep 24 22:36:04 2021
+
+The output (if any) is above this job summary.
+

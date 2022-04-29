@@ -1,0 +1,52 @@
+                 __    ____  _____
+   ____   ___   / /__ / __ \/ ___/
+  / __ \ / _ \ / //_// /_/ /\__ \ 
+ / / / //  __// ,<  / _, _/___/ / 
+/_/ /_/ \___//_/|_|/_/ |_|/____/  v21.1 (902dc890)
+
+COPYRIGHT (c) 2019-2021 UCHICAGO ARGONNE, LLC
+
+MPI tasks: 48
+
+reading par file ...
+general::filtering is deprecated and might be removed in the future!
+general::filtermodes is deprecated and might be removed in the future!
+general::filterweight is deprecated and might be removed in the future!
+
+using NEKRS_HOME: /ccs/home/malachi/.local/nekrs-next-auto-preco
+using NEKRS_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb1568/cheby-asm-fp32-8/.cache
+using OCCA_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb1568/cheby-asm-fp32-8/.cache/occa/
+
+Initializing device 
+active occa mode: CUDA
+
+building udf ... 
+[100%] Built target UDF
+done (0.336053s)
+loading nek ... 
+done
+loading udf kernels ... done (0.00572437s)
+
+loading kernels ... 
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@batch1>
+Subject: Job 1454255: <auto_preco_nekRS_peb1568_n2t2bnb> in cluster <summit> Exited
+
+Job <auto_preco_nekRS_peb1568_n2t2bnb> was submitted from host <login1> by user <malachi> in cluster <summit> at Sun Sep 26 15:17:26 2021
+Job was executed on host(s) <1*batch1>, in queue <batch>, as user <malachi> in cluster <summit> at Sun Sep 26 15:18:33 2021
+                            <42*b36n14>
+                            <42*b36n15>
+                            <42*b36n16>
+                            <42*b36n17>
+                            <42*b36n18>
+                            <42*c01n01>
+                            <42*c01n02>
+                            <42*c29n12>
+</ccs/home/malachi> was used as the home directory.
+</gpfs/alpine/scratch/malachi/csc262/siam-pp-22/pb1568/cheby-asm-fp32-8> was used as the working directory.
+Started at Sun Sep 26 15:18:33 2021
+Terminated at Sun Sep 26 15:19:11 2021
+Results reported at Sun Sep 26 15:19:11 2021
+
+The output (if any) is above this job summary.
+

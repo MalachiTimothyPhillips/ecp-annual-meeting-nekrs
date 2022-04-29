@@ -1,0 +1,287 @@
+                 __    ____  _____
+   ____   ___   / /__ / __ \/ ___/
+  / __ \ / _ \ / //_// /_/ /\__ \ 
+ / / / //  __// ,<  / _, _/___/ / 
+/_/ /_/ \___//_/|_|/_/ |_|/____/  v21.1.1 (e0ae2987)
+
+COPYRIGHT (c) 2019-2021 UCHICAGO ARGONNE, LLC
+
+MPI tasks: 96
+
+reading par file ...
+
+using NEKRS_HOME: /ccs/home/malachi/.local/nekrs
+using NEKRS_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/kershaw/weak-scaling-study/eps-0.3/semfem-16/.cache
+using OCCA_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/kershaw/weak-scaling-study/eps-0.3/semfem-16/.cache/occa/
+
+Initializing device 
+active occa mode: CUDA
+
+building udf ... 
+Consolidate compiler generated dependencies of target UDF
+[100%] Built target UDF
+done (0.594026s)
+skip building nekInterface (SIZE has not changed)
+loading nek ... 
+done
+loading udf kernels ... done (0.0249786s)
+
+loading kernels ... done (3.28325s)
+
+ Reading /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/kershaw/weak-scaling-study/eps-0.3/semfem-16/kershaw.re2                             
+ reading mesh 
+ reading bc for ifld           1
+ done :: read .re2 file    0.91     sec
+
+Running parCon ... (tol=0.2)
+Running parRSB ...
+Warning: Partitioner only reached a tolerance of 0.091904 given 0.000500 after 50 x 50 iterations in Level=1!
+Warning: Partitioner only reached a tolerance of 0.006866 given 0.000160 after 50 x 50 iterations in Level=3!
+Warning: Partitioner only reached a tolerance of 0.014388 given 0.000080 after 50 x 50 iterations in Level=4!
+parRSB finished in 4.60156 s
+
+ reading mesh 
+ reading bc for ifld           1
+ done :: read .re2 file    0.62     sec
+
+ setup mesh topology
+   Right-handed check complete for      753571 elements. OK.
+gs_setup: 5378038 unique labels shared
+   handle bytes (avg, min, max): 2.81446e+07 27179756 29080540
+   buffer bytes (avg, min, max): 1.83413e+06 1082384 2652784
+   setupds time 8.7065E-01 seconds   0  8    96922736      753571
+ 
+ nElements   max/min/bal: 7850 7849 1.00
+ nMessages   max/min/avg: 20 4 10.92
+ msgSize     max/min/avg: 43170 1 11416.16
+ msgSizeSum  max/min/avg: 165799 67649 114633.06
+ 
+ max multiplicity            8
+ done :: setup mesh topology
+  
+ call usrdat
+ epsy=  0.29999999999999999      epsz=  0.29999999999999999     
+ done :: usrdat
+
+ generate geometry data
+ done :: generate geometry data
+  
+ call usrdat2
+ done :: usrdat2
+
+  1.1102E-16  1.1102E-16  1.1102E-16  1.1102E-16  1.1102E-16  1.1102E-16 xyz repair 1
+  1.1102E-16  1.1102E-16  1.1102E-16  1.9491E-16  1.9536E-16  2.0870E-16 xyz repair 2
+  1.1102E-16  1.1102E-16  1.1102E-16  1.5993E-16  1.7671E-16  2.0780E-16 xyz repair 3
+  5.5511E-17  5.5511E-17  5.5511E-17  5.5511E-17  5.5511E-17  5.5511E-17 xyz repair 4
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ verify mesh topology
+ -0.50000000000000000       0.50000000000000000       Xrange
+ -0.50000000000000000       0.50000000000000000       Yrange
+ -0.50000000000000000       0.50000000000000000       Zrange
+ done :: verify mesh topology
+  
+ mesh metrics:
+ GLL grid spacing min/max    : 2.11E-04 1.37E-02
+ scaled Jacobian  min/max/avg: 6.11E-01 1.00E+00 9.32E-01
+ aspect ratio     min/max/avg: 1.00E+00 1.80E+01 4.13E+00
+
+ call usrdat3
+ done :: usrdat3
+
+gridpoints unique/tot:     259694072    385828352
+dofs vel/pr:               259694072    257259456
+ nek setup done in    1.4012E+01 s
+
+ set initial conditions
+ nekuic (1) for ifld            1
+ call nekuic for vel  
+ xyz min   -0.50000     -0.50000     -0.50000    
+ uvwpt min  -1.0000      0.18859E-06  0.58953E-06   0.0000       0.0000    
+ PS min      0.0000       0.0000       0.0000      0.99000E+22
+ xyz max    0.50000      0.50000      0.50000    
+ uvwpt max   1.0000       1.0000       1.0000       0.0000       0.0000    
+ PS max      0.0000       0.0000       0.0000     -0.99000E+22
+ done :: set initial conditions
+  
+calling nek_userchk ...
+
+loading mesh from nek ... NboundaryIDs: 1, NboundaryFaces: 49686 done (0.000835452s)
+generating mesh ... Nq: 8 cubNq: 11
+computing geometric factors ... J [1.49289e-08,4.79384e-07] done (0.472259s)
+timing oogs modes: 0.000483814s 0.000365797s 0.000355066s 0.000345747s 0.000302585s 0.000251241s used config: 3.0.1
+min 62% of the local elements are internal
+timing oogs modes: 0.00183612s 0.000875813s 0.000891637s 0.000877662s 0.000610951s 0.000586706s used config: 3.0.1
+loading ns kernels ... done (0.000351279s)
+copying solution from nek
+calling udf_setup ... done
+================ ELLIPTIC SETUP VELOCITY ================
+bID 1 -> bcType zeroGradient
+allNeumann = 0 
+loading elliptic kernels ... done (0.000185673s)
+timing oogs modes: 0.00166285s 0.00089319s 0.000892774s 0.000898564s 0.000602412s 0.000588754s used config: 3.0.1
+timing oogs modes: 0.00179678s 0.00154053s 0.00144564s 0.00155545s 0.000755836s 0.00071598s used config: 3.0.1
+building Jacobi preconditioner ... done (0.332667s)
+done (1.55607s)
+================ ELLIPTIC SETUP PRESSURE ================
+WARNING: Cannot find oudf function: pressureDirichletConditions!
+allNeumann = 0 
+loading elliptic kernels ... done (0.000178465s)
+timing oogs modes: 0.000496839s 0.000347736s 0.000384366s 0.000369854s 0.000285801s 0.000256305s used config: 3.0.1
+timing oogs modes: 0.000636233s 0.000746601s 0.000747285s 0.000751805s 0.000433746s 0.000420066s used config: 3.0.1
+setup SEMFEM preconditioner ... 
+building matrix ... done (13.3549s)
+AMGX version 2.2.0.132-opensource
+Built on Oct  8 2021, 15:27:36
+Compiled with CUDA Runtime 11.0, using CUDA driver 11.0
+Using CUDA-Aware MPI (GPU Direct) communicator...
+AMG Grid:
+         Number of Levels: 10
+            LVL         ROWS               NNZ    SPRSTY       Mem (GB)
+         --------------------------------------------------------------
+           0(D)    257259456        4875802416  7.37e-08           43.7
+           1(D)    100566659        4160903993  4.11e-07           73.6
+           2(D)     28417105        2246615891  2.78e-06           43.8
+           3(D)      5696311         663685577  2.05e-05           15.6
+           4(D)       742994          98322242  0.000178           3.34
+           5(D)        79319           9869941   0.00157          0.616
+           6(D)         8595            925437    0.0125          0.133
+           7(D)         1049             84179    0.0765         0.0304
+           8(D)          144              7108     0.343        0.00383
+           9(D)           21               337     0.764       7.66e-05
+         --------------------------------------------------------------
+         Grid Complexity: 1.52675
+         Operator Complexity: 2.47266
+         Total Memory Usage: 180.881 GB
+         --------------------------------------------------------------
+done (45.0151s)
+done (45.0153s)
+done (49.0098s)
+copying solution to nek
+
+settings:
+
+key: CHECKPOINT OUTPUT MESH,                                  value: FALSE
+key: FORMAT,                                                  value: 1.0
+key: CONSTANT FLOW RATE,                                      value: FALSE
+key: ELEMENT TYPE,                                            value: 12
+key: ELEMENT MAP,                                             value: ISOPARAMETRIC
+key: MESH DIMENSION,                                          value: 3
+key: NUMBER OF SCALARS,                                       value: 0
+key: SCALAR MAXIMUM ITERATIONS,                               value: 200
+key: TIME INTEGRATOR,                                         value: TOMBO2
+key: MESH INTEGRATION ORDER,                                  value: 3
+key: SUBCYCLING STEPS,                                        value: 0
+key: SUBCYCLING TIME ORDER,                                   value: 4
+key: SUBCYCLING TIME STAGE NUMBER,                            value: 4
+key: CASENAME,                                                value: kershaw
+key: UDF OKL FILE,                                            value: kershaw.oudf
+key: UDF FILE,                                                value: kershaw.udf
+key: NEK USR FILE,                                            value: kershaw.usr
+key: MESH FILE,                                               value: kershaw.re2
+key: DEVICE NUMBER,                                           value: 0
+key: PLATFORM NUMBER,                                         value: 0
+key: VERBOSE,                                                 value: FALSE
+key: ADVECTION,                                               value: TRUE
+key: ADVECTION TYPE,                                          value: CUBATURE+CONVECTIVE
+key: RESTART FROM FILE,                                       value: 0
+key: SOLUTION OUTPUT INTERVAL,                                value: 0.000000
+key: SOLUTION OUTPUT CONTROL,                                 value: STEPS
+key: REGULARIZATION METHOD,                                   value: NONE
+key: START TIME,                                              value: 0.000000e+00
+key: VELOCITY MAXIMUM ITERATIONS,                             value: 200
+key: VELOCITY BLOCK SOLVER,                                   value: TRUE
+key: VELOCITY KRYLOV SOLVER,                                  value: PCG
+key: VELOCITY BASIS,                                          value: NODAL
+key: VELOCITY PRECONDITIONER,                                 value: JACOBI
+key: VELOCITY DISCRETIZATION,                                 value: CONTINUOUS
+key: STRESSFORMULATION,                                       value: FALSE
+key: ELLIPTIC INTEGRATION,                                    value: NODAL
+key: PRESSURE MAXIMUM ITERATIONS,                             value: 500
+key: GALERKIN COARSE MATRIX,                                  value: FALSE
+key: PRESSURE KRYLOV SOLVER,                                  value: PGMRES+FLEXIBLE
+key: PRESSURE PRECONDITIONER,                                 value: SEMFEM
+key: PRESSURE DISCRETIZATION,                                 value: CONTINUOUS
+key: PRESSURE BASIS,                                          value: NODAL
+key: AMG SOLVER,                                              value: BOOMERAMG
+key: AMG SOLVER PRECISION,                                    value: FP64
+key: AMG SOLVER LOCATION,                                     value: CPU
+key: PRESSURE PARALMOND CYCLE,                                value: VCYCLE
+key: PRESSURE MULTIGRID COARSE SOLVE,                         value: TRUE
+key: PRESSURE MULTIGRID COARSE SEMFEM,                        value: FALSE
+key: PRESSURE MULTIGRID SMOOTHER,                             value: CHEBYSHEV+ASM
+key: PRESSURE MULTIGRID DOWNWARD SMOOTHER,                    value: ASM
+key: PRESSURE MULTIGRID UPWARD SMOOTHER,                      value: ASM
+key: PRESSURE MULTIGRID CHEBYSHEV DEGREE,                     value: 2
+key: PRESSURE MULTIGRID CHEBYSHEV MIN EIGENVALUE BOUND FACTOR,value: 0.1
+key: PRESSURE MULTIGRID CHEBYSHEV MAX EIGENVALUE BOUND FACTOR,value: 1.1
+key: PRESSURE INITIAL GUESS,                                  value: PREVIOUS
+key: PRESSURE RESIDUAL PROJECTION VECTORS,                    value: 10
+key: PRESSURE RESIDUAL PROJECTION START,                      value: 5
+key: PARALMOND SMOOTH COARSEST,                               value: FALSE
+key: ENABLE FLOATCOMMHALF GS SUPPORT,                         value: FALSE
+key: MOVING MESH,                                             value: FALSE
+key: ENABLE OVERLAP,                                          value: TRUE
+key: VARIABLE DT,                                             value: FALSE
+key: POLYNOMIAL DEGREE,                                       value: 7
+key: NUMBER TIMESTEPS,                                        value: 0
+key: CUBATURE POLYNOMIAL DEGREE,                              value: 10
+key: VELOCITY REGULARIZATION METHOD,                          value: NONE
+key: PRESSURE LINEAR SOLVER STOPPING CRITERION,               value: RELATIVE
+key: PRESSURE SOLVER TOLERANCE,                               value: 1.000000e-08
+key: PRESSURE SEMFEM SOLVER,                                  value: AMGX
+key: PRESSURE SEMFEM SOLVER PRECISION,                        value: FP32
+key: PRESSURE PGMRES RESTART,                                 value: 20
+key: AMGX CONFIG FILE,                                        value: amgx.json
+key: DENSITY,                                                 value: 1.000000e+00
+key: VISCOSITY,                                               value: 1.000000e+00
+key: BUILD ONLY,                                              value: FALSE
+key: THREAD MODEL,                                            value: CUDA
+key: DATA FILE,                                               value: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/kershaw/weak-scaling-study/eps-0.3/semfem-16/.cache/udf/udf.okl
+key: CI-MODE,                                                 value: 0
+
+occa memory usage: 5.1722 GB
+initialization took 81.4817 s
+solving ..........
+iterations: 96
+avg solve time: 2.18406 s
+  preconditioner 2.34865 s
+avg throughput: 1.18346e+08 DOF/s
+avg throughput: 1.13612e+10 (DOF x iter)/s
+elapsedTime: 82.8727 s
+End
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@batch5>
+Subject: Job 1502039: <nekRS_kershaw> in cluster <summit> Done
+
+Job <nekRS_kershaw> was submitted from host <login2> by user <malachi> in cluster <summit> at Fri Oct  8 17:35:29 2021
+Job was executed on host(s) <1*batch5>, in queue <batch>, as user <malachi> in cluster <summit> at Fri Oct  8 18:55:06 2021
+                            <42*g02n01>
+                            <42*g02n02>
+                            <42*g05n18>
+                            <42*g05n01>
+                            <42*g06n06>
+                            <42*g06n07>
+                            <42*g18n04>
+                            <42*g18n05>
+                            <42*h19n03>
+                            <42*h19n04>
+                            <42*h19n08>
+                            <42*h19n09>
+                            <42*h19n10>
+                            <42*h19n11>
+                            <42*h21n16>
+                            <42*h36n15>
+</ccs/home/malachi> was used as the home directory.
+</gpfs/alpine/scratch/malachi/csc262/siam-pp-22/kershaw/weak-scaling-study/eps-0.3/semfem-16> was used as the working directory.
+Started at Fri Oct  8 18:55:06 2021
+Terminated at Fri Oct  8 18:57:22 2021
+Results reported at Fri Oct  8 18:57:22 2021
+
+The output (if any) is above this job summary.
+

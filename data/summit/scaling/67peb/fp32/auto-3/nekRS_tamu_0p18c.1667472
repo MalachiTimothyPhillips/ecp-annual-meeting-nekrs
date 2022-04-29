@@ -1,0 +1,70 @@
+                 __    ____  _____
+   ____   ___   / /__ / __ \/ ___/
+  / __ \ / _ \ / //_// /_/ /\__ \ 
+ / / / //  __// ,<  / _, _/___/ / 
+/_/ /_/ \___//_/|_|/_/ |_|/____/  v21.2.0 (e5b872de)
+
+COPYRIGHT (c) 2019-2021 UCHICAGO ARGONNE, LLC
+
+MPI tasks: 18
+
+reading par file ...
+general::extrapolation is deprecated and might be removed in the future!
+general::filtering is deprecated and might be removed in the future!
+general::filtermodes is deprecated and might be removed in the future!
+general::filterweight is deprecated and might be removed in the future!
+
+using NEKRS_HOME: /ccs/home/malachi/.local/nekrs-tuner
+using NEKRS_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/67peb/auto-fp32-3/.cache
+using OCCA_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/67peb/auto-fp32-3/.cache/occa/
+
+Initializing device 
+active occa mode: CUDA
+
+building udf ... 
+[100%] Built target UDF
+done (0.821922s)
+skip building nekInterface (SIZE requires no update)
+loading nek ... 
+done
+loading udf kernels ... done (0.0648231s)
+
+loading kernels ... done (2.53308s)
+
+ Reading /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/67peb/auto-fp32-3/tamu_0p18c.re2                                                     
+ERROR (proc 0002, src/fcrystal.c:94): comm_init_check: passed P=4090558768, but MPI_Comm_size gives P=18
+ERROR (proc 0008, src/fcrystal.c:94): comm_init_check: passed P=3663976960, but MPI_Comm_size gives P=18
+ERROR (proc 0001, src/fcrystal.c:94): comm_init_check: passed P=3441901568, but MPI_Comm_size gives P=18
+ERROR (proc 0009, src/fcrystal.c:94): comm_init_check: passed P=3971941584, but MPI_Comm_size gives P=18
+ERROR (proc 0005, src/fcrystal.c:94): comm_init_check: passed P=3879180384, but MPI_Comm_size gives P=18
+ERROR (proc 0007, src/fcrystal.c:94): comm_init_check: passed P=3440551984, but MPI_Comm_size gives P=18
+ERROR (proc 0000, src/fcrystal.c:94): comm_init_check: passed P=3249928320, but MPI_Comm_size gives P=18
+ERROR (proc 0010, src/fcrystal.c:94): comm_init_check: passed P=3809598976, but MPI_Comm_size gives P=18
+ERROR (proc 0004, src/fcrystal.c:94): comm_init_check: passed P=3285367456, but MPI_Comm_size gives P=18
+ERROR (proc 0011, src/fcrystal.c:94): comm_init_check: passed P=4239438960, but MPI_Comm_size gives P=18
+ERROR (proc 0003, src/fcrystal.c:94): comm_init_check: passed P=3614000016, but MPI_Comm_size gives P=18
+ERROR (proc 0006, src/fcrystal.c:94): comm_init_check: passed P=4080282752, but MPI_Comm_size gives P=18
+ERROR (proc 0015, src/fcrystal.c:94): comm_init_check: passed P=3770850000, but MPI_Comm_size gives P=18
+ERROR (proc 0016, src/fcrystal.c:94): comm_init_check: passed P=4285485792, but MPI_Comm_size gives P=18
+ERROR (proc 0017, src/fcrystal.c:94): comm_init_check: passed P=3547583296, but MPI_Comm_size gives P=18
+ERROR (proc 0014, src/fcrystal.c:94): comm_init_check: passed P=3564676656, but MPI_Comm_size gives P=18
+ERROR (proc 0013, src/fcrystal.c:94): comm_init_check: passed P=3585272720, but MPI_Comm_size gives P=18
+ERROR (proc 0012, src/fcrystal.c:94): comm_init_check: passed P=3630848080, but MPI_Comm_size gives P=18
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@batch5>
+Subject: Job 1667472: <nekRS_tamu_0p18c> in cluster <summit> Exited
+
+Job <nekRS_tamu_0p18c> was submitted from host <login3> by user <malachi> in cluster <summit> at Fri Dec  3 10:40:07 2021
+Job was executed on host(s) <1*batch5>, in queue <batch>, as user <malachi> in cluster <summit> at Fri Dec  3 10:44:28 2021
+                            <42*h25n06>
+                            <42*h25n07>
+                            <42*h50n15>
+</ccs/home/malachi> was used as the home directory.
+</gpfs/alpine/scratch/malachi/csc262/siam-pp-22/67peb/auto-fp32-3> was used as the working directory.
+Started at Fri Dec  3 10:44:28 2021
+Terminated at Fri Dec  3 10:45:02 2021
+Results reported at Fri Dec  3 10:45:02 2021
+
+The output (if any) is above this job summary.
+

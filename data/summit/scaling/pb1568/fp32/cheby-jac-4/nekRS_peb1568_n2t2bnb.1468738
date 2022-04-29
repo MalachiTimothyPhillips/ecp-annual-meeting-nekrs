@@ -1,0 +1,1468 @@
+                 __    ____  _____
+   ____   ___   / /__ / __ \/ ___/
+  / __ \ / _ \ / //_// /_/ /\__ \ 
+ / / / //  __// ,<  / _, _/___/ / 
+/_/ /_/ \___//_/|_|/_/ |_|/____/  v21.1.1 (5dfe46bf)
+
+COPYRIGHT (c) 2019-2021 UCHICAGO ARGONNE, LLC
+
+MPI tasks: 24
+
+reading par file ...
+general::filtering is deprecated and might be removed in the future!
+general::filtermodes is deprecated and might be removed in the future!
+general::filterweight is deprecated and might be removed in the future!
+
+using NEKRS_HOME: /ccs/home/malachi/.local/nekrs
+using NEKRS_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb1568/cheby-jac-fp32-4/.cache
+using OCCA_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb1568/cheby-jac-fp32-4/.cache/occa/
+
+Initializing device 
+active occa mode: CUDA
+
+building udf ... 
+Consolidate compiler generated dependencies of target UDF
+[100%] Built target UDF
+done (0.387409s)
+skip building nekInterface (SIZE has not changed)
+loading nek ... 
+done
+loading udf kernels ... done (0.00551009s)
+
+loading kernels ... done (3.47061s)
+
+ Reading /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb1568/cheby-jac-fp32-4/peb1568_n2t2bnb.re2                                          
+ reading mesh 
+ reading bc for ifld           1
+ done :: read .re2 file     4.8     sec
+
+Running parCon ... (tol=0.2)
+
+ Error: elementCheck
+Running parCon ... (tol=0.02)
+Running parRSB ...
+Warning: Partitioner only reached a tolerance of 1.280413 given 0.000500 after 50 x 50 iterations in Level=1!
+parRSB finished in 12.7073 s
+
+ reading mesh 
+ reading curved sides 
+ reading bc for ifld           1
+ done :: read .re2 file     7.2     sec
+
+ setup mesh topology
+   Right-handed check complete for      524386 elements. OK.
+gs_setup: 2798876 unique labels shared
+   handle bytes (avg, min, max): 7.45954e+07 73960644 75738756
+   buffer bytes (avg, min, max): 3.78321e+06 3097472 4881760
+   setupds time 2.6811E+00 seconds   0  8    70904907      524386
+ 
+ nElements   max/min/bal: 21850 21849 1.00
+ nMessages   max/min/avg: 14 5 8.67
+ msgSize     max/min/avg: 84316 1 29275.67
+ msgSizeSum  max/min/avg: 305110 193592 236450.67
+ 
+ max multiplicity           44
+ done :: setup mesh topology
+  
+ call usrdat
+ done :: usrdat
+
+ generate geometry data
+ done :: generate geometry data
+  
+ call usrdat2
+ done :: usrdat2
+
+  3.9629E-15  3.9299E-15  7.1054E-15  7.6927E-16  7.6927E-16  9.8206E-16 xyz repair 1
+  3.9629E-15  3.9299E-15  7.1054E-15  6.9253E-15  6.5223E-15  9.3390E-15 xyz repair 2
+  3.5527E-15  3.5527E-15  7.1054E-15  6.0236E-15  6.1523E-15  8.9797E-15 xyz repair 3
+  2.6787E-15  2.8469E-15  2.7194E-15  2.6787E-15  2.8469E-15  2.7194E-15 xyz repair 4
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ verify mesh topology
+  -13.858251128023300        13.858078221547562       Xrange
+  -13.858092645782323        13.858190303122345       Yrange
+  -14.673319816589355        17.691219329833984       Zrange
+ done :: verify mesh topology
+  
+ mesh metrics:
+ GLL grid spacing min/max    : 2.21E-04 3.02E-01
+ scaled Jacobian  min/max/avg: 2.59E-02 9.91E-01 3.71E-01
+ aspect ratio     min/max/avg: 1.12E+00 1.08E+02 1.26E+01
+
+ call usrdat3
+ done :: usrdat3
+
+gridpoints unique/tot:     184172283    268485632
+dofs vel/pr:               175531272    184064426
+ nek setup done in    4.7814E+01 s
+
+ set initial conditions
+ Checking restart options: r5.fld                                                                                                                              
+ nekuic (1) for ifld            1
+ Reading checkpoint data 
+       FILE:/gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb1568/cheby-jac-fp32-4/r5.fld                                                       
+
+        0  2.0000E+01 done :: Read checkpoint data
+                              avg data-throughput =     0.4GB/s
+                              io-nodes =    24
+
+ xyz min    -13.858      -13.858      -14.673    
+ uvwpt min  -6.4231      -7.8486      -7.9142      -20.893       0.0000    
+ PS min      0.0000       0.0000       0.0000      0.99000E+22
+ xyz max     13.858       13.858       17.691    
+ uvwpt max   6.5953       7.1037       10.614       19.461       0.0000    
+ PS max      0.0000       0.0000       0.0000     -0.99000E+22
+ Restart: recompute geom. factors.
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ done :: set initial conditions
+  
+calling nek_userchk ...
+ xyz min    -13.858      -13.858      -14.673    
+ xyz max     13.858       13.858       17.691    
+
+loading mesh from nek ... NboundaryIDs: 4, NboundaryFaces: 178458 done (0.00241103s)
+generating mesh ... Nq: 8 cubNq: 11
+computing geometric factors ... J [1.11222e-05,0.168148] done (1.25789s)
+timing oogs modes: 0.00134766s 0.000846538s 0.00081484s 0.000825312s 0.000554522s 0.000541312s used config: 3.0.1
+min 72% of the local elements are internal
+timing oogs modes: 0.00539487s 0.0023248s 0.00230358s 0.00231041s 0.00164743s 0.00164216s used config: 3.0.1
+loading ns kernels ... done (0.000264299s)
+copying solution from nek
+calling udf_setup ... done
+================ ELLIPTIC SETUP VELOCITY ================
+bID 1 -> bcType fixedValue
+bID 2 -> bcType zeroGradient
+bID 3 -> bcType zeroValue
+bID 4 -> bcType zeroValue
+allNeumann = 0 
+loading elliptic kernels ... done (0.000140604s)
+timing oogs modes: 0.00524082s 0.00230686s 0.00236485s 0.00252721s 0.00164122s 0.00163984s used config: 3.0.1
+timing oogs modes: 0.00546743s 0.00390433s 0.00398111s 0.00390485s 0.0020416s 0.00204037s used config: 3.0.1
+building Jacobi preconditioner ... done (0.21977s)
+done (1.62554s)
+================ ELLIPTIC SETUP PRESSURE ================
+allNeumann = 0 
+loading elliptic kernels ... done (0.000151251s)
+timing oogs modes: 0.001431s 0.000826517s 0.000812152s 0.000807529s 0.000541187s 0.000544505s used config: 3.0.0
+timing oogs modes: 0.00160403s 0.00182604s 0.00183203s 0.00183697s 0.00115022s 0.00114721s used config: 3.0.1
+building MG preconditioner ... 
+loading elliptic preconditioner kernels ... done (0.000103123s)
+=============BUILDING MULTIGRID LEVEL OF DEGREE 7==================
+timing oogs modes: 0.0012208s 0.000459745s 0.000487387s 0.000452621s 0.000314819s 0.000315045s used config: 3.0.0
+timing oogs modes: 0.00124631s 0.000887651s 0.000866756s 0.000875083s 0.000530396s 0.000526167s used config: 3.0.1
+building Jacobi ... done (0.619658s)
+estimating maxEigenvalue ... 3.66167 done (0.876543s)
+=============BUILDING MULTIGRID LEVEL OF DEGREE 5==================
+computing geometric factors ... J [1.11206e-05,0.168147] done (0.51157s)
+loading elliptic preconditioner kernels ... done (0.000190941s)
+done (0.000446405s)
+timing oogs modes: 0.000672913s 0.000309073s 0.000369494s 0.000300865s 0.000225939s 0.000207063s used config: 3.0.1
+timing oogs modes: 0.000692866s 0.000507704s 0.000499569s 0.000497647s 0.000286425s 0.00028119s used config: 3.0.1
+building Jacobi ... done (0.219226s)
+estimating maxEigenvalue ... 3.06647 done (0.535355s)
+=============BUILDING MULTIGRID LEVEL OF DEGREE 3==================
+computing geometric factors ... J [1.11284e-05,0.16815] done (0.141106s)
+loading elliptic preconditioner kernels ... done (0.000139148s)
+done (0.000226375s)
+timing oogs modes: 0.000319169s 0.000201632s 0.000199399s 0.000199216s 0.000200979s 0.000186636s used config: 3.0.1
+timing oogs modes: 0.000353533s 0.000263257s 0.000261677s 0.000262341s 0.000238775s 0.000212628s used config: 3.0.1
+building Jacobi ... done (0.0558904s)
+estimating maxEigenvalue ... 2.4338 done (0.330706s)
+=============BUILDING MULTIGRID LEVEL OF DEGREE 1==================
+computing geometric factors ... J [1.11737e-05,0.168688] done (0.017723s)
+loading elliptic preconditioner kernels ... done (0.000138853s)
+done (0.000221875s)
+timing oogs modes: 0.000147587s 0.000133105s 0.000131452s 0.00013454s 0.000185236s 0.000173892s used config: 2.0.1
+timing oogs modes: 0.000177961s 0.000175002s 0.000171303s 0.000170681s 0.00022014s 0.000203837s used config: 2.1.0
+building full FEM matrix ... done.
+done (0.669196s)
+Setting up AMG...
+
+ Num MPI tasks = 24
+
+ Num OpenMP threads = 1
+
+
+BoomerAMG SETUP PARAMETERS:
+
+ Max levels = 25
+ Num levels = 8
+
+ Strength Threshold = 0.250000
+ Interpolation Truncation Factor = 0.000000
+ Maximum Row Sum Threshold for Dependency Weakening = 0.900000
+
+ Coarsening Type = PMIS 
+ measures are determined locally
+
+ Interpolation = extended+i interpolation
+
+Operator Matrix Information:
+
+             nonzero            entries/row          row sums
+lev    rows  entries sparse   min  max     avg      min         max
+======================================================================
+  0  603488 10696902  0.000     8   91    17.7  -2.083e-07   2.251e+00
+  1  260115  7218949  0.000     9  181    27.8  -6.559e-06   2.747e+00
+  2   84624  2769606  0.000     7  178    32.7  -6.742e-03   2.970e+00
+  3   18923   630495  0.002    10  126    33.3  -8.953e-03   4.891e+00
+  4    3144   118698  0.012    12  118    37.8  -6.413e-03   6.501e+00
+  5     351    12307  0.100    13   85    35.1  -5.673e-03   9.115e+00
+  6      38      840  0.582    14   38    22.1  -1.717e-03   1.615e+01
+  7       4       16  1.000     4    4     4.0   2.720e+00   1.060e+01
+
+
+Interpolation Matrix Information:
+                      entries/row        min        max            row sums
+lev   rows x cols   min  max  avgW     weight      weight       min         max
+==================================================================================
+  0 603488 x 260115   1    4   2.1  -2.590e-01   1.000e+00   5.255e-01   1.000e+00
+  1 260115 x 84624    1    4   3.1  -1.434e-01   1.029e+00   3.712e-01   1.000e+00
+  2  84624 x 18923    1    4   3.7  -7.742e-02   1.005e+00   2.221e-01   1.005e+00
+  3  18923 x 3144     1    4   3.9  -1.960e-01   1.007e+00   1.834e-01   1.014e+00
+  4   3144 x 351      1    4   4.0  -7.041e-01   9.995e-01   1.220e-01   1.006e+00
+  5    351 x 38       1    4   4.0   5.275e-03   6.643e-01   9.613e-02   1.004e+00
+  6     38 x 4        1    4   3.8   2.604e-02   6.270e-01   2.225e-01   1.001e+00
+
+
+     Complexity:    grid = 1.608461
+                operator = 2.005049
+                memory = 2.186507
+
+
+
+
+BoomerAMG SOLVER PARAMETERS:
+
+  Maximum number of cycles:         2 
+  Stopping Tolerance:               0.000000e+00 
+  Cycle type (1 = V, 2 = W, etc.):  1
+
+  Relaxation Parameters:
+   Visiting Grid:                     down   up  coarse
+            Number of sweeps:            1    1     1 
+   Type 0=Jac, 3=hGS, 6=hSGS, 9=GE:     16   16     9 
+   Point types, partial sweeps (1=C, -1=F):
+                  Pre-CG relaxation (down):   0
+                   Post-CG relaxation (up):   0
+                             Coarsest grid:   0
+
+done (0.680611s)
+--------------------Multigrid Report---------------------
+---------------------------------------------------------
+level|    Type    |                 |     Smoother      |
+     |            |                 |                   |
+---------------------------------------------------------
+   0 |    pMG     |   Matrix-free   | Chebyshev+Jacobi  |
+     |            |     Degree  7   |                   |
+   1 |    pMG     |   Matrix-free   | Chebyshev+Jacobi  |
+     |            |     Degree  5   |                   |
+   2 |    pMG     |   Matrix-free   | Chebyshev+Jacobi  |
+     |            |     Degree  3   |                   |
+   3 |    AMG     |   Matrix        | BoomerAMG         |
+     |            |     Degree  1   |                   |
+---------------------------------------------------------
+done (21.0032s)
+terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 461
+    Function : malloc
+    Message  : Device: malloc
+               CUDA Error [ 2 ]: CUDA_ERROR_OUT_OF_MEMORY
+    Stack
+      13 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      12 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      11 occa::cuda::device::malloc(unsigned long, void const*, occa::json const&)
+      10 occa::device::malloc(long, occa::dtype_t const&, void const*, occa::json const&)
+       9 occa::memory occa::device::malloc<void>(long, void const*, occa::json const&)
+       8 device_t::malloc(long long, int)
+       7 ResidualProjection::ResidualProjection(elliptic_t&, ResidualProjection::ProjectionType, int, int)
+       6 ellipticSolveSetup(elliptic_t*)
+       5 nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)
+       4 nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+       3 /ccs/home/malachi/.local/nekrs/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+[h35n12:482160] *** Process received signal ***
+[h35n12:482160] Signal: Aborted (6)
+[h35n12:482160] Signal code:  (-6)
+[h35n12:482160] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[h35n12:482160] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x20003e723618]
+[h35n12:482160] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x20003e703a2c]
+[h35n12:482160] [ 3] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x20003e32ccc8]
+[h35n12:482160] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x20003e3282e4]
+[h35n12:482160] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x20003e3283a0]
+[h35n12:482160] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x20003e328868]
+[h35n12:482160] [ 7] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007b622c]
+[h35n12:482160] [ 8] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x64)[0x2000007b6434]
+[h35n12:482160] [ 9] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x300)[0x200000724780]
+[h35n12:482160] [10] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda6device6mallocEmPKvRKNS_4jsonE+0x508)[0x2000007155d8]
+[h35n12:482160] [11] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocElRKNS_7dtype_tEPKvRKNS_4jsonE+0xe8)[0x2000005c3188]
+[h35n12:482160] [12] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocIvEENS_6memoryElPKvRKNS_4jsonE+0x34)[0x2000005c3814]
+[h35n12:482160] [13] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN8device_t6mallocExi+0xd8)[0x2000001a8e88]
+[h35n12:482160] [14] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN18ResidualProjectionC2ER10elliptic_tNS_14ProjectionTypeEii+0x298)[0x20000024e318]
+[h35n12:482160] [15] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z18ellipticSolveSetupP10elliptic_t+0x2210)[0x200000252220]
+[h35n12:482160] [16] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z8nrsSetupP19ompi_communicator_tR9setupAideP5nrs_t+0xa344)[0x2000001552e4]
+[h35n12:482160] [17] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN5nekrs5setupEP19ompi_communicator_tS1_iiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_+0x12dc)[0x2000001107fc]
+[h35n12:482160] [18] /ccs/home/malachi/.local/nekrs/bin/nekrs[0x100043cc]
+[h35n12:482160] [19] /lib64/power9/libc.so.6(+0x24078)[0x20003e704078]
+[h35n12:482160] [20] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x20003e704264]
+[h35n12:482160] *** End of error message ***
+terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 461
+    Function : malloc
+    Message  : Device: malloc
+               CUDA Error [ 2 ]: CUDA_ERROR_OUT_OF_MEMORY
+    Stack
+      13 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      12 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      11 occa::cuda::device::malloc(unsigned long, void const*, occa::json const&)
+      10 occa::device::malloc(long, occa::dtype_t const&, void const*, occa::json const&)
+       9 occa::memory occa::device::malloc<void>(long, void const*, occa::json const&)
+       8 device_t::malloc(long long, int)
+       7 ResidualProjection::ResidualProjection(elliptic_t&, ResidualProjection::ProjectionType, int, int)
+       6 ellipticSolveSetup(elliptic_t*)
+       5 nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)
+       4 nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+       3 /ccs/home/malachi/.local/nekrs/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+[a01n14:745157] *** Process received signal ***
+[a01n14:745157] Signal: Aborted (6)
+[a01n14:745157] Signal code:  (-6)
+[a01n14:745157] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[a01n14:745157] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x20003e723618]
+[a01n14:745157] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x20003e703a2c]
+[a01n14:745157] [ 3] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x20003e32ccc8]
+[a01n14:745157] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x20003e3282e4]
+[a01n14:745157] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x20003e3283a0]
+[a01n14:745157] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x20003e328868]
+[a01n14:745157] [ 7] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007b622c]
+[a01n14:745157] [ 8] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x64)[0x2000007b6434]
+[a01n14:745157] [ 9] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x300)[0x200000724780]
+[a01n14:745157] [10] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda6device6mallocEmPKvRKNS_4jsonE+0x508)[0x2000007155d8]
+[a01n14:745157] [11] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocElRKNS_7dtype_tEPKvRKNS_4jsonE+0xe8)[0x2000005c3188]
+[a01n14:745157] [12] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocIvEENS_6memoryElPKvRKNS_4jsonE+0x34)[0x2000005c3814]
+[a01n14:745157] [13] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN8device_t6mallocExi+0xd8)[0x2000001a8e88]
+[a01n14:745157] [14] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN18ResidualProjectionC2ER10elliptic_tNS_14ProjectionTypeEii+0x298)[0x20000024e318]
+[a01n14:745157] [15] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z18ellipticSolveSetupP10elliptic_t+0x2210)[0x200000252220]
+[a01n14:745157] [16] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z8nrsSetupP19ompi_communicator_tR9setupAideP5nrs_t+0xa344)[0x2000001552e4]
+[a01n14:745157] [17] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN5nekrs5setupEP19ompi_communicator_tS1_iiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_+0x12dc)[0x2000001107fc]
+[a01n14:745157] [18] /ccs/home/malachi/.local/nekrs/bin/nekrs[0x100043cc]
+[a01n14:745157] [19] /lib64/power9/libc.so.6(+0x24078)[0x20003e704078]
+[a01n14:745157] [20] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x20003e704264]
+[a01n14:745157] *** End of error message ***
+terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 461
+    Function : malloc
+    Message  : Device: malloc
+               CUDA Error [ 2 ]: CUDA_ERROR_OUT_OF_MEMORY
+    Stack
+      13 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      12 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      11 occa::cuda::device::malloc(unsigned long, void const*, occa::json const&)
+      10 occa::device::malloc(long, occa::dtype_t const&, void const*, occa::json const&)
+       9 occa::memory occa::device::malloc<void>(long, void const*, occa::json const&)
+       8 device_t::malloc(long long, int)
+       7 ResidualProjection::ResidualProjection(elliptic_t&, ResidualProjection::ProjectionType, int, int)
+       6 ellipticSolveSetup(elliptic_t*)
+       5 nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)
+       4 nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+       3 /ccs/home/malachi/.local/nekrs/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+[h33n09:1380077] *** Process received signal ***
+[h33n09:1380077] Signal: Aborted (6)
+[h33n09:1380077] Signal code:  (-6)
+[h33n09:1380077] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[h33n09:1380077] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x20003e723618]
+[h33n09:1380077] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x20003e703a2c]
+[h33n09:1380077] [ 3] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x20003e32ccc8]
+[h33n09:1380077] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x20003e3282e4]
+[h33n09:1380077] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x20003e3283a0]
+[h33n09:1380077] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x20003e328868]
+[h33n09:1380077] [ 7] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007b622c]
+[h33n09:1380077] [ 8] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x64)[0x2000007b6434]
+[h33n09:1380077] [ 9] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x300)[0x200000724780]
+[h33n09:1380077] [10] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda6device6mallocEmPKvRKNS_4jsonE+0x508)[0x2000007155d8]
+[h33n09:1380077] [11] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocElRKNS_7dtype_tEPKvRKNS_4jsonE+0xe8)[0x2000005c3188]
+[h33n09:1380077] [12] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocIvEENS_6memoryElPKvRKNS_4jsonE+0x34)[0x2000005c3814]
+[h33n09:1380077] [13] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN8device_t6mallocExi+0xd8)[0x2000001a8e88]
+[h33n09:1380077] [14] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN18ResidualProjectionC2ER10elliptic_tNS_14ProjectionTypeEii+0x298)[0x20000024e318]
+[h33n09:1380077] [15] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z18ellipticSolveSetupP10elliptic_t+0x2210)[0x200000252220]
+[h33n09:1380077] [16] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z8nrsSetupP19ompi_communicator_tR9setupAideP5nrs_t+0xa344)[0x2000001552e4]
+[h33n09:1380077] [17] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN5nekrs5setupEP19ompi_communicator_tS1_iiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_+0x12dc)[0x2000001107fc]
+[h33n09:1380077] [18] /ccs/home/malachi/.local/nekrs/bin/nekrs[0x100043cc]
+[h33n09:1380077] [19] /lib64/power9/libc.so.6(+0x24078)[0x20003e704078]
+[h33n09:1380077] [20] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x20003e704264]
+[h33n09:1380077] *** End of error message ***
+terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 461
+    Function : malloc
+    Message  : Device: malloc
+               CUDA Error [ 2 ]: CUDA_ERROR_OUT_OF_MEMORY
+    Stack
+      13 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      12 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      11 occa::cuda::device::malloc(unsigned long, void const*, occa::json const&)
+      10 occa::device::malloc(long, occa::dtype_t const&, void const*, occa::json const&)
+       9 occa::memory occa::device::malloc<void>(long, void const*, occa::json const&)
+       8 device_t::malloc(long long, int)
+       7 ResidualProjection::ResidualProjection(elliptic_t&, ResidualProjection::ProjectionType, int, int)
+       6 ellipticSolveSetup(elliptic_t*)
+       5 nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)
+       4 nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+       3 /ccs/home/malachi/.local/nekrs/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+[h35n12:482156] *** Process received signal ***
+[h35n12:482156] Signal: Aborted (6)
+[h35n12:482156] Signal code:  (-6)
+[h35n12:482156] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[h35n12:482156] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x20003e723618]
+[h35n12:482156] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x20003e703a2c]
+[h35n12:482156] [ 3] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x20003e32ccc8]
+[h35n12:482156] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x20003e3282e4]
+[h35n12:482156] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x20003e3283a0]
+[h35n12:482156] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x20003e328868]
+[h35n12:482156] [ 7] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007b622c]
+[h35n12:482156] [ 8] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x64)[0x2000007b6434]
+[h35n12:482156] [ 9] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x300)[0x200000724780]
+[h35n12:482156] [10] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda6device6mallocEmPKvRKNS_4jsonE+0x508)[0x2000007155d8]
+[h35n12:482156] [11] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocElRKNS_7dtype_tEPKvRKNS_4jsonE+0xe8)[0x2000005c3188]
+[h35n12:482156] [12] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocIvEENS_6memoryElPKvRKNS_4jsonE+0x34)[0x2000005c3814]
+[h35n12:482156] [13] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN8device_t6mallocExi+0xd8)[0x2000001a8e88]
+[h35n12:482156] [14] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN18ResidualProjectionC2ER10elliptic_tNS_14ProjectionTypeEii+0x298)[0x20000024e318]
+[h35n12:482156] [15] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z18ellipticSolveSetupP10elliptic_t+0x2210)[0x200000252220]
+[h35n12:482156] [16] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z8nrsSetupP19ompi_communicator_tR9setupAideP5nrs_t+0xa344)[0x2000001552e4]
+[h35n12:482156] [17] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN5nekrs5setupEP19ompi_communicator_tS1_iiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_+0x12dc)[0x2000001107fc]
+[h35n12:482156] [18] /ccs/home/malachi/.local/nekrs/bin/nekrs[0x100043cc]
+[h35n12:482156] [19] /lib64/power9/libc.so.6(+0x24078)[0x20003e704078]
+[h35n12:482156] [20] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x20003e704264]
+[h35n12:482156] *** End of error message ***
+terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 461
+    Function : malloc
+    Message  : Device: malloc
+               CUDA Error [ 2 ]: CUDA_ERROR_OUT_OF_MEMORY
+    Stack
+      13 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      12 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      11 occa::cuda::device::malloc(unsigned long, void const*, occa::json const&)
+      10 occa::device::malloc(long, occa::dtype_t const&, void const*, occa::json const&)
+       9 occa::memory occa::device::malloc<void>(long, void const*, occa::json const&)
+       8 device_t::malloc(long long, int)
+       7 ResidualProjection::ResidualProjection(elliptic_t&, ResidualProjection::ProjectionType, int, int)
+       6 ellipticSolveSetup(elliptic_t*)
+       5 nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)
+       4 nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+       3 /ccs/home/malachi/.local/nekrs/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+[a01n14:745153] *** Process received signal ***
+[a01n14:745153] Signal: Aborted (6)
+[a01n14:745153] Signal code:  (-6)
+[a01n14:745153] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[a01n14:745153] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x20003e723618]
+[a01n14:745153] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x20003e703a2c]
+[a01n14:745153] [ 3] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x20003e32ccc8]
+[a01n14:745153] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x20003e3282e4]
+[a01n14:745153] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x20003e3283a0]
+[a01n14:745153] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x20003e328868]
+[a01n14:745153] [ 7] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007b622c]
+[a01n14:745153] [ 8] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x64)[0x2000007b6434]
+[a01n14:745153] [ 9] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x300)[0x200000724780]
+[a01n14:745153] [10] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda6device6mallocEmPKvRKNS_4jsonE+0x508)[0x2000007155d8]
+[a01n14:745153] [11] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocElRKNS_7dtype_tEPKvRKNS_4jsonE+0xe8)[0x2000005c3188]
+[a01n14:745153] [12] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocIvEENS_6memoryElPKvRKNS_4jsonE+0x34)[0x2000005c3814]
+[a01n14:745153] [13] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN8device_t6mallocExi+0xd8)[0x2000001a8e88]
+[a01n14:745153] [14] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN18ResidualProjectionC2ER10elliptic_tNS_14ProjectionTypeEii+0x298)[0x20000024e318]
+[a01n14:745153] [15] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z18ellipticSolveSetupP10elliptic_t+0x2210)[0x200000252220]
+[a01n14:745153] [16] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z8nrsSetupP19ompi_communicator_tR9setupAideP5nrs_t+0xa344)[0x2000001552e4]
+[a01n14:745153] [17] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN5nekrs5setupEP19ompi_communicator_tS1_iiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_+0x12dc)[0x2000001107fc]
+[a01n14:745153] [18] /ccs/home/malachi/.local/nekrs/bin/nekrs[0x100043cc]
+[a01n14:745153] [19] /lib64/power9/libc.so.6(+0x24078)[0x20003e704078]
+[a01n14:745153] [20] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x20003e704264]
+[a01n14:745153] *** End of error message ***
+terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 461
+    Function : malloc
+    Message  : Device: malloc
+               CUDA Error [ 2 ]: CUDA_ERROR_OUT_OF_MEMORY
+    Stack
+      13 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      12 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      11 occa::cuda::device::malloc(unsigned long, void const*, occa::json const&)
+      10 occa::device::malloc(long, occa::dtype_t const&, void const*, occa::json const&)
+       9 occa::memory occa::device::malloc<void>(long, void const*, occa::json const&)
+       8 device_t::malloc(long long, int)
+       7 ResidualProjection::ResidualProjection(elliptic_t&, ResidualProjection::ProjectionType, int, int)
+       6 ellipticSolveSetup(elliptic_t*)
+       5 nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)
+       4 nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+       3 /ccs/home/malachi/.local/nekrs/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+[h35n16:966808] *** Process received signal ***
+[h35n16:966808] Signal: Aborted (6)
+[h35n16:966808] Signal code:  (-6)
+[h35n16:966808] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[h35n16:966808] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x20003e723618]
+[h35n16:966808] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x20003e703a2c]
+[h35n16:966808] [ 3] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x20003e32ccc8]
+[h35n16:966808] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x20003e3282e4]
+[h35n16:966808] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x20003e3283a0]
+[h35n16:966808] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x20003e328868]
+[h35n16:966808] [ 7] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007b622c]
+[h35n16:966808] [ 8] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x64)[0x2000007b6434]
+[h35n16:966808] [ 9] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x300)[0x200000724780]
+[h35n16:966808] [10] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda6device6mallocEmPKvRKNS_4jsonE+0x508)[0x2000007155d8]
+[h35n16:966808] [11] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocElRKNS_7dtype_tEPKvRKNS_4jsonE+0xe8)[0x2000005c3188]
+[h35n16:966808] [12] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocIvEENS_6memoryElPKvRKNS_4jsonE+0x34)[0x2000005c3814]
+[h35n16:966808] [13] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN8device_t6mallocExi+0xd8)[0x2000001a8e88]
+[h35n16:966808] [14] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN18ResidualProjectionC2ER10elliptic_tNS_14ProjectionTypeEii+0x298)[0x20000024e318]
+[h35n16:966808] [15] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z18ellipticSolveSetupP10elliptic_t+0x2210)[0x200000252220]
+[h35n16:966808] [16] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z8nrsSetupP19ompi_communicator_tR9setupAideP5nrs_t+0xa344)[0x2000001552e4]
+[h35n16:966808] [17] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN5nekrs5setupEP19ompi_communicator_tS1_iiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_+0x12dc)[0x2000001107fc]
+[h35n16:966808] [18] /ccs/home/malachi/.local/nekrs/bin/nekrs[0x100043cc]
+[h35n16:966808] [19] /lib64/power9/libc.so.6(+0x24078)[0x20003e704078]
+[h35n16:966808] [20] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x20003e704264]
+[h35n16:966808] *** End of error message ***
+terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 461
+    Function : malloc
+    Message  : Device: malloc
+               CUDA Error [ 2 ]: CUDA_ERROR_OUT_OF_MEMORY
+    Stack
+      13 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      12 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      11 occa::cuda::device::malloc(unsigned long, void const*, occa::json const&)
+      10 occa::device::malloc(long, occa::dtype_t const&, void const*, occa::json const&)
+       9 occa::memory occa::device::malloc<void>(long, void const*, occa::json const&)
+       8 device_t::malloc(long long, int)
+       7 ResidualProjection::ResidualProjection(elliptic_t&, ResidualProjection::ProjectionType, int, int)
+       6 ellipticSolveSetup(elliptic_t*)
+       5 nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)
+       4 nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+       3 /ccs/home/malachi/.local/nekrs/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+[h33n09:1380076] *** Process received signal ***
+[h33n09:1380076] Signal: Aborted (6)
+[h33n09:1380076] Signal code:  (-6)
+[h33n09:1380076] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[h33n09:1380076] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x20003e723618]
+[h33n09:1380076] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x20003e703a2c]
+[h33n09:1380076] [ 3] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x20003e32ccc8]
+[h33n09:1380076] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x20003e3282e4]
+[h33n09:1380076] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x20003e3283a0]
+[h33n09:1380076] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x20003e328868]
+[h33n09:1380076] [ 7] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007b622c]
+[h33n09:1380076] [ 8] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x64)[0x2000007b6434]
+[h33n09:1380076] [ 9] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x300)[0x200000724780]
+[h33n09:1380076] [10] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda6device6mallocEmPKvRKNS_4jsonE+0x508)[0x2000007155d8]
+[h33n09:1380076] [11] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocElRKNS_7dtype_tEPKvRKNS_4jsonE+0xe8)[0x2000005c3188]
+[h33n09:1380076] [12] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocIvEENS_6memoryElPKvRKNS_4jsonE+0x34)[0x2000005c3814]
+[h33n09:1380076] [13] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN8device_t6mallocExi+0xd8)[0x2000001a8e88]
+[h33n09:1380076] [14] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN18ResidualProjectionC2ER10elliptic_tNS_14ProjectionTypeEii+0x298)[0x20000024e318]
+[h33n09:1380076] [15] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z18ellipticSolveSetupP10elliptic_t+0x2210)[0x200000252220]
+[h33n09:1380076] [16] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z8nrsSetupP19ompi_communicator_tR9setupAideP5nrs_t+0xa344)[0x2000001552e4]
+[h33n09:1380076] [17] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN5nekrs5setupEP19ompi_communicator_tS1_iiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_+0x12dc)[0x2000001107fc]
+[h33n09:1380076] [18] /ccs/home/malachi/.local/nekrs/bin/nekrs[0x100043cc]
+[h33n09:1380076] [19] /lib64/power9/libc.so.6(+0x24078)[0x20003e704078]
+[h33n09:1380076] [20] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x20003e704264]
+[h33n09:1380076] *** End of error message ***
+terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 461
+    Function : malloc
+    Message  : Device: malloc
+               CUDA Error [ 2 ]: CUDA_ERROR_OUT_OF_MEMORY
+    Stack
+      13 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      12 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      11 occa::cuda::device::malloc(unsigned long, void const*, occa::json const&)
+      10 occa::device::malloc(long, occa::dtype_t const&, void const*, occa::json const&)
+       9 occa::memory occa::device::malloc<void>(long, void const*, occa::json const&)
+       8 device_t::malloc(long long, int)
+       7 ResidualProjection::ResidualProjection(elliptic_t&, ResidualProjection::ProjectionType, int, int)
+       6 ellipticSolveSetup(elliptic_t*)
+       5 nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)
+       4 nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+       3 /ccs/home/malachi/.local/nekrs/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+[h35n12:482155] *** Process received signal ***
+[h35n12:482155] Signal: Aborted (6)
+[h35n12:482155] Signal code:  (-6)
+[h35n12:482155] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[h35n12:482155] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x20003e723618]
+[h35n12:482155] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x20003e703a2c]
+[h35n12:482155] [ 3] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x20003e32ccc8]
+[h35n12:482155] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x20003e3282e4]
+[h35n12:482155] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x20003e3283a0]
+[h35n12:482155] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x20003e328868]
+[h35n12:482155] [ 7] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007b622c]
+[h35n12:482155] [ 8] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x64)[0x2000007b6434]
+[h35n12:482155] [ 9] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x300)[0x200000724780]
+[h35n12:482155] [10] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda6device6mallocEmPKvRKNS_4jsonE+0x508)[0x2000007155d8]
+[h35n12:482155] [11] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocElRKNS_7dtype_tEPKvRKNS_4jsonE+0xe8)[0x2000005c3188]
+[h35n12:482155] [12] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocIvEENS_6memoryElPKvRKNS_4jsonE+0x34)[0x2000005c3814]
+[h35n12:482155] [13] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN8device_t6mallocExi+0xd8)[0x2000001a8e88]
+[h35n12:482155] [14] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN18ResidualProjectionC2ER10elliptic_tNS_14ProjectionTypeEii+0x298)[0x20000024e318]
+[h35n12:482155] [15] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z18ellipticSolveSetupP10elliptic_t+0x2210)[0x200000252220]
+[h35n12:482155] [16] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z8nrsSetupP19ompi_communicator_tR9setupAideP5nrs_t+0xa344)[0x2000001552e4]
+[h35n12:482155] [17] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN5nekrs5setupEP19ompi_communicator_tS1_iiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_+0x12dc)[0x2000001107fc]
+[h35n12:482155] [18] /ccs/home/malachi/.local/nekrs/bin/nekrs[0x100043cc]
+[h35n12:482155] [19] /lib64/power9/libc.so.6(+0x24078)[0x20003e704078]
+[h35n12:482155] [20] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x20003e704264]
+[h35n12:482155] *** End of error message ***
+terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 461
+    Function : malloc
+    Message  : Device: malloc
+               CUDA Error [ 2 ]: CUDA_ERROR_OUT_OF_MEMORY
+    Stack
+      13 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      12 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      11 occa::cuda::device::malloc(unsigned long, void const*, occa::json const&)
+      10 occa::device::malloc(long, occa::dtype_t const&, void const*, occa::json const&)
+       9 occa::memory occa::device::malloc<void>(long, void const*, occa::json const&)
+       8 device_t::malloc(long long, int)
+       7 ResidualProjection::ResidualProjection(elliptic_t&, ResidualProjection::ProjectionType, int, int)
+       6 ellipticSolveSetup(elliptic_t*)
+       5 nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)
+       4 nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+       3 /ccs/home/malachi/.local/nekrs/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+[a01n14:745154] *** Process received signal ***
+[a01n14:745154] Signal: Aborted (6)
+[a01n14:745154] Signal code:  (-6)
+[a01n14:745154] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[a01n14:745154] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x20003e723618]
+[a01n14:745154] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x20003e703a2c]
+[a01n14:745154] [ 3] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x20003e32ccc8]
+[a01n14:745154] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x20003e3282e4]
+[a01n14:745154] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x20003e3283a0]
+[a01n14:745154] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x20003e328868]
+[a01n14:745154] [ 7] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007b622c]
+[a01n14:745154] [ 8] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x64)[0x2000007b6434]
+[a01n14:745154] [ 9] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x300)[0x200000724780]
+[a01n14:745154] [10] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda6device6mallocEmPKvRKNS_4jsonE+0x508)[0x2000007155d8]
+[a01n14:745154] [11] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocElRKNS_7dtype_tEPKvRKNS_4jsonE+0xe8)[0x2000005c3188]
+[a01n14:745154] [12] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocIvEENS_6memoryElPKvRKNS_4jsonE+0x34)[0x2000005c3814]
+[a01n14:745154] [13] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN8device_t6mallocExi+0xd8)[0x2000001a8e88]
+[a01n14:745154] [14] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN18ResidualProjectionC2ER10elliptic_tNS_14ProjectionTypeEii+0x298)[0x20000024e318]
+[a01n14:745154] [15] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z18ellipticSolveSetupP10elliptic_t+0x2210)[0x200000252220]
+[a01n14:745154] [16] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z8nrsSetupP19ompi_communicator_tR9setupAideP5nrs_t+0xa344)[0x2000001552e4]
+[a01n14:745154] [17] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN5nekrs5setupEP19ompi_communicator_tS1_iiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_+0x12dc)[0x2000001107fc]
+[a01n14:745154] [18] /ccs/home/malachi/.local/nekrs/bin/nekrs[0x100043cc]
+[a01n14:745154] [19] /lib64/power9/libc.so.6(+0x24078)[0x20003e704078]
+[a01n14:745154] [20] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x20003e704264]
+[a01n14:745154] *** End of error message ***
+terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 461
+    Function : malloc
+    Message  : Device: malloc
+               CUDA Error [ 2 ]: CUDA_ERROR_OUT_OF_MEMORY
+    Stack
+      13 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      12 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      11 occa::cuda::device::malloc(unsigned long, void const*, occa::json const&)
+      10 occa::device::malloc(long, occa::dtype_t const&, void const*, occa::json const&)
+       9 occa::memory occa::device::malloc<void>(long, void const*, occa::json const&)
+       8 device_t::malloc(long long, int)
+       7 ResidualProjection::ResidualProjection(elliptic_t&, ResidualProjection::ProjectionType, int, int)
+       6 ellipticSolveSetup(elliptic_t*)
+       5 nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)
+       4 nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+       3 /ccs/home/malachi/.local/nekrs/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+[h35n16:966805] *** Process received signal ***
+[h35n16:966805] Signal: Aborted (6)
+[h35n16:966805] Signal code:  (-6)
+[h35n16:966805] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[h35n16:966805] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x20003e723618]
+[h35n16:966805] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x20003e703a2c]
+[h35n16:966805] [ 3] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x20003e32ccc8]
+[h35n16:966805] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x20003e3282e4]
+[h35n16:966805] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x20003e3283a0]
+[h35n16:966805] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x20003e328868]
+[h35n16:966805] [ 7] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007b622c]
+[h35n16:966805] [ 8] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x64)[0x2000007b6434]
+[h35n16:966805] [ 9] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x300)[0x200000724780]
+[h35n16:966805] [10] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda6device6mallocEmPKvRKNS_4jsonE+0x508)[0x2000007155d8]
+[h35n16:966805] [11] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocElRKNS_7dtype_tEPKvRKNS_4jsonE+0xe8)[0x2000005c3188]
+[h35n16:966805] [12] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocIvEENS_6memoryElPKvRKNS_4jsonE+0x34)[0x2000005c3814]
+[h35n16:966805] [13] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN8device_t6mallocExi+0xd8)[0x2000001a8e88]
+[h35n16:966805] [14] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN18ResidualProjectionC2ER10elliptic_tNS_14ProjectionTypeEii+0x298)[0x20000024e318]
+[h35n16:966805] [15] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z18ellipticSolveSetupP10elliptic_t+0x2210)[0x200000252220]
+[h35n16:966805] [16] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z8nrsSetupP19ompi_communicator_tR9setupAideP5nrs_t+0xa344)[0x2000001552e4]
+[h35n16:966805] [17] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN5nekrs5setupEP19ompi_communicator_tS1_iiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_+0x12dc)[0x2000001107fc]
+[h35n16:966805] [18] /ccs/home/malachi/.local/nekrs/bin/nekrs[0x100043cc]
+[h35n16:966805] [19] /lib64/power9/libc.so.6(+0x24078)[0x20003e704078]
+[h35n16:966805] [20] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x20003e704264]
+[h35n16:966805] *** End of error message ***
+terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 461
+    Function : malloc
+    Message  : Device: malloc
+               CUDA Error [ 2 ]: CUDA_ERROR_OUT_OF_MEMORY
+    Stack
+      13 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      12 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      11 occa::cuda::device::malloc(unsigned long, void const*, occa::json const&)
+      10 occa::device::malloc(long, occa::dtype_t const&, void const*, occa::json const&)
+       9 occa::memory occa::device::malloc<void>(long, void const*, occa::json const&)
+       8 device_t::malloc(long long, int)
+       7 ResidualProjection::ResidualProjection(elliptic_t&, ResidualProjection::ProjectionType, int, int)
+       6 ellipticSolveSetup(elliptic_t*)
+       5 nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)
+       4 nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+       3 /ccs/home/malachi/.local/nekrs/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 461
+    Function : malloc
+    Message  : Device: malloc
+               CUDA Error [ 2 ]: CUDA_ERROR_OUT_OF_MEMORY
+    Stack
+      13 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      12 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      11 occa::cuda::device::malloc(unsigned long, void const*, occa::json const&)
+      10 occa::device::malloc(long, occa::dtype_t const&, void const*, occa::json const&)
+       9 occa::memory occa::device::malloc<void>(long, void const*, occa::json const&)
+       8 device_t::malloc(long long, int)
+       7 ResidualProjection::ResidualProjection(elliptic_t&, ResidualProjection::ProjectionType, int, int)
+       6 ellipticSolveSetup(elliptic_t*)
+       5 nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)
+       4 nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+       3 /ccs/home/malachi/.local/nekrs/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+[h33n09:1380080] *** Process received signal ***
+[h33n09:1380080] Signal: Aborted (6)
+[h33n09:1380080] Signal code:  (-6)
+[h33n09:1380080] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[h33n09:1380080] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x20003e723618]
+[h33n09:1380080] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x20003e703a2c]
+[h33n09:1380080] [ 3] [h35n12:482157] *** Process received signal ***
+[h35n12:482157] Signal: Aborted (6)
+[h35n12:482157] Signal code:  (-6)
+[h35n12:482157] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[h35n12:482157] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x20003e723618]
+[h35n12:482157] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x20003e703a2c]
+[h35n12:482157] [ 3] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x20003e32ccc8]
+[h33n09:1380080] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x20003e3282e4]
+[h33n09:1380080] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x20003e3283a0]
+[h33n09:1380080] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x20003e328868]
+[h33n09:1380080] [ 7] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x20003e32ccc8]
+[h35n12:482157] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x20003e3282e4]
+[h35n12:482157] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x20003e3283a0]
+[h35n12:482157] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007b622c]
+[h33n09:1380080] [ 8] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x20003e328868]
+[h35n12:482157] [ 7] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x64)[0x2000007b6434]
+[h33n09:1380080] [ 9] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007b622c]
+[h35n12:482157] [ 8] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x300)[0x200000724780]
+[h33n09:1380080] [10] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x64)[0x2000007b6434]
+[h35n12:482157] [ 9] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda6device6mallocEmPKvRKNS_4jsonE+0x508)[0x2000007155d8]
+[h33n09:1380080] [11] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x300)[0x200000724780]
+[h35n12:482157] [10] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocElRKNS_7dtype_tEPKvRKNS_4jsonE+0xe8)[0x2000005c3188]
+[h33n09:1380080] [12] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda6device6mallocEmPKvRKNS_4jsonE+0x508)[0x2000007155d8]
+[h35n12:482157] [11] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocIvEENS_6memoryElPKvRKNS_4jsonE+0x34)[0x2000005c3814]
+[h33n09:1380080] [13] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN8device_t6mallocExi+0xd8)[0x2000001a8e88]
+[h33n09:1380080] [14] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN18ResidualProjectionC2ER10elliptic_tNS_14ProjectionTypeEii+0x298)[0x20000024e318]
+[h33n09:1380080] [15] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocElRKNS_7dtype_tEPKvRKNS_4jsonE+0xe8)[0x2000005c3188]
+[h35n12:482157] [12] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocIvEENS_6memoryElPKvRKNS_4jsonE+0x34)[0x2000005c3814]
+[h35n12:482157] [13] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z18ellipticSolveSetupP10elliptic_t+0x2210)[0x200000252220]
+[h33n09:1380080] [16] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z8nrsSetupP19ompi_communicator_tR9setupAideP5nrs_t+0xa344)[0x2000001552e4]
+[h33n09:1380080] [17] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN8device_t6mallocExi+0xd8)[0x2000001a8e88]
+[h35n12:482157] [14] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN18ResidualProjectionC2ER10elliptic_tNS_14ProjectionTypeEii+0x298)[0x20000024e318]
+[h35n12:482157] [15] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN5nekrs5setupEP19ompi_communicator_tS1_iiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_+0x12dc)[0x2000001107fc]
+[h33n09:1380080] [18] /ccs/home/malachi/.local/nekrs/bin/nekrs[0x100043cc]
+[h33n09:1380080] [19] /lib64/power9/libc.so.6(+0x24078)[0x20003e704078]
+[h33n09:1380080] [20] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x20003e704264]
+[h33n09:1380080] *** End of error message ***
+/ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z18ellipticSolveSetupP10elliptic_t+0x2210)[0x200000252220]
+[h35n12:482157] [16] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z8nrsSetupP19ompi_communicator_tR9setupAideP5nrs_t+0xa344)[0x2000001552e4]
+[h35n12:482157] [17] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN5nekrs5setupEP19ompi_communicator_tS1_iiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_+0x12dc)[0x2000001107fc]
+[h35n12:482157] [18] /ccs/home/malachi/.local/nekrs/bin/nekrs[0x100043cc]
+[h35n12:482157] [19] /lib64/power9/libc.so.6(+0x24078)[0x20003e704078]
+[h35n12:482157] [20] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x20003e704264]
+[h35n12:482157] *** End of error message ***
+terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 461
+    Function : malloc
+    Message  : Device: malloc
+               CUDA Error [ 2 ]: CUDA_ERROR_OUT_OF_MEMORY
+    Stack
+      13 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      12 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      11 occa::cuda::device::malloc(unsigned long, void const*, occa::json const&)
+      10 occa::device::malloc(long, occa::dtype_t const&, void const*, occa::json const&)
+       9 occa::memory occa::device::malloc<void>(long, void const*, occa::json const&)
+       8 device_t::malloc(long long, int)
+       7 ResidualProjection::ResidualProjection(elliptic_t&, ResidualProjection::ProjectionType, int, int)
+       6 ellipticSolveSetup(elliptic_t*)
+       5 nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)
+       4 nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+       3 /ccs/home/malachi/.local/nekrs/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+[a01n14:745152] *** Process received signal ***
+[a01n14:745152] Signal: Aborted (6)
+[a01n14:745152] Signal code:  (-6)
+[a01n14:745152] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[a01n14:745152] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x20003e723618]
+[a01n14:745152] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x20003e703a2c]
+[a01n14:745152] [ 3] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x20003e32ccc8]
+[a01n14:745152] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x20003e3282e4]
+[a01n14:745152] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x20003e3283a0]
+[a01n14:745152] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x20003e328868]
+[a01n14:745152] [ 7] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007b622c]
+[a01n14:745152] [ 8] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x64)[0x2000007b6434]
+[a01n14:745152] [ 9] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x300)[0x200000724780]
+[a01n14:745152] [10] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda6device6mallocEmPKvRKNS_4jsonE+0x508)[0x2000007155d8]
+[a01n14:745152] [11] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocElRKNS_7dtype_tEPKvRKNS_4jsonE+0xe8)[0x2000005c3188]
+[a01n14:745152] [12] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocIvEENS_6memoryElPKvRKNS_4jsonE+0x34)[0x2000005c3814]
+[a01n14:745152] [13] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN8device_t6mallocExi+0xd8)[0x2000001a8e88]
+[a01n14:745152] [14] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN18ResidualProjectionC2ER10elliptic_tNS_14ProjectionTypeEii+0x298)[0x20000024e318]
+[a01n14:745152] [15] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z18ellipticSolveSetupP10elliptic_t+0x2210)[0x200000252220]
+[a01n14:745152] [16] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z8nrsSetupP19ompi_communicator_tR9setupAideP5nrs_t+0xa344)[0x2000001552e4]
+[a01n14:745152] [17] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN5nekrs5setupEP19ompi_communicator_tS1_iiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_+0x12dc)[0x2000001107fc]
+[a01n14:745152] [18] /ccs/home/malachi/.local/nekrs/bin/nekrs[0x100043cc]
+[a01n14:745152] [19] /lib64/power9/libc.so.6(+0x24078)[0x20003e704078]
+[a01n14:745152] [20] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x20003e704264]
+[a01n14:745152] *** End of error message ***
+terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 461
+    Function : malloc
+    Message  : Device: malloc
+               CUDA Error [ 2 ]: CUDA_ERROR_OUT_OF_MEMORY
+    Stack
+      13 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      12 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      11 occa::cuda::device::malloc(unsigned long, void const*, occa::json const&)
+      10 occa::device::malloc(long, occa::dtype_t const&, void const*, occa::json const&)
+       9 occa::memory occa::device::malloc<void>(long, void const*, occa::json const&)
+       8 device_t::malloc(long long, int)
+       7 ResidualProjection::ResidualProjection(elliptic_t&, ResidualProjection::ProjectionType, int, int)
+       6 ellipticSolveSetup(elliptic_t*)
+       5 nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)
+       4 nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+       3 /ccs/home/malachi/.local/nekrs/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+[h35n12:482154] *** Process received signal ***
+[h35n12:482154] Signal: Aborted (6)
+[h35n12:482154] Signal code:  (-6)
+[h35n12:482154] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[h35n12:482154] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x20003e723618]
+[h35n12:482154] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x20003e703a2c]
+[h35n12:482154] [ 3] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x20003e32ccc8]
+[h35n12:482154] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x20003e3282e4]
+[h35n12:482154] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x20003e3283a0]
+[h35n12:482154] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x20003e328868]
+[h35n12:482154] [ 7] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007b622c]
+[h35n12:482154] [ 8] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x64)[0x2000007b6434]
+[h35n12:482154] [ 9] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x300)[0x200000724780]
+[h35n12:482154] [10] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda6device6mallocEmPKvRKNS_4jsonE+0x508)[0x2000007155d8]
+[h35n12:482154] [11] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocElRKNS_7dtype_tEPKvRKNS_4jsonE+0xe8)[0x2000005c3188]
+[h35n12:482154] [12] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocIvEENS_6memoryElPKvRKNS_4jsonE+0x34)[0x2000005c3814]
+[h35n12:482154] [13] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN8device_t6mallocExi+0xd8)[0x2000001a8e88]
+[h35n12:482154] [14] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN18ResidualProjectionC2ER10elliptic_tNS_14ProjectionTypeEii+0x298)[0x20000024e318]
+[h35n12:482154] [15] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z18ellipticSolveSetupP10elliptic_t+0x2210)[0x200000252220]
+[h35n12:482154] [16] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z8nrsSetupP19ompi_communicator_tR9setupAideP5nrs_t+0xa344)[0x2000001552e4]
+[h35n12:482154] [17] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN5nekrs5setupEP19ompi_communicator_tS1_iiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_+0x12dc)[0x2000001107fc]
+[h35n12:482154] [18] /ccs/home/malachi/.local/nekrs/bin/nekrs[0x100043cc]
+[h35n12:482154] [19] /lib64/power9/libc.so.6(+0x24078)[0x20003e704078]
+[h35n12:482154] [20] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x20003e704264]
+[h35n12:482154] *** End of error message ***
+terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 461
+    Function : malloc
+    Message  : Device: malloc
+               CUDA Error [ 2 ]: CUDA_ERROR_OUT_OF_MEMORY
+    Stack
+      13 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      12 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      11 occa::cuda::device::malloc(unsigned long, void const*, occa::json const&)
+      10 occa::device::malloc(long, occa::dtype_t const&, void const*, occa::json const&)
+       9 occa::memory occa::device::malloc<void>(long, void const*, occa::json const&)
+       8 device_t::malloc(long long, int)
+       7 ResidualProjection::ResidualProjection(elliptic_t&, ResidualProjection::ProjectionType, int, int)
+       6 ellipticSolveSetup(elliptic_t*)
+       5 nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)
+       4 nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+       3 /ccs/home/malachi/.local/nekrs/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+[h35n16:966807] *** Process received signal ***
+[h35n16:966807] Signal: Aborted (6)
+[h35n16:966807] Signal code:  (-6)
+[h35n16:966807] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[h35n16:966807] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x20003e723618]
+[h35n16:966807] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x20003e703a2c]
+[h35n16:966807] [ 3] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x20003e32ccc8]
+[h35n16:966807] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x20003e3282e4]
+[h35n16:966807] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x20003e3283a0]
+[h35n16:966807] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x20003e328868]
+[h35n16:966807] [ 7] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007b622c]
+[h35n16:966807] [ 8] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x64)[0x2000007b6434]
+[h35n16:966807] [ 9] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x300)[0x200000724780]
+[h35n16:966807] [10] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda6device6mallocEmPKvRKNS_4jsonE+0x508)[0x2000007155d8]
+[h35n16:966807] [11] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocElRKNS_7dtype_tEPKvRKNS_4jsonE+0xe8)[0x2000005c3188]
+[h35n16:966807] [12] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocIvEENS_6memoryElPKvRKNS_4jsonE+0x34)[0x2000005c3814]
+[h35n16:966807] [13] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN8device_t6mallocExi+0xd8)[0x2000001a8e88]
+[h35n16:966807] [14] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN18ResidualProjectionC2ER10elliptic_tNS_14ProjectionTypeEii+0x298)[0x20000024e318]
+[h35n16:966807] [15] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z18ellipticSolveSetupP10elliptic_t+0x2210)[0x200000252220]
+[h35n16:966807] [16] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z8nrsSetupP19ompi_communicator_tR9setupAideP5nrs_t+0xa344)[0x2000001552e4]
+[h35n16:966807] [17] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN5nekrs5setupEP19ompi_communicator_tS1_iiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_+0x12dc)[0x2000001107fc]
+[h35n16:966807] [18] /ccs/home/malachi/.local/nekrs/bin/nekrs[0x100043cc]
+[h35n16:966807] [19] /lib64/power9/libc.so.6(+0x24078)[0x20003e704078]
+[h35n16:966807] [20] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x20003e704264]
+[h35n16:966807] *** End of error message ***
+terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 461
+    Function : malloc
+    Message  : Device: malloc
+               CUDA Error [ 2 ]: CUDA_ERROR_OUT_OF_MEMORY
+    Stack
+      13 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      12 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      11 occa::cuda::device::malloc(unsigned long, void const*, occa::json const&)
+      10 occa::device::malloc(long, occa::dtype_t const&, void const*, occa::json const&)
+       9 occa::memory occa::device::malloc<void>(long, void const*, occa::json const&)
+       8 device_t::malloc(long long, int)
+       7 ResidualProjection::ResidualProjection(elliptic_t&, ResidualProjection::ProjectionType, int, int)
+       6 ellipticSolveSetup(elliptic_t*)
+       5 nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)
+       4 nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+       3 /ccs/home/malachi/.local/nekrs/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+[h33n09:1380074] *** Process received signal ***
+[h33n09:1380074] Signal: Aborted (6)
+[h33n09:1380074] Signal code:  (-6)
+[h33n09:1380074] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[h33n09:1380074] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x20003e723618]
+[h33n09:1380074] [ 2] terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 461
+    Function : malloc
+    Message  : Device: malloc
+               CUDA Error [ 2 ]: CUDA_ERROR_OUT_OF_MEMORY
+    Stack
+      13 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      12 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      11 occa::cuda::device::malloc(unsigned long, void const*, occa::json const&)
+      10 occa::device::malloc(long, occa::dtype_t const&, void const*, occa::json const&)
+       9 occa::memory occa::device::malloc<void>(long, void const*, occa::json const&)
+       8 device_t::malloc(long long, int)
+       7 ResidualProjection::ResidualProjection(elliptic_t&, ResidualProjection::ProjectionType, int, int)
+       6 ellipticSolveSetup(elliptic_t*)
+       5 nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)
+       4 nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+       3 /ccs/home/malachi/.local/nekrs/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+/lib64/power9/libc.so.6(abort+0x164)[0x20003e703a2c]
+[h33n09:1380074] [ 3] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x20003e32ccc8]
+[h33n09:1380074] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x20003e3282e4]
+[h33n09:1380074] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x20003e3283a0]
+[h33n09:1380074] [ 6] 
+[a01n14:745156] *** Process received signal ***
+[a01n14:745156] Signal: Aborted (6)
+[a01n14:745156] Signal code:  (-6)
+[a01n14:745156] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[a01n14:745156] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x20003e723618]
+[a01n14:745156] [ 2] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x20003e328868]
+[h33n09:1380074] [ 7] /lib64/power9/libc.so.6(abort+0x164)[0x20003e703a2c]
+[a01n14:745156] [ 3] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x20003e32ccc8]
+[a01n14:745156] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x20003e3282e4]
+[a01n14:745156] [ 5] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007b622c]
+[h33n09:1380074] [ 8] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x20003e3283a0]
+[a01n14:745156] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x20003e328868]
+[a01n14:745156] [ 7] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x64)[0x2000007b6434]
+[h33n09:1380074] [ 9] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007b622c]
+[a01n14:745156] [ 8] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x300)[0x200000724780]
+[h33n09:1380074] [10] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x64)[0x2000007b6434]
+[a01n14:745156] [ 9] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda6device6mallocEmPKvRKNS_4jsonE+0x508)[0x2000007155d8]
+[h33n09:1380074] [11] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x300)[0x200000724780]
+[a01n14:745156] [10] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocElRKNS_7dtype_tEPKvRKNS_4jsonE+0xe8)[0x2000005c3188]
+[h33n09:1380074] [12] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda6device6mallocEmPKvRKNS_4jsonE+0x508)[0x2000007155d8]
+[a01n14:745156] [11] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocElRKNS_7dtype_tEPKvRKNS_4jsonE+0xe8)[0x2000005c3188]
+[a01n14:745156] [12] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocIvEENS_6memoryElPKvRKNS_4jsonE+0x34)[0x2000005c3814]
+[h33n09:1380074] [13] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN8device_t6mallocExi+0xd8)[0x2000001a8e88]
+[h33n09:1380074] [14] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocIvEENS_6memoryElPKvRKNS_4jsonE+0x34)[0x2000005c3814]
+[a01n14:745156] [13] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN18ResidualProjectionC2ER10elliptic_tNS_14ProjectionTypeEii+0x298)[0x20000024e318]
+[h33n09:1380074] [15] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z18ellipticSolveSetupP10elliptic_t+0x2210)[0x200000252220]
+[h33n09:1380074] [16] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z8nrsSetupP19ompi_communicator_tR9setupAideP5nrs_t+0xa344)[0x2000001552e4]
+[h33n09:1380074] [17] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN8device_t6mallocExi+0xd8)[0x2000001a8e88]
+[a01n14:745156] [14] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN18ResidualProjectionC2ER10elliptic_tNS_14ProjectionTypeEii+0x298)[0x20000024e318]
+[a01n14:745156] [15] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN5nekrs5setupEP19ompi_communicator_tS1_iiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_+0x12dc)[0x2000001107fc]
+[h33n09:1380074] [18] /ccs/home/malachi/.local/nekrs/bin/nekrs[0x100043cc]
+[h33n09:1380074] [19] /lib64/power9/libc.so.6(+0x24078)[0x20003e704078]
+[h33n09:1380074] [20] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x20003e704264]
+[h33n09:1380074] *** End of error message ***
+/ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z18ellipticSolveSetupP10elliptic_t+0x2210)[0x200000252220]
+[a01n14:745156] [16] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z8nrsSetupP19ompi_communicator_tR9setupAideP5nrs_t+0xa344)[0x2000001552e4]
+[a01n14:745156] [17] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN5nekrs5setupEP19ompi_communicator_tS1_iiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_+0x12dc)[0x2000001107fc]
+[a01n14:745156] [18] /ccs/home/malachi/.local/nekrs/bin/nekrs[0x100043cc]
+[a01n14:745156] [19] /lib64/power9/libc.so.6(+0x24078)[0x20003e704078]
+[a01n14:745156] [20] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x20003e704264]
+[a01n14:745156] *** End of error message ***
+terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 461
+    Function : malloc
+    Message  : Device: malloc
+               CUDA Error [ 2 ]: CUDA_ERROR_OUT_OF_MEMORY
+    Stack
+      13 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      12 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      11 occa::cuda::device::malloc(unsigned long, void const*, occa::json const&)
+      10 occa::device::malloc(long, occa::dtype_t const&, void const*, occa::json const&)
+       9 occa::memory occa::device::malloc<void>(long, void const*, occa::json const&)
+       8 device_t::malloc(long long, int)
+       7 ResidualProjection::ResidualProjection(elliptic_t&, ResidualProjection::ProjectionType, int, int)
+       6 ellipticSolveSetup(elliptic_t*)
+       5 nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)
+       4 nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+       3 /ccs/home/malachi/.local/nekrs/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+[h35n16:966810] *** Process received signal ***
+[h35n16:966810] Signal: Aborted (6)
+[h35n16:966810] Signal code:  (-6)
+[h35n16:966810] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[h35n16:966810] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x20003e723618]
+[h35n16:966810] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x20003e703a2c]
+[h35n16:966810] [ 3] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x20003e32ccc8]
+[h35n16:966810] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x20003e3282e4]
+[h35n16:966810] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x20003e3283a0]
+[h35n16:966810] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x20003e328868]
+[h35n16:966810] [ 7] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007b622c]
+[h35n16:966810] [ 8] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x64)[0x2000007b6434]
+[h35n16:966810] [ 9] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x300)[0x200000724780]
+[h35n16:966810] [10] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda6device6mallocEmPKvRKNS_4jsonE+0x508)[0x2000007155d8]
+[h35n16:966810] [11] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocElRKNS_7dtype_tEPKvRKNS_4jsonE+0xe8)[0x2000005c3188]
+[h35n16:966810] [12] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocIvEENS_6memoryElPKvRKNS_4jsonE+0x34)[0x2000005c3814]
+[h35n16:966810] [13] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN8device_t6mallocExi+0xd8)[0x2000001a8e88]
+[h35n16:966810] [14] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN18ResidualProjectionC2ER10elliptic_tNS_14ProjectionTypeEii+0x298)[0x20000024e318]
+[h35n16:966810] [15] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z18ellipticSolveSetupP10elliptic_t+0x2210)[0x200000252220]
+[h35n16:966810] [16] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z8nrsSetupP19ompi_communicator_tR9setupAideP5nrs_t+0xa344)[0x2000001552e4]
+[h35n16:966810] [17] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN5nekrs5setupEP19ompi_communicator_tS1_iiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_+0x12dc)[0x2000001107fc]
+[h35n16:966810] [18] /ccs/home/malachi/.local/nekrs/bin/nekrs[0x100043cc]
+[h35n16:966810] [19] /lib64/power9/libc.so.6(+0x24078)[0x20003e704078]
+[h35n16:966810] [20] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x20003e704264]
+[h35n16:966810] *** End of error message ***
+terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 461
+    Function : malloc
+    Message  : Device: malloc
+               CUDA Error [ 2 ]: CUDA_ERROR_OUT_OF_MEMORY
+    Stack
+      13 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      12 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      11 occa::cuda::device::malloc(unsigned long, void const*, occa::json const&)
+      10 occa::device::malloc(long, occa::dtype_t const&, void const*, occa::json const&)
+       9 occa::memory occa::device::malloc<void>(long, void const*, occa::json const&)
+       8 device_t::malloc(long long, int)
+       7 ResidualProjection::ResidualProjection(elliptic_t&, ResidualProjection::ProjectionType, int, int)
+       6 ellipticSolveSetup(elliptic_t*)
+       5 nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)
+       4 nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+       3 /ccs/home/malachi/.local/nekrs/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+[h33n09:1380078] *** Process received signal ***
+[h33n09:1380078] Signal: Aborted (6)
+[h33n09:1380078] Signal code:  (-6)
+[h33n09:1380078] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[h33n09:1380078] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x20003e723618]
+[h33n09:1380078] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x20003e703a2c]
+[h33n09:1380078] [ 3] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x20003e32ccc8]
+[h33n09:1380078] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x20003e3282e4]
+[h33n09:1380078] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x20003e3283a0]
+[h33n09:1380078] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x20003e328868]
+[h33n09:1380078] [ 7] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007b622c]
+[h33n09:1380078] [ 8] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x64)[0x2000007b6434]
+[h33n09:1380078] [ 9] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x300)[0x200000724780]
+[h33n09:1380078] [10] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda6device6mallocEmPKvRKNS_4jsonE+0x508)[0x2000007155d8]
+[h33n09:1380078] [11] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocElRKNS_7dtype_tEPKvRKNS_4jsonE+0xe8)[0x2000005c3188]
+[h33n09:1380078] [12] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocIvEENS_6memoryElPKvRKNS_4jsonE+0x34)[0x2000005c3814]
+[h33n09:1380078] [13] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN8device_t6mallocExi+0xd8)[0x2000001a8e88]
+[h33n09:1380078] [14] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN18ResidualProjectionC2ER10elliptic_tNS_14ProjectionTypeEii+0x298)[0x20000024e318]
+[h33n09:1380078] [15] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z18ellipticSolveSetupP10elliptic_t+0x2210)[0x200000252220]
+[h33n09:1380078] [16] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z8nrsSetupP19ompi_communicator_tR9setupAideP5nrs_t+0xa344)[0x2000001552e4]
+[h33n09:1380078] [17] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN5nekrs5setupEP19ompi_communicator_tS1_iiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_+0x12dc)[0x2000001107fc]
+[h33n09:1380078] [18] /ccs/home/malachi/.local/nekrs/bin/nekrs[0x100043cc]
+[h33n09:1380078] [19] /lib64/power9/libc.so.6(+0x24078)[0x20003e704078]
+[h33n09:1380078] [20] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x20003e704264]
+[h33n09:1380078] *** End of error message ***
+terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 461
+    Function : malloc
+    Message  : Device: malloc
+               CUDA Error [ 2 ]: CUDA_ERROR_OUT_OF_MEMORY
+    Stack
+      13 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      12 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      11 occa::cuda::device::malloc(unsigned long, void const*, occa::json const&)
+      10 occa::device::malloc(long, occa::dtype_t const&, void const*, occa::json const&)
+       9 occa::memory occa::device::malloc<void>(long, void const*, occa::json const&)
+       8 device_t::malloc(long long, int)
+       7 ResidualProjection::ResidualProjection(elliptic_t&, ResidualProjection::ProjectionType, int, int)
+       6 ellipticSolveSetup(elliptic_t*)
+       5 nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)
+       4 nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+       3 /ccs/home/malachi/.local/nekrs/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+[h33n09:1380075] *** Process received signal ***
+[h33n09:1380075] Signal: Aborted (6)
+[h33n09:1380075] Signal code:  (-6)
+[h33n09:1380075] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[h33n09:1380075] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x20003e723618]
+[h33n09:1380075] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x20003e703a2c]
+[h33n09:1380075] [ 3] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x20003e32ccc8]
+[h33n09:1380075] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x20003e3282e4]
+[h33n09:1380075] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x20003e3283a0]
+[h33n09:1380075] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x20003e328868]
+[h33n09:1380075] [ 7] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007b622c]
+[h33n09:1380075] [ 8] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x64)[0x2000007b6434]
+[h33n09:1380075] [ 9] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x300)[0x200000724780]
+[h33n09:1380075] [10] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda6device6mallocEmPKvRKNS_4jsonE+0x508)[0x2000007155d8]
+[h33n09:1380075] [11] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocElRKNS_7dtype_tEPKvRKNS_4jsonE+0xe8)[0x2000005c3188]
+[h33n09:1380075] [12] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocIvEENS_6memoryElPKvRKNS_4jsonE+0x34)[0x2000005c3814]
+[h33n09:1380075] [13] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN8device_t6mallocExi+0xd8)[0x2000001a8e88]
+[h33n09:1380075] [14] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN18ResidualProjectionC2ER10elliptic_tNS_14ProjectionTypeEii+0x298)[0x20000024e318]
+[h33n09:1380075] [15] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z18ellipticSolveSetupP10elliptic_t+0x2210)[0x200000252220]
+[h33n09:1380075] [16] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z8nrsSetupP19ompi_communicator_tR9setupAideP5nrs_t+0xa344)[0x2000001552e4]
+[h33n09:1380075] [17] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN5nekrs5setupEP19ompi_communicator_tS1_iiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_+0x12dc)[0x2000001107fc]
+[h33n09:1380075] [18] /ccs/home/malachi/.local/nekrs/bin/nekrs[0x100043cc]
+[h33n09:1380075] [19] /lib64/power9/libc.so.6(+0x24078)[0x20003e704078]
+[h33n09:1380075] [20] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x20003e704264]
+[h33n09:1380075] *** End of error message ***
+terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 461
+    Function : malloc
+    Message  : Device: malloc
+               CUDA Error [ 2 ]: CUDA_ERROR_OUT_OF_MEMORY
+    Stack
+      13 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      12 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      11 occa::cuda::device::malloc(unsigned long, void const*, occa::json const&)
+      10 occa::device::malloc(long, occa::dtype_t const&, void const*, occa::json const&)
+       9 occa::memory occa::device::malloc<void>(long, void const*, occa::json const&)
+       8 device_t::malloc(long long, int)
+       7 ResidualProjection::ResidualProjection(elliptic_t&, ResidualProjection::ProjectionType, int, int)
+       6 ellipticSolveSetup(elliptic_t*)
+       5 nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)
+       4 nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+       3 /ccs/home/malachi/.local/nekrs/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+[h35n16:966806] *** Process received signal ***
+[h35n16:966806] Signal: Aborted (6)
+[h35n16:966806] Signal code:  (-6)
+[h35n16:966806] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[h35n16:966806] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x20003e723618]
+[h35n16:966806] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x20003e703a2c]
+[h35n16:966806] [ 3] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x20003e32ccc8]
+[h35n16:966806] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x20003e3282e4]
+[h35n16:966806] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x20003e3283a0]
+[h35n16:966806] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x20003e328868]
+[h35n16:966806] [ 7] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007b622c]
+[h35n16:966806] [ 8] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x64)[0x2000007b6434]
+[h35n16:966806] [ 9] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x300)[0x200000724780]
+[h35n16:966806] [10] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda6device6mallocEmPKvRKNS_4jsonE+0x508)[0x2000007155d8]
+[h35n16:966806] [11] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocElRKNS_7dtype_tEPKvRKNS_4jsonE+0xe8)[0x2000005c3188]
+[h35n16:966806] [12] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocIvEENS_6memoryElPKvRKNS_4jsonE+0x34)[0x2000005c3814]
+[h35n16:966806] [13] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN8device_t6mallocExi+0xd8)[0x2000001a8e88]
+[h35n16:966806] [14] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN18ResidualProjectionC2ER10elliptic_tNS_14ProjectionTypeEii+0x298)[0x20000024e318]
+[h35n16:966806] [15] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z18ellipticSolveSetupP10elliptic_t+0x2210)[0x200000252220]
+[h35n16:966806] [16] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z8nrsSetupP19ompi_communicator_tR9setupAideP5nrs_t+0xa344)[0x2000001552e4]
+[h35n16:966806] [17] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN5nekrs5setupEP19ompi_communicator_tS1_iiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_+0x12dc)[0x2000001107fc]
+[h35n16:966806] [18] /ccs/home/malachi/.local/nekrs/bin/nekrs[0x100043cc]
+[h35n16:966806] [19] /lib64/power9/libc.so.6(+0x24078)[0x20003e704078]
+[h35n16:966806] [20] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x20003e704264]
+[h35n16:966806] *** End of error message ***
+terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 461
+    Function : malloc
+    Message  : Device: malloc
+               CUDA Error [ 2 ]: CUDA_ERROR_OUT_OF_MEMORY
+    Stack
+      13 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      12 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      11 occa::cuda::device::malloc(unsigned long, void const*, occa::json const&)
+      10 occa::device::malloc(long, occa::dtype_t const&, void const*, occa::json const&)
+       9 occa::memory occa::device::malloc<void>(long, void const*, occa::json const&)
+       8 device_t::malloc(long long, int)
+       7 ResidualProjection::ResidualProjection(elliptic_t&, ResidualProjection::ProjectionType, int, int)
+       6 ellipticSolveSetup(elliptic_t*)
+       5 nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)
+       4 nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+       3 /ccs/home/malachi/.local/nekrs/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+[h35n12:482158] *** Process received signal ***
+[h35n12:482158] Signal: Aborted (6)
+[h35n12:482158] Signal code:  (-6)
+[h35n12:482158] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[h35n12:482158] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x20003e723618]
+[h35n12:482158] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x20003e703a2c]
+[h35n12:482158] [ 3] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x20003e32ccc8]
+[h35n12:482158] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x20003e3282e4]
+[h35n12:482158] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x20003e3283a0]
+[h35n12:482158] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x20003e328868]
+[h35n12:482158] [ 7] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007b622c]
+[h35n12:482158] [ 8] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x64)[0x2000007b6434]
+[h35n12:482158] [ 9] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x300)[0x200000724780]
+[h35n12:482158] [10] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda6device6mallocEmPKvRKNS_4jsonE+0x508)[0x2000007155d8]
+[h35n12:482158] [11] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocElRKNS_7dtype_tEPKvRKNS_4jsonE+0xe8)[0x2000005c3188]
+[h35n12:482158] [12] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocIvEENS_6memoryElPKvRKNS_4jsonE+0x34)[0x2000005c3814]
+[h35n12:482158] [13] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN8device_t6mallocExi+0xd8)[0x2000001a8e88]
+[h35n12:482158] [14] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN18ResidualProjectionC2ER10elliptic_tNS_14ProjectionTypeEii+0x2ec)[0x20000024e36c]
+[h35n12:482158] [15] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z18ellipticSolveSetupP10elliptic_t+0x2210)[0x200000252220]
+[h35n12:482158] [16] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z8nrsSetupP19ompi_communicator_tR9setupAideP5nrs_t+0xa344)[0x2000001552e4]
+[h35n12:482158] [17] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN5nekrs5setupEP19ompi_communicator_tS1_iiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_+0x12dc)[0x2000001107fc]
+[h35n12:482158] [18] /ccs/home/malachi/.local/nekrs/bin/nekrs[0x100043cc]
+[h35n12:482158] [19] /lib64/power9/libc.so.6(+0x24078)[0x20003e704078]
+[h35n12:482158] [20] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x20003e704264]
+[h35n12:482158] *** End of error message ***
+terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 461
+    Function : malloc
+    Message  : Device: malloc
+               CUDA Error [ 2 ]: CUDA_ERROR_OUT_OF_MEMORY
+    Stack
+      13 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      12 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      11 occa::cuda::device::malloc(unsigned long, void const*, occa::json const&)
+      10 occa::device::malloc(long, occa::dtype_t const&, void const*, occa::json const&)
+       9 occa::memory occa::device::malloc<void>(long, void const*, occa::json const&)
+       8 device_t::malloc(long long, int)
+       7 ResidualProjection::ResidualProjection(elliptic_t&, ResidualProjection::ProjectionType, int, int)
+       6 ellipticSolveSetup(elliptic_t*)
+       5 nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)
+       4 nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+       3 /ccs/home/malachi/.local/nekrs/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+[h35n16:966809] *** Process received signal ***
+[h35n16:966809] Signal: Aborted (6)
+[h35n16:966809] Signal code:  (-6)
+[h35n16:966809] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[h35n16:966809] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x20003e723618]
+[h35n16:966809] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x20003e703a2c]
+[h35n16:966809] [ 3] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x20003e32ccc8]
+[h35n16:966809] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x20003e3282e4]
+[h35n16:966809] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x20003e3283a0]
+[h35n16:966809] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x20003e328868]
+[h35n16:966809] [ 7] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007b622c]
+[h35n16:966809] [ 8] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x64)[0x2000007b6434]
+[h35n16:966809] [ 9] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x300)[0x200000724780]
+[h35n16:966809] [10] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda6device6mallocEmPKvRKNS_4jsonE+0x508)[0x2000007155d8]
+[h35n16:966809] [11] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocElRKNS_7dtype_tEPKvRKNS_4jsonE+0xe8)[0x2000005c3188]
+[h35n16:966809] [12] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocIvEENS_6memoryElPKvRKNS_4jsonE+0x34)[0x2000005c3814]
+[h35n16:966809] [13] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN8device_t6mallocExi+0xd8)[0x2000001a8e88]
+[h35n16:966809] [14] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN18ResidualProjectionC2ER10elliptic_tNS_14ProjectionTypeEii+0x298)[0x20000024e318]
+[h35n16:966809] [15] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z18ellipticSolveSetupP10elliptic_t+0x2210)[0x200000252220]
+[h35n16:966809] [16] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z8nrsSetupP19ompi_communicator_tR9setupAideP5nrs_t+0xa344)[0x2000001552e4]
+[h35n16:966809] [17] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN5nekrs5setupEP19ompi_communicator_tS1_iiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_+0x12dc)[0x2000001107fc]
+[h35n16:966809] [18] /ccs/home/malachi/.local/nekrs/bin/nekrs[0x100043cc]
+[h35n16:966809] [19] /lib64/power9/libc.so.6(+0x24078)[0x20003e704078]
+[h35n16:966809] [20] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x20003e704264]
+[h35n16:966809] *** End of error message ***
+terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 461
+    Function : malloc
+    Message  : Device: malloc
+               CUDA Error [ 2 ]: CUDA_ERROR_OUT_OF_MEMORY
+    Stack
+      13 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      12 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      11 occa::cuda::device::malloc(unsigned long, void const*, occa::json const&)
+      10 occa::device::malloc(long, occa::dtype_t const&, void const*, occa::json const&)
+       9 occa::memory occa::device::malloc<void>(long, void const*, occa::json const&)
+       8 device_t::malloc(long long, int)
+       7 ResidualProjection::ResidualProjection(elliptic_t&, ResidualProjection::ProjectionType, int, int)
+       6 ellipticSolveSetup(elliptic_t*)
+       5 nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)
+       4 nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+       3 /ccs/home/malachi/.local/nekrs/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+[a01n14:745155] *** Process received signal ***
+[a01n14:745155] Signal: Aborted (6)
+[a01n14:745155] Signal code:  (-6)
+[a01n14:745155] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[a01n14:745155] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x20003e723618]
+[a01n14:745155] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x20003e703a2c]
+[a01n14:745155] [ 3] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x20003e32ccc8]
+[a01n14:745155] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x20003e3282e4]
+[a01n14:745155] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x20003e3283a0]
+[a01n14:745155] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x20003e328868]
+[a01n14:745155] [ 7] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007b622c]
+[a01n14:745155] [ 8] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x64)[0x2000007b6434]
+[a01n14:745155] [ 9] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x300)[0x200000724780]
+[a01n14:745155] [10] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda6device6mallocEmPKvRKNS_4jsonE+0x508)[0x2000007155d8]
+[a01n14:745155] [11] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocElRKNS_7dtype_tEPKvRKNS_4jsonE+0xe8)[0x2000005c3188]
+[a01n14:745155] [12] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocIvEENS_6memoryElPKvRKNS_4jsonE+0x34)[0x2000005c3814]
+[a01n14:745155] [13] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN8device_t6mallocExi+0xd8)[0x2000001a8e88]
+[a01n14:745155] [14] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN18ResidualProjectionC2ER10elliptic_tNS_14ProjectionTypeEii+0x2ec)[0x20000024e36c]
+[a01n14:745155] [15] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z18ellipticSolveSetupP10elliptic_t+0x2210)[0x200000252220]
+[a01n14:745155] [16] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z8nrsSetupP19ompi_communicator_tR9setupAideP5nrs_t+0xa344)[0x2000001552e4]
+[a01n14:745155] [17] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN5nekrs5setupEP19ompi_communicator_tS1_iiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_+0x12dc)[0x2000001107fc]
+[a01n14:745155] [18] /ccs/home/malachi/.local/nekrs/bin/nekrs[0x100043cc]
+[a01n14:745155] [19] /lib64/power9/libc.so.6(+0x24078)[0x20003e704078]
+[a01n14:745155] [20] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x20003e704264]
+[a01n14:745155] *** End of error message ***
+ERROR:  One or more process (first noticed rank 19) terminated with signal 6 (core dumped)
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@batch3>
+Subject: Job 1468738: <nekRS_peb1568_n2t2bnb> in cluster <summit> Exited
+
+Job <nekRS_peb1568_n2t2bnb> was submitted from host <login1> by user <malachi> in cluster <summit> at Thu Sep 30 19:55:12 2021
+Job was executed on host(s) <1*batch3>, in queue <batch>, as user <malachi> in cluster <summit> at Fri Oct  1 02:27:58 2021
+                            <42*a01n14>
+                            <42*h33n09>
+                            <42*h35n12>
+                            <42*h35n16>
+</ccs/home/malachi> was used as the home directory.
+</gpfs/alpine/scratch/malachi/csc262/siam-pp-22/pb1568/cheby-jac-fp32-4> was used as the working directory.
+Started at Fri Oct  1 02:27:58 2021
+Terminated at Fri Oct  1 02:30:52 2021
+Results reported at Fri Oct  1 02:30:52 2021
+
+The output (if any) is above this job summary.
+

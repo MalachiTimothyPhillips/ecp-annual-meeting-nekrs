@@ -1,0 +1,185 @@
+                 __    ____  _____
+   ____   ___   / /__ / __ \/ ___/
+  / __ \ / _ \ / //_// /_/ /\__ \ 
+ / / / //  __// ,<  / _, _/___/ / 
+/_/ /_/ \___//_/|_|/_/ |_|/____/  v21.1 (63a5a122)
+
+COPYRIGHT (c) 2019-2021 UCHICAGO ARGONNE, LLC
+
+MPI tasks: 6
+
+reading par file ...
+
+using NEKRS_HOME: /ccs/home/malachi/.local/nekrs-next-fp64
+using NEKRS_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb146/runs/semfem-fp64-1/.cache
+using OCCA_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb146/runs/semfem-fp64-1/.cache/occa/
+
+Initializing device 
+active occa mode: CUDA
+
+building udf ... 
+Consolidate compiler generated dependencies of target UDF
+[100%] Built target UDF
+done (0.426231s)
+loading nek ... 
+done
+loading udf kernels ... done (0.00126168s)
+
+loading kernels ... done (69.955s)
+
+ Reading /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb146/runs/semfem-fp64-1/pb.re2                                                      
+ reading mesh 
+ reading bc for ifld           1
+ done :: read .re2 file     1.2     sec
+
+Running parCon ... (tol=0.2)
+
+ Error: elementCheck
+Running parCon ... (tol=0.02)
+Running parRSB ...
+parRSB finished in 1.2184 s
+
+ reading mesh 
+ reading curved sides 
+ reading bc for ifld           1
+ done :: read .re2 file     1.3     sec
+
+ setup mesh topology
+   Right-handed check complete for       62132 elements. OK.
+gs_setup: 302709 unique labels shared
+   handle bytes (avg, min, max): 3.51645e+07 35029324 35270524
+   buffer bytes (avg, min, max): 1.63371e+06 1555296 1694704
+   setupds time 1.0432E+00 seconds   0  8     8417073       62132
+ 
+ nElements   max/min/bal: 10356 10355 1.00
+ nMessages   max/min/avg: 5 4 4.67
+ msgSize     max/min/avg: 37081 472 22053.50
+ msgSizeSum  max/min/avg: 105919 97206 102107.00
+ 
+ max multiplicity           36
+ done :: setup mesh topology
+  
+ call usrdat
+ done :: usrdat
+
+ generate geometry data
+ done :: generate geometry data
+  
+ call usrdat2
+ done :: usrdat2
+
+  2.8727E-15  2.8726E-15  3.5527E-15  1.8125E-15  2.0761E-15  2.9238E-15 xyz repair 1
+  2.9272E-15  2.9271E-15  3.5527E-15  6.4598E-15  6.1969E-15  6.4349E-15 xyz repair 2
+  2.6645E-15  2.6645E-15  3.5527E-15  3.1392E-15  4.9376E-15  5.6896E-15 xyz repair 3
+  1.1154E-15  1.2430E-15  1.1805E-15  1.1154E-15  1.2430E-15  1.1805E-15 xyz repair 4
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ verify mesh topology
+  -7.0710093434474661        7.0706370325493424       Xrange
+  -7.0707404234460585        7.0704326927458965       Yrange
+  -8.9079642973243462        10.752399444580080       Zrange
+ done :: verify mesh topology
+  
+ mesh metrics:
+ GLL grid spacing min/max    : 1.01E-03 3.20E-01
+ scaled Jacobian  min/max/avg: 4.31E-02 9.77E-01 4.19E-01
+ aspect ratio     min/max/avg: 1.07E+00 5.69E+01 7.14E+00
+
+ call usrdat3
+ done :: usrdat3
+
+gridpoints unique/tot:      21837585     31811584
+dofs vel/pr:                20800116     21807162
+ nek setup done in    1.3766E+01 s
+
+ set initial conditions
+ Checking restart options: restart.fld                                                                                                                         
+ nekuic (1) for ifld            1
+ nekuic (1) for ifld            2
+ Reading checkpoint data 
+       FILE:/gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb146/runs/semfem-fp64-1/restart.fld                                                 
+
+        0  1.0000E+01 done :: Read checkpoint data
+                              avg data-throughput =     0.2GB/s
+                              io-nodes =     6
+
+ xyz min    -7.0710      -7.0707      -8.9080    
+ uvwpt min  -4.7484      -4.7327      -4.8061      -8.3382      -126.94    
+ PS min      0.0000       0.0000       0.0000       0.0000    
+ xyz max     7.0706       7.0704       10.752    
+ uvwpt max   4.9805       4.8828       7.1716       6.3114       315.95    
+ PS max      0.0000       0.0000       0.0000       0.0000    
+ Restart: recompute geom. factors.
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ done :: set initial conditions
+  
+calling nek_userchk ...
+
+loading mesh from nek ... NboundaryIDs: 4, NboundaryFaces: 21776 done (0.00303644s)
+generating mesh ... Nq: 8 cubNq: 11
+computing geometric factors ... J [1.34276e-05,0.293651] done (0.771438s)
+timing oogs modes: 0.000587128s 0.000451083s 0.000458448s 0.000449726s 0.000278696s 0.000265515s used config: 3.0.1
+min 79% of the local elements are internal
+timing oogs modes: 0.00223829s 0.00124679s 0.00122235s 0.00124327s 0.000765306s 0.000759662s used config: 3.0.1
+loading ns kernels ... done (0.000167497s)
+loading cds kernels ... done (8.1851e-05s)
+copying solution from nek
+calling udf_setup ... done
+================= ELLIPTIC SETUP SCALAR00 ===============
+bID 1 -> bcType fixedValue
+bID 2 -> bcType zeroGradient
+bID 3 -> bcType zeroGradient
+bID 4 -> bcType fixedGradient
+allNeumann = 0 
+loading elliptic kernels ... done (0.000101578s)
+timing oogs modes: 0.000672469s 0.000447515s 0.000445915s 0.000473272s 0.000264802s 0.000263972s used config: 3.0.1
+timing oogs modes: 0.000807149s 0.000920143s 0.000942506s 0.00094183s 0.000549186s 0.000549941s used config: 3.0.0
+building Jacobi preconditioner ... done (0.0117872s)
+done (6.93473s)
+================ ELLIPTIC SETUP VELOCITY ================
+bID 1 -> bcType fixedValue
+bID 2 -> bcType zeroGradient
+bID 3 -> bcType zeroValue
+bID 4 -> bcType zeroValue
+allNeumann = 0 
+loading elliptic kernels ... done (8.3959e-05s)
+timing oogs modes: 0.00216787s 0.00122179s 0.00118574s 0.00119938s 0.000764137s 0.000766145s used config: 3.0.0
+timing oogs modes: 0.00254208s 0.00194241s 0.00202098s 0.00200547s 0.00098955s 0.000964096s used config: 3.0.1
+building Jacobi preconditioner ... done (0.027264s)
+done (3.78725s)
+================ ELLIPTIC SETUP PRESSURE ================
+allNeumann = 0 
+loading elliptic kernels ... done (0.000107918s)
+timing oogs modes: 0.000592181s 0.000462885s 0.0004724s 0.000478519s 0.000263483s 0.000262811s used config: 3.0.1
+timing oogs modes: 0.000802767s 0.000936429s 0.000932682s 0.000941747s 0.000550954s 0.00055028s used config: 3.0.1
+setup SEMFEM preconditioner ... 
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 2 in communicator MPI COMMUNICATOR 4 DUP FROM 3
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@batch2>
+Subject: Job 1450734: <nekRS_pb> in cluster <summit> Exited
+
+Job <nekRS_pb> was submitted from host <login3> by user <malachi> in cluster <summit> at Thu Sep 23 14:42:50 2021
+Job was executed on host(s) <1*batch2>, in queue <batch>, as user <malachi> in cluster <summit> at Fri Sep 24 22:35:49 2021
+                            <42*h23n12>
+</ccs/home/malachi> was used as the home directory.
+</gpfs/alpine/scratch/malachi/csc262/siam-pp-22/pb146/runs/semfem-fp64-1> was used as the working directory.
+Started at Fri Sep 24 22:35:49 2021
+Terminated at Fri Sep 24 22:38:34 2021
+Results reported at Fri Sep 24 22:38:34 2021
+
+The output (if any) is above this job summary.
+

@@ -1,0 +1,426 @@
+                 __    ____  _____
+   ____   ___   / /__ / __ \/ ___/
+  / __ \ / _ \ / //_// /_/ /\__ \ 
+ / / / //  __// ,<  / _, _/___/ / 
+/_/ /_/ \___//_/|_|/_/ |_|/____/  v21.1.1 (0f70ee46)
+
+COPYRIGHT (c) 2019-2021 UCHICAGO ARGONNE, LLC
+
+MPI tasks: 384
+
+reading par file ...
+
+using NEKRS_HOME: /ccs/home/malachi/.local/nekrs
+using NEKRS_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/kershaw/weak-scaling-study/eps-0.3/cheby-ras-pmg-7531-64/.cache
+using OCCA_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/kershaw/weak-scaling-study/eps-0.3/cheby-ras-pmg-7531-64/.cache/occa/
+
+Initializing device 
+active occa mode: CUDA
+
+building udf ... 
+Consolidate compiler generated dependencies of target UDF
+[100%] Built target UDF
+done (0.377069s)
+skip building nekInterface (SIZE has not changed)
+loading nek ... 
+done
+loading udf kernels ... done (0.0344349s)
+
+loading kernels ... done (2.88025s)
+
+ Reading /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/kershaw/weak-scaling-study/eps-0.3/cheby-ras-pmg-7531-64/kershaw.re2                 
+ reading mesh 
+ reading bc for ifld           1
+ done :: read .re2 file     1.0     sec
+
+Running parCon ... (tol=0.2)
+Running parRSB ...
+parRSB finished in 2.67479 s
+
+ reading mesh 
+ reading bc for ifld           1
+ done :: read .re2 file    0.71     sec
+
+ setup mesh topology
+   Right-handed check complete for     2985984 elements. OK.
+gs_setup: 21741999 unique labels shared
+   handle bytes (avg, min, max): 2.80221e+07 26872132 28517132
+   buffer bytes (avg, min, max): 1.86521e+06 1068672 2245728
+   setupds time 8.4917E-01 seconds   0  8   382271185     2985984
+ 
+ nElements   max/min/bal: 7776 7776 1.00
+ nMessages   max/min/avg: 29 5 16.11
+ msgSize     max/min/avg: 26006 1 7757.15
+ msgSizeSum  max/min/avg: 140358 66792 116575.44
+ 
+ max multiplicity            8
+ done :: setup mesh topology
+  
+ call usrdat
+ epsy=  0.29999999999999999      epsz=  0.29999999999999999     
+ done :: usrdat
+
+ generate geometry data
+ done :: generate geometry data
+  
+ call usrdat2
+ done :: usrdat2
+
+  1.1102E-16  1.1102E-16  1.1102E-16  1.1102E-16  1.1102E-16  1.1102E-16 xyz repair 1
+  5.5511E-17  1.1102E-16  1.1102E-16  1.4586E-16  1.8867E-16  1.8867E-16 xyz repair 2
+  1.1102E-16  1.1102E-16  1.1102E-16  1.4919E-16  1.4940E-16  1.4940E-16 xyz repair 3
+  5.5511E-17  5.5511E-17  5.5511E-17  5.5511E-17  5.5511E-17  5.5511E-17 xyz repair 4
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ verify mesh topology
+ -0.50000000000000000       0.50000000000000000       Xrange
+ -0.50000000000000000       0.50000000000000000       Yrange
+ -0.50000000000000000       0.50000000000000000       Zrange
+ done :: verify mesh topology
+  
+ mesh metrics:
+ GLL grid spacing min/max    : 1.34E-04 8.75E-03
+ scaled Jacobian  min/max/avg: 7.01E-01 1.00E+00 9.53E-01
+ aspect ratio     min/max/avg: 1.02E+00 2.01E+01 4.15E+00
+
+ call usrdat3
+ done :: usrdat3
+
+gridpoints unique/tot:    1027243729   1528823808
+dofs vel/pr:              1027243729   1021147343
+ nek setup done in    1.3325E+01 s
+
+ set initial conditions
+ nekuic (1) for ifld            1
+ call nekuic for vel  
+ xyz min   -0.50000     -0.50000     -0.50000    
+ uvwpt min  -1.0000      0.81910E-06  0.58953E-06   0.0000       0.0000    
+ PS min      0.0000       0.0000       0.0000      0.99000E+22
+ xyz max    0.50000      0.50000      0.50000    
+ uvwpt max   1.0000       1.0000       1.0000       0.0000       0.0000    
+ PS max      0.0000       0.0000       0.0000     -0.99000E+22
+ done :: set initial conditions
+  
+calling nek_userchk ...
+
+loading mesh from nek ... NboundaryIDs: 1, NboundaryFaces: 124416 done (0.000939766s)
+generating mesh ... Nq: 8 cubNq: 11
+computing geometric factors ... J [3.7676e-09,1.20982e-07] done (0.629585s)
+timing oogs modes: 0.000486503s 0.000352347s 0.00034113s 0.000347431s 0.00026977s 0.000220519s used config: 3.0.1
+min 68% of the local elements are internal
+timing oogs modes: 0.00169655s 0.000843792s 0.000846458s 0.000834225s 0.000548833s 0.000542662s used config: 3.0.1
+loading ns kernels ... done (0.00125103s)
+copying solution from nek
+calling udf_setup ... done
+================ ELLIPTIC SETUP VELOCITY ================
+bID 1 -> bcType zeroGradient
+allNeumann = 0 
+loading elliptic kernels ... done (0.000290678s)
+timing oogs modes: 0.00172025s 0.000857475s 0.000838382s 0.000833122s 0.000552896s 0.000546301s used config: 3.0.1
+timing oogs modes: 0.00176438s 0.00142314s 0.00142586s 0.00141121s 0.000721952s 0.000709684s used config: 3.0.1
+building Jacobi preconditioner ... done (0.350446s)
+done (1.71551s)
+================ ELLIPTIC SETUP PRESSURE ================
+WARNING: Cannot find oudf function: pressureDirichletConditions!
+allNeumann = 0 
+loading elliptic kernels ... done (0.000330655s)
+timing oogs modes: 0.000482097s 0.000345045s 0.000343349s 0.000359852s 0.000258196s 0.000235022s used config: 3.0.1
+timing oogs modes: 0.000623728s 0.000716473s 0.000715246s 0.000709279s 0.000427897s 0.000398102s used config: 3.0.1
+building MG preconditioner ... 
+loading elliptic preconditioner kernels ... done (0.000408002s)
+=============BUILDING MULTIGRID LEVEL OF DEGREE 7==================
+timing oogs modes: 0.000480215s 0.000232932s 0.000222004s 0.000237458s 0.000246077s 0.000222116s used config: 2.0.1
+timing oogs modes: 0.000508422s 0.000397596s 0.00039839s 0.000391992s 0.000297563s 0.000279274s used config: 3.0.1
+timing oogs modes: 0.000526477s 0.000283183s 0.000289034s 0.000273774s 0.000175741s 0.000168975s used config: 3.0.1
+estimating maxEigenvalue ... 10.2662 done (0.837727s)
+=============BUILDING MULTIGRID LEVEL OF DEGREE 5==================
+computing geometric factors ... J [3.7676e-09,1.20982e-07] done (0.198574s)
+loading elliptic preconditioner kernels ... done (0.000425759s)
+done (0.000560324s)
+timing oogs modes: 0.000302812s 0.000195945s 0.000190754s 0.000191378s 0.000238003s 0.000217604s used config: 2.0.1
+timing oogs modes: 0.000330865s 0.000275341s 0.000273065s 0.000279699s 0.00025134s 0.000223179s used config: 3.0.1
+timing oogs modes: 0.000342476s 0.000204599s 0.000209705s 0.000196929s 0.000166029s 0.000139129s used config: 3.0.1
+estimating maxEigenvalue ... 10.3247 done (0.661544s)
+=============BUILDING MULTIGRID LEVEL OF DEGREE 3==================
+computing geometric factors ... J [3.7676e-09,1.20982e-07] done (0.0589404s)
+loading elliptic preconditioner kernels ... done (0.000380093s)
+done (0.000661455s)
+timing oogs modes: 0.000200159s 0.000144526s 0.000143608s 0.000146872s 0.000225746s 0.000201805s used config: 2.0.1
+timing oogs modes: 0.000222123s 0.000195645s 0.000192257s 0.000188839s 0.000253568s 0.000197099s used config: 2.1.0
+timing oogs modes: 0.000226901s 0.000158263s 0.000158819s 0.00015774s 0.000159365s 0.00013708s used config: 3.0.1
+estimating maxEigenvalue ... 10.3311 done (0.139719s)
+=============BUILDING MULTIGRID LEVEL OF DEGREE 1==================
+computing geometric factors ... J [3.7676e-09,1.20982e-07] done (0.0113698s)
+loading elliptic preconditioner kernels ... done (0.00049675s)
+done (0.00106342s)
+timing oogs modes: 0.000126289s 0.000119891s 0.000120122s 0.000120376s 0.000214893s 0.000189525s used config: 2.0.0
+timing oogs modes: 0.000146261s 0.000141238s 0.00014164s 0.00014528s 0.000233246s 0.000224676s used config: 2.0.0
+building full FEM matrix ... done.
+done (0.356658s)
+Setting up AMG...
+
+ Num MPI tasks = 384
+
+ Num OpenMP threads = 1
+
+
+BoomerAMG SETUP PARAMETERS:
+
+ Max levels = 25
+ Num levels = 9
+
+ Strength Threshold = 0.250000
+ Interpolation Truncation Factor = 0.000000
+ Maximum Row Sum Threshold for Dependency Weakening = 0.900000
+
+ Coarsening Type = PMIS 
+ measures are determined locally
+
+ Interpolation = extended+i interpolation
+
+Operator Matrix Information:
+
+             nonzero            entries/row          row sums
+lev    rows  entries sparse   min  max     avg      min         max
+======================================================================
+  0 2924207 43765395  0.000     4   19    15.0  -1.058e-15   4.412e-02
+  1 1036546 36141100  0.000     5   95    34.9  -2.723e-04   5.882e-02
+  2  265739 12870581  0.000     6  120    48.4  -3.709e-04   7.832e-02
+  3   48668  2274068  0.001    12  125    46.7  -8.078e-04   1.047e-01
+  4    6598   298352  0.007    12  155    45.2  -2.065e-01   2.392e-01
+  5     827    31695  0.046    10  121    38.3  -2.702e+00   2.059e+01
+  6     104     2756  0.255     8   84    26.5  -3.522e-01   2.172e+00
+  7      10       84  0.840     6   10     8.4   7.162e-02   3.453e+00
+  8       1        1  1.000     1    1     1.0   6.166e-01   6.166e-01
+
+
+Interpolation Matrix Information:
+                        entries/row        min        max            row sums
+lev    rows x cols    min  max  avgW     weight      weight       min         max
+====================================================================================
+  0 2924207 x 1036546   1    4   3.3  -1.733e-01   1.023e+00   4.031e-01   1.000e+00
+  1 1036546 x 265739    1    4   3.9  -2.060e-01   1.032e+00   1.471e-01   1.006e+00
+  2  265739 x 48668     0    4   4.0  -1.888e-01   1.000e+00   0.000e+00   1.004e+00
+  3   48668 x 6598      0    4   4.0  -1.599e+01   6.070e+00   0.000e+00   1.007e+00
+  4    6598 x 827       0    4   3.9  -9.789e+00   2.848e+00  -9.388e+00   1.005e+00
+  5     827 x 104       0    4   3.3  -2.884e+01   8.146e+01   0.000e+00   1.000e+00
+  6     104 x 10        0    4   2.1  -1.313e-01   4.564e-01   0.000e+00   1.000e+00
+  7      10 x 1         0    1   0.1   2.953e-02   2.953e-02   0.000e+00   1.000e+00
+
+
+     Complexity:    grid = 1.464568
+                operator = 2.179440
+                memory = 2.443060
+
+
+
+
+BoomerAMG SOLVER PARAMETERS:
+
+  Maximum number of cycles:         1 
+  Stopping Tolerance:               0.000000e+00 
+  Cycle type (1 = V, 2 = W, etc.):  1
+
+  Relaxation Parameters:
+   Visiting Grid:                     down   up  coarse
+            Number of sweeps:            1    1     1 
+   Type 0=Jac, 3=hGS, 6=hSGS, 9=GE:     16   16     9 
+   Point types, partial sweeps (1=C, -1=F):
+                  Pre-CG relaxation (down):   0
+                   Post-CG relaxation (up):   0
+                             Coarsest grid:   0
+
+done (0.445235s)
+--------------------Multigrid Report---------------------
+---------------------------------------------------------
+level|    Type    |                 |     Smoother      |
+     |            |                 |                   |
+---------------------------------------------------------
+   0 |    pMG     |   Matrix-free   | Chebyshev+Schwarz |
+     |            |     Degree  7   |                   |
+   1 |    pMG     |   Matrix-free   | Chebyshev+Schwarz |
+     |            |     Degree  5   |                   |
+   2 |    pMG     |   Matrix-free   | Chebyshev+Schwarz |
+     |            |     Degree  3   |                   |
+   3 |    AMG     |   Matrix        | BoomerAMG         |
+     |            |     Degree  1   |                   |
+---------------------------------------------------------
+done (36.1855s)
+done (40.5278s)
+copying solution to nek
+
+settings:
+
+key: CHECKPOINT OUTPUT MESH,                                  value: FALSE
+key: FORMAT,                                                  value: 1.0
+key: CONSTANT FLOW RATE,                                      value: FALSE
+key: ELEMENT TYPE,                                            value: 12
+key: ELEMENT MAP,                                             value: ISOPARAMETRIC
+key: MESH DIMENSION,                                          value: 3
+key: NUMBER OF SCALARS,                                       value: 0
+key: SCALAR MAXIMUM ITERATIONS,                               value: 200
+key: TIME INTEGRATOR,                                         value: TOMBO2
+key: MESH INTEGRATION ORDER,                                  value: 3
+key: SUBCYCLING STEPS,                                        value: 0
+key: SUBCYCLING TIME ORDER,                                   value: 4
+key: SUBCYCLING TIME STAGE NUMBER,                            value: 4
+key: CASENAME,                                                value: kershaw
+key: UDF OKL FILE,                                            value: kershaw.oudf
+key: UDF FILE,                                                value: kershaw.udf
+key: NEK USR FILE,                                            value: kershaw.usr
+key: MESH FILE,                                               value: kershaw.re2
+key: DEVICE NUMBER,                                           value: 0
+key: PLATFORM NUMBER,                                         value: 0
+key: VERBOSE,                                                 value: FALSE
+key: ADVECTION,                                               value: TRUE
+key: ADVECTION TYPE,                                          value: CUBATURE+CONVECTIVE
+key: RESTART FROM FILE,                                       value: 0
+key: SOLUTION OUTPUT INTERVAL,                                value: 0.000000
+key: SOLUTION OUTPUT CONTROL,                                 value: STEPS
+key: REGULARIZATION METHOD,                                   value: NONE
+key: START TIME,                                              value: 0.000000e+00
+key: VELOCITY MAXIMUM ITERATIONS,                             value: 200
+key: VELOCITY BLOCK SOLVER,                                   value: TRUE
+key: VELOCITY KRYLOV SOLVER,                                  value: PCG
+key: VELOCITY BASIS,                                          value: NODAL
+key: VELOCITY PRECONDITIONER,                                 value: JACOBI
+key: VELOCITY DISCRETIZATION,                                 value: CONTINUOUS
+key: STRESSFORMULATION,                                       value: FALSE
+key: ELLIPTIC INTEGRATION,                                    value: NODAL
+key: PRESSURE MAXIMUM ITERATIONS,                             value: 500
+key: GALERKIN COARSE MATRIX,                                  value: FALSE
+key: PRESSURE KRYLOV SOLVER,                                  value: PGMRES+FLEXIBLE
+key: PRESSURE PRECONDITIONER,                                 value: MULTIGRID
+key: PRESSURE DISCRETIZATION,                                 value: CONTINUOUS
+key: PRESSURE BASIS,                                          value: NODAL
+key: AMG SOLVER,                                              value: BOOMERAMG
+key: AMG SOLVER PRECISION,                                    value: FP64
+key: AMG SOLVER LOCATION,                                     value: CPU
+key: PRESSURE PARALMOND CYCLE,                                value: VCYCLE+MULTIPLICATIVE
+key: PRESSURE MULTIGRID COARSE SOLVE,                         value: TRUE
+key: PRESSURE MULTIGRID COARSE SEMFEM,                        value: FALSE
+key: PRESSURE MULTIGRID SMOOTHER,                             value: CHEBYSHEV+RAS
+key: PRESSURE MULTIGRID DOWNWARD SMOOTHER,                    value: RAS
+key: PRESSURE MULTIGRID UPWARD SMOOTHER,                      value: RAS
+key: PRESSURE MULTIGRID CHEBYSHEV DEGREE,                     value: 2
+key: PRESSURE MULTIGRID CHEBYSHEV MIN EIGENVALUE BOUND FACTOR,value: 0.1
+key: PRESSURE MULTIGRID CHEBYSHEV MAX EIGENVALUE BOUND FACTOR,value: 1.1
+key: PRESSURE INITIAL GUESS,                                  value: PREVIOUS
+key: PRESSURE RESIDUAL PROJECTION VECTORS,                    value: 10
+key: PRESSURE RESIDUAL PROJECTION START,                      value: 5
+key: PARALMOND SMOOTH COARSEST,                               value: FALSE
+key: ENABLE FLOATCOMMHALF GS SUPPORT,                         value: FALSE
+key: MOVING MESH,                                             value: FALSE
+key: ENABLE OVERLAP,                                          value: TRUE
+key: VARIABLE DT,                                             value: FALSE
+key: POLYNOMIAL DEGREE,                                       value: 7
+key: NUMBER TIMESTEPS,                                        value: 0
+key: CUBATURE POLYNOMIAL DEGREE,                              value: 10
+key: VELOCITY REGULARIZATION METHOD,                          value: NONE
+key: PRESSURE LINEAR SOLVER STOPPING CRITERION,               value: RELATIVE
+key: PRESSURE SOLVER TOLERANCE,                               value: 1.000000e-08
+key: PRESSURE MULTIGRID COARSENING,                           value: 7,5,3,1
+key: PRESSURE PGMRES RESTART,                                 value: 20
+key: BOOMERAMG ITERATIONS,                                    value: 1
+key: DENSITY,                                                 value: 1.000000e+00
+key: VISCOSITY,                                               value: 1.000000e+00
+key: BUILD ONLY,                                              value: FALSE
+key: THREAD MODEL,                                            value: CUDA
+key: DATA FILE,                                               value: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/kershaw/weak-scaling-study/eps-0.3/cheby-ras-pmg-7531-64/.cache/udf/udf.okl
+key: CI-MODE,                                                 value: 0
+
+occa memory usage: 6.00713 GB
+initialization took 76.0875 s
+solving ..........
+iterations: 57
+avg solve time: 2.06639 s
+  preconditioner 2.10237 s
+    smoother 1.34728 s
+    coarse grid 4.93099 s
+avg throughput: 4.95643e+08 DOF/s
+avg throughput: 2.82517e+10 (DOF x iter)/s
+elapsedTime: 77.4599 s
+End
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@batch4>
+Subject: Job 1490120: <nekRS_kershaw> in cluster <summit> Done
+
+Job <nekRS_kershaw> was submitted from host <login3> by user <malachi> in cluster <summit> at Mon Oct  4 14:02:23 2021
+Job was executed on host(s) <1*batch4>, in queue <batch>, as user <malachi> in cluster <summit> at Mon Oct  4 14:03:47 2021
+                            <42*b18n14>
+                            <42*b18n15>
+                            <42*b18n16>
+                            <42*b19n01>
+                            <42*b19n02>
+                            <42*b19n03>
+                            <42*b19n04>
+                            <42*b19n06>
+                            <42*b19n07>
+                            <42*b19n08>
+                            <42*b19n09>
+                            <42*b19n10>
+                            <42*b19n11>
+                            <42*b19n12>
+                            <42*b19n13>
+                            <42*b19n14>
+                            <42*b19n15>
+                            <42*b35n07>
+                            <42*b35n08>
+                            <42*b35n09>
+                            <42*b35n10>
+                            <42*b35n11>
+                            <42*b35n12>
+                            <42*b35n13>
+                            <42*b35n14>
+                            <42*b35n15>
+                            <42*b35n16>
+                            <42*b35n17>
+                            <42*b35n18>
+                            <42*b36n01>
+                            <42*b36n02>
+                            <42*b36n03>
+                            <42*b36n04>
+                            <42*b36n05>
+                            <42*b36n06>
+                            <42*b36n07>
+                            <42*b36n08>
+                            <42*e12n17>
+                            <42*e12n18>
+                            <42*e13n01>
+                            <42*e13n02>
+                            <42*e13n03>
+                            <42*e13n04>
+                            <42*e13n05>
+                            <42*e13n06>
+                            <42*e13n07>
+                            <42*e13n08>
+                            <42*e13n09>
+                            <42*e13n10>
+                            <42*e13n11>
+                            <42*e13n12>
+                            <42*e13n13>
+                            <42*e13n14>
+                            <42*e13n15>
+                            <42*e13n16>
+                            <42*e13n17>
+                            <42*e13n18>
+                            <42*e25n01>
+                            <42*e25n02>
+                            <42*e25n03>
+                            <42*e25n04>
+                            <42*e25n05>
+                            <42*e25n06>
+                            <42*e25n07>
+</ccs/home/malachi> was used as the home directory.
+</gpfs/alpine/scratch/malachi/csc262/siam-pp-22/kershaw/weak-scaling-study/eps-0.3/cheby-ras-pmg-7531-64> was used as the working directory.
+Started at Mon Oct  4 14:03:47 2021
+Terminated at Mon Oct  4 14:06:07 2021
+Results reported at Mon Oct  4 14:06:07 2021
+
+The output (if any) is above this job summary.
+

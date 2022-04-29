@@ -1,0 +1,226 @@
+                 __    ____  _____
+   ____   ___   / /__ / __ \/ ___/
+  / __ \ / _ \ / //_// /_/ /\__ \ 
+ / / / //  __// ,<  / _, _/___/ / 
+/_/ /_/ \___//_/|_|/_/ |_|/____/  v21.1 (51d5bf5f)
+
+COPYRIGHT (c) 2019-2021 UCHICAGO ARGONNE, LLC
+
+MPI tasks: 1
+
+using NEKRS_HOME: /home/malachi2/.local/nekrs
+using OCCA_CACHE_DIR: /home/malachi2/develop/research/aspect-ratio-scaling/kershaw/.cache/occa/
+
+Initializing device 
+active occa mode: CUDA
+
+loading linAlg kernels ... done (0.540113s)
+building udf ... 
+[100%] Built target UDF
+done (0.30437s)
+building nek ... 
+done (2.6472s)
+
+loading nek ...
+generating connectivity (tol=0.2) ...
+ finished in 0.0612987 s
+running parRSB ...
+ finished in 0.000837788 s
+
+gs_setup: 0 unique labels shared
+   handle bytes (avg, min, max): 1.89792e+07 18979156 18979156
+   buffer bytes (avg, min, max): 0 0 0
+ Reading /home/malachi2/develop/research/aspect-ratio-scaling/kershaw/kershaw.re2                                                            
+ reading mesh 
+ reading bc for ifld           1
+ done :: read .re2 file    0.28     sec
+
+ reading mesh 
+ reading bc for ifld           1
+ done :: read .re2 file    0.22     sec
+
+ setup mesh topology
+   Right-handed check complete for        5832 elements. OK.
+   setupds time 4.7091E-01 seconds   0  8      788671        5832
+ 
+ 
+ max multiplicity            8
+ done :: setup mesh topology
+  
+ call usrdat
+ epsy=  0.29999999999999999      epsz=  0.29999999999999999     
+ done :: usrdat
+
+ generate geometry data
+ done :: generate geometry data
+  
+ call usrdat2
+ done :: usrdat2
+
+  1.1102E-16  1.1102E-16  1.1102E-16  1.1102E-16  1.1102E-16  1.1102E-16 xyz repair 1
+  5.5511E-17  5.5511E-17  5.5511E-17  1.0390E-16  1.1102E-16  1.1102E-16 xyz repair 2
+  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00 xyz repair 3
+  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00 xyz repair 4
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ verify mesh topology
+ -0.50000000000000000       0.50000000000000000       Xrange
+ -0.50000000000000000       0.50000000000000000       Yrange
+ -0.50000000000000000       0.50000000000000000       Zrange
+ done :: verify mesh topology
+  
+ mesh metrics:
+ GLL grid spacing min/max    : 1.07E-03 7.00E-02
+ scaled Jacobian  min/max/avg: 1.53E-01 1.00E+00 7.37E-01
+ aspect ratio     min/max/avg: 1.18E+00 2.01E+01 5.39E+00
+
+ call usrdat3
+ done :: usrdat3
+
+gridpoints unique/tot:       2048383      2985984
+dofs vel/pr:                 2048383      1953125
+ nek setup done in    4.5945E+00 s
+
+calling nek_userchk ...
+
+loading mesh from nek ... NboundaryIDs: 1, NboundaryFaces: 1944 done (0.000610083s)
+generating mesh ... Nq: 8 cubNq: 11
+computing geometric factors ... J [1.92901e-06,6.19427e-05] done (1.64387s)
+loading gs kernels ... done (2.34374s)
+min 100% of the local elements are internal
+loading udf kernels ... done
+loading ns kernels ... done (0.621575s)
+copying solution from nek
+calling udf_setup ... done
+================ ELLIPTIC SETUP VELOCITY ================
+bID 1 -> bcType zeroGradient
+allNeumann = 0 
+loading elliptic kernels ... done (0.387245s)
+building Jacobi preconditioner ... done (0.0190699s)
+done (0.87861s)
+================ ELLIPTIC SETUP PRESSURE ================
+allNeumann = 0 
+loading elliptic kernels ... done (0.361788s)
+setup SEMFEM preconditioner ... 
+building matrix ... done (8.70768s)
+AMGX version 2.2.0.132-opensource
+Built on Jul 19 2021, 11:27:19
+Compiled with CUDA Runtime 10.0, using CUDA driver 10.2
+Using CUDA-Aware MPI (GPU Direct) communicator...
+AMG Grid:
+         Number of Levels: 8
+            LVL         ROWS               NNZ    SPRSTY       Mem (GB)
+         --------------------------------------------------------------
+           0(D)      1953125          36642125  9.61e-06          0.315
+           1(D)       763839          30935867   5.3e-05          0.488
+           2(D)       219219          16742339  0.000348          0.257
+           3(D)        45043           4992881   0.00246          0.076
+           4(D)         6404            754780    0.0184         0.0115
+           5(D)          784             65734     0.107        0.00101
+           6(D)          107              4633     0.405       7.27e-05
+           7(D)           13               163     0.964       2.83e-06
+         --------------------------------------------------------------
+         Grid Complexity: 1.53013
+         Operator Complexity: 2.45997
+         Total Memory Usage: 1.14897 GB
+         --------------------------------------------------------------
+done (11.5261s)
+done (11.5707s)
+done (13.9851s)
+copying solution to nek
+
+settings:
+
+key: FORMAT,                              value: 1.0
+key: ELEMENT TYPE,                        value: 12
+key: ELEMENT MAP,                         value: ISOPARAMETRIC
+key: MESH DIMENSION,                      value: 3
+key: NUMBER OF SCALARS,                   value: 0
+key: SCALAR MAXIMUM ITERATIONS,           value: 200
+key: TIME INTEGRATOR,                     value: TOMBO2
+key: MESH INTEGRATION ORDER,              value: 3
+key: SUBCYCLING STEPS,                    value: 0
+key: SUBCYCLING TIME ORDER,               value: 4
+key: SUBCYCLING TIME STAGE NUMBER,        value: 4
+key: CASENAME,                            value: kershaw
+key: UDF OKL FILE,                        value: kershaw.oudf
+key: UDF FILE,                            value: kershaw.udf
+key: DEVICE NUMBER,                       value: LOCAL-RANK
+key: PLATFORM NUMBER,                     value: 0
+key: VERBOSE,                             value: FALSE
+key: ADVECTION,                           value: TRUE
+key: ADVECTION TYPE,                      value: CUBATURE+CONVECTIVE
+key: RESTART FROM FILE,                   value: 0
+key: SOLUTION OUTPUT INTERVAL,            value: 0.000000
+key: SOLUTION OUTPUT CONTROL,             value: STEPS
+key: FILTER STABILIZATION,                value: NONE
+key: START TIME,                          value: 0.000000e+00
+key: VELOCITY MAXIMUM ITERATIONS,         value: 200
+key: VELOCITY BLOCK SOLVER,               value: TRUE
+key: VELOCITY KRYLOV SOLVER,              value: PCG
+key: VELOCITY BASIS,                      value: NODAL
+key: VELOCITY PRECONDITIONER,             value: JACOBI
+key: VELOCITY DISCRETIZATION,             value: CONTINUOUS
+key: STRESSFORMULATION,                   value: FALSE
+key: ELLIPTIC INTEGRATION,                value: NODAL
+key: PRESSURE MAXIMUM ITERATIONS,         value: 1000
+key: GALERKIN COARSE MATRIX,              value: FALSE
+key: PRESSURE KRYLOV SOLVER,              value: PGMRES+FLEXIBLE
+key: PRESSURE PRECONDITIONER,             value: SEMFEM
+key: PRESSURE DISCRETIZATION,             value: CONTINUOUS
+key: PRESSURE BASIS,                      value: NODAL
+key: AMG SOLVER,                          value: BOOMERAMG
+key: PRESSURE PARALMOND CYCLE,            value: VCYCLE
+key: PRESSURE MULTIGRID SMOOTHER,         value: CHEBYSHEV+ASM
+key: PRESSURE MULTIGRID DOWNWARD SMOOTHER,value: ASM
+key: PRESSURE MULTIGRID UPWARD SMOOTHER,  value: ASM
+key: PRESSURE MULTIGRID CHEBYSHEV DEGREE, value: 2
+key: PRESSURE RESIDUAL PROJECTION,        value: FALSE
+key: PRESSURE RESIDUAL PROJECTION VECTORS,value: 10
+key: PRESSURE RESIDUAL PROJECTION START,  value: 5
+key: PARALMOND SMOOTH COARSEST,           value: FALSE
+key: ENABLE FLOATCOMMHALF GS SUPPORT,     value: FALSE
+key: MOVING MESH,                         value: FALSE
+key: ENABLE OVERLAP,                      value: TRUE
+key: POLYNOMIAL DEGREE,                   value: 7
+key: CUBATURE POLYNOMIAL DEGREE,          value: 10
+key: NUMBER TIMESTEPS,                    value: 0
+key: PRESSURE SOLVER TOLERANCE,           value: 1.000000e-08
+key: PRESSURE SEMFEM SOLVER,              value: AMGX
+key: PRESSURE SEMFEM SOLVER PRECISION,    value: FP32
+key: PRESSURE PGMRES RESTART,             value: 20
+key: AMGX CONFIG FILE,                    value: amgx.json
+key: VELOCITY INITIAL GUESS DEFAULT,      value: EXTRAPOLATION
+key: DENSITY,                             value: 1.000000e+00
+key: VISCOSITY,                           value: 1.000000e+00
+key: BUILD ONLY,                          value: FALSE
+key: THREAD MODEL,                        value: CUDA
+key: DATA FILE,                           value: /home/malachi2/develop/research/aspect-ratio-scaling/kershaw/.cache/udf/udf.okl
+key: CI-MODE,                             value: 0
+key: LINEAR SOLVER STOPPING CRITERION,    value: RELATIVE
+
+occa memory usage: 4.77418 GB
+initialization took 33.5251 s
+solving ..........
+iterations: 77
+avg solve time: 0.577189 s
+  preconditioner 0.450114 s
+avg throughput: 3.46572e+06 DOF/s
+avg throughput: 2.66861e+08 (DOF x iter)/s
+elapsedTime: 35.1005 s
+End
+ set initial conditions
+ nekuic (1) for ifld            1
+ call nekuic for vel  
+ xyz min   -0.50000     -0.50000     -0.50000    
+ uvwpt min  -1.0000      0.63609E-06  0.84285E-07   0.0000       0.0000    
+ PS min      0.0000       0.0000       0.0000      0.99000E+22
+ xyz max    0.50000      0.50000      0.50000    
+ uvwpt max   1.0000       1.0000       1.0000       0.0000       0.0000    
+ PS max      0.0000       0.0000       0.0000     -0.99000E+22
+ done :: set initial conditions
+  

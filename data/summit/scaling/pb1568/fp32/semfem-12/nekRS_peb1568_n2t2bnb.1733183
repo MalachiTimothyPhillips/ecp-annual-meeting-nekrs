@@ -1,0 +1,1610 @@
+                 __    ____  _____
+   ____   ___   / /__ / __ \/ ___/
+  / __ \ / _ \ / //_// /_/ /\__ \ 
+ / / / //  __// ,<  / _, _/___/ / 
+/_/ /_/ \___//_/|_|/_/ |_|/____/  v21.2.0 (89cacef2)
+
+COPYRIGHT (c) 2019-2021 UCHICAGO ARGONNE, LLC
+
+MPI tasks: 132
+
+reading par file ...
+general::filtering is deprecated and might be removed in the future!
+general::filtermodes is deprecated and might be removed in the future!
+general::filterweight is deprecated and might be removed in the future!
+
+using NEKRS_HOME: /ccs/home/malachi/.local/nekrs
+using NEKRS_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb1568/semfem-fp32-12/.cache
+using OCCA_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb1568/semfem-fp32-12/.cache/occa/
+
+Initializing device 
+active occa mode: CUDA
+
+building udf ... 
+Consolidate compiler generated dependencies of target UDF
+[100%] Built target UDF
+done (0.49906s)
+skip building nekInterface (SIZE requires no update)
+loading nek ... 
+done
+loading udf kernels ... done (0.0517955s)
+
+loading kernels ... done (3.7393s)
+
+ Reading /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb1568/semfem-fp32-12/peb1568_n2t2bnb.re2                                            
+ reading mesh 
+ reading bc for ifld           1
+ done :: read .re2 file    0.72     sec
+
+Running parCon ... (tol=0.2)
+
+ Error: elementCheck
+Running parCon ... (tol=0.02)
+Running parRSB ...
+Warning: Partitioner only reached a tolerance of 1.280447 given 0.000500 after 50 x 50 iterations in Level=1!
+parRSB finished in 3.44726 s
+
+ reading mesh 
+ reading curved sides 
+ reading bc for ifld           1
+ done :: read .re2 file    0.72     sec
+
+ setup mesh topology
+   Right-handed check complete for      524386 elements. OK.
+gs_setup: 5672495 unique labels shared
+   handle bytes (avg, min, max): 1.42279e+07 13843580 14693580
+   buffer bytes (avg, min, max): 1.41805e+06 1014528 1921808
+   setupds time 3.9803E-01 seconds   0  8    70904907      524386
+ 
+ nElements   max/min/bal: 3973 3972 1.00
+ nMessages   max/min/avg: 25 5 12.79
+ msgSize     max/min/avg: 23433 1 7321.26
+ msgSizeSum  max/min/avg: 120113 63408 88627.91
+ 
+ max multiplicity           44
+ done :: setup mesh topology
+  
+ call usrdat
+ done :: usrdat
+
+ generate geometry data
+ done :: generate geometry data
+  
+ call usrdat2
+ done :: usrdat2
+
+  3.9629E-15  3.9299E-15  7.1054E-15  7.6927E-16  7.6927E-16  9.8206E-16 xyz repair 1
+  3.9629E-15  3.9299E-15  7.1054E-15  6.9253E-15  6.5223E-15  9.3390E-15 xyz repair 2
+  3.7848E-15  3.5527E-15  7.1054E-15  5.8127E-15  6.1523E-15  8.9797E-15 xyz repair 3
+  3.7863E-15  2.8686E-15  3.8168E-15  3.7863E-15  2.8686E-15  3.8168E-15 xyz repair 4
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ verify mesh topology
+  -13.858251128023300        13.858078221547562       Xrange
+  -13.858092645782323        13.858190303122345       Yrange
+  -14.673319816589355        17.691219329833984       Zrange
+ done :: verify mesh topology
+  
+ mesh metrics:
+ GLL grid spacing min/max    : 2.21E-04 3.02E-01
+ scaled Jacobian  min/max/avg: 2.59E-02 9.91E-01 3.71E-01
+ aspect ratio     min/max/avg: 1.12E+00 1.08E+02 1.26E+01
+
+ call usrdat3
+ done :: usrdat3
+
+gridpoints unique/tot:     184172283    268485632
+dofs vel/pr:               175531272    184064426
+ nek setup done in    9.5242E+00 s
+
+ set initial conditions
+ Checking restart options: r5.fld                                                                                                                              
+ nekuic (1) for ifld            1
+ Reading checkpoint data 
+       FILE:/gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb1568/semfem-fp32-12/r5.fld                                                         
+
+        0  2.0000E+01 done :: Read checkpoint data
+                              avg data-throughput =     4.6GB/s
+                              io-nodes =   132
+
+ xyz min    -13.858      -13.858      -14.673    
+ uvwpt min  -6.4231      -7.8486      -7.9142      -20.893       0.0000    
+ PS min      0.0000       0.0000       0.0000      0.99000E+22
+ xyz max     13.858       13.858       17.691    
+ uvwpt max   6.5953       7.1037       10.614       19.461       0.0000    
+ PS max      0.0000       0.0000       0.0000     -0.99000E+22
+ Restart: recompute geom. factors.
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ done :: set initial conditions
+  
+calling nek_userchk ...
+ xyz min    -13.858      -13.858      -14.673    
+ xyz max     13.858       13.858       17.691    
+
+loading mesh from nek ... NboundaryIDs: 4, NboundaryFaces: 178458 done (0.000558401s)
+generating mesh ... Nq: 8 cubNq: 11
+computing geometric factors ... J [1.11222e-05,0.168148] done (0.32647s)
+timing oogs modes: 0.000513387s 0.000297113s 0.000307363s 0.000323759s 0.000303979s 0.00026739s used config: 3.0.1
+min 47% of the local elements are internal
+timing oogs modes: 0.00152836s 0.000694321s 0.000755691s 0.000735936s 0.000410117s 0.000472464s used config: 3.0.0
+loading ns kernels ... done (0.000613324s)
+copying solution from nek
+calling udf_setup ... done
+copying solution to nek
+================ ELLIPTIC SETUP VELOCITY ================
+bID 1 -> bcType fixedValue
+bID 2 -> bcType zeroGradient
+bID 3 -> bcType zeroValue
+bID 4 -> bcType zeroValue
+allNeumann = 0 
+loading elliptic kernels ... done (0.000177979s)
+timing oogs modes: 0.00156346s 0.000722819s 0.000699453s 0.000694239s 0.00046205s 0.00048234s used config: 3.0.0
+timing oogs modes: 0.00157521s 0.000959811s 0.000983239s 0.000971344s 0.000421305s 0.000399181s used config: 3.0.1
+building Jacobi preconditioner ... done (0.388728s)
+done (1.96368s)
+================ ELLIPTIC SETUP PRESSURE ================
+allNeumann = 0 
+loading elliptic kernels ... done (0.000391721s)
+timing oogs modes: 0.000513678s 0.000311932s 0.000300229s 0.000306358s 0.000301167s 0.000270295s used config: 3.0.1
+timing oogs modes: 0.000533018s 0.000419775s 0.000446653s 0.000444231s 0.000352329s 0.000337444s used config: 3.0.1
+setup SEMFEM preconditioner ... 
+building matrix ... done (30.7263s)
+AMGX version 2.2.0.132-opensource
+Built on Jan  2 2022, 11:45:05
+Compiled with CUDA Runtime 11.0, using CUDA driver 11.0
+Using CUDA-Aware MPI (GPU Direct) communicator...
+AMG Grid:
+         Number of Levels: 11
+            LVL         ROWS               NNZ    SPRSTY       Mem (GB)
+         --------------------------------------------------------------
+           0(D)    184064426        3454534578  1.02e-07           31.7
+           1(D)     77851179        2612910471  4.31e-07           48.2
+           2(D)     29321595        1488457111  1.73e-06           30.5
+           3(D)      9845483         750031009  7.74e-06           17.7
+           4(D)      2425158         240043832  4.08e-05           7.12
+           5(D)       362788          40017918  0.000304           1.79
+           6(D)        37631           3392217    0.0024          0.295
+           7(D)         4137            348745    0.0204         0.0811
+           8(D)          463             32089      0.15         0.0204
+           9(D)           62              2584     0.672        0.00157
+          10(D)           10               100         1       2.08e-05
+         --------------------------------------------------------------
+         Grid Complexity: 1.65112
+         Operator Complexity: 2.48652
+         Total Memory Usage: 137.42 GB
+         --------------------------------------------------------------
+done (66.0274s)
+done (66.0275s)
+done (68.6243s)
+
+settings:
+
+key: ADVECTION,                                               value: TRUE
+key: ADVECTION TYPE,                                          value: CUBATURE+CONVECTIVE
+key: AMG SOLVER,                                              value: BOOMERAMG
+key: AMG SOLVER LOCATION,                                     value: CPU
+key: AMG SOLVER PRECISION,                                    value: FP64
+key: AMGX CONFIG FILE,                                        value: amgx.json
+key: BUILD ONLY,                                              value: FALSE
+key: CASENAME,                                                value: peb1568_n2t2bnb
+key: CHECKPOINT OUTPUT MESH,                                  value: FALSE
+key: CI-MODE,                                                 value: 0
+key: CONSTANT FLOW RATE,                                      value: FALSE
+key: CUBATURE POLYNOMIAL DEGREE,                              value: 10
+key: DATA FILE,                                               value: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb1568/semfem-fp32-12/.cache/udf/udf.okl
+key: DENSITY,                                                 value: 1.000000e+00
+key: DEVICE NUMBER,                                           value: 0
+key: DT,                                                      value: 5.000000e-04
+key: ELEMENT MAP,                                             value: ISOPARAMETRIC
+key: ELEMENT TYPE,                                            value: 12
+key: ELLIPTIC INTEGRATION,                                    value: NODAL
+key: ENABLE FLOATCOMMHALF GS SUPPORT,                         value: FALSE
+key: ENABLE OVERLAP,                                          value: TRUE
+key: FORMAT,                                                  value: 1.0
+key: GALERKIN COARSE MATRIX,                                  value: FALSE
+key: HPFRT MODES,                                             value: 2.000000e+00
+key: HPFRT STRENGTH,                                          value: 2.000000e+02
+key: MESH DIMENSION,                                          value: 3
+key: MESH FILE,                                               value: peb1568_n2t2bnb.re2
+key: MESH INTEGRATION ORDER,                                  value: 3
+key: MOVING MESH,                                             value: FALSE
+key: NEK USR FILE,                                            value: peb1568_n2t2bnb.usr
+key: NUMBER OF SCALARS,                                       value: 0
+key: NUMBER TIMESTEPS,                                        value: 2000
+key: PARALMOND SMOOTH COARSEST,                               value: FALSE
+key: PLATFORM NUMBER,                                         value: 0
+key: POLYNOMIAL DEGREE,                                       value: 7
+key: PRESSURE BASIS,                                          value: NODAL
+key: PRESSURE DISCRETIZATION,                                 value: CONTINUOUS
+key: PRESSURE INITIAL GUESS,                                  value: PROJECTION-ACONJ
+key: PRESSURE KRYLOV SOLVER,                                  value: PGMRES+FLEXIBLE
+key: PRESSURE MAXIMUM ITERATIONS,                             value: 200
+key: PRESSURE MULTIGRID CHEBYSHEV DEGREE,                     value: 2
+key: PRESSURE MULTIGRID CHEBYSHEV MAX EIGENVALUE BOUND FACTOR,value: 1.1
+key: PRESSURE MULTIGRID CHEBYSHEV MIN EIGENVALUE BOUND FACTOR,value: 0.1
+key: PRESSURE MULTIGRID COARSE SEMFEM,                        value: FALSE
+key: PRESSURE MULTIGRID COARSE SOLVE,                         value: TRUE
+key: PRESSURE MULTIGRID DOWNWARD SMOOTHER,                    value: ASM
+key: PRESSURE MULTIGRID SMOOTHER,                             value: CHEBYSHEV+ASM
+key: PRESSURE MULTIGRID UPWARD SMOOTHER,                      value: ASM
+key: PRESSURE PARALMOND CYCLE,                                value: VCYCLE
+key: PRESSURE PRECONDITIONER,                                 value: SEMFEM
+key: PRESSURE RESIDUAL PROJECTION START,                      value: 5
+key: PRESSURE RESIDUAL PROJECTION VECTORS,                    value: 10
+key: PRESSURE SEMFEM SOLVER,                                  value: AMGX
+key: PRESSURE SEMFEM SOLVER PRECISION,                        value: FP32
+key: PRESSURE SOLVER TOLERANCE,                               value: 1.000000e-04
+key: REGULARIZATION METHOD,                                   value: RELAXATION
+key: RESTART FILE NAME,                                       value: r5.fld
+key: RESTART FROM FILE,                                       value: 1
+key: SCALAR MAXIMUM ITERATIONS,                               value: 200
+key: SOLUTION OUTPUT CONTROL,                                 value: STEPS
+key: SOLUTION OUTPUT INTERVAL,                                value: 0.000000
+key: START TIME,                                              value: 2.000000e+01
+key: STRESSFORMULATION,                                       value: FALSE
+key: SUBCYCLING STEPS,                                        value: 2
+key: SUBCYCLING TIME ORDER,                                   value: 4
+key: SUBCYCLING TIME STAGE NUMBER,                            value: 4
+key: THREAD MODEL,                                            value: CUDA
+key: TIME INTEGRATOR,                                         value: TOMBO2
+key: UDF FILE,                                                value: peb1568_n2t2bnb.udf
+key: UDF OKL FILE,                                            value: peb1568_n2t2bnb.oudf
+key: VARIABLE DT,                                             value: FALSE
+key: VELOCITY BASIS,                                          value: NODAL
+key: VELOCITY BLOCK SOLVER,                                   value: TRUE
+key: VELOCITY COEFF FIELD,                                    value: TRUE
+key: VELOCITY DISCRETIZATION,                                 value: CONTINUOUS
+key: VELOCITY HPFRT MODES,                                    value: 2.000000e+00
+key: VELOCITY HPFRT STRENGTH,                                 value: 2.000000e+02
+key: VELOCITY KRYLOV SOLVER,                                  value: PCG
+key: VELOCITY MAXIMUM ITERATIONS,                             value: 200
+key: VELOCITY PRECONDITIONER,                                 value: JACOBI
+key: VELOCITY REGULARIZATION METHOD,                          value: RELAXATION
+key: VELOCITY SOLVER TOLERANCE,                               value: 1.000000e-06
+key: VERBOSE,                                                 value: FALSE
+key: VISCOSITY,                                               value: 1.000000e-04
+
+occa memory usage: 2.90468 GB
+initialization took 96.554 s
+
+timestepping for 2000 steps ...
+  projP  : resNorm0 1.21e+00  resNorm 1.21e+00  ratio = 1.000e+00  8/10
+  P      : iter 030  resNorm0 1.21e+00  resNorm 6.99e-05
+  UVW    : iter 003  resNorm0 1.17e-01  resNorm 4.27e-07  divErrNorms 9.72e-07 4.95e-01
+step= 1  t= 2.00005000e+01  dt=5.0e-04  C= 2.05  UVW: 3  P: 30  eTimeStep= 4.27e+00s eTime= 4.26689e+00s
+  projP  : resNorm0 1.50e+00  resNorm 1.50e+00  ratio = 1.000e+00  8/10
+  P      : iter 037  resNorm0 1.50e+00  resNorm 9.81e-05
+  UVW    : iter 003  resNorm0 1.76e-01  resNorm 2.10e-07  divErrNorms 9.16e-07 4.93e-01
+step= 2  t= 2.00010000e+01  dt=5.0e-04  C= 1.98  UVW: 3  P: 37  eTimeStep= 1.14e+00s eTime= 5.40731e+00s
+  projP  : resNorm0 3.99e-01  resNorm 3.99e-01  ratio = 1.000e+00  8/10
+  P      : iter 051  resNorm0 3.99e-01  resNorm 8.30e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.09e-07  divErrNorms 8.67e-07 4.90e-01
+step= 3  t= 2.00015000e+01  dt=5.0e-04  C= 1.93  UVW: 3  P: 51  eTimeStep= 1.51e+00s eTime= 6.91965e+00s
+  projP  : resNorm0 2.18e-01  resNorm 2.18e-01  ratio = 1.000e+00  8/10
+  P      : iter 040  resNorm0 2.18e-01  resNorm 9.31e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 8.22e-07 4.87e-01
+step= 4  t= 2.00020000e+01  dt=5.0e-04  C= 1.97  UVW: 3  P: 40  eTimeStep= 1.23e+00s eTime= 8.14861e+00s
+  projP  : resNorm0 1.71e-01  resNorm 1.71e-01  ratio = 1.000e+00  8/10
+  P      : iter 027  resNorm0 1.71e-01  resNorm 5.88e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 7.88e-07 4.85e-01
+step= 5  t= 2.00025000e+01  dt=5.0e-04  C= 1.98  UVW: 3  P: 27  eTimeStep= 8.50e-01s eTime= 8.99818e+00s
+  projP  : resNorm0 1.54e-01  resNorm 3.45e-02  ratio = 4.469e+00  1/10
+  P      : iter 013  resNorm0 3.45e-02  resNorm 9.64e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 7.58e-07 4.83e-01
+step= 6  t= 2.00030000e+01  dt=5.0e-04  C= 1.98  UVW: 3  P: 13  eTimeStep= 4.26e-01s eTime= 9.42386e+00s
+  projP  : resNorm0 1.47e-01  resNorm 1.42e-02  ratio = 1.031e+01  2/10
+  P      : iter 012  resNorm0 1.42e-02  resNorm 9.65e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 7.34e-07 4.82e-01
+step= 7  t= 2.00035000e+01  dt=5.0e-04  C= 1.97  UVW: 3  P: 12  eTimeStep= 4.41e-01s eTime= 9.86501e+00s
+  projP  : resNorm0 1.43e-01  resNorm 6.62e-03  ratio = 2.161e+01  3/10
+  P      : iter 010  resNorm0 6.62e-03  resNorm 7.48e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 7.15e-07 4.81e-01
+step= 8  t= 2.00040000e+01  dt=5.0e-04  C= 1.94  UVW: 3  P: 10  eTimeStep= 3.62e-01s eTime= 1.02268e+01s
+  projP  : resNorm0 1.41e-01  resNorm 4.48e-03  ratio = 3.147e+01  4/10
+  P      : iter 010  resNorm0 4.48e-03  resNorm 9.06e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 6.95e-07 4.80e-01
+step= 9  t= 2.00045000e+01  dt=5.0e-04  C= 1.89  UVW: 3  P: 10  eTimeStep= 3.65e-01s eTime= 1.05919e+01s
+  projP  : resNorm0 1.40e-01  resNorm 4.56e-03  ratio = 3.060e+01  5/10
+  P      : iter 009  resNorm0 4.56e-03  resNorm 8.45e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 6.76e-07 4.79e-01
+step= 10  t= 2.00050000e+01  dt=5.0e-04  C= 1.83  UVW: 3  P: 9  eTimeStep= 3.64e-01s eTime= 1.09560e+01s
+  projP  : resNorm0 1.39e-01  resNorm 2.48e-03  ratio = 5.591e+01  6/10
+  P      : iter 008  resNorm0 2.48e-03  resNorm 7.54e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 6.64e-07 4.78e-01
+step= 11  t= 2.00055000e+01  dt=5.0e-04  C= 1.76  UVW: 3  P: 8  eTimeStep= 2.74e-01s eTime= 1.12302e+01s
+  projP  : resNorm0 1.38e-01  resNorm 2.86e-03  ratio = 4.837e+01  7/10
+  P      : iter 008  resNorm0 2.86e-03  resNorm 9.62e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 6.52e-07 4.77e-01
+step= 12  t= 2.00060000e+01  dt=5.0e-04  C= 1.69  UVW: 3  P: 8  eTimeStep= 3.07e-01s eTime= 1.15372e+01s
+  projP  : resNorm0 1.38e-01  resNorm 8.19e-04  ratio = 1.682e+02  8/10
+  P      : iter 006  resNorm0 8.19e-04  resNorm 8.25e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 6.33e-07 4.77e-01
+step= 13  t= 2.00065000e+01  dt=5.0e-04  C= 1.74  UVW: 3  P: 6  eTimeStep= 2.73e-01s eTime= 1.18098e+01s
+  projP  : resNorm0 1.37e-01  resNorm 2.14e-03  ratio = 6.430e+01  9/10
+  P      : iter 008  resNorm0 2.14e-03  resNorm 8.51e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 6.17e-07 4.76e-01
+step= 14  t= 2.00070000e+01  dt=5.0e-04  C= 1.79  UVW: 3  P: 8  eTimeStep= 3.12e-01s eTime= 1.21218e+01s
+  projP  : resNorm0 1.37e-01  resNorm 1.06e-03  ratio = 1.295e+02  10/10
+  P      : iter 008  resNorm0 1.06e-03  resNorm 9.28e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 6.09e-07 4.76e-01
+step= 15  t= 2.00075000e+01  dt=5.0e-04  C= 1.82  UVW: 3  P: 8  eTimeStep= 3.40e-01s eTime= 1.24613e+01s
+  projP  : resNorm0 1.37e-01  resNorm 8.00e-03  ratio = 1.715e+01  1/10
+  P      : iter 010  resNorm0 8.00e-03  resNorm 9.94e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 6.02e-07 4.76e-01
+step= 16  t= 2.00080000e+01  dt=5.0e-04  C= 1.86  UVW: 3  P: 10  eTimeStep= 3.96e-01s eTime= 1.28573e+01s
+  projP  : resNorm0 1.37e-01  resNorm 1.02e-03  ratio = 1.346e+02  2/10
+  P      : iter 008  resNorm0 1.02e-03  resNorm 6.94e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 5.86e-07 4.75e-01
+step= 17  t= 2.00085000e+01  dt=5.0e-04  C= 1.91  UVW: 3  P: 8  eTimeStep= 2.95e-01s eTime= 1.31526e+01s
+  projP  : resNorm0 1.37e-01  resNorm 1.53e-03  ratio = 8.932e+01  3/10
+  P      : iter 008  resNorm0 1.53e-03  resNorm 9.62e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 5.72e-07 4.75e-01
+step= 18  t= 2.00090000e+01  dt=5.0e-04  C= 1.95  UVW: 3  P: 8  eTimeStep= 2.91e-01s eTime= 1.34440e+01s
+  projP  : resNorm0 1.37e-01  resNorm 1.27e-03  ratio = 1.076e+02  4/10
+  P      : iter 009  resNorm0 1.27e-03  resNorm 9.45e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 5.67e-07 4.75e-01
+step= 19  t= 2.00095000e+01  dt=5.0e-04  C= 1.99  UVW: 3  P: 9  eTimeStep= 3.23e-01s eTime= 1.37674e+01s
+  projP  : resNorm0 1.37e-01  resNorm 1.66e-03  ratio = 8.227e+01  5/10
+  P      : iter 008  resNorm0 1.66e-03  resNorm 9.31e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 5.59e-07 4.75e-01
+step= 20  t= 2.00100000e+01  dt=5.0e-04  C= 2.08  UVW: 3  P: 8  eTimeStep= 3.11e-01s eTime= 1.40782e+01s
+  projP  : resNorm0 1.37e-01  resNorm 1.35e-03  ratio = 1.016e+02  6/10
+  P      : iter 008  resNorm0 1.35e-03  resNorm 9.14e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 5.47e-07 4.75e-01
+step= 21  t= 2.00105000e+01  dt=5.0e-04  C= 2.24  UVW: 3  P: 8  eTimeStep= 3.22e-01s eTime= 1.43999e+01s
+  projP  : resNorm0 1.37e-01  resNorm 9.46e-04  ratio = 1.444e+02  7/10
+  P      : iter 008  resNorm0 9.46e-04  resNorm 8.56e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 5.37e-07 4.75e-01
+step= 22  t= 2.00110000e+01  dt=5.0e-04  C= 2.34  UVW: 3  P: 8  eTimeStep= 3.26e-01s eTime= 1.47263e+01s
+  projP  : resNorm0 1.37e-01  resNorm 9.23e-04  ratio = 1.479e+02  8/10
+  P      : iter 009  resNorm0 9.23e-04  resNorm 8.60e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 5.30e-07 4.74e-01
+step= 23  t= 2.00115000e+01  dt=5.0e-04  C= 2.39  UVW: 3  P: 9  eTimeStep= 3.20e-01s eTime= 1.50460e+01s
+  projP  : resNorm0 1.37e-01  resNorm 7.75e-04  ratio = 1.761e+02  9/10
+  P      : iter 009  resNorm0 7.75e-04  resNorm 8.25e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 5.20e-07 4.74e-01
+step= 24  t= 2.00120000e+01  dt=5.0e-04  C= 2.37  UVW: 3  P: 9  eTimeStep= 3.48e-01s eTime= 1.53943e+01s
+  projP  : resNorm0 1.37e-01  resNorm 1.17e-03  ratio = 1.164e+02  10/10
+  P      : iter 010  resNorm0 1.17e-03  resNorm 9.42e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 5.11e-07 4.74e-01
+step= 25  t= 2.00125000e+01  dt=5.0e-04  C= 2.30  UVW: 3  P: 10  eTimeStep= 3.76e-01s eTime= 1.57704e+01s
+  projP  : resNorm0 1.37e-01  resNorm 8.01e-03  ratio = 1.705e+01  1/10
+  P      : iter 011  resNorm0 8.01e-03  resNorm 7.57e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 5.03e-07 4.74e-01
+step= 26  t= 2.00130000e+01  dt=5.0e-04  C= 2.17  UVW: 3  P: 11  eTimeStep= 3.94e-01s eTime= 1.61645e+01s
+  projP  : resNorm0 1.36e-01  resNorm 9.61e-04  ratio = 1.420e+02  2/10
+  P      : iter 008  resNorm0 9.61e-04  resNorm 7.91e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 4.94e-07 4.74e-01
+step= 27  t= 2.00135000e+01  dt=5.0e-04  C= 2.02  UVW: 3  P: 8  eTimeStep= 2.98e-01s eTime= 1.64627e+01s
+  projP  : resNorm0 1.36e-01  resNorm 1.04e-03  ratio = 1.315e+02  3/10
+  P      : iter 009  resNorm0 1.04e-03  resNorm 9.20e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 4.85e-07 4.74e-01
+step= 28  t= 2.00140000e+01  dt=5.0e-04  C= 2.00  UVW: 3  P: 9  eTimeStep= 3.72e-01s eTime= 1.68348e+01s
+  projP  : resNorm0 1.36e-01  resNorm 7.97e-04  ratio = 1.713e+02  4/10
+  P      : iter 009  resNorm0 7.97e-04  resNorm 9.83e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 4.77e-07 4.74e-01
+step= 29  t= 2.00145000e+01  dt=5.0e-04  C= 1.98  UVW: 3  P: 9  eTimeStep= 3.63e-01s eTime= 1.71978e+01s
+  projP  : resNorm0 1.36e-01  resNorm 9.94e-04  ratio = 1.373e+02  5/10
+  P      : iter 010  resNorm0 9.94e-04  resNorm 9.22e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 4.68e-07 4.74e-01
+step= 30  t= 2.00150000e+01  dt=5.0e-04  C= 1.96  UVW: 3  P: 10  eTimeStep= 3.70e-01s eTime= 1.75677e+01s
+  projP  : resNorm0 1.36e-01  resNorm 1.18e-03  ratio = 1.160e+02  6/10
+  P      : iter 011  resNorm0 1.18e-03  resNorm 7.83e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 4.60e-07 4.74e-01
+step= 31  t= 2.00155000e+01  dt=5.0e-04  C= 1.93  UVW: 3  P: 11  eTimeStep= 4.02e-01s eTime= 1.79693e+01s
+  projP  : resNorm0 1.36e-01  resNorm 9.11e-04  ratio = 1.497e+02  7/10
+  P      : iter 010  resNorm0 9.11e-04  resNorm 8.68e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 4.51e-07 4.74e-01
+step= 32  t= 2.00160000e+01  dt=5.0e-04  C= 1.90  UVW: 3  P: 10  eTimeStep= 3.77e-01s eTime= 1.83466e+01s
+  projP  : resNorm0 1.36e-01  resNorm 8.42e-04  ratio = 1.621e+02  8/10
+  P      : iter 008  resNorm0 8.42e-04  resNorm 7.92e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 4.44e-07 4.74e-01
+step= 33  t= 2.00165000e+01  dt=5.0e-04  C= 1.87  UVW: 3  P: 8  eTimeStep= 3.27e-01s eTime= 1.86740e+01s
+  projP  : resNorm0 1.36e-01  resNorm 8.86e-04  ratio = 1.541e+02  9/10
+  P      : iter 008  resNorm0 8.86e-04  resNorm 7.61e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 4.35e-07 4.74e-01
+step= 34  t= 2.00170000e+01  dt=5.0e-04  C= 1.86  UVW: 3  P: 8  eTimeStep= 3.04e-01s eTime= 1.89784e+01s
+  projP  : resNorm0 1.36e-01  resNorm 8.91e-04  ratio = 1.532e+02  10/10
+  P      : iter 008  resNorm0 8.91e-04  resNorm 8.76e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 4.26e-07 4.74e-01
+step= 35  t= 2.00175000e+01  dt=5.0e-04  C= 2.02  UVW: 3  P: 8  eTimeStep= 3.08e-01s eTime= 1.92861e+01s
+  projP  : resNorm0 1.36e-01  resNorm 8.02e-03  ratio = 1.701e+01  1/10
+  P      : iter 012  resNorm0 8.02e-03  resNorm 9.54e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 4.18e-07 4.74e-01
+step= 36  t= 2.00180000e+01  dt=5.0e-04  C= 2.22  UVW: 3  P: 12  eTimeStep= 4.23e-01s eTime= 1.97095e+01s
+  projP  : resNorm0 1.36e-01  resNorm 1.02e-03  ratio = 1.341e+02  2/10
+  P      : iter 008  resNorm0 1.02e-03  resNorm 9.71e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 4.11e-07 4.74e-01
+step= 37  t= 2.00185000e+01  dt=5.0e-04  C= 2.34  UVW: 3  P: 8  eTimeStep= 2.95e-01s eTime= 2.00049e+01s
+  projP  : resNorm0 1.36e-01  resNorm 9.97e-04  ratio = 1.369e+02  3/10
+  P      : iter 010  resNorm0 9.97e-04  resNorm 9.94e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 4.02e-07 4.74e-01
+step= 38  t= 2.00190000e+01  dt=5.0e-04  C= 2.46  UVW: 3  P: 10  eTimeStep= 3.64e-01s eTime= 2.03688e+01s
+  projP  : resNorm0 1.36e-01  resNorm 1.72e-03  ratio = 7.945e+01  4/10
+  P      : iter 011  resNorm0 1.72e-03  resNorm 8.21e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 3.93e-07 4.74e-01
+step= 39  t= 2.00195000e+01  dt=5.0e-04  C= 2.58  UVW: 3  P: 11  eTimeStep= 4.16e-01s eTime= 2.07844e+01s
+  projP  : resNorm0 1.36e-01  resNorm 1.07e-03  ratio = 1.270e+02  5/10
+  P      : iter 010  resNorm0 1.07e-03  resNorm 9.90e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 3.86e-07 4.74e-01
+step= 40  t= 2.00200000e+01  dt=5.0e-04  C= 2.64  UVW: 3  P: 10  eTimeStep= 3.79e-01s eTime= 2.11635e+01s
+  projP  : resNorm0 1.37e-01  resNorm 1.05e-03  ratio = 1.304e+02  6/10
+  P      : iter 011  resNorm0 1.05e-03  resNorm 9.03e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 3.77e-07 4.74e-01
+step= 41  t= 2.00205000e+01  dt=5.0e-04  C= 2.62  UVW: 3  P: 11  eTimeStep= 3.85e-01s eTime= 2.15483e+01s
+  projP  : resNorm0 1.37e-01  resNorm 1.42e-03  ratio = 9.638e+01  7/10
+  P      : iter 019  resNorm0 1.42e-03  resNorm 9.58e-05
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 3.69e-07 4.74e-01
+step= 42  t= 2.00210000e+01  dt=5.0e-04  C= 2.55  UVW: 3  P: 19  eTimeStep= 5.89e-01s eTime= 2.21371e+01s
+  projP  : resNorm0 1.37e-01  resNorm 1.07e-03  ratio = 1.271e+02  8/10
+  P      : iter 200  resNorm0 1.07e-03  resNorm 3.21e-04
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 3.60e-07 4.74e-01
+step= 43  t= 2.00215000e+01  dt=5.0e-04  C= 2.47  UVW: 3  P: 200  eTimeStep= 5.69e+00s eTime= 2.78242e+01s
+  projP  : resNorm0 1.37e-01  resNorm 1.60e-03  ratio = 8.527e+01  9/10
+  P      : iter 200  resNorm0 1.60e-03  resNorm 1.59e-03
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 3.51e-07 4.74e-01
+step= 44  t= 2.00220000e+01  dt=5.0e-04  C= 2.47  UVW: 3  P: 200  eTimeStep= 6.45e+00s eTime= 3.42752e+01s
+  projP  : resNorm0 1.37e-01  resNorm 4.77e-03  ratio = 2.863e+01  10/10
+  P      : iter 200  resNorm0 4.77e-03  resNorm 4.76e-03
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 3.42e-07 4.74e-01
+step= 45  t= 2.00225000e+01  dt=5.0e-04  C= 2.44  UVW: 3  P: 200  eTimeStep= 6.12e+00s eTime= 4.03924e+01s
+  projP  : resNorm0 1.37e-01  resNorm 1.37e-02  ratio = 9.963e+00  1/10
+  P      : iter 200  resNorm0 1.37e-02  resNorm 1.37e-02
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 3.33e-07 4.74e-01
+step= 46  t= 2.00230000e+01  dt=5.0e-04  C= 2.36  UVW: 3  P: 200  eTimeStep= 6.28e+00s eTime= 4.66733e+01s
+  projP  : resNorm0 1.40e-01  resNorm 3.63e-02  ratio = 3.847e+00  2/10
+  P      : iter 200  resNorm0 3.63e-02  resNorm 3.63e-02
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 3.23e-07 4.74e-01
+step= 47  t= 2.00235000e+01  dt=5.0e-04  C= 2.26  UVW: 3  P: 200  eTimeStep= 6.24e+00s eTime= 5.29094e+01s
+  projP  : resNorm0 1.54e-01  resNorm 7.87e-02  ratio = 1.961e+00  3/10
+  P      : iter 200  resNorm0 7.87e-02  resNorm 7.87e-02
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 3.13e-07 4.74e-01
+step= 48  t= 2.00240000e+01  dt=5.0e-04  C= 2.14  UVW: 3  P: 200  eTimeStep= 6.23e+00s eTime= 5.91431e+01s
+  projP  : resNorm0 1.96e-01  resNorm 1.47e-01  ratio = 1.333e+00  4/10
+  P      : iter 200  resNorm0 1.47e-01  resNorm 1.47e-01
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 3.04e-07 4.74e-01
+step= 49  t= 2.00245000e+01  dt=5.0e-04  C= 2.02  UVW: 3  P: 200  eTimeStep= 6.32e+00s eTime= 6.54637e+01s
+  projP  : resNorm0 2.78e-01  resNorm 2.48e-01  ratio = 1.122e+00  5/10
+  P      : iter 200  resNorm0 2.48e-01  resNorm 2.48e-01
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 2.96e-07 4.74e-01
+step= 50  t= 2.00250000e+01  dt=5.0e-04  C= 1.98  UVW: 3  P: 200  eTimeStep= 6.39e+00s eTime= 7.18528e+01s
+  projP  : resNorm0 4.04e-01  resNorm 3.86e-01  ratio = 1.048e+00  6/10
+  P      : iter 200  resNorm0 3.86e-01  resNorm 3.86e-01
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 2.88e-07 4.74e-01
+step= 51  t= 2.00255000e+01  dt=5.0e-04  C= 1.99  UVW: 3  P: 200  eTimeStep= 6.46e+00s eTime= 7.83097e+01s
+  projP  : resNorm0 5.78e-01  resNorm 5.67e-01  ratio = 1.020e+00  7/10
+  P      : iter 200  resNorm0 5.67e-01  resNorm 5.67e-01
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 2.77e-07 4.75e-01
+step= 52  t= 2.00260000e+01  dt=5.0e-04  C= 2.00  UVW: 3  P: 200  eTimeStep= 6.38e+00s eTime= 8.46864e+01s
+  projP  : resNorm0 8.02e-01  resNorm 7.96e-01  ratio = 1.009e+00  8/10
+  P      : iter 200  resNorm0 7.96e-01  resNorm 7.96e-01
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 2.58e-07 4.77e-01
+step= 53  t= 2.00265000e+01  dt=5.0e-04  C= 2.00  UVW: 3  P: 200  eTimeStep= 6.25e+00s eTime= 9.09329e+01s
+  projP  : resNorm0 1.08e+00  resNorm 1.08e+00  ratio = 1.004e+00  9/10
+  P      : iter 200  resNorm0 1.08e+00  resNorm 1.08e+00
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 2.45e-07 4.80e-01
+step= 54  t= 2.00270000e+01  dt=5.0e-04  C= 1.99  UVW: 3  P: 200  eTimeStep= 6.16e+00s eTime= 9.70880e+01s
+  projP  : resNorm0 1.42e+00  resNorm 1.41e+00  ratio = 1.001e+00  10/10
+  P      : iter 200  resNorm0 1.41e+00  resNorm 1.41e+00
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 2.38e-07 4.85e-01
+step= 55  t= 2.00275000e+01  dt=5.0e-04  C= 1.98  UVW: 3  P: 200  eTimeStep= 6.45e+00s eTime= 1.03536e+02s
+  projP  : resNorm0 1.81e+00  resNorm 1.81e+00  ratio = 1.000e+00  1/10
+  P      : iter 200  resNorm0 1.81e+00  resNorm 1.81e+00
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 2.29e-07 4.92e-01
+step= 56  t= 2.00280000e+01  dt=5.0e-04  C= 2.20  UVW: 3  P: 200  eTimeStep= 6.14e+00s eTime= 1.09679e+02s
+  projP  : resNorm0 2.27e+00  resNorm 2.27e+00  ratio = 1.000e+00  2/10
+  P      : iter 200  resNorm0 2.27e+00  resNorm 2.27e+00
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 2.13e-07 5.01e-01
+step= 57  t= 2.00285000e+01  dt=5.0e-04  C= 2.46  UVW: 3  P: 200  eTimeStep= 6.38e+00s eTime= 1.16060e+02s
+  projP  : resNorm0 2.80e+00  resNorm 2.80e+00  ratio = 9.997e-01  3/10
+  P      : iter 200  resNorm0 2.80e+00  resNorm 2.80e+00
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 2.09e-07 5.15e-01
+step= 58  t= 2.00290000e+01  dt=5.0e-04  C= 2.76  UVW: 3  P: 200  eTimeStep= 6.44e+00s eTime= 1.22495e+02s
+  projP  : resNorm0 3.40e+00  resNorm 3.40e+00  ratio = 9.997e-01  4/10
+  P      : iter 200  resNorm0 3.40e+00  resNorm 3.40e+00
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 2.23e-07 5.32e-01
+step= 59  t= 2.00295000e+01  dt=5.0e-04  C= 3.08  UVW: 3  P: 200  eTimeStep= 6.46e+00s eTime= 1.28959e+02s
+  projP  : resNorm0 4.07e+00  resNorm 4.07e+00  ratio = 9.996e-01  5/10
+  P      : iter 200  resNorm0 4.07e+00  resNorm 4.07e+00
+  UVW    : iter 003  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 2.39e-07 5.54e-01
+step= 60  t= 2.00300000e+01  dt=5.0e-04  C= 3.41  UVW: 3  P: 200  eTimeStep= 6.29e+00s eTime= 1.35253e+02s
+Unreasonable res0Norm!
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 96 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 97 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 99 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 18 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 98 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 19 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 42 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 6 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 90 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 100 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 20 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 43 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 91 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 21 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 44 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 101 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 7 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 92 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 22 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 45 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 102 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 93 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 47 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 94 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 46 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 0 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 66 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 8 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 95 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 23 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 103 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 67 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 3 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 68 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 126 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 48 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 10 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 2 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 69 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 104 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 49 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 70 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 54 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 127 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 5 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 114 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 9 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 71 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 115 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 105 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 50 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 116 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 55 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 128 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 1 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 117 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 11 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 118 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 119 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 106 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 53 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 56 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 129 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 12 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 107 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 57 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 130 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 51 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 58 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 131 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 59 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 4 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 52 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 120 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 60 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 78 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 14 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 30 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 79 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 72 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 31 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 121 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 80 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 24 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 36 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 32 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 81 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 61 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 34 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 108 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 33 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 13 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 73 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 35 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 122 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 82 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 25 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 83 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 62 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 74 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 109 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 123 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 15 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 26 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 75 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 37 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 124 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 63 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 27 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 110 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 16 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 76 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 125 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 28 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 38 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 64 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 111 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 77 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 17 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 29 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 39 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 65 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 112 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 40 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 113 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 41 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 84 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 85 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 86 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 87 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 89 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 88 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@batch5>
+Subject: Job 1733183: <nekRS_peb1568_n2t2bnb> in cluster <summit> Exited
+
+Job <nekRS_peb1568_n2t2bnb> was submitted from host <login3> by user <malachi> in cluster <summit> at Sun Jan  2 12:04:36 2022
+Job was executed on host(s) <1*batch5>, in queue <batch>, as user <malachi> in cluster <summit> at Sun Jan  2 13:38:06 2022
+                            <42*h26n18>
+                            <42*h27n01>
+                            <42*h27n02>
+                            <42*h27n03>
+                            <42*h27n04>
+                            <42*h27n05>
+                            <42*h33n16>
+                            <42*h33n17>
+                            <42*h33n18>
+                            <42*h34n01>
+                            <42*h34n12>
+                            <42*h34n13>
+                            <42*h34n14>
+                            <42*h34n17>
+                            <42*h34n18>
+                            <42*h35n01>
+                            <42*h35n02>
+                            <42*h35n03>
+                            <42*h35n04>
+                            <42*h35n05>
+                            <42*h36n06>
+                            <42*h36n07>
+</ccs/home/malachi> was used as the home directory.
+</gpfs/alpine/scratch/malachi/csc262/siam-pp-22/pb1568/semfem-fp32-12> was used as the working directory.
+Started at Sun Jan  2 13:38:06 2022
+Terminated at Sun Jan  2 13:42:33 2022
+Results reported at Sun Jan  2 13:42:33 2022
+
+The output (if any) is above this job summary.
+

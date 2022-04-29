@@ -1,0 +1,75 @@
+ERROR: ld.so: object '/sw/summit/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-9.1.0/spectrum-mpi-10.4.0.3-20210112-b5zk3valzzwupvryqfd7ouwwir73wats/container/../lib/libpami_cudahook.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object '/sw/summit/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-9.1.0/spectrum-mpi-10.4.0.3-20210112-b5zk3valzzwupvryqfd7ouwwir73wats/container/../lib/libpami_cudahook.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object '/sw/summit/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-9.1.0/spectrum-mpi-10.4.0.3-20210112-b5zk3valzzwupvryqfd7ouwwir73wats/container/../lib/libpami_cudahook.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object '/sw/summit/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-9.1.0/spectrum-mpi-10.4.0.3-20210112-b5zk3valzzwupvryqfd7ouwwir73wats/container/../lib/libpami_cudahook.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object '/sw/summit/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-9.1.0/spectrum-mpi-10.4.0.3-20210112-b5zk3valzzwupvryqfd7ouwwir73wats/container/../lib/libpami_cudahook.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object '/sw/summit/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-9.1.0/spectrum-mpi-10.4.0.3-20210112-b5zk3valzzwupvryqfd7ouwwir73wats/container/../lib/libpami_cudahook.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+/ccs/home/malachi/.local/nekrs-next/bin/nekrs: error while loading shared libraries: libcudart.so.11.0: cannot open shared object file: No such file or directory
+/ccs/home/malachi/.local/nekrs-next/bin/nekrs: error while loading shared libraries: libcudart.so.11.0: cannot open shared object file: No such file or directory
+/ccs/home/malachi/.local/nekrs-next/bin/nekrs: error while loading shared libraries: libcudart.so.11.0: cannot open shared object file: No such file or directory
+/ccs/home/malachi/.local/nekrs-next/bin/nekrs: error while loading shared libraries: libcudart.so.11.0: cannot open shared object file: No such file or directory
+/ccs/home/malachi/.local/nekrs-next/bin/nekrs: error while loading shared libraries: libcudart.so.11.0: cannot open shared object file: No such file or directory
+/ccs/home/malachi/.local/nekrs-next/bin/nekrs: error while loading shared libraries: libcudart.so.11.0: cannot open shared object file: No such file or directory
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@batch3>
+Subject: Job 1473317: <nekRS_BoeingSpeedBump> in cluster <summit> Exited
+
+Job <nekRS_BoeingSpeedBump> was submitted from host <login2> by user <malachi> in cluster <summit> at Fri Oct  1 10:09:35 2021
+Job was executed on host(s) <1*batch3>, in queue <batch>, as user <malachi> in cluster <summit> at Fri Oct  1 10:11:28 2021
+                            <42*a10n18>
+                            <42*a11n01>
+                            <42*a11n02>
+                            <42*a11n03>
+                            <42*a11n04>
+                            <42*a11n05>
+                            <42*a11n06>
+                            <42*a11n07>
+                            <42*a11n08>
+                            <42*a11n09>
+                            <42*a11n10>
+                            <42*a11n11>
+                            <42*a11n12>
+                            <42*a11n13>
+                            <42*a11n14>
+                            <42*a11n15>
+                            <42*a11n16>
+                            <42*a11n17>
+                            <42*a11n18>
+                            <42*a12n01>
+                            <42*a12n02>
+                            <42*a12n03>
+                            <42*a12n04>
+                            <42*a12n05>
+                            <42*a12n06>
+                            <42*a12n15>
+                            <42*a12n16>
+                            <42*a12n17>
+                            <42*a12n18>
+                            <42*a13n01>
+                            <42*a13n02>
+                            <42*a13n03>
+                            <42*a13n04>
+                            <42*a13n05>
+                            <42*a13n06>
+                            <42*a13n07>
+                            <42*a13n08>
+                            <42*a13n09>
+                            <42*a14n16>
+                            <42*a14n17>
+                            <42*a14n18>
+                            <42*a15n01>
+                            <42*a15n07>
+                            <42*a15n08>
+                            <42*a15n09>
+                            <42*a15n10>
+                            <42*a15n11>
+                            <42*a15n12>
+</ccs/home/malachi> was used as the home directory.
+</gpfs/alpine/scratch/malachi/csc262/siam-pp-22/speed-bump/cheby-ras-pmg-9751-fp32-48> was used as the working directory.
+Started at Fri Oct  1 10:11:28 2021
+Terminated at Fri Oct  1 10:11:54 2021
+Results reported at Fri Oct  1 10:11:54 2021
+
+The output (if any) is above this job summary.
+

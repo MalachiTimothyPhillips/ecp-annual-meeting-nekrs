@@ -1,0 +1,230 @@
+                 __    ____  _____
+   ____   ___   / /__ / __ \/ ___/
+  / __ \ / _ \ / //_// /_/ /\__ \ 
+ / / / //  __// ,<  / _, _/___/ / 
+/_/ /_/ \___//_/|_|/_/ |_|/____/  v21.2.0 (89cacef2)
+
+COPYRIGHT (c) 2019-2021 UCHICAGO ARGONNE, LLC
+
+MPI tasks: 3
+
+reading par file ...
+
+using NEKRS_HOME: /ccs/home/malachi/.local/nekrs
+using NEKRS_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb146/runs/combo-v3-fp32-0.5/.cache
+using OCCA_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb146/runs/combo-v3-fp32-0.5/.cache/occa/
+
+Initializing device 
+active occa mode: CUDA
+
+building udf ... 
+Consolidate compiler generated dependencies of target UDF
+[100%] Built target UDF
+done (0.639981s)
+skip building nekInterface (SIZE requires no update)
+loading nek ... 
+done
+loading udf kernels ... done (0.000505554s)
+
+loading kernels ... done (4.63322s)
+
+ Reading /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb146/runs/combo-v3-fp32-0.5/pb.re2                                                  
+ reading mesh 
+ reading bc for ifld           1
+ done :: read .re2 file     3.9     sec
+
+Running parCon ... (tol=0.2)
+
+ Error: elementCheck
+Running parCon ... (tol=0.02)
+Running parRSB ...
+parRSB finished in 2.94724 s
+
+ reading mesh 
+ reading curved sides 
+ reading bc for ifld           1
+ done :: read .re2 file     4.0     sec
+
+ setup mesh topology
+   Right-handed check complete for       62132 elements. OK.
+gs_setup: 186172 unique labels shared
+   handle bytes (avg, min, max): 6.91645e+07 68868076 69342964
+   buffer bytes (avg, min, max): 1.99561e+06 1809168 2159360
+   setupds time 2.4102E+00 seconds   0  8     8417073       62132
+ 
+ nElements   max/min/bal: 20711 20710 1.00
+ nMessages   max/min/avg: 2 2 2.00
+ msgSize     max/min/avg: 74015 52128 62362.33
+ msgSizeSum  max/min/avg: 134960 113073 124725.33
+ 
+ max multiplicity           36
+ done :: setup mesh topology
+  
+ call usrdat
+ done :: usrdat
+
+ generate geometry data
+ done :: generate geometry data
+  
+ call usrdat2
+ done :: usrdat2
+
+  2.8727E-15  2.8726E-15  3.5527E-15  1.8125E-15  1.7764E-15  2.9238E-15 xyz repair 1
+  2.9272E-15  2.9271E-15  3.5527E-15  6.4598E-15  6.1969E-15  6.4349E-15 xyz repair 2
+  2.6645E-15  2.6645E-15  3.5527E-15  3.1392E-15  4.9376E-15  5.6896E-15 xyz repair 3
+  1.2225E-15  9.3712E-16  1.1805E-15  1.2225E-15  9.3712E-16  1.1805E-15 xyz repair 4
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ verify mesh topology
+  -7.0710093434474661        7.0706370325493424       Xrange
+  -7.0707404234460585        7.0704326927458965       Yrange
+  -8.9079642973243462        10.752399444580080       Zrange
+ done :: verify mesh topology
+  
+ mesh metrics:
+ GLL grid spacing min/max    : 1.01E-03 3.20E-01
+ scaled Jacobian  min/max/avg: 4.31E-02 9.77E-01 4.19E-01
+ aspect ratio     min/max/avg: 1.07E+00 5.69E+01 7.14E+00
+
+ call usrdat3
+ done :: usrdat3
+
+gridpoints unique/tot:      21837585     31811584
+dofs vel/pr:                20800116     21807162
+ nek setup done in    2.9984E+01 s
+
+ set initial conditions
+ Checking restart options: restart.fld                                                                                                                         
+ nekuic (1) for ifld            1
+ nekuic (1) for ifld            2
+ Reading checkpoint data 
+       FILE:/gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb146/runs/combo-v3-fp32-0.5/restart.fld                                             
+
+        0  1.0000E+01 done :: Read checkpoint data
+                              avg data-throughput =     0.1GB/s
+                              io-nodes =     3
+
+ xyz min    -7.0710      -7.0707      -8.9080    
+ uvwpt min  -4.7484      -4.7327      -4.8061      -8.3382      -126.94    
+ PS min      0.0000       0.0000       0.0000       0.0000    
+ xyz max     7.0706       7.0704       10.752    
+ uvwpt max   4.9805       4.8828       7.1716       6.3114       315.95    
+ PS max      0.0000       0.0000       0.0000       0.0000    
+ Restart: recompute geom. factors.
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ done :: set initial conditions
+  
+calling nek_userchk ...
+
+loading mesh from nek ... NboundaryIDs: 4, NboundaryFaces: 21776 done (0.00155733s)
+generating mesh ... Nq: 8 cubNq: 11
+computing geometric factors ... J [1.34276e-05,0.293651] done (1.31157s)
+timing oogs modes: 0.000619499s 0.000609688s 0.000612805s 0.000609245s 0.000473188s 0.000458917s used config: 3.0.1
+min 86% of the local elements are internal
+timing oogs modes: 0.00270284s 0.00174s 0.00168289s 0.00168732s 0.0013631s 0.00135907s used config: 3.0.1
+loading ns kernels ... done (0.000148121s)
+loading cds kernels ... done (6.574e-05s)
+copying solution from nek
+calling udf_setup ... done
+copying solution to nek
+================= ELLIPTIC SETUP SCALAR00 ===============
+bID 1 -> bcType fixedValue
+bID 2 -> bcType zeroGradient
+bID 3 -> bcType zeroGradient
+bID 4 -> bcType fixedGradient
+allNeumann = 0 
+loading elliptic kernels ... done (8.5727e-05s)
+timing oogs modes: 0.000619971s 0.000620842s 0.000614285s 0.000603739s 0.000458093s 0.000454007s used config: 3.0.1
+timing oogs modes: 0.00154191s 0.00162564s 0.00161474s 0.00161768s 0.00110396s 0.00110656s used config: 3.0.0
+building Jacobi preconditioner ... done (0.00828718s)
+done (8.00105s)
+================ ELLIPTIC SETUP VELOCITY ================
+bID 1 -> bcType fixedValue
+bID 2 -> bcType zeroGradient
+bID 3 -> bcType zeroValue
+bID 4 -> bcType zeroValue
+allNeumann = 0 
+loading elliptic kernels ... done (7.7604e-05s)
+timing oogs modes: 0.00287672s 0.00175458s 0.00171584s 0.00169886s 0.00137784s 0.0013674s used config: 3.0.1
+timing oogs modes: 0.00303071s 0.00334629s 0.00325841s 0.00326649s 0.0018672s 0.00185163s used config: 3.0.1
+building Jacobi preconditioner ... done (0.0208673s)
+done (0.738713s)
+================ ELLIPTIC SETUP PRESSURE ================
+allNeumann = 0 
+loading elliptic kernels ... done (9.6114e-05s)
+timing oogs modes: 0.000608604s 0.000624397s 0.000619708s 0.000615006s 0.000458193s 0.000449002s used config: 3.0.1
+timing oogs modes: 0.0012828s 0.00137874s 0.00140136s 0.00136355s 0.000849823s 0.00084522s used config: 3.0.1
+building MG preconditioner ... 
+loading elliptic preconditioner kernels ... done (6.3207e-05s)
+=============BUILDING MULTIGRID LEVEL OF DEGREE 7==================
+timing oogs modes: 0.0006417s 0.000349031s 0.00034522s 0.00034491s 0.000232344s 0.000229385s used config: 3.0.1
+timing oogs modes: 0.000671133s 0.000735037s 0.000733717s 0.00073588s 0.000453673s 0.000457412s used config: 3.0.0
+timing oogs modes: 0.00072022s 0.000473197s 0.00047859s 0.000472849s 0.000351839s 0.000347282s used config: 3.0.1
+estimating maxEigenvalue ... 8.82454 done (0.271658s)
+=============BUILDING MULTIGRID LEVEL OF DEGREE 3==================
+computing geometric factors ... J [1.34276e-05,0.293651] done (0.15138s)
+loading elliptic preconditioner kernels ... done (8.1149e-05s)
+done (0.00940918s)
+timing oogs modes: 0.000207319s 0.000172458s 0.000167907s 0.000170663s 0.0001212s 0.00011335s used config: 3.0.1
+timing oogs modes: 0.000233199s 0.000239336s 0.00023501s 0.000234729s 0.000162327s 0.000155306s used config: 3.0.1
+setup SEMFEM preconditioner ... 
+building matrix ... done (12.6724s)
+AMGX version 2.2.0.132-opensource
+Built on Jan  2 2022, 11:45:05
+Compiled with CUDA Runtime 11.0, using CUDA driver 11.0
+Using CUDA-Aware MPI (GPU Direct) communicator...
+Caught amgx exception: Cuda failure: 'out of memory'
+ at: /ccs/home/malachi/develop/nekRS/3rd_party/AMGX/base/src/csr_multiply_sm70.cu:1504
+Stack trace:
+ /ccs/home/malachi/.local/nekrs/lib/libamgxsh.so : amgx::CSR_Multiply_Sm70<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::count_non_zeroes(amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > const&, amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > const&, amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&, amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >*, amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >*, amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >*, amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >*)+0x494
+ /ccs/home/malachi/.local/nekrs/lib/libamgxsh.so : amgx::CSR_Multiply_Impl<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::multiply(amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > const&, amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > const&, amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&, amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >*, amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >*, amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >*, amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >*)+0x1f4
+ /ccs/home/malachi/.local/nekrs/lib/libamgxsh.so : amgx::CSR_Multiply_Impl<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::galerkin_product(amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > const&, amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > const&, amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > const&, amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&, amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >*, amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >*, amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >*, amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >*, amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >*, amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >*)+0x160
+ /ccs/home/malachi/.local/nekrs/lib/libamgxsh.so : amgx::CSR_Multiply<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::csr_galerkin_product(amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > const&, amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > const&, amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > const&, amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&, amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >*, amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >*, amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >*, amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >*, amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >*, amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >*, void*)+0x55c
+ /ccs/home/malachi/.local/nekrs/lib/libamgxsh.so : amgx::classical::Classical_AMG_Level<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::computeAOperator_1x1_distributed()+0xca4
+ /ccs/home/malachi/.local/nekrs/lib/libamgxsh.so : amgx::classical::Classical_AMG_Level_Base<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::computeAOperator_distributed()+0x5c
+ /ccs/home/malachi/.local/nekrs/lib/libamgxsh.so : amgx::classical::Classical_AMG_Level_Base<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::createCoarseMatrices()+0x200
+ /ccs/home/malachi/.local/nekrs/lib/libamgxsh.so : amgx::AMG_Level<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >* amgx::AMG_Setup<(AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2>::setup<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >(amgx::AMG<(AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2>*, amgx::AMG_Level<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >*&, int, bool)+0x4c8
+ /ccs/home/malachi/.local/nekrs/lib/libamgxsh.so : void amgx::AMG_Setup<(AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2>::setup<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2>, (AMGX_MemorySpace)1, (AMGX_MemorySpace)0>(amgx::AMG<(AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2>*, amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&)+0x124
+ /ccs/home/malachi/.local/nekrs/lib/libamgxsh.so : amgx::AMG<(AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2>::setup(amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&)+0x120
+ /ccs/home/malachi/.local/nekrs/lib/libamgxsh.so : amgx::AlgebraicMultigrid_Solver<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::solver_setup(bool)+0x5c
+ /ccs/home/malachi/.local/nekrs/lib/libamgxsh.so : amgx::Solver<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::setup(amgx::Operator<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&, bool)+0x23c
+ /ccs/home/malachi/.local/nekrs/lib/libamgxsh.so : amgx::Solver<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::setup_no_throw(amgx::Operator<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&, bool)+0xb4
+ /ccs/home/malachi/.local/nekrs/lib/libamgxsh.so : amgx::AMG_Solver<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::setup(amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&)+0x90
+ /ccs/home/malachi/.local/nekrs/lib/libamgxsh.so : amgx::AMG_Solver<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::setup_capi(std::shared_ptr<amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > >)+0xd0
+ /ccs/home/malachi/.local/nekrs/lib/libamgxsh.so : amgx::AMGX_ERROR amgx::(anonymous namespace)::set_solver_with_shared<(AMGX_Mode)8465, amgx::AMG_Solver, amgx::Matrix>(AMGX_solver_handle_struct*, AMGX_matrix_handle_struct*, amgx::Resources*, amgx::AMGX_ERROR (amgx::AMG_Solver<amgx::TemplateMode<(AMGX_Mode)8465>::Type>::*)(std::shared_ptr<amgx::Matrix<amgx::TemplateMode<(AMGX_Mode)8465>::Type> >))+0x414
+ /ccs/home/malachi/.local/nekrs/lib/libamgxsh.so : AMGX_solver_setup()+0x2ac
+ /ccs/home/malachi/.local/nekrs/lib/libnekrs.so : AMGXsetup()+0x458
+ /ccs/home/malachi/.local/nekrs/lib/libnekrs.so : ellipticSEMFEMSetup(elliptic_t*)+0x1428
+ /ccs/home/malachi/.local/nekrs/lib/libnekrs.so : ellipticMultiGridSetup(elliptic_t*, precon_t*)+0x1978
+ /ccs/home/malachi/.local/nekrs/lib/libnekrs.so : ellipticPreconditionerSetup(elliptic_t*, ogs_t*)+0x1f0
+ /ccs/home/malachi/.local/nekrs/lib/libnekrs.so : ellipticSolveSetup(elliptic_t*)+0x1884
+ /ccs/home/malachi/.local/nekrs/lib/libnekrs.so : nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)+0xa854
+ /ccs/home/malachi/.local/nekrs/lib/libnekrs.so : nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0x1288
+ /ccs/home/malachi/.local/nekrs/bin/nekrs() [0x10004304]
+ /lib64/power9/libc.so.6 : ()+0x24078
+ /lib64/power9/libc.so.6 : __libc_start_main()+0xb4
+
+User defined signal 2
+ERROR:  One or more process (first noticed rank 1) terminated with signal 12
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@batch3>
+Subject: Job 1734759: <nekRS_pb> in cluster <summit> Exited
+
+Job <nekRS_pb> was submitted from host <login1> by user <malachi> in cluster <summit> at Mon Jan  3 10:35:59 2022
+Job was executed on host(s) <1*batch3>, in queue <batch>, as user <malachi> in cluster <summit> at Mon Jan  3 16:12:27 2022
+                            <42*g30n11>
+</ccs/home/malachi> was used as the home directory.
+</gpfs/alpine/scratch/malachi/csc262/siam-pp-22/pb146/runs/combo-v3-fp32-0.5> was used as the working directory.
+Started at Mon Jan  3 16:12:27 2022
+Terminated at Mon Jan  3 16:57:53 2022
+Results reported at Mon Jan  3 16:57:53 2022
+
+The output (if any) is above this job summary.
+

@@ -1,0 +1,590 @@
+                 __    ____  _____
+   ____   ___   / /__ / __ \/ ___/
+  / __ \ / _ \ / //_// /_/ /\__ \ 
+ / / / //  __// ,<  / _, _/___/ / 
+/_/ /_/ \___//_/|_|/_/ |_|/____/  v21.1 (df381d3c)
+
+COPYRIGHT (c) 2019-2021 UCHICAGO ARGONNE, LLC
+
+MPI tasks: 1
+
+reading par file ...
+
+using NEKRS_HOME: /home/malachi2/.local/nekrs
+using NEKRS_CACHE_DIR: /home/malachi2/develop/research/kershaw-cheby-eig-wt/kershaw/.cache
+using OCCA_CACHE_DIR: /home/malachi2/develop/research/kershaw-cheby-eig-wt/kershaw/.cache/occa/
+
+Initializing device 
+active occa mode: CUDA
+
+building udf ... 
+[100%] Built target UDF
+done (0.206743s)
+loading nek ... 
+done
+loading udf kernels ... done (0.000229493s)
+
+loading kernels ... done (5.32702s)
+
+Running parCon ... (tol=0.2)
+Running parRSB ...
+parRSB finished in 0.00161449 s
+
+gs_setup: 0 unique labels shared
+   handle bytes (avg, min, max): 3.49078e+07 34907764 34907764
+   buffer bytes (avg, min, max): 0 0 0
+ Reading /home/malachi2/develop/research/kershaw-cheby-eig-wt/kershaw/kershaw.re2                                                            
+ reading mesh 
+ reading bc for ifld           1
+ done :: read .re2 file    0.56     sec
+
+ reading mesh 
+ reading bc for ifld           1
+ done :: read .re2 file    0.41     sec
+
+ setup mesh topology
+   Right-handed check complete for       10648 elements. OK.
+   setupds time 1.0114E+00 seconds   0  8     1423907       10648
+ 
+ 
+ max multiplicity            8
+ done :: setup mesh topology
+  
+ call usrdat
+ epsy=  0.29999999999999999      epsz=  0.29999999999999999     
+ done :: usrdat
+
+ generate geometry data
+ done :: generate geometry data
+  
+ call usrdat2
+ done :: usrdat2
+
+  5.5511E-17  1.1102E-16  1.1102E-16  5.5511E-17  1.1102E-16  1.1102E-16 xyz repair 1
+  2.7756E-17  5.5511E-17  5.5511E-17  5.1951E-17  1.1102E-16  1.1102E-16 xyz repair 2
+  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00 xyz repair 3
+  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00 xyz repair 4
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ verify mesh topology
+ -0.50000000000000000       0.50000000000000000       Xrange
+ -0.50000000000000000       0.50000000000000000       Yrange
+ -0.50000000000000000       0.50000000000000000       Zrange
+ done :: verify mesh topology
+  
+ mesh metrics:
+ GLL grid spacing min/max    : 8.74E-04 5.73E-02
+ scaled Jacobian  min/max/avg: 2.79E-01 1.00E+00 8.05E-01
+ aspect ratio     min/max/avg: 1.08E+00 1.41E+01 4.34E+00
+
+ call usrdat3
+ done :: usrdat3
+
+gridpoints unique/tot:       3723875      5451776
+dofs vel/pr:                 3723875      3581577
+ nek setup done in    8.5395E+00 s
+
+calling nek_userchk ...
+
+loading mesh from nek ... NboundaryIDs: 1, NboundaryFaces: 2904 done (0.000896536s)
+generating mesh ... Nq: 8 cubNq: 11
+computing geometric factors ... J [1.05654e-06,3.39266e-05] done (0.639444s)
+min 100% of the local elements are internal
+loading ns kernels ... done (4.7408e-05s)
+copying solution from nek
+calling udf_setup ... done
+================ ELLIPTIC SETUP VELOCITY ================
+bID 1 -> bcType zeroGradient
+allNeumann = 0 
+loading elliptic kernels ... done (5.23031e-05s)
+building Jacobi preconditioner ... done (0.0184245s)
+done (0.448441s)
+================ ELLIPTIC SETUP PRESSURE ================
+WARNING: Cannot find oudf function: pressureDirichletConditions!
+allNeumann = 0 
+loading elliptic kernels ... done (4.47258e-05s)
+building MG preconditioner ... 
+loading elliptic preconditioner kernels ... done (4.33251e-05s)
+=============BUILDING MULTIGRID LEVEL OF DEGREE 7==================
+estimating maxEigenvalue ... 8.90708 done (0.211351s)
+=============BUILDING MULTIGRID LEVEL OF DEGREE 3==================
+computing geometric factors ... J [1.05654e-06,3.39266e-05] done (0.0494009s)
+loading elliptic preconditioner kernels ... done (4.30867e-05s)
+done (6.66454e-05s)
+estimating maxEigenvalue ... 8.08715 done (0.0312659s)
+=============BUILDING MULTIGRID LEVEL OF DEGREE 1==================
+computing geometric factors ... J [1.05654e-06,3.39266e-05] done (0.00502101s)
+loading elliptic preconditioner kernels ... done (3.71188e-05s)
+done (6.11767e-05s)
+building full FEM matrix ... done.
+done (0.112331s)
+Setting up AMG...
+
+ Num MPI tasks = 1
+
+ Num OpenMP threads = 1
+
+
+BoomerAMG SETUP PARAMETERS:
+
+ Max levels = 25
+ Num levels = 6
+
+ Strength Threshold = 0.250000
+ Interpolation Truncation Factor = 0.000000
+ Maximum Row Sum Threshold for Dependency Weakening = 0.900000
+
+ Coarsening Type = PMIS 
+ measures are determined locally
+
+ Interpolation = extended+i interpolation
+
+Operator Matrix Information:
+
+             nonzero            entries/row          row sums
+lev    rows  entries sparse   min  max     avg      min         max
+======================================================================
+  0    9261   136421  0.002     4   19    14.7  -1.305e-15   2.888e-01
+  1    3487   115153  0.009     5   74    33.0  -5.963e-03   3.111e-01
+  2     947    39417  0.044     7   96    41.6  -1.290e-02   3.536e-01
+  3     183     5749  0.172    10   70    31.4   7.148e-02   5.532e-01
+  4      33      661  0.607     7   30    20.0   1.534e-01   2.385e+00
+  5       4       16  1.000     4    4     4.0   2.686e-01   1.649e+00
+
+
+Interpolation Matrix Information:
+                    entries/row        min        max            row sums
+lev  rows x cols  min  max  avgW     weight      weight       min         max
+================================================================================
+  0  9261 x 3487    1    4   3.2  -1.210e-01   1.020e+00   4.389e-01   1.000e+00
+  1  3487 x 947     1    4   3.8  -1.189e-01   1.007e+00   1.946e-01   1.010e+00
+  2   947 x 183     1    4   3.9   3.650e-03   9.028e-01   7.441e-02   1.021e+00
+  3   183 x 33      0    4   3.6   3.919e-03   5.538e-01   0.000e+00   1.000e+00
+  4    33 x 4       0    3   1.1   9.920e-04   1.115e-01   0.000e+00   1.000e+00
+
+
+     Complexity:    grid = 1.502538
+                operator = 2.180141
+                memory = 2.446082
+
+
+
+
+BoomerAMG SOLVER PARAMETERS:
+
+  Maximum number of cycles:         1 
+  Stopping Tolerance:               0.000000e+00 
+  Cycle type (1 = V, 2 = W, etc.):  1
+
+  Relaxation Parameters:
+   Visiting Grid:                     down   up  coarse
+            Number of sweeps:            1    1     1 
+   Type 0=Jac, 3=hGS, 6=hSGS, 9=GE:     16   16     9 
+   Point types, partial sweeps (1=C, -1=F):
+                  Pre-CG relaxation (down):   0
+                   Post-CG relaxation (up):   0
+                             Coarsest grid:   0
+
+done (0.0939613s)
+--------------------Multigrid Report---------------------
+---------------------------------------------------------
+level|    Type    |                 |     Smoother      |
+     |            |                 |                   |
+---------------------------------------------------------
+   0 |    pMG     |   Matrix-free   | Chebyshev+Schwarz |
+     |            |     Degree  7   |                   |
+   1 |    pMG     |   Matrix-free   | Chebyshev+Schwarz |
+     |            |     Degree  3   |                   |
+   2 |    AMG     |   Matrix        | BoomerAMG         |
+     |            |     Degree  1   |                   |
+---------------------------------------------------------
+done (20.8979s)
+done (24.6677s)
+copying solution to nek
+
+settings:
+
+key: FORMAT,                                                  value: 1.0
+key: CONSTANT FLOW RATE,                                      value: FALSE
+key: ELEMENT TYPE,                                            value: 12
+key: ELEMENT MAP,                                             value: ISOPARAMETRIC
+key: MESH DIMENSION,                                          value: 3
+key: NUMBER OF SCALARS,                                       value: 0
+key: SCALAR MAXIMUM ITERATIONS,                               value: 200
+key: TIME INTEGRATOR,                                         value: TOMBO2
+key: MESH INTEGRATION ORDER,                                  value: 3
+key: SUBCYCLING STEPS,                                        value: 0
+key: SUBCYCLING TIME ORDER,                                   value: 4
+key: SUBCYCLING TIME STAGE NUMBER,                            value: 4
+key: CASENAME,                                                value: kershaw
+key: UDF OKL FILE,                                            value: kershaw.oudf
+key: UDF FILE,                                                value: kershaw.udf
+key: NEK USR FILE,                                            value: kershaw.usr
+key: MESH FILE,                                               value: kershaw.re2
+key: DEVICE NUMBER,                                           value: LOCAL-RANK
+key: PLATFORM NUMBER,                                         value: 0
+key: VERBOSE,                                                 value: FALSE
+key: ADVECTION,                                               value: TRUE
+key: ADVECTION TYPE,                                          value: CUBATURE+CONVECTIVE
+key: RESTART FROM FILE,                                       value: 0
+key: SOLUTION OUTPUT INTERVAL,                                value: 0.000000
+key: SOLUTION OUTPUT CONTROL,                                 value: STEPS
+key: REGULARIZATION METHOD,                                   value: NONE
+key: START TIME,                                              value: 0.000000e+00
+key: VELOCITY MAXIMUM ITERATIONS,                             value: 200
+key: VELOCITY BLOCK SOLVER,                                   value: TRUE
+key: VELOCITY KRYLOV SOLVER,                                  value: PCG
+key: VELOCITY BASIS,                                          value: NODAL
+key: VELOCITY PRECONDITIONER,                                 value: JACOBI
+key: VELOCITY DISCRETIZATION,                                 value: CONTINUOUS
+key: STRESSFORMULATION,                                       value: FALSE
+key: ELLIPTIC INTEGRATION,                                    value: NODAL
+key: PRESSURE MAXIMUM ITERATIONS,                             value: 1000
+key: GALERKIN COARSE MATRIX,                                  value: FALSE
+key: PRESSURE KRYLOV SOLVER,                                  value: PGMRES+FLEXIBLE
+key: PRESSURE PRECONDITIONER,                                 value: MULTIGRID
+key: PRESSURE DISCRETIZATION,                                 value: CONTINUOUS
+key: PRESSURE BASIS,                                          value: NODAL
+key: AMG SOLVER,                                              value: BOOMERAMG
+key: AMG SOLVER PRECISION,                                    value: FP64
+key: AMG SOLVER LOCATION,                                     value: CPU
+key: PRESSURE PARALMOND CYCLE,                                value: VCYCLE
+key: PRESSURE MULTIGRID COARSE SOLVE,                         value: TRUE
+key: PRESSURE MULTIGRID COARSE SEMFEM,                        value: FALSE
+key: PRESSURE MULTIGRID SMOOTHER,                             value: CHEBYSHEV+ASM
+key: PRESSURE MULTIGRID DOWNWARD SMOOTHER,                    value: ASM
+key: PRESSURE MULTIGRID UPWARD SMOOTHER,                      value: ASM
+key: PRESSURE MULTIGRID CHEBYSHEV DEGREE,                     value: 2
+key: PRESSURE MULTIGRID CHEBYSHEV MIN EIGENVALUE BOUND FACTOR,value: 0.1
+key: PRESSURE MULTIGRID CHEBYSHEV MAX EIGENVALUE BOUND FACTOR,value: 1.1
+key: PRESSURE INITIAL GUESS,                                  value: PREVIOUS
+key: PRESSURE RESIDUAL PROJECTION VECTORS,                    value: 10
+key: PRESSURE RESIDUAL PROJECTION START,                      value: 5
+key: PARALMOND SMOOTH COARSEST,                               value: FALSE
+key: ENABLE FLOATCOMMHALF GS SUPPORT,                         value: FALSE
+key: MOVING MESH,                                             value: FALSE
+key: ENABLE OVERLAP,                                          value: TRUE
+key: VARIABLE DT,                                             value: FALSE
+key: POLYNOMIAL DEGREE,                                       value: 7
+key: NUMBER TIMESTEPS,                                        value: 0
+key: CUBATURE POLYNOMIAL DEGREE,                              value: 10
+key: VELOCITY REGULARIZATION METHOD,                          value: NONE
+key: PRESSURE LINEAR SOLVER STOPPING CRITERION,               value: RELATIVE
+key: PRESSURE SOLVER TOLERANCE,                               value: 1.000000e-08
+key: PRESSURE PGMRES RESTART,                                 value: 20
+key: DENSITY,                                                 value: 1.000000e+00
+key: VISCOSITY,                                               value: 1.000000e+00
+key: BUILD ONLY,                                              value: FALSE
+key: THREAD MODEL,                                            value: CUDA
+key: DATA FILE,                                               value: /home/malachi2/develop/research/kershaw-cheby-eig-wt/kershaw/.cache/udf/udf.okl
+key: CI-MODE,                                                 value: 0
+key: CHECKPOINT OUTPUT MESH,                                  value: FALSE
+
+occa memory usage: 6.96806 GB
+initialization took 51.279 s
+solving ................................................
+Entry : {
+	Min Multiplier : 0
+	Max Multiplier : 0.9
+	Niter          : 1000
+	Conv Rate      : 6.31736e-06
+}
+Entry : {
+	Min Multiplier : 0.025
+	Max Multiplier : 0.9
+	Niter          : 1000
+	Conv Rate      : 0.000112003
+}
+Entry : {
+	Min Multiplier : 0.05
+	Max Multiplier : 0.9
+	Niter          : 1000
+	Conv Rate      : 0.000362833
+}
+Entry : {
+	Min Multiplier : 0.1
+	Max Multiplier : 0.9
+	Niter          : 815
+	Conv Rate      : 0.00985218
+}
+Entry : {
+	Min Multiplier : 0.15
+	Max Multiplier : 0.9
+	Niter          : 69
+	Conv Rate      : 0.118892
+}
+Entry : {
+	Min Multiplier : 0.2
+	Max Multiplier : 0.9
+	Niter          : 35
+	Conv Rate      : 0.232537
+}
+Entry : {
+	Min Multiplier : 0
+	Max Multiplier : 0.95
+	Niter          : 1000
+	Conv Rate      : 1.1153e-05
+}
+Entry : {
+	Min Multiplier : 0.025
+	Max Multiplier : 0.95
+	Niter          : 1000
+	Conv Rate      : 0.000291183
+}
+Entry : {
+	Min Multiplier : 0.05
+	Max Multiplier : 0.95
+	Niter          : 800
+	Conv Rate      : 0.0100338
+}
+Entry : {
+	Min Multiplier : 0.1
+	Max Multiplier : 0.95
+	Niter          : 68
+	Conv Rate      : 0.120974
+}
+Entry : {
+	Min Multiplier : 0.15
+	Max Multiplier : 0.95
+	Niter          : 34
+	Conv Rate      : 0.240659
+}
+Entry : {
+	Min Multiplier : 0.2
+	Max Multiplier : 0.95
+	Niter          : 35
+	Conv Rate      : 0.232429
+}
+Entry : {
+	Min Multiplier : 0
+	Max Multiplier : 1
+	Niter          : 1000
+	Conv Rate      : 1.42428e-05
+}
+Entry : {
+	Min Multiplier : 0.025
+	Max Multiplier : 1
+	Niter          : 109
+	Conv Rate      : 0.0740337
+}
+Entry : {
+	Min Multiplier : 0.05
+	Max Multiplier : 1
+	Niter          : 69
+	Conv Rate      : 0.117651
+}
+Entry : {
+	Min Multiplier : 0.1
+	Max Multiplier : 1
+	Niter          : 32
+	Conv Rate      : 0.250015
+}
+Entry : {
+	Min Multiplier : 0.15
+	Max Multiplier : 1
+	Niter          : 33
+	Conv Rate      : 0.242909
+}
+Entry : {
+	Min Multiplier : 0.2
+	Max Multiplier : 1
+	Niter          : 35
+	Conv Rate      : 0.231229
+}
+Entry : {
+	Min Multiplier : 0
+	Max Multiplier : 1.05
+	Niter          : 1000
+	Conv Rate      : 1.6823e-05
+}
+Entry : {
+	Min Multiplier : 0.025
+	Max Multiplier : 1.05
+	Niter          : 48
+	Conv Rate      : 0.169587
+}
+Entry : {
+	Min Multiplier : 0.05
+	Max Multiplier : 1.05
+	Niter          : 33
+	Conv Rate      : 0.243598
+}
+Entry : {
+	Min Multiplier : 0.1
+	Max Multiplier : 1.05
+	Niter          : 32
+	Conv Rate      : 0.256481
+}
+Entry : {
+	Min Multiplier : 0.15
+	Max Multiplier : 1.05
+	Niter          : 33
+	Conv Rate      : 0.242563
+}
+Entry : {
+	Min Multiplier : 0.2
+	Max Multiplier : 1.05
+	Niter          : 36
+	Conv Rate      : 0.228624
+}
+Entry : {
+	Min Multiplier : 0
+	Max Multiplier : 1.1
+	Niter          : 1000
+	Conv Rate      : 1.89984e-05
+}
+Entry : {
+	Min Multiplier : 0.025
+	Max Multiplier : 1.1
+	Niter          : 42
+	Conv Rate      : 0.191203
+}
+Entry : {
+	Min Multiplier : 0.05
+	Max Multiplier : 1.1
+	Niter          : 32
+	Conv Rate      : 0.257725
+}
+Entry : {
+	Min Multiplier : 0.1
+	Max Multiplier : 1.1
+	Niter          : 32
+	Conv Rate      : 0.257088
+}
+Entry : {
+	Min Multiplier : 0.15
+	Max Multiplier : 1.1
+	Niter          : 34
+	Conv Rate      : 0.240232
+}
+Entry : {
+	Min Multiplier : 0.2
+	Max Multiplier : 1.1
+	Niter          : 36
+	Conv Rate      : 0.226057
+}
+Entry : {
+	Min Multiplier : 0
+	Max Multiplier : 1.15
+	Niter          : 1000
+	Conv Rate      : 2.1095e-05
+}
+Entry : {
+	Min Multiplier : 0.025
+	Max Multiplier : 1.15
+	Niter          : 38
+	Conv Rate      : 0.215239
+}
+Entry : {
+	Min Multiplier : 0.05
+	Max Multiplier : 1.15
+	Niter          : 31
+	Conv Rate      : 0.262969
+}
+Entry : {
+	Min Multiplier : 0.1
+	Max Multiplier : 1.15
+	Niter          : 32
+	Conv Rate      : 0.25383
+}
+Entry : {
+	Min Multiplier : 0.15
+	Max Multiplier : 1.15
+	Niter          : 34
+	Conv Rate      : 0.237393
+}
+Entry : {
+	Min Multiplier : 0.2
+	Max Multiplier : 1.15
+	Niter          : 36
+	Conv Rate      : 0.223585
+}
+Entry : {
+	Min Multiplier : 0
+	Max Multiplier : 1.2
+	Niter          : 1000
+	Conv Rate      : 2.31663e-05
+}
+Entry : {
+	Min Multiplier : 0.025
+	Max Multiplier : 1.2
+	Niter          : 36
+	Conv Rate      : 0.228488
+}
+Entry : {
+	Min Multiplier : 0.05
+	Max Multiplier : 1.2
+	Niter          : 31
+	Conv Rate      : 0.259326
+}
+Entry : {
+	Min Multiplier : 0.1
+	Max Multiplier : 1.2
+	Niter          : 32
+	Conv Rate      : 0.250466
+}
+Entry : {
+	Min Multiplier : 0.15
+	Max Multiplier : 1.2
+	Niter          : 35
+	Conv Rate      : 0.235007
+}
+Entry : {
+	Min Multiplier : 0.2
+	Max Multiplier : 1.2
+	Niter          : 37
+	Conv Rate      : 0.221069
+}
+Entry : {
+	Min Multiplier : 0
+	Max Multiplier : 1.3
+	Niter          : 1000
+	Conv Rate      : 2.7295e-05
+}
+Entry : {
+	Min Multiplier : 0.025
+	Max Multiplier : 1.3
+	Niter          : 36
+	Conv Rate      : 0.224575
+}
+Entry : {
+	Min Multiplier : 0.05
+	Max Multiplier : 1.3
+	Niter          : 32
+	Conv Rate      : 0.25248
+}
+Entry : {
+	Min Multiplier : 0.1
+	Max Multiplier : 1.3
+	Niter          : 33
+	Conv Rate      : 0.2452
+}
+Entry : {
+	Min Multiplier : 0.15
+	Max Multiplier : 1.3
+	Niter          : 35
+	Conv Rate      : 0.229985
+}
+Entry : {
+	Min Multiplier : 0.2
+	Max Multiplier : 1.3
+	Niter          : 37
+	Conv Rate      : 0.216586
+}
+elapsedTime: 51.4753 s
+End
+ set initial conditions
+ nekuic (1) for ifld            1
+ call nekuic for vel  
+ xyz min   -0.50000     -0.50000     -0.50000    
+ uvwpt min  -1.0000      0.43912E-06  0.58953E-06   0.0000       0.0000    
+ PS min      0.0000       0.0000       0.0000      0.99000E+22
+ xyz max    0.50000      0.50000      0.50000    
+ uvwpt max   1.0000       1.0000       1.0000       0.0000       0.0000    
+ PS max      0.0000       0.0000       0.0000     -0.99000E+22
+ done :: set initial conditions
+  

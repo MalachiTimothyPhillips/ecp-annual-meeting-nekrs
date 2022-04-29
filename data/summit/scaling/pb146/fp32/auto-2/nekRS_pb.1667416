@@ -1,0 +1,647 @@
+                 __    ____  _____
+   ____   ___   / /__ / __ \/ ___/
+  / __ \ / _ \ / //_// /_/ /\__ \ 
+ / / / //  __// ,<  / _, _/___/ / 
+/_/ /_/ \___//_/|_|/_/ |_|/____/  v21.2.0 (e5b872de)
+
+COPYRIGHT (c) 2019-2021 UCHICAGO ARGONNE, LLC
+
+MPI tasks: 12
+
+reading par file ...
+
+using NEKRS_HOME: /ccs/home/malachi/.local/nekrs-tuner
+using NEKRS_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb146/runs/auto-fp32-2/.cache
+using OCCA_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb146/runs/auto-fp32-2/.cache/occa/
+
+Initializing device 
+active occa mode: CUDA
+
+building udf ... 
+Consolidate compiler generated dependencies of target UDF
+[100%] Built target UDF
+done (0.624715s)
+skip building nekInterface (SIZE requires no update)
+loading nek ... 
+done
+loading udf kernels ... done (0.00434273s)
+
+loading kernels ... done (3.66813s)
+
+ Reading /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb146/runs/auto-fp32-2/pb.re2                                                        
+ reading mesh 
+ reading bc for ifld           1
+ done :: read .re2 file    0.36     sec
+
+Running parCon ... (tol=0.2)
+
+ Error: elementCheck
+Running parCon ... (tol=0.02)
+Running parRSB ...
+parRSB finished in 0.817328 s
+
+ reading mesh 
+ reading curved sides 
+ reading bc for ifld           1
+ done :: read .re2 file    0.49     sec
+
+ setup mesh topology
+   Right-handed check complete for       62132 elements. OK.
+gs_setup: 468818 unique labels shared
+   handle bytes (avg, min, max): 1.8004e+07 17842500 18270500
+   buffer bytes (avg, min, max): 1.27261e+06 1140832 1516992
+   setupds time 4.9244E-01 seconds   0  8     8417073       62132
+ 
+ nElements   max/min/bal: 5178 5177 1.00
+ nMessages   max/min/avg: 10 5 7.17
+ msgSize     max/min/avg: 28452 8 11494.33
+ msgSizeSum  max/min/avg: 94812 71302 79538.17
+ 
+ max multiplicity           36
+ done :: setup mesh topology
+  
+ call usrdat
+ done :: usrdat
+
+ generate geometry data
+ done :: generate geometry data
+  
+ call usrdat2
+ done :: usrdat2
+
+  2.8727E-15  2.8726E-15  3.5527E-15  1.8125E-15  2.0761E-15  2.9238E-15 xyz repair 1
+  2.9272E-15  2.9271E-15  3.5527E-15  6.4598E-15  6.1969E-15  6.4349E-15 xyz repair 2
+  2.6645E-15  2.6645E-15  3.5527E-15  3.1392E-15  4.9376E-15  5.6896E-15 xyz repair 3
+  1.2161E-15  1.2164E-15  2.2401E-15  1.2161E-15  1.2164E-15  2.2401E-15 xyz repair 4
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ verify mesh topology
+  -7.0710093434474661        7.0706370325493424       Xrange
+  -7.0707404234460585        7.0704326927458965       Yrange
+  -8.9079642973243462        10.752399444580080       Zrange
+ done :: verify mesh topology
+  
+ mesh metrics:
+ GLL grid spacing min/max    : 1.01E-03 3.20E-01
+ scaled Jacobian  min/max/avg: 4.31E-02 9.77E-01 4.19E-01
+ aspect ratio     min/max/avg: 1.07E+00 5.69E+01 7.14E+00
+
+ call usrdat3
+ done :: usrdat3
+
+gridpoints unique/tot:      21837585     31811584
+dofs vel/pr:                20800116     21807162
+ nek setup done in    6.5141E+00 s
+
+ set initial conditions
+ Checking restart options: restart.fld                                                                                                                         
+ nekuic (1) for ifld            1
+ nekuic (1) for ifld            2
+ Reading checkpoint data 
+       FILE:/gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb146/runs/auto-fp32-2/restart.fld                                                   
+
+        0  1.0000E+01 done :: Read checkpoint data
+                              avg data-throughput =     0.7GB/s
+                              io-nodes =    12
+
+ xyz min    -7.0710      -7.0707      -8.9080    
+ uvwpt min  -4.7484      -4.7327      -4.8061      -8.3382      -126.94    
+ PS min      0.0000       0.0000       0.0000       0.0000    
+ xyz max     7.0706       7.0704       10.752    
+ uvwpt max   4.9805       4.8828       7.1716       6.3114       315.95    
+ PS max      0.0000       0.0000       0.0000       0.0000    
+ Restart: recompute geom. factors.
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ done :: set initial conditions
+  
+calling nek_userchk ...
+
+loading mesh from nek ... NboundaryIDs: 4, NboundaryFaces: 21776 done (0.000505289s)
+generating mesh ... Nq: 8 cubNq: 11
+computing geometric factors ... J [1.34276e-05,0.293651] done (0.322479s)
+timing oogs modes: 0.000492188s 0.000319536s 0.000336114s 0.000345817s 0.000239723s 0.000219104s used config: 3.0.1
+min 65% of the local elements are internal
+timing oogs modes: 0.00152035s 0.000730001s 0.000755372s 0.000773307s 0.000436325s 0.000432184s used config: 3.0.1
+loading ns kernels ... done (0.000217035s)
+loading cds kernels ... done (0.000118098s)
+copying solution from nek
+calling udf_setup ... done
+copying solution to nek
+================= ELLIPTIC SETUP SCALAR00 ===============
+bID 1 -> bcType fixedValue
+bID 2 -> bcType zeroGradient
+bID 3 -> bcType zeroGradient
+bID 4 -> bcType fixedGradient
+allNeumann = 0 
+loading elliptic kernels ... done (0.000129366s)
+timing oogs modes: 0.000556828s 0.000350185s 0.000324115s 0.00032018s 0.000226071s 0.000210871s used config: 3.0.1
+timing oogs modes: 0.000525219s 0.000558566s 0.000555709s 0.000556491s 0.000294011s 0.00028641s used config: 3.0.1
+building Jacobi preconditioner ... done (0.113571s)
+done (2.19631s)
+================ ELLIPTIC SETUP VELOCITY ================
+bID 1 -> bcType fixedValue
+bID 2 -> bcType zeroGradient
+bID 3 -> bcType zeroValue
+bID 4 -> bcType zeroValue
+allNeumann = 0 
+loading elliptic kernels ... done (0.000112058s)
+timing oogs modes: 0.00166139s 0.000783511s 0.000756004s 0.000764209s 0.000434791s 0.000432432s used config: 3.0.1
+timing oogs modes: 0.00160717s 0.00115044s 0.00109285s 0.00114214s 0.000520153s 0.000516684s used config: 3.0.1
+building Jacobi preconditioner ... done (0.184732s)
+done (0.767997s)
+================ ELLIPTIC SETUP PRESSURE ================
+allNeumann = 0 
+loading elliptic kernels ... done (0.000142177s)
+timing oogs modes: 0.000513114s 0.000346381s 0.000309708s 0.000342513s 0.000229139s 0.000207091s used config: 3.0.1
+timing oogs modes: 0.000548504s 0.000518743s 0.000495903s 0.000508628s 0.000336928s 0.000250468s used config: 3.0.1
+building MG preconditioner ... 
+loading elliptic preconditioner kernels ... done (9.6168e-05s)
+=============BUILDING MULTIGRID LEVEL OF DEGREE 7==================
+timing oogs modes: 0.000454734s 0.00022438s 0.000220188s 0.000227709s 0.000216327s 0.000195519s used config: 3.0.1
+timing oogs modes: 0.000479851s 0.000318376s 0.000324266s 0.000318532s 0.000247109s 0.000222069s used config: 3.0.1
+timing oogs modes: 0.000523983s 0.000271054s 0.000261564s 0.000262286s 0.000207189s 0.000190274s used config: 3.0.1
+estimating maxEigenvalue ... 8.71392 done (0.225816s)
+estimating maxEigenvalue ... 8.82932 done (0.0853811s)
+estimating maxEigenvalue ... 3.67302 done (0.0802964s)
+=============BUILDING MULTIGRID LEVEL OF DEGREE 5==================
+computing geometric factors ... J [1.34276e-05,0.293651] done (0.132758s)
+loading elliptic preconditioner kernels ... done (0.000140724s)
+done (0.013679s)
+timing oogs modes: 0.000305482s 0.000178911s 0.000177221s 0.000174653s 0.000206092s 0.000189435s used config: 2.1.0
+timing oogs modes: 0.000323477s 0.000239865s 0.000238027s 0.000236232s 0.000236967s 0.000213905s used config: 3.0.1
+timing oogs modes: 0.000338194s 0.000194967s 0.000192213s 0.00019027s 0.000203192s 0.000186634s used config: 3.0.1
+estimating maxEigenvalue ... 7.62908 done (0.188364s)
+estimating maxEigenvalue ... 7.49993 done (0.0481988s)
+estimating maxEigenvalue ... 3.17717 done (0.0420801s)
+=============BUILDING MULTIGRID LEVEL OF DEGREE 3==================
+computing geometric factors ... J [1.34276e-05,0.293651] done (0.0380287s)
+loading elliptic preconditioner kernels ... done (0.000117678s)
+done (0.00795977s)
+timing oogs modes: 0.000192699s 0.000147577s 0.000144127s 0.000141177s 0.000199253s 0.000182902s used config: 2.1.0
+timing oogs modes: 0.00021863s 0.000173931s 0.00017501s 0.000171851s 0.000235238s 0.00020978s used config: 2.1.0
+timing oogs modes: 0.000222619s 0.000151338s 0.000150059s 0.000148201s 0.000195192s 0.000182434s used config: 2.1.0
+estimating maxEigenvalue ... 6.79309 done (0.0286187s)
+estimating maxEigenvalue ... 5.97319 done (0.0260442s)
+estimating maxEigenvalue ... 2.56702 done (0.0220559s)
+=============BUILDING MULTIGRID LEVEL OF DEGREE 1==================
+computing geometric factors ... J [1.27522e-05,0.298451] done (0.00503979s)
+loading elliptic preconditioner kernels ... done (0.000112205s)
+done (0.000513208s)
+timing oogs modes: 0.000127597s 0.000124864s 0.000122399s 0.000121626s 0.00019617s 0.000181368s used config: 2.1.0
+timing oogs modes: 0.000154017s 0.000147953s 0.000145929s 0.000145597s 0.00022784s 0.000204174s used config: 2.1.0
+building full FEM matrix ... done.
+done (0.148966s)
+Setting up AMG...
+
+ Num MPI tasks = 12
+
+ Num OpenMP threads = 1
+
+
+BoomerAMG SETUP PARAMETERS:
+
+ Max levels = 25
+ Num levels = 7
+
+ Strength Threshold = 0.250000
+ Interpolation Truncation Factor = 0.000000
+ Maximum Row Sum Threshold for Dependency Weakening = 0.900000
+
+ Coarsening Type = PMIS 
+ measures are determined locally
+
+ Interpolation = extended+i interpolation
+
+Operator Matrix Information:
+
+             nonzero            entries/row          row sums
+lev    rows  entries sparse   min  max     avg      min         max
+======================================================================
+  0   71460  1263390  0.000     8   75    17.7  -2.704e-07   1.429e+00
+  1   31121   959209  0.001     8  190    30.8  -2.833e-06   2.835e+00
+  2    9074   317302  0.004     9  134    35.0  -3.977e-03   2.699e+00
+  3    1845    61755  0.018    13  106    33.5  -3.297e-03   3.339e+00
+  4     287     9715  0.118    14   84    33.9  -2.896e-03   5.268e+00
+  5      27      527  0.723    12   26    19.5   6.383e-04   9.112e+00
+  6       3        9  1.000     3    3     3.0   2.047e+00   1.406e+01
+
+
+Interpolation Matrix Information:
+                    entries/row        min        max            row sums
+lev  rows x cols  min  max  avgW     weight      weight       min         max
+================================================================================
+  0 71460 x 31121   1    4   2.5  -1.224e-01   1.000e+00   6.927e-01   1.000e+00
+  1 31121 x 9074    1    4   3.4  -7.954e-02   1.054e+00   3.796e-01   1.000e+00
+  2  9074 x 1845    1    4   3.8  -9.089e-02   1.003e+00   2.678e-01   1.003e+00
+  3  1845 x 287     1    4   4.0   1.755e-02   1.001e+00   2.401e-01   1.005e+00
+  4   287 x 27      1    4   4.0   7.949e-03   6.444e-01   1.047e-01   1.002e+00
+  5    27 x 3       1    3   3.0   5.336e-02   6.476e-01   4.921e-01   1.000e+00
+
+
+     Complexity:    grid = 1.592737
+                operator = 2.067380
+                memory = 2.267629
+
+
+
+
+BoomerAMG SOLVER PARAMETERS:
+
+  Maximum number of cycles:         1 
+  Stopping Tolerance:               0.000000e+00 
+  Cycle type (1 = V, 2 = W, etc.):  1
+
+  Relaxation Parameters:
+   Visiting Grid:                     down   up  coarse
+            Number of sweeps:            1    1     1 
+   Type 0=Jac, 3=hGS, 6=hSGS, 9=GE:     16   16     9 
+   Point types, partial sweeps (1=C, -1=F):
+                  Pre-CG relaxation (down):   0
+                   Post-CG relaxation (up):   0
+                             Coarsest grid:   0
+
+done (0.171965s)
+--------------------Multigrid Report---------------------
+---------------------------------------------------------
+level|    Type    |                 |     Smoother      |
+     |            |                 |                   |
+---------------------------------------------------------
+   0 |    pMG     |   Matrix-free   | Chebyshev+ASM     |
+     |            |     Degree  7   |                   |
+   1 |    pMG     |   Matrix-free   | Chebyshev+ASM     |
+     |            |     Degree  5   |                   |
+   2 |    pMG     |   Matrix-free   | Chebyshev+ASM     |
+     |            |     Degree  3   |                   |
+   3 |    AMG     |   Matrix        | BoomerAMG         |
+     |            |     Degree  1   |                   |
+---------------------------------------------------------
+setup SEMFEM preconditioner ... 
+building matrix ... done (8.74103s)
+AMGX version 2.2.0.132-opensource
+Built on Dec  3 2021, 09:49:18
+Compiled with CUDA Runtime 11.0, using CUDA driver 11.0
+Using CUDA-Aware MPI (GPU Direct) communicator...
+AMG Grid:
+         Number of Levels: 10
+            LVL         ROWS               NNZ    SPRSTY       Mem (GB)
+         --------------------------------------------------------------
+           0(D)     21807162         409118798   8.6e-07           3.68
+           1(D)      9081718         327924216  3.98e-06           5.79
+           2(D)      3015019         179024549  1.97e-05           3.39
+           3(D)       775416          68473130  0.000114           1.46
+           4(D)       144366          14970922  0.000718          0.387
+           5(D)        18044           1723460   0.00529         0.0667
+           6(D)         2054            173152     0.041         0.0127
+           7(D)          248             15328     0.249        0.00217
+           8(D)           29               627     0.746       0.000104
+           9(D)            2                 4         1       5.07e-07
+         --------------------------------------------------------------
+         Grid Complexity: 1.59783
+         Operator Complexity: 2.44776
+         Total Memory Usage: 14.7851 GB
+         --------------------------------------------------------------
+done (27.9581s)
+done (48.1183s)
+done (50.4885s)
+
+settings:
+
+key: ADVECTION,                                               value: TRUE
+key: ADVECTION TYPE,                                          value: CUBATURE+CONVECTIVE
+key: AMG SOLVER,                                              value: BOOMERAMG
+key: AMG SOLVER LOCATION,                                     value: CPU
+key: AMG SOLVER PRECISION,                                    value: FP64
+key: AMGX CONFIG FILE,                                        value: amgx.json
+key: BUILD ONLY,                                              value: FALSE
+key: CASENAME,                                                value: pb
+key: CHECKPOINT OUTPUT MESH,                                  value: FALSE
+key: CI-MODE,                                                 value: 0
+key: CONSTANT FLOW RATE,                                      value: FALSE
+key: CUBATURE POLYNOMIAL DEGREE,                              value: 10
+key: DATA FILE,                                               value: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb146/runs/auto-fp32-2/.cache/udf/udf.okl
+key: DENSITY,                                                 value: 1.000000e+00
+key: DEVICE NUMBER,                                           value: 0
+key: DT,                                                      value: 2.000000e-03
+key: ELEMENT MAP,                                             value: ISOPARAMETRIC
+key: ELEMENT TYPE,                                            value: 12
+key: ELLIPTIC INTEGRATION,                                    value: NODAL
+key: ENABLE FLOATCOMMHALF GS SUPPORT,                         value: FALSE
+key: ENABLE OVERLAP,                                          value: TRUE
+key: FORMAT,                                                  value: 1.0
+key: GALERKIN COARSE MATRIX,                                  value: FALSE
+key: HPFRT MODES,                                             value: 2.000000e+00
+key: HPFRT STRENGTH,                                          value: 2.000000e+01
+key: MESH DIMENSION,                                          value: 3
+key: MESH FILE,                                               value: pb.re2
+key: MESH INTEGRATION ORDER,                                  value: 3
+key: MOVING MESH,                                             value: FALSE
+key: NEK USR FILE,                                            value: pb.usr
+key: NUMBER OF SCALARS,                                       value: 1
+key: NUMBER TIMESTEPS,                                        value: 2000
+key: PARALMOND SMOOTH COARSEST,                               value: FALSE
+key: PLATFORM NUMBER,                                         value: 0
+key: POLYNOMIAL DEGREE,                                       value: 7
+key: PRESSURE AUTO PRECONDITIONER,                            value: TRUE
+key: PRESSURE AUTO PRECONDITIONER MAX CHEBY ORDER,            value: 2
+key: PRESSURE AUTO PRECONDITIONER MIN CHEBY ORDER,            value: 2
+key: PRESSURE AUTO PRECONDITIONER NUM SAMPLES,                value: 3
+key: PRESSURE AUTO PRECONDITIONER START,                      value: 100
+key: PRESSURE AUTO PRECONDITIONER TRIAL FREQUENCY,            value: 500
+key: PRESSURE BASIS,                                          value: NODAL
+key: PRESSURE DISCRETIZATION,                                 value: CONTINUOUS
+key: PRESSURE INITIAL GUESS,                                  value: PROJECTION-ACONJ
+key: PRESSURE KRYLOV SOLVER,                                  value: PGMRES+FLEXIBLE
+key: PRESSURE MAXIMUM ITERATIONS,                             value: 200
+key: PRESSURE MULTIGRID CHEBYSHEV DEGREE,                     value: 2
+key: PRESSURE MULTIGRID CHEBYSHEV MAX EIGENVALUE BOUND FACTOR,value: 1.1
+key: PRESSURE MULTIGRID CHEBYSHEV MIN EIGENVALUE BOUND FACTOR,value: 0.1
+key: PRESSURE MULTIGRID COARSE SEMFEM,                        value: FALSE
+key: PRESSURE MULTIGRID COARSE SOLVE,                         value: TRUE
+key: PRESSURE MULTIGRID SMOOTHER,                             value: CHEBYSHEV+ASM
+key: PRESSURE PARALMOND CYCLE,                                value: VCYCLE
+key: PRESSURE PRECONDITIONER,                                 value: MULTIGRID
+key: PRESSURE RESIDUAL PROJECTION START,                      value: 5
+key: PRESSURE RESIDUAL PROJECTION VECTORS,                    value: 10
+key: PRESSURE SEMFEM SOLVER,                                  value: AMGX
+key: PRESSURE SEMFEM SOLVER PRECISION,                        value: FP32
+key: PRESSURE SOLVER TOLERANCE,                               value: 1.000000e-04
+key: REGULARIZATION METHOD,                                   value: RELAXATION
+key: RESTART FILE NAME,                                       value: restart.fld
+key: RESTART FROM FILE,                                       value: 1
+key: SCALAR BASIS,                                            value: NODAL
+key: SCALAR DISCRETIZATION,                                   value: CONTINUOUS
+key: SCALAR MAXIMUM ITERATIONS,                               value: 200
+key: SCALAR00 COEFF FIELD,                                    value: TRUE
+key: SCALAR00 DENSITY,                                        value: 1.000000e+00
+key: SCALAR00 DIFFUSIVITY,                                    value: 2.000000e-04
+key: SCALAR00 HPFRT MODES,                                    value: 2.000000e+00
+key: SCALAR00 HPFRT STRENGTH,                                 value: 2.000000e+01
+key: SCALAR00 IS TEMPERATURE,                                 value: TRUE
+key: SCALAR00 KRYLOV SOLVER,                                  value: PCG
+key: SCALAR00 PRECONDITIONER,                                 value: JACOBI
+key: SCALAR00 REGULARIZATION METHOD,                          value: RELAXATION
+key: SCALAR00 SOLVER TOLERANCE,                               value: 1.000000e-06
+key: SOLUTION OUTPUT CONTROL,                                 value: RUNTIME
+key: SOLUTION OUTPUT INTERVAL,                                value: 1.000000
+key: START TIME,                                              value: 1.000000e+01
+key: STRESSFORMULATION,                                       value: FALSE
+key: SUBCYCLING STEPS,                                        value: 2
+key: SUBCYCLING TIME ORDER,                                   value: 4
+key: SUBCYCLING TIME STAGE NUMBER,                            value: 4
+key: THREAD MODEL,                                            value: CUDA
+key: TIME INTEGRATOR,                                         value: TOMBO2
+key: UDF FILE,                                                value: pb.udf
+key: UDF OKL FILE,                                            value: pb.oudf
+key: VARIABLE DT,                                             value: FALSE
+key: VELOCITY BASIS,                                          value: NODAL
+key: VELOCITY BLOCK SOLVER,                                   value: TRUE
+key: VELOCITY COEFF FIELD,                                    value: TRUE
+key: VELOCITY DISCRETIZATION,                                 value: CONTINUOUS
+key: VELOCITY HPFRT MODES,                                    value: 2.000000e+00
+key: VELOCITY HPFRT STRENGTH,                                 value: 2.000000e+01
+key: VELOCITY KRYLOV SOLVER,                                  value: PCG
+key: VELOCITY MAXIMUM ITERATIONS,                             value: 200
+key: VELOCITY PRECONDITIONER,                                 value: JACOBI
+key: VELOCITY REGULARIZATION METHOD,                          value: RELAXATION
+key: VELOCITY SOLVER TOLERANCE,                               value: 1.000000e-06
+key: VERBOSE,                                                 value: FALSE
+key: VISCOSITY,                                               value: 2.000000e-04
+
+occa memory usage: 4.74051 GB
+initialization took 73.6049 s
+
+timestepping for 2000 steps ...
+===================================================================
+|                       Preconditioner | Niter |              Time |
+===================================================================
+|  Chebyshev+Jacobi+Degree=2,(7,5,3,1) | (21, 0, 0) | 2.74e-01 |
+|       Chebyshev+ASM+Degree=2,(7,3,1) | (8, 0, 0) | 1.50e-01 |
+|       Chebyshev+RAS+Degree=2,(7,3,1) | (8, 0, 0) | 1.57e-01 |
+|                               SEMFEM | (15, 0, 0) | 1.93e+00 |
+===================================================================
+
+Fastest solver : Chebyshev+ASM+Degree=2,(7,3,1)
+  projP  : resNorm0 6.12e-01  resNorm 6.12e-01  ratio = 1.000e+00  0/10
+  P      : iter 008  resNorm0 6.12e-01  resNorm 5.93e-05
+  UVW    : iter 004  resNorm0 8.12e-02  resNorm 3.43e-07  divErrNorms 3.15e-06 7.39e-01
+  S00    : iter 006  resNorm0 8.07e-01  resNorm 2.99e-07
+step= 1  t= 1.00020000e+01  dt=2.0e-03  C= 3.48  UVW: 4  P: 8  S: 6  eTimeStep= 3.50e+00s eTime= 3.49913e+00s
+  projP  : resNorm0 7.71e-01  resNorm 5.65e-01  ratio = 1.365e+00  1/10
+  P      : iter 008  resNorm0 5.65e-01  resNorm 9.22e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.54e-07  divErrNorms 3.14e-06 7.38e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 4.58e-07
+step= 2  t= 1.00040000e+01  dt=2.0e-03  C= 3.35  UVW: 4  P: 8  S: 5  eTimeStep= 2.33e-01s eTime= 3.73207e+00s
+  projP  : resNorm0 3.02e-01  resNorm 2.07e-01  ratio = 1.455e+00  2/10
+  P      : iter 007  resNorm0 2.07e-01  resNorm 6.90e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.54e-07  divErrNorms 3.09e-06 7.35e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 4.60e-07
+step= 3  t= 1.00060000e+01  dt=2.0e-03  C= 3.21  UVW: 4  P: 7  S: 5  eTimeStep= 2.14e-01s eTime= 3.94562e+00s
+  projP  : resNorm0 2.79e-01  resNorm 1.16e-01  ratio = 2.398e+00  3/10
+  P      : iter 006  resNorm0 1.16e-01  resNorm 6.76e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.54e-07  divErrNorms 3.04e-06 7.32e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 4.62e-07
+step= 4  t= 1.00080000e+01  dt=2.0e-03  C= 3.42  UVW: 4  P: 6  S: 5  eTimeStep= 1.95e-01s eTime= 4.14067e+00s
+  projP  : resNorm0 2.73e-01  resNorm 6.18e-02  ratio = 4.420e+00  4/10
+  P      : iter 005  resNorm0 6.18e-02  resNorm 9.20e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.54e-07  divErrNorms 2.97e-06 7.30e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 4.63e-07
+step= 5  t= 1.00100000e+01  dt=2.0e-03  C= 3.56  UVW: 4  P: 5  S: 5  eTimeStep= 1.76e-01s eTime= 4.31710e+00s
+  projP  : resNorm0 2.70e-01  resNorm 3.32e-02  ratio = 8.128e+00  5/10
+  P      : iter 005  resNorm0 3.32e-02  resNorm 7.52e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.55e-07  divErrNorms 2.90e-06 7.28e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 4.64e-07
+step= 6  t= 1.00120000e+01  dt=2.0e-03  C= 3.51  UVW: 4  P: 5  S: 5  eTimeStep= 1.76e-01s eTime= 4.49316e+00s
+  projP  : resNorm0 2.68e-01  resNorm 2.10e-02  ratio = 1.277e+01  6/10
+  P      : iter 005  resNorm0 2.10e-02  resNorm 7.14e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.55e-07  divErrNorms 2.81e-06 7.27e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 4.65e-07
+step= 7  t= 1.00140000e+01  dt=2.0e-03  C= 3.97  UVW: 4  P: 5  S: 5  eTimeStep= 1.77e-01s eTime= 4.66974e+00s
+  projP  : resNorm0 2.67e-01  resNorm 1.45e-02  ratio = 1.836e+01  7/10
+  P      : iter 005  resNorm0 1.45e-02  resNorm 8.39e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.56e-07  divErrNorms 2.73e-06 7.26e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 4.66e-07
+step= 8  t= 1.00160000e+01  dt=2.0e-03  C= 4.43  UVW: 4  P: 5  S: 5  eTimeStep= 1.77e-01s eTime= 4.84672e+00s
+  projP  : resNorm0 2.66e-01  resNorm 1.07e-02  ratio = 2.477e+01  8/10
+  P      : iter 005  resNorm0 1.07e-02  resNorm 9.10e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.56e-07  divErrNorms 2.63e-06 7.26e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 4.66e-07
+step= 9  t= 1.00180000e+01  dt=2.0e-03  C= 4.43  UVW: 4  P: 5  S: 5  eTimeStep= 1.76e-01s eTime= 5.02310e+00s
+  projP  : resNorm0 2.65e-01  resNorm 8.68e-03  ratio = 3.057e+01  9/10
+  P      : iter 006  resNorm0 8.68e-03  resNorm 7.75e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.56e-07  divErrNorms 2.53e-06 7.25e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 4.67e-07
+step= 10  t= 1.00200000e+01  dt=2.0e-03  C= 3.96  UVW: 4  P: 6  S: 5  eTimeStep= 1.96e-01s eTime= 5.21875e+00s
+  projP  : resNorm0 2.65e-01  resNorm 7.94e-03  ratio = 3.335e+01  10/10
+  P      : iter 007  resNorm0 7.94e-03  resNorm 5.89e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.56e-07  divErrNorms 2.42e-06 7.25e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 4.68e-07
+step= 11  t= 1.00220000e+01  dt=2.0e-03  C= 3.71  UVW: 4  P: 7  S: 5  eTimeStep= 2.14e-01s eTime= 5.43299e+00s
+  projP  : resNorm0 2.65e-01  resNorm 6.05e-02  ratio = 4.376e+00  1/10
+  P      : iter 006  resNorm0 6.05e-02  resNorm 6.48e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.56e-07  divErrNorms 2.31e-06 7.25e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 4.70e-07
+step= 12  t= 1.00240000e+01  dt=2.0e-03  C= 3.49  UVW: 4  P: 6  S: 5  eTimeStep= 1.94e-01s eTime= 5.62739e+00s
+  projP  : resNorm0 2.64e-01  resNorm 1.98e-02  ratio = 1.337e+01  2/10
+  P      : iter 005  resNorm0 1.98e-02  resNorm 7.49e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.56e-07  divErrNorms 2.19e-06 7.25e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 4.73e-07
+step= 13  t= 1.00260000e+01  dt=2.0e-03  C= 3.26  UVW: 4  P: 5  S: 5  eTimeStep= 1.76e-01s eTime= 5.80334e+00s
+  projP  : resNorm0 2.64e-01  resNorm 1.13e-02  ratio = 2.336e+01  3/10
+  P      : iter 005  resNorm0 1.13e-02  resNorm 7.26e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.56e-07  divErrNorms 2.07e-06 7.25e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 4.77e-07
+step= 14  t= 1.00280000e+01  dt=2.0e-03  C= 3.15  UVW: 4  P: 5  S: 5  eTimeStep= 1.76e-01s eTime= 5.97940e+00s
+  projP  : resNorm0 2.64e-01  resNorm 8.11e-03  ratio = 3.259e+01  4/10
+  P      : iter 006  resNorm0 8.11e-03  resNorm 7.20e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.56e-07  divErrNorms 1.95e-06 7.24e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 4.80e-07
+step= 15  t= 1.00300000e+01  dt=2.0e-03  C= 3.21  UVW: 4  P: 6  S: 5  eTimeStep= 1.95e-01s eTime= 6.17446e+00s
+  projP  : resNorm0 2.64e-01  resNorm 6.91e-03  ratio = 3.822e+01  5/10
+  P      : iter 006  resNorm0 6.91e-03  resNorm 8.58e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.57e-07  divErrNorms 1.82e-06 7.24e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 4.83e-07
+step= 16  t= 1.00320000e+01  dt=2.0e-03  C= 3.31  UVW: 4  P: 6  S: 5  eTimeStep= 1.95e-01s eTime= 6.36955e+00s
+  projP  : resNorm0 2.64e-01  resNorm 6.60e-03  ratio = 4.002e+01  6/10
+  P      : iter 006  resNorm0 6.60e-03  resNorm 8.21e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.57e-07  divErrNorms 1.69e-06 7.24e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 4.87e-07
+step= 17  t= 1.00340000e+01  dt=2.0e-03  C= 3.58  UVW: 4  P: 6  S: 5  eTimeStep= 1.95e-01s eTime= 6.56501e+00s
+  projP  : resNorm0 2.64e-01  resNorm 6.96e-03  ratio = 3.792e+01  7/10
+  P      : iter 007  resNorm0 6.96e-03  resNorm 6.12e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.57e-07  divErrNorms 1.55e-06 7.24e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 4.90e-07
+step= 18  t= 1.00360000e+01  dt=2.0e-03  C= 3.89  UVW: 4  P: 7  S: 5  eTimeStep= 2.14e-01s eTime= 6.77913e+00s
+  projP  : resNorm0 2.64e-01  resNorm 7.36e-03  ratio = 3.583e+01  8/10
+  P      : iter 007  resNorm0 7.36e-03  resNorm 6.48e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.58e-07  divErrNorms 1.42e-06 7.24e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 4.94e-07
+step= 19  t= 1.00380000e+01  dt=2.0e-03  C= 3.86  UVW: 4  P: 7  S: 5  eTimeStep= 2.15e-01s eTime= 6.99392e+00s
+  projP  : resNorm0 2.64e-01  resNorm 7.54e-03  ratio = 3.497e+01  9/10
+  P      : iter 007  resNorm0 7.54e-03  resNorm 7.27e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.58e-07  divErrNorms 1.28e-06 7.24e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 4.99e-07
+step= 20  t= 1.00400000e+01  dt=2.0e-03  C= 3.75  UVW: 4  P: 7  S: 5  eTimeStep= 2.15e-01s eTime= 7.20852e+00s
+  projP  : resNorm0 2.64e-01  resNorm 7.32e-03  ratio = 3.602e+01  10/10
+  P      : iter 007  resNorm0 7.32e-03  resNorm 7.33e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.58e-07  divErrNorms 1.15e-06 7.24e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 5.03e-07
+step= 21  t= 1.00420000e+01  dt=2.0e-03  C= 3.51  UVW: 4  P: 7  S: 5  eTimeStep= 2.14e-01s eTime= 7.42259e+00s
+  projP  : resNorm0 2.64e-01  resNorm 6.03e-02  ratio = 4.376e+00  1/10
+  P      : iter 006  resNorm0 6.03e-02  resNorm 6.61e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.59e-07  divErrNorms 1.01e-06 7.24e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 5.07e-07
+step= 22  t= 1.00440000e+01  dt=2.0e-03  C= 3.42  UVW: 4  P: 6  S: 5  eTimeStep= 1.94e-01s eTime= 7.61685e+00s
+  projP  : resNorm0 2.64e-01  resNorm 1.93e-02  ratio = 1.367e+01  2/10
+  P      : iter 005  resNorm0 1.93e-02  resNorm 8.29e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.59e-07  divErrNorms 8.72e-07 7.24e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 5.10e-07
+step= 23  t= 1.00460000e+01  dt=2.0e-03  C= 3.50  UVW: 4  P: 5  S: 5  eTimeStep= 1.76e-01s eTime= 7.79291e+00s
+  projP  : resNorm0 2.64e-01  resNorm 1.10e-02  ratio = 2.391e+01  3/10
+  P      : iter 005  resNorm0 1.10e-02  resNorm 7.77e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.58e-07  divErrNorms 7.36e-07 7.24e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 5.12e-07
+step= 24  t= 1.00480000e+01  dt=2.0e-03  C= 4.55  UVW: 4  P: 5  S: 5  eTimeStep= 1.76e-01s eTime= 7.96890e+00s
+  projP  : resNorm0 2.64e-01  resNorm 8.33e-03  ratio = 3.168e+01  4/10
+  P      : iter 006  resNorm0 8.33e-03  resNorm 6.58e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.58e-07  divErrNorms 6.00e-07 7.24e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 5.15e-07
+step= 25  t= 1.00500000e+01  dt=2.0e-03  C= 5.13  UVW: 4  P: 6  S: 5  eTimeStep= 1.95e-01s eTime= 8.16392e+00s
+  projP  : resNorm0 2.64e-01  resNorm 7.50e-03  ratio = 3.519e+01  5/10
+  P      : iter 006  resNorm0 7.50e-03  resNorm 7.54e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.59e-07  divErrNorms 4.64e-07 7.24e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 5.17e-07
+step= 26  t= 1.00520000e+01  dt=2.0e-03  C= 5.16  UVW: 4  P: 6  S: 5  eTimeStep= 1.95e-01s eTime= 8.35894e+00s
+  projP  : resNorm0 2.64e-01  resNorm 7.32e-03  ratio = 3.606e+01  6/10
+  P      : iter 006  resNorm0 7.32e-03  resNorm 8.80e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.58e-07  divErrNorms 3.28e-07 7.24e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 5.19e-07
+step= 27  t= 1.00540000e+01  dt=2.0e-03  C= 4.51  UVW: 4  P: 6  S: 5  eTimeStep= 1.95e-01s eTime= 8.55418e+00s
+  projP  : resNorm0 2.64e-01  resNorm 7.59e-03  ratio = 3.474e+01  7/10
+  P      : iter 007  resNorm0 7.59e-03  resNorm 7.99e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.59e-07  divErrNorms 1.93e-07 7.24e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 5.23e-07
+step= 28  t= 1.00560000e+01  dt=2.0e-03  C= 3.52  UVW: 4  P: 7  S: 5  eTimeStep= 2.15e-01s eTime= 8.76869e+00s
+  projP  : resNorm0 2.64e-01  resNorm 7.90e-03  ratio = 3.339e+01  8/10
+  P      : iter 007  resNorm0 7.90e-03  resNorm 8.47e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.59e-07  divErrNorms 5.87e-08 7.23e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 5.27e-07
+step= 29  t= 1.00580000e+01  dt=2.0e-03  C= 3.56  UVW: 4  P: 7  S: 5  eTimeStep= 2.14e-01s eTime= 8.98301e+00s
+  projP  : resNorm0 2.64e-01  resNorm 7.88e-03  ratio = 3.346e+01  9/10
+  P      : iter 007  resNorm0 7.88e-03  resNorm 7.83e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.59e-07  divErrNorms 7.58e-08 7.23e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 5.30e-07
+step= 30  t= 1.00600000e+01  dt=2.0e-03  C= 3.56  UVW: 4  P: 7  S: 5  eTimeStep= 2.14e-01s eTime= 9.19711e+00s
+  projP  : resNorm0 2.64e-01  resNorm 8.36e-03  ratio = 3.153e+01  10/10
+  P      : iter 007  resNorm0 8.36e-03  resNorm 8.08e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.59e-07  divErrNorms 2.10e-07 7.23e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 5.32e-07
+step= 31  t= 1.00620000e+01  dt=2.0e-03  C= 3.65  UVW: 4  P: 7  S: 5  eTimeStep= 2.16e-01s eTime= 9.41348e+00s
+  projP  : resNorm0 2.64e-01  resNorm 6.07e-02  ratio = 4.348e+00  1/10
+  P      : iter 006  resNorm0 6.07e-02  resNorm 7.96e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.59e-07  divErrNorms 3.45e-07 7.23e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 5.32e-07
+step= 32  t= 1.00640000e+01  dt=2.0e-03  C= 3.82  UVW: 4  P: 6  S: 5  eTimeStep= 1.95e-01s eTime= 9.60885e+00s
+  projP  : resNorm0 2.64e-01  resNorm 2.06e-02  ratio = 1.279e+01  2/10
+  P      : iter 006  resNorm0 2.06e-02  resNorm 5.71e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.59e-07  divErrNorms 4.80e-07 7.23e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 5.31e-07
+step= 33  t= 1.00660000e+01  dt=2.0e-03  C= 3.72  UVW: 4  P: 6  S: 5  eTimeStep= 1.94e-01s eTime= 9.80323e+00s
+  projP  : resNorm0 2.64e-01  resNorm 1.37e-02  ratio = 1.926e+01  3/10
+  P      : iter 005  resNorm0 1.37e-02  resNorm 9.37e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.58e-07  divErrNorms 6.16e-07 7.23e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 5.28e-07
+step= 34  t= 1.00680000e+01  dt=2.0e-03  C= 3.58  UVW: 4  P: 5  S: 5  eTimeStep= 1.76e-01s eTime= 9.97916e+00s
+  projP  : resNorm0 2.64e-01  resNorm 1.17e-02  ratio = 2.250e+01  4/10
+  P      : iter 006  resNorm0 1.17e-02  resNorm 7.40e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.58e-07  divErrNorms 7.53e-07 7.23e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 5.24e-07
+step= 35  t= 1.00700000e+01  dt=2.0e-03  C= 3.51  UVW: 4  P: 6  S: 5  eTimeStep= 1.95e-01s eTime= 1.01738e+01s
+  projP  : resNorm0 2.64e-01  resNorm 1.05e-02  ratio = 2.522e+01  5/10
+  P      : iter 006  resNorm0 1.05e-02  resNorm 8.73e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.58e-07  divErrNorms 8.91e-07 7.23e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 5.19e-07
+step= 36  t= 1.00720000e+01  dt=2.0e-03  C= 3.57  UVW: 4  P: 6  S: 5  eTimeStep= 1.95e-01s eTime= 1.03691e+01s
+  projP  : resNorm0 2.64e-01  resNorm 9.06e-03  ratio = 2.909e+01  6/10
+  P      : iter 006  resNorm0 9.06e-03  resNorm 8.71e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.58e-07  divErrNorms 1.03e-06 7.23e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 5.14e-07
+step= 37  t= 1.00740000e+01  dt=2.0e-03  C= 3.46  UVW: 4  P: 6  S: 5  eTimeStep= 1.95e-01s eTime= 1.05642e+01s
+  projP  : resNorm0 2.64e-01  resNorm 9.29e-03  ratio = 2.840e+01  7/10
+  P      : iter 007  resNorm0 9.29e-03  resNorm 5.26e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.57e-07  divErrNorms 1.17e-06 7.23e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 5.08e-07
+step= 38  t= 1.00760000e+01  dt=2.0e-03  C= 3.15  UVW: 4  P: 7  S: 5  eTimeStep= 2.14e-01s eTime= 1.07783e+01s
+  projP  : resNorm0 2.64e-01  resNorm 9.38e-03  ratio = 2.810e+01  8/10
+  P      : iter 007  resNorm0 9.38e-03  resNorm 6.13e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.56e-07  divErrNorms 1.31e-06 7.23e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 5.02e-07
+step= 39  t= 1.00780000e+01  dt=2.0e-03  C= 3.35  UVW: 4  P: 7  S: 5  eTimeStep= 2.14e-01s eTime= 1.09925e+01s
+  projP  : resNorm0 2.64e-01  resNorm 1.01e-02  ratio = 2.622e+01  9/10
+  P      : iter 007  resNorm0 1.01e-02  resNorm 7.78e-05
+  UVW    : iter 004  resNorm0 1.22e-01  resNorm 1.56e-07  divErrNorms 1.46e-06 7.23e-01
+  S00    : iter 005  resNorm0 1.21e+00  resNorm 4.96e-07
+step= 40  t= 1.00800000e+01  dt=2.0e-03  C= 3.46  UVW: 4  P: 7  S: 5  eTimeStep= 2.14e-01s eTime= 1.12069e+01s
+Terminated
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@batch4>
+Subject: Job 1667416: <nekRS_pb> in cluster <summit> Exited
+
+Job <nekRS_pb> was submitted from host <login3> by user <malachi> in cluster <summit> at Fri Dec  3 10:18:19 2021
+Job was executed on host(s) <1*batch4>, in queue <batch>, as user <malachi> in cluster <summit> at Fri Dec  3 10:19:29 2021
+                            <42*g24n13>
+                            <42*g24n14>
+</ccs/home/malachi> was used as the home directory.
+</gpfs/alpine/scratch/malachi/csc262/siam-pp-22/pb146/runs/auto-fp32-2> was used as the working directory.
+Started at Fri Dec  3 10:19:29 2021
+Terminated at Fri Dec  3 10:21:26 2021
+Results reported at Fri Dec  3 10:21:26 2021
+
+The output (if any) is above this job summary.
+

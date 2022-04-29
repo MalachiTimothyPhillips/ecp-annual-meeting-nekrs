@@ -1,0 +1,266 @@
+                 __    ____  _____
+   ____   ___   / /__ / __ \/ ___/
+  / __ \ / _ \ / //_// /_/ /\__ \ 
+ / / / //  __// ,<  / _, _/___/ / 
+/_/ /_/ \___//_/|_|/_/ |_|/____/  v21.1.1 (c300dddf)
+
+COPYRIGHT (c) 2019-2021 UCHICAGO ARGONNE, LLC
+
+MPI tasks: 36
+
+reading par file ...
+general::filtering is deprecated and might be removed in the future!
+general::filtermodes is deprecated and might be removed in the future!
+general::filterweight is deprecated and might be removed in the future!
+
+using NEKRS_HOME: /ccs/home/malachi/.local/nekrs-preco-auto
+using NEKRS_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb1568/auto-fp32-6/.cache
+using OCCA_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb1568/auto-fp32-6/.cache/occa/
+
+Initializing device 
+active occa mode: CUDA
+
+building udf ... 
+[100%] Built target UDF
+done (0.429563s)
+skip building nekInterface (SIZE has not changed)
+loading nek ... 
+done
+loading udf kernels ... done (0.00606748s)
+
+loading kernels ... done (3.50317s)
+
+ Reading /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb1568/auto-fp32-6/peb1568_n2t2bnb.re2                                               
+ reading mesh 
+ reading bc for ifld           1
+ done :: read .re2 file     2.4     sec
+
+Running parCon ... (tol=0.2)
+
+ Error: elementCheck
+Running parCon ... (tol=0.02)
+Running parRSB ...
+Warning: Partitioner only reached a tolerance of 1.268793 given 0.000500 after 50 x 50 iterations in Level=1!
+Warning: Partitioner only reached a tolerance of 0.103978 given 0.000090 after 50 x 50 iterations in Level=3!
+parRSB finished in 8.78446 s
+
+ reading mesh 
+ reading curved sides 
+ reading bc for ifld           1
+ done :: read .re2 file     3.5     sec
+
+ setup mesh topology
+   Right-handed check complete for      524386 elements. OK.
+gs_setup: 3262894 unique labels shared
+   handle bytes (avg, min, max): 5.0123e+07 49320524 50927868
+   buffer bytes (avg, min, max): 2.95103e+06 2153904 3793536
+   setupds time 1.7015E+00 seconds   0  8    70904907      524386
+ 
+ nElements   max/min/bal: 14567 14566 1.00
+ nMessages   max/min/avg: 20 5 9.67
+ msgSize     max/min/avg: 62151 1 20453.08
+ msgSizeSum  max/min/avg: 237096 134619 184439.11
+ 
+ max multiplicity           44
+ done :: setup mesh topology
+  
+ call usrdat
+ done :: usrdat
+
+ generate geometry data
+ done :: generate geometry data
+  
+ call usrdat2
+ done :: usrdat2
+
+  3.9629E-15  3.9299E-15  7.1054E-15  7.6927E-16  7.6927E-16  9.8206E-16 xyz repair 1
+  3.9629E-15  3.9299E-15  7.1054E-15  6.9253E-15  6.5223E-15  9.3390E-15 xyz repair 2
+  3.5527E-15  3.5527E-15  7.1054E-15  5.9808E-15  6.1523E-15  8.9797E-15 xyz repair 3
+  2.6787E-15  2.8910E-15  2.9916E-15  2.6787E-15  2.8910E-15  2.9916E-15 xyz repair 4
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ verify mesh topology
+  -13.858251128023300        13.858078221547562       Xrange
+  -13.858092645782323        13.858190303122345       Yrange
+  -14.673319816589355        17.691219329833984       Zrange
+ done :: verify mesh topology
+  
+ mesh metrics:
+ GLL grid spacing min/max    : 2.21E-04 3.02E-01
+ scaled Jacobian  min/max/avg: 2.59E-02 9.91E-01 3.71E-01
+ aspect ratio     min/max/avg: 1.12E+00 1.08E+02 1.26E+01
+
+ call usrdat3
+ done :: usrdat3
+
+gridpoints unique/tot:     184172283    268485632
+dofs vel/pr:               175531272    184064426
+ nek setup done in    2.9896E+01 s
+
+ set initial conditions
+ Checking restart options: r5.fld                                                                                                                              
+ nekuic (1) for ifld            1
+ Reading checkpoint data 
+       FILE:/gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb1568/auto-fp32-6/r5.fld                                                            
+
+        0  2.0000E+01 done :: Read checkpoint data
+                              avg data-throughput =     0.7GB/s
+                              io-nodes =    36
+
+ xyz min    -13.858      -13.858      -14.673    
+ uvwpt min  -6.4231      -7.8486      -7.9142      -20.893       0.0000    
+ PS min      0.0000       0.0000       0.0000      0.99000E+22
+ xyz max     13.858       13.858       17.691    
+ uvwpt max   6.5953       7.1037       10.614       19.461       0.0000    
+ PS max      0.0000       0.0000       0.0000     -0.99000E+22
+ Restart: recompute geom. factors.
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ done :: set initial conditions
+  
+calling nek_userchk ...
+ xyz min    -13.858      -13.858      -14.673    
+ xyz max     13.858       13.858       17.691    
+
+loading mesh from nek ... NboundaryIDs: 4, NboundaryFaces: 178458 done (0.00148463s)
+generating mesh ... Nq: 8 cubNq: 11
+computing geometric factors ... J [1.11222e-05,0.168148] done (0.838312s)
+timing oogs modes: 0.000985875s 0.000620537s 0.000577789s 0.00058273s 0.000431478s 0.00037289s used config: 3.0.1
+min 68% of the local elements are internal
+timing oogs modes: 0.00353655s 0.00154804s 0.00163716s 0.00156104s 0.00109748s 0.00108743s used config: 3.0.1
+loading ns kernels ... done (0.000375256s)
+copying solution from nek
+calling udf_setup ... done
+================ ELLIPTIC SETUP VELOCITY ================
+bID 1 -> bcType fixedValue
+bID 2 -> bcType zeroGradient
+bID 3 -> bcType zeroValue
+bID 4 -> bcType zeroValue
+allNeumann = 0 
+loading elliptic kernels ... done (0.000178264s)
+timing oogs modes: 0.00363745s 0.00175796s 0.00159644s 0.00159811s 0.00108364s 0.0010844s used config: 3.0.0
+timing oogs modes: 0.00384821s 0.00274102s 0.00269558s 0.0027931s 0.00139997s 0.0013693s used config: 3.0.1
+building Jacobi preconditioner ... done (0.238311s)
+done (1.4378s)
+================ ELLIPTIC SETUP PRESSURE ================
+allNeumann = 0 
+loading elliptic kernels ... done (0.000173487s)
+timing oogs modes: 0.0010336s 0.000576445s 0.000576251s 0.000563685s 0.000376172s 0.000365928s used config: 3.0.1
+timing oogs modes: 0.00110701s 0.00129335s 0.00132129s 0.00127629s 0.000771497s 0.000778448s used config: 3.0.0
+building MG preconditioner ... 
+loading elliptic preconditioner kernels ... done (0.000169861s)
+=============BUILDING MULTIGRID LEVEL OF DEGREE 7==================
+timing oogs modes: 0.000907022s 0.000349914s 0.000337913s 0.000343933s 0.000256812s 0.00025808s used config: 3.0.0
+timing oogs modes: 0.000931207s 0.000668419s 0.000659047s 0.000663427s 0.000380296s 0.000386857s used config: 3.0.0
+timing oogs modes: 0.0010578s 0.000469368s 0.000424843s 0.000447756s 0.000310338s 0.000276182s used config: 3.0.1
+estimating maxEigenvalue ... [h27n11:3781127] *** Process received signal ***
+[h27n11:3781127] Signal: Segmentation fault (11)
+[h27n11:3781127] Signal code: Address not mapped (1)
+[h27n11:3781127] Failing at address: 0x2008b02f0000
+[h27n11:3781127] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[h27n11:3781127] [ 1] /lib64/power9/libc.so.6(+0xad844)[0x20000244d844]
+[h27n11:3781127] [ 2] /lib64/libcuda.so.1(+0x24e674)[0x200000b8e674]
+[h27n11:3781127] [ 3] /lib64/libcuda.so.1(+0x41427c)[0x200000d5427c]
+[h27n11:3781127] [ 4] /lib64/libcuda.so.1(+0x414a68)[0x200000d54a68]
+[h27n11:3781127] [ 5] /lib64/libcuda.so.1(+0x24fcbc)[0x200000b8fcbc]
+[h27n11:3781127] [ 6] /lib64/libcuda.so.1(+0x116cb8)[0x200000a56cb8]
+[h27n11:3781127] [ 7] /lib64/libcuda.so.1(+0x1184c4)[0x200000a584c4]
+[h27n11:3781127] [ 8] /lib64/libcuda.so.1(cuMemcpyHtoD_v2+0x84)[0x200000cb5814]
+[h27n11:3781127] [ 9] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa4cuda6memory8copyFromEPKvmmRKNS_4jsonE+0x98)[0x20000072daf8]
+[h27n11:3781127] [10] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa6memory8copyFromEPKvllRKNS_4jsonE+0x90)[0x2000005eb3e0]
+[h27n11:3781127] [11] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN7MGLevel14maxEigSmoothAxEv+0x684)[0x20000023f0e4]
+[h27n11:3781127] [12] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN7MGLevel14computeMaxEigsEP10elliptic_t+0x1c8)[0x200000240268]
+[h27n11:3781127] [13] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN7MGLevel13setupSmootherEP10elliptic_t+0x1ec)[0x2000002410fc]
+[h27n11:3781127] [14] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN7MGLevelC2EP10elliptic_tdi9setupAideN9parAlmond10KrylovTypeEP19ompi_communicator_tb+0x340)[0x200000241d60]
+[h27n11:3781127] [15] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_Z22ellipticMultiGridSetupP10elliptic_tP8precon_t+0x454)[0x20000024aee4]
+[h27n11:3781127] [16] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_Z27ellipticPreconditionerSetupP10elliptic_tP5ogs_t+0x174)[0x20000025fb54]
+[h27n11:3781127] [17] [h28n06:843218] *** Process received signal ***
+[h28n06:843218] Signal: Segmentation fault (11)
+[h28n06:843218] Signal code: Address not mapped (1)
+[h28n06:843218] Failing at address: 0x2008bb360000
+[h28n06:843218] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[h28n06:843218] [ 1] /lib64/power9/libc.so.6(+0xad844)[0x20000244d844]
+[h28n06:843218] [ 2] /lib64/libcuda.so.1(+0x24e674)[0x200000b8e674]
+[h28n06:843218] [ 3] /lib64/libcuda.so.1(+0x41427c)[0x200000d5427c]
+[h28n06:843218] [ 4] /lib64/libcuda.so.1(+0x414a68)[0x200000d54a68]
+[h28n06:843218] [ 5] /lib64/libcuda.so.1(+0x24fcbc)[0x200000b8fcbc]
+[h28n06:843218] [ 6] /lib64/libcuda.so.1(+0x116cb8)[0x200000a56cb8]
+[h28n06:843218] [ 7] /lib64/libcuda.so.1(+0x1184c4)[0x200000a584c4]
+[h28n06:843218] [ 8] /lib64/libcuda.so.1(cuMemcpyHtoD_v2+0x84)[0x200000cb5814]
+[h28n06:843218] [ 9] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa4cuda6memory8copyFromEPKvmmRKNS_4jsonE+0x98)[0x20000072daf8]
+[h28n06:843218] [10] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa6memory8copyFromEPKvllRKNS_4jsonE+0x90)[0x2000005eb3e0]
+[h28n06:843218] [11] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN7MGLevel14maxEigSmoothAxEv+0x684)[0x20000023f0e4]
+[h28n06:843218] [12] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_Z18ellipticSolveSetupP10elliptic_t+0x1e98)[0x200000266778]
+[h27n11:3781127] [18] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_Z8nrsSetupP19ompi_communicator_tR9setupAideP5nrs_t+0xa1f4)[0x2000001596a4]
+[h27n11:3781127] [19] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN5nekrs5setupEP19ompi_communicator_tS1_iiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_+0x12dc)[0x200000112bdc]
+[h27n11:3781127] [20] /ccs/home/malachi/.local/nekrs-preco-auto/bin/nekrs[0x100042d0]
+[h27n11:3781127] [21] /lib64/power9/libc.so.6(+0x24078)[0x2000023c4078]
+[h27n11:3781127] [22] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x2000023c4264]
+[h27n11:3781127] *** End of error message ***
+/ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN7MGLevel14computeMaxEigsEP10elliptic_t+0x1c8)[0x200000240268]
+[h28n06:843218] [13] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN7MGLevel13setupSmootherEP10elliptic_t+0x1ec)[0x2000002410fc]
+[h28n06:843218] [14] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN7MGLevelC2EP10elliptic_tdi9setupAideN9parAlmond10KrylovTypeEP19ompi_communicator_tb+0x340)[0x200000241d60]
+[h28n06:843218] [15] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_Z22ellipticMultiGridSetupP10elliptic_tP8precon_t+0x454)[0x20000024aee4]
+[h28n06:843218] [16] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_Z27ellipticPreconditionerSetupP10elliptic_tP5ogs_t+0x174)[0x20000025fb54]
+[h28n06:843218] [17] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_Z18ellipticSolveSetupP10elliptic_t+0x1e98)[0x200000266778]
+[h28n06:843218] [18] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_Z8nrsSetupP19ompi_communicator_tR9setupAideP5nrs_t+0xa1f4)[0x2000001596a4]
+[h28n06:843218] [19] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN5nekrs5setupEP19ompi_communicator_tS1_iiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_+0x12dc)[0x200000112bdc]
+[h28n06:843218] [20] /ccs/home/malachi/.local/nekrs-preco-auto/bin/nekrs[0x100042d0]
+[h28n06:843218] [21] /lib64/power9/libc.so.6(+0x24078)[0x2000023c4078]
+[h28n06:843218] [22] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x2000023c4264]
+[h28n06:843218] *** End of error message ***
+[h27n11:3781128] *** Process received signal ***
+[h27n11:3781128] Signal: Segmentation fault (11)
+[h27n11:3781128] Signal code: Address not mapped (1)
+[h27n11:3781128] Failing at address: 0x2008c70e0000
+[h27n11:3781128] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[h27n11:3781128] [ 1] /lib64/power9/libc.so.6(+0xad844)[0x20000244d844]
+[h27n11:3781128] [ 2] /lib64/libcuda.so.1(+0x24e674)[0x200000b8e674]
+[h27n11:3781128] [ 3] /lib64/libcuda.so.1(+0x41427c)[0x200000d5427c]
+[h27n11:3781128] [ 4] /lib64/libcuda.so.1(+0x414a68)[0x200000d54a68]
+[h27n11:3781128] [ 5] /lib64/libcuda.so.1(+0x24fcbc)[0x200000b8fcbc]
+[h27n11:3781128] [ 6] /lib64/libcuda.so.1(+0x116cb8)[0x200000a56cb8]
+[h27n11:3781128] [ 7] /lib64/libcuda.so.1(+0x1184c4)[0x200000a584c4]
+[h27n11:3781128] [ 8] /lib64/libcuda.so.1(cuMemcpyHtoD_v2+0x84)[0x200000cb5814]
+[h27n11:3781128] [ 9] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa4cuda6memory8copyFromEPKvmmRKNS_4jsonE+0x98)[0x20000072daf8]
+[h27n11:3781128] [10] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libocca.so(_ZN4occa6memory8copyFromEPKvllRKNS_4jsonE+0x90)[0x2000005eb3e0]
+[h27n11:3781128] [11] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN7MGLevel14maxEigSmoothAxEv+0x684)[0x20000023f0e4]
+[h27n11:3781128] [12] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN7MGLevel14computeMaxEigsEP10elliptic_t+0x1c8)[0x200000240268]
+[h27n11:3781128] [13] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN7MGLevel13setupSmootherEP10elliptic_t+0x1ec)[0x2000002410fc]
+[h27n11:3781128] [14] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN7MGLevelC2EP10elliptic_tdi9setupAideN9parAlmond10KrylovTypeEP19ompi_communicator_tb+0x340)[0x200000241d60]
+[h27n11:3781128] [15] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_Z22ellipticMultiGridSetupP10elliptic_tP8precon_t+0x454)[0x20000024aee4]
+[h27n11:3781128] [16] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_Z27ellipticPreconditionerSetupP10elliptic_tP5ogs_t+0x174)[0x20000025fb54]
+[h27n11:3781128] [17] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_Z18ellipticSolveSetupP10elliptic_t+0x1e98)[0x200000266778]
+[h27n11:3781128] [18] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_Z8nrsSetupP19ompi_communicator_tR9setupAideP5nrs_t+0xa1f4)[0x2000001596a4]
+[h27n11:3781128] [19] /ccs/home/malachi/.local/nekrs-preco-auto/lib/libnekrs.so(_ZN5nekrs5setupEP19ompi_communicator_tS1_iiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_+0x12dc)[0x200000112bdc]
+[h27n11:3781128] [20] /ccs/home/malachi/.local/nekrs-preco-auto/bin/nekrs[0x100042d0]
+[h27n11:3781128] [21] /lib64/power9/libc.so.6(+0x24078)[0x2000023c4078]
+[h27n11:3781128] [22] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x2000023c4264]
+[h27n11:3781128] *** End of error message ***
+ERROR:  One or more process (first noticed rank 15) terminated with signal 11 (core dumped)
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@batch2>
+Subject: Job 1499680: <nekRS_peb1568_n2t2bnb> in cluster <summit> Exited
+
+Job <nekRS_peb1568_n2t2bnb> was submitted from host <login3> by user <malachi> in cluster <summit> at Fri Oct  8 04:14:48 2021
+Job was executed on host(s) <1*batch2>, in queue <batch>, as user <malachi> in cluster <summit> at Fri Oct  8 05:40:49 2021
+                            <42*h27n09>
+                            <42*h27n11>
+                            <42*h28n06>
+                            <42*h28n10>
+                            <42*h28n14>
+                            <42*h28n15>
+</ccs/home/malachi> was used as the home directory.
+</gpfs/alpine/scratch/malachi/csc262/siam-pp-22/pb1568/auto-fp32-6> was used as the working directory.
+Started at Fri Oct  8 05:40:49 2021
+Terminated at Fri Oct  8 05:42:56 2021
+Results reported at Fri Oct  8 05:42:56 2021
+
+The output (if any) is above this job summary.
+

@@ -1,0 +1,790 @@
+                 __    ____  _____
+   ____   ___   / /__ / __ \/ ___/
+  / __ \ / _ \ / //_// /_/ /\__ \ 
+ / / / //  __// ,<  / _, _/___/ / 
+/_/ /_/ \___//_/|_|/_/ |_|/____/  v21.2.0 (89cacef2)
+
+COPYRIGHT (c) 2019-2021 UCHICAGO ARGONNE, LLC
+
+MPI tasks: 6
+
+reading par file ...
+general::extrapolation is deprecated and might be removed in the future!
+general::filtering is deprecated and might be removed in the future!
+general::filtermodes is deprecated and might be removed in the future!
+general::filterweight is deprecated and might be removed in the future!
+
+using NEKRS_HOME: /ccs/home/malachi/.local/nekrs-amgx
+using NEKRS_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/67peb/semfem-fp32-1/.cache
+using OCCA_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/67peb/semfem-fp32-1/.cache/occa/
+
+Initializing device 
+active occa mode: CUDA
+
+building udf ... 
+Consolidate compiler generated dependencies of target UDF
+[100%] Built target UDF
+done (0.366174s)
+skip building nekInterface (SIZE requires no update)
+loading nek ... 
+done
+loading udf kernels ... done (0.158846s)
+
+loading kernels ... done (2.87903s)
+
+ Reading /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/67peb/semfem-fp32-1/tamu_0p18c.re2                                                   
+ reading mesh 
+ reading bc for ifld           1
+ done :: read .re2 file     3.6     sec
+
+Running parCon ... (tol=0.2)
+
+ Error: elementCheck
+Running parCon ... (tol=0.02)
+Running parRSB ...
+Warning: Partition created 1/2 (min/max) disconnected components.
+parRSB finished in 5.00383 s
+
+ reading mesh 
+ reading curved sides 
+ reading bc for ifld           1
+ done :: read .re2 file     5.1     sec
+
+ setup mesh topology
+   Right-handed check complete for      122284 elements. OK.
+gs_setup: 410008 unique labels shared
+   handle bytes (avg, min, max): 6.71469e+07 66336492 67627052
+   buffer bytes (avg, min, max): 2.2017e+06 1674352 3097328
+   setupds time 2.4942E+00 seconds   0  8    16986272      122284
+ 
+ nElements   max/min/bal: 20381 20380 1.00
+ nMessages   max/min/avg: 5 2 4.00
+ msgSize     max/min/avg: 67751 1208 35942.00
+ msgSizeSum  max/min/avg: 193583 104647 137606.33
+ 
+ max multiplicity           40
+ done :: setup mesh topology
+  
+ call usrdat
+ done :: usrdat
+
+ generate geometry data
+ done :: generate geometry data
+  
+ call usrdat2
+ done :: usrdat2
+
+  1.0032E-02  1.9209E-02  2.9060E-02  1.2212E-16  1.2212E-16  3.7881E-16 xyz repair 1
+  1.0032E-02  1.9209E-02  2.9060E-02  1.0032E-02  1.9967E-02  3.0732E-02 xyz repair 2
+  8.8818E-16  8.8818E-16  1.2596E-15  1.3541E-15  1.0657E-15  2.2181E-15 xyz repair 3
+  2.8804E-16  4.0923E-16  1.2511E-15  2.8804E-16  4.0923E-16  1.2511E-15 xyz repair 4
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ verify mesh topology
+  -2.2000000476837158        2.2000000476837158       Xrange
+  -2.2000000476837158        2.1999990940093994       Yrange
+  -4.9200000762939453        6.8239998817443865       Zrange
+ done :: verify mesh topology
+  
+ mesh metrics:
+ GLL grid spacing min/max    : 4.02E-05 1.45E-01
+ scaled Jacobian  min/max/avg: 5.97E-03 9.70E-01 3.80E-01
+ aspect ratio     min/max/avg: 1.17E+00 2.04E+02 1.32E+01
+
+ call usrdat3
+ done :: usrdat3
+
+gridpoints unique/tot:      43399616     62609408
+dofs vel/pr:                40502973     43385013
+ nek setup done in    3.2824E+01 s
+
+ set initial conditions
+ Checking restart options: tamu_0p18c0.f00015                                                                                                                  
+ nekuic (1) for ifld            1
+ Reading checkpoint data 
+       FILE:/gpfs/alpine/csc262/scratch/malachi/siam-pp-22/67peb/semfem-fp32-1/tamu_0p18c0.f00015                                               
+
+        0  1.0675E+01 done :: Read checkpoint data
+                              avg data-throughput =     0.1GB/s
+                              io-nodes =     6
+
+ xyz min    -2.2000      -2.2000      -4.9200    
+ uvwpt min  -7.4729      -8.2644      -6.1606      -35.724       0.0000    
+ PS min      0.0000       0.0000       0.0000      0.99000E+22
+ xyz max     2.2000       2.2000       6.8240    
+ uvwpt max   7.8275       7.4214       9.7114       35.572       0.0000    
+ PS max      0.0000       0.0000       0.0000     -0.99000E+22
+ Restart: recompute geom. factors.
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ done :: set initial conditions
+  
+calling nek_userchk ...
+
+loading mesh from nek ... NboundaryIDs: 3, NboundaryFaces: 59412 done (0.00180269s)
+generating mesh ... Nq: 8 cubNq: 11
+computing geometric factors ... J [4.74776e-08,0.00660784] done (1.46821s)
+timing oogs modes: 0.000752895s 0.000679774s 0.0006667s 0.000664171s 0.000494153s 0.000482224s used config: 3.0.1
+min 80% of the local elements are internal
+timing oogs modes: 0.00313159s 0.00195743s 0.00191353s 0.00191815s 0.00141739s 0.00141734s used config: 3.0.1
+loading ns kernels ... done (0.000153937s)
+copying solution from nek
+calling udf_setup ... done
+copying solution to nek
+================ ELLIPTIC SETUP VELOCITY ================
+bID 1 -> bcType fixedValue
+bID 2 -> bcType zeroGradient
+bID 3 -> bcType zeroValue
+allNeumann = 0 
+loading elliptic kernels ... done (9.0848e-05s)
+timing oogs modes: 0.00270517s 0.00195488s 0.00188336s 0.00191909s 0.00141746s 0.00141134s used config: 3.0.1
+timing oogs modes: 0.00352239s 0.00348985s 0.00337918s 0.00336466s 0.0018787s 0.00185403s used config: 3.0.1
+building Jacobi preconditioner ... done (0.0295131s)
+done (0.882s)
+================ ELLIPTIC SETUP PRESSURE ================
+allNeumann = 0 
+loading elliptic kernels ... done (0.000105487s)
+timing oogs modes: 0.000745859s 0.000688462s 0.000679473s 0.000669888s 0.000490381s 0.000477013s used config: 3.0.1
+timing oogs modes: 0.00128379s 0.00142338s 0.00141545s 0.00142226s 0.000849369s 0.000848812s used config: 3.0.1
+setup SEMFEM preconditioner ... 
+building matrix ... done (34.0716s)
+AMGX version 2.2.0.132-opensource
+Built on Dec  1 2021, 10:12:57
+Compiled with CUDA Runtime 11.0, using CUDA driver 11.0
+Using CUDA-Aware MPI (GPU Direct) communicator...
+Thrust failure: uninitialized_fill_n: failed to synchronize: cudaErrorIllegalAddress: an illegal memory access was encountered
+File and line number are not available for this exception.
+Caught amgx exception: Trying to setup from the uninitialized matrix
+ at: /ccs/home/malachi/develop/nekRS/3rd_party/AMGX/base/src/solvers/solver.cu:398
+Stack trace:
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::Solver<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::setup(amgx::Operator<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&, bool)+0x890
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::Solver<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::setup_no_throw(amgx::Operator<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&, bool)+0xb4
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::AMG_Solver<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::setup(amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&)+0x90
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::AMG_Solver<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::setup_capi(std::shared_ptr<amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > >)+0xd0
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::AMGX_ERROR amgx::(anonymous namespace)::set_solver_with_shared<(AMGX_Mode)8465, amgx::AMG_Solver, amgx::Matrix>(AMGX_solver_handle_struct*, AMGX_matrix_handle_struct*, amgx::Resources*, amgx::AMGX_ERROR (amgx::AMG_Solver<amgx::TemplateMode<(AMGX_Mode)8465>::Type>::*)(std::shared_ptr<amgx::Matrix<amgx::TemplateMode<(AMGX_Mode)8465>::Type> >))+0x414
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : AMGX_solver_setup()+0x2ac
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : AMGXsetup()+0x458
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSEMFEMSetup(elliptic_t*)+0x1428
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticPreconditionerSetup(elliptic_t*, ogs_t*)+0x478
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSolveSetup(elliptic_t*)+0x1884
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)+0xa854
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0x1288
+ /ccs/home/malachi/.local/nekrs-amgx/bin/nekrs() [0x10004324]
+ /lib64/power9/libc.so.6 : ()+0x24078
+ /lib64/power9/libc.so.6 : __libc_start_main()+0xb4
+
+Caught amgx exception: Cuda failure: 'an illegal memory access was encountered'
+ at: /ccs/home/malachi/develop/nekRS/3rd_party/AMGX/base/src/amgx_c.cu:2046
+Stack trace:
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : void amgx::(anonymous namespace)::vector_bind<(AMGX_Mode)8465>(AMGX_vector_handle_struct*, AMGX_matrix_handle_struct*)+0x31c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : AMGX_vector_bind_impl()+0x22c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : AMGX_vector_bind()+0x50
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : AMGXsetup()+0x46c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSEMFEMSetup(elliptic_t*)+0x1428
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticPreconditionerSetup(elliptic_t*, ogs_t*)+0x478
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSolveSetup(elliptic_t*)+0x1884
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)+0xa854
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0x1288
+ /ccs/home/malachi/.local/nekrs-amgx/bin/nekrs() [0x10004324]
+ /lib64/power9/libc.so.6 : ()+0x24078
+ /lib64/power9/libc.so.6 : __libc_start_main()+0xb4
+
+Caught amgx exception: Cuda failure: 'an illegal memory access was encountered'
+ at: /ccs/home/malachi/develop/nekRS/3rd_party/AMGX/base/src/amgx_c.cu:2046
+Stack trace:
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : void amgx::(anonymous namespace)::vector_bind<(AMGX_Mode)8465>(AMGX_vector_handle_struct*, AMGX_matrix_handle_struct*)+0x31c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : AMGX_vector_bind_impl()+0x22c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : AMGX_vector_bind()+0x50
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : AMGXsetup()+0x480
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSEMFEMSetup(elliptic_t*)+0x1428
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticPreconditionerSetup(elliptic_t*, ogs_t*)+0x478
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSolveSetup(elliptic_t*)+0x1884
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)+0xa854
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0x1288
+ /ccs/home/malachi/.local/nekrs-amgx/bin/nekrs() [0x10004324]
+ /lib64/power9/libc.so.6 : ()+0x24078
+ /lib64/power9/libc.so.6 : __libc_start_main()+0xb4
+
+Thrust failure: transform: failed to synchronize: cudaErrorIllegalAddress: an illegal memory access was encountered
+File and line number are not available for this exception.
+Caught amgx exception: Trying to setup from the uninitialized matrix
+ at: /ccs/home/malachi/develop/nekRS/3rd_party/AMGX/base/src/solvers/solver.cu:398
+Stack trace:
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::Solver<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::setup(amgx::Operator<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&, bool)+0x890
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::Solver<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::setup_no_throw(amgx::Operator<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&, bool)+0xb4
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::AMG_Solver<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::setup(amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&)+0x90
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::AMG_Solver<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::setup_capi(std::shared_ptr<amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > >)+0xd0
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::AMGX_ERROR amgx::(anonymous namespace)::set_solver_with_shared<(AMGX_Mode)8465, amgx::AMG_Solver, amgx::Matrix>(AMGX_solver_handle_struct*, AMGX_matrix_handle_struct*, amgx::Resources*, amgx::AMGX_ERROR (amgx::AMG_Solver<amgx::TemplateMode<(AMGX_Mode)8465>::Type>::*)(std::shared_ptr<amgx::Matrix<amgx::TemplateMode<(AMGX_Mode)8465>::Type> >))+0x414
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : AMGX_solver_setup()+0x2ac
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : AMGXsetup()+0x458
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSEMFEMSetup(elliptic_t*)+0x1428
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticPreconditionerSetup(elliptic_t*, ogs_t*)+0x478
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSolveSetup(elliptic_t*)+0x1884
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)+0xa854
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0x1288
+ /ccs/home/malachi/.local/nekrs-amgx/bin/nekrs() [0x10004324]
+ /lib64/power9/libc.so.6 : ()+0x24078
+ /lib64/power9/libc.so.6 : __libc_start_main()+0xb4
+
+Caught amgx exception: Cuda failure: 'an illegal memory access was encountered'
+ at: /ccs/home/malachi/develop/nekRS/3rd_party/AMGX/base/src/amgx_c.cu:2046
+Stack trace:
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : void amgx::(anonymous namespace)::vector_bind<(AMGX_Mode)8465>(AMGX_vector_handle_struct*, AMGX_matrix_handle_struct*)+0x31c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : AMGX_vector_bind_impl()+0x22c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : AMGX_vector_bind()+0x50
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : AMGXsetup()+0x46c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSEMFEMSetup(elliptic_t*)+0x1428
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticPreconditionerSetup(elliptic_t*, ogs_t*)+0x478
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSolveSetup(elliptic_t*)+0x1884
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)+0xa854
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0x1288
+ /ccs/home/malachi/.local/nekrs-amgx/bin/nekrs() [0x10004324]
+ /lib64/power9/libc.so.6 : ()+0x24078
+ /lib64/power9/libc.so.6 : __libc_start_main()+0xb4
+
+Caught amgx exception: Cuda failure: 'an illegal memory access was encountered'
+ at: /ccs/home/malachi/develop/nekRS/3rd_party/AMGX/base/src/amgx_c.cu:2046
+Stack trace:
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : void amgx::(anonymous namespace)::vector_bind<(AMGX_Mode)8465>(AMGX_vector_handle_struct*, AMGX_matrix_handle_struct*)+0x31c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : AMGX_vector_bind_impl()+0x22c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : AMGX_vector_bind()+0x50
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : AMGXsetup()+0x480
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSEMFEMSetup(elliptic_t*)+0x1428
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticPreconditionerSetup(elliptic_t*, ogs_t*)+0x478
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSolveSetup(elliptic_t*)+0x1884
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)+0xa854
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0x1288
+ /ccs/home/malachi/.local/nekrs-amgx/bin/nekrs() [0x10004324]
+ /lib64/power9/libc.so.6 : ()+0x24078
+ /lib64/power9/libc.so.6 : __libc_start_main()+0xb4
+
+Thrust failure: transform: failed to synchronize: cudaErrorIllegalAddress: an illegal memory access was encountered
+File and line number are not available for this exception.
+Caught amgx exception: Trying to setup from the uninitialized matrix
+ at: /ccs/home/malachi/develop/nekRS/3rd_party/AMGX/base/src/solvers/solver.cu:398
+Stack trace:
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::Solver<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::setup(amgx::Operator<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&, bool)+0x890
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::Solver<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::setup_no_throw(amgx::Operator<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&, bool)+0xb4
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::AMG_Solver<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::setup(amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&)+0x90
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::AMG_Solver<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::setup_capi(std::shared_ptr<amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > >)+0xd0
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::AMGX_ERROR amgx::(anonymous namespace)::set_solver_with_shared<(AMGX_Mode)8465, amgx::AMG_Solver, amgx::Matrix>(AMGX_solver_handle_struct*, AMGX_matrix_handle_struct*, amgx::Resources*, amgx::AMGX_ERROR (amgx::AMG_Solver<amgx::TemplateMode<(AMGX_Mode)8465>::Type>::*)(std::shared_ptr<amgx::Matrix<amgx::TemplateMode<(AMGX_Mode)8465>::Type> >))+0x414
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : AMGX_solver_setup()+0x2ac
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : AMGXsetup()+0x458
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSEMFEMSetup(elliptic_t*)+0x1428
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticPreconditionerSetup(elliptic_t*, ogs_t*)+0x478
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSolveSetup(elliptic_t*)+0x1884
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)+0xa854
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0x1288
+ /ccs/home/malachi/.local/nekrs-amgx/bin/nekrs() [0x10004324]
+ /lib64/power9/libc.so.6 : ()+0x24078
+ /lib64/power9/libc.so.6 : __libc_start_main()+0xb4
+
+Caught amgx exception: Cuda failure: 'an illegal memory access was encountered'
+ at: /ccs/home/malachi/develop/nekRS/3rd_party/AMGX/base/src/amgx_c.cu:2046
+Stack trace:
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : void amgx::(anonymous namespace)::vector_bind<(AMGX_Mode)8465>(AMGX_vector_handle_struct*, AMGX_matrix_handle_struct*)+0x31c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : AMGX_vector_bind_impl()+0x22c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : AMGX_vector_bind()+0x50
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : AMGXsetup()+0x46c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSEMFEMSetup(elliptic_t*)+0x1428
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticPreconditionerSetup(elliptic_t*, ogs_t*)+0x478
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSolveSetup(elliptic_t*)+0x1884
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)+0xa854
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0x1288
+ /ccs/home/malachi/.local/nekrs-amgx/bin/nekrs() [0x10004324]
+ /lib64/power9/libc.so.6 : ()+0x24078
+ /lib64/power9/libc.so.6 : __libc_start_main()+0xb4
+
+Caught amgx exception: Cuda failure: 'an illegal memory access was encountered'
+ at: /ccs/home/malachi/develop/nekRS/3rd_party/AMGX/base/src/amgx_c.cu:2046
+Stack trace:
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : void amgx::(anonymous namespace)::vector_bind<(AMGX_Mode)8465>(AMGX_vector_handle_struct*, AMGX_matrix_handle_struct*)+0x31c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : AMGX_vector_bind_impl()+0x22c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : AMGX_vector_bind()+0x50
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : AMGXsetup()+0x480
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSEMFEMSetup(elliptic_t*)+0x1428
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticPreconditionerSetup(elliptic_t*, ogs_t*)+0x478
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSolveSetup(elliptic_t*)+0x1884
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)+0xa854
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0x1288
+ /ccs/home/malachi/.local/nekrs-amgx/bin/nekrs() [0x10004324]
+ /lib64/power9/libc.so.6 : ()+0x24078
+ /lib64/power9/libc.so.6 : __libc_start_main()+0xb4
+
+done (45.0361s)
+Thrust failure: transform: failed to synchronize: cudaErrorIllegalAddress: an illegal memory access was encountered
+File and line number are not available for this exception.
+Caught amgx exception: Trying to setup from the uninitialized matrix
+ at: /ccs/home/malachi/develop/nekRS/3rd_party/AMGX/base/src/solvers/solver.cu:398
+Stack trace:
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::Solver<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::setup(amgx::Operator<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&, bool)+0x890
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::Solver<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::setup_no_throw(amgx::Operator<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&, bool)+0xb4
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::AMG_Solver<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::setup(amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&)+0x90
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::AMG_Solver<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::setup_capi(std::shared_ptr<amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > >)+0xd0
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::AMGX_ERROR amgx::(anonymous namespace)::set_solver_with_shared<(AMGX_Mode)8465, amgx::AMG_Solver, amgx::Matrix>(AMGX_solver_handle_struct*, AMGX_matrix_handle_struct*, amgx::Resources*, amgx::AMGX_ERROR (amgx::AMG_Solver<amgx::TemplateMode<(AMGX_Mode)8465>::Type>::*)(std::shared_ptr<amgx::Matrix<amgx::TemplateMode<(AMGX_Mode)8465>::Type> >))+0x414
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : AMGX_solver_setup()+0x2ac
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : AMGXsetup()+0x458
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSEMFEMSetup(elliptic_t*)+0x1428
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticPreconditionerSetup(elliptic_t*, ogs_t*)+0x478
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSolveSetup(elliptic_t*)+0x1884
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)+0xa854
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0x1288
+ /ccs/home/malachi/.local/nekrs-amgx/bin/nekrs() [0x10004324]
+ /lib64/power9/libc.so.6 : ()+0x24078
+ /lib64/power9/libc.so.6 : __libc_start_main()+0xb4
+
+Caught amgx exception: Cuda failure: 'an illegal memory access was encountered'
+ at: /ccs/home/malachi/develop/nekRS/3rd_party/AMGX/base/src/amgx_c.cu:2046
+Stack trace:
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : void amgx::(anonymous namespace)::vector_bind<(AMGX_Mode)8465>(AMGX_vector_handle_struct*, AMGX_matrix_handle_struct*)+0x31c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : AMGX_vector_bind_impl()+0x22c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : AMGX_vector_bind()+0x50
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : AMGXsetup()+0x46c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSEMFEMSetup(elliptic_t*)+0x1428
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticPreconditionerSetup(elliptic_t*, ogs_t*)+0x478
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSolveSetup(elliptic_t*)+0x1884
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)+0xa854
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0x1288
+ /ccs/home/malachi/.local/nekrs-amgx/bin/nekrs() [0x10004324]
+ /lib64/power9/libc.so.6 : ()+0x24078
+ /lib64/power9/libc.so.6 : __libc_start_main()+0xb4
+
+Caught amgx exception: Cuda failure: 'an illegal memory access was encountered'
+ at: /ccs/home/malachi/develop/nekRS/3rd_party/AMGX/base/src/amgx_c.cu:2046
+Stack trace:
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : void amgx::(anonymous namespace)::vector_bind<(AMGX_Mode)8465>(AMGX_vector_handle_struct*, AMGX_matrix_handle_struct*)+0x31c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : AMGX_vector_bind_impl()+0x22c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : AMGX_vector_bind()+0x50
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : AMGXsetup()+0x480
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSEMFEMSetup(elliptic_t*)+0x1428
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticPreconditionerSetup(elliptic_t*, ogs_t*)+0x478
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSolveSetup(elliptic_t*)+0x1884
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)+0xa854
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0x1288
+ /ccs/home/malachi/.local/nekrs-amgx/bin/nekrs() [0x10004324]
+ /lib64/power9/libc.so.6 : ()+0x24078
+ /lib64/power9/libc.so.6 : __libc_start_main()+0xb4
+
+Thrust failure: transform: failed to synchronize: cudaErrorIllegalAddress: an illegal memory access was encountered
+File and line number are not available for this exception.
+Caught amgx exception: Trying to setup from the uninitialized matrix
+ at: /ccs/home/malachi/develop/nekRS/3rd_party/AMGX/base/src/solvers/solver.cu:398
+Stack trace:
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::Solver<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::setup(amgx::Operator<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&, bool)+0x890
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::Solver<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::setup_no_throw(amgx::Operator<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&, bool)+0xb4
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::AMG_Solver<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::setup(amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&)+0x90
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::AMG_Solver<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::setup_capi(std::shared_ptr<amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > >)+0xd0
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::AMGX_ERROR amgx::(anonymous namespace)::set_solver_with_shared<(AMGX_Mode)8465, amgx::AMG_Solver, amgx::Matrix>(AMGX_solver_handle_struct*, AMGX_matrix_handle_struct*, amgx::Resources*, amgx::AMGX_ERROR (amgx::AMG_Solver<amgx::TemplateMode<(AMGX_Mode)8465>::Type>::*)(std::shared_ptr<amgx::Matrix<amgx::TemplateMode<(AMGX_Mode)8465>::Type> >))+0x414
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : AMGX_solver_setup()+0x2ac
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : AMGXsetup()+0x458
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSEMFEMSetup(elliptic_t*)+0x1428
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticPreconditionerSetup(elliptic_t*, ogs_t*)+0x478
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSolveSetup(elliptic_t*)+0x1884
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)+0xa854
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0x1288
+ /ccs/home/malachi/.local/nekrs-amgx/bin/nekrs() [0x10004324]
+ /lib64/power9/libc.so.6 : ()+0x24078
+ /lib64/power9/libc.so.6 : __libc_start_main()+0xb4
+
+Caught amgx exception: Cuda failure: 'an illegal memory access was encountered'
+ at: /ccs/home/malachi/develop/nekRS/3rd_party/AMGX/base/src/amgx_c.cu:2046
+Stack trace:
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : void amgx::(anonymous namespace)::vector_bind<(AMGX_Mode)8465>(AMGX_vector_handle_struct*, AMGX_matrix_handle_struct*)+0x31c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : AMGX_vector_bind_impl()+0x22c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : AMGX_vector_bind()+0x50
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : AMGXsetup()+0x46c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSEMFEMSetup(elliptic_t*)+0x1428
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticPreconditionerSetup(elliptic_t*, ogs_t*)+0x478
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSolveSetup(elliptic_t*)+0x1884
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)+0xa854
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0x1288
+ /ccs/home/malachi/.local/nekrs-amgx/bin/nekrs() [0x10004324]
+ /lib64/power9/libc.so.6 : ()+0x24078
+ /lib64/power9/libc.so.6 : __libc_start_main()+0xb4
+
+Caught amgx exception: Cuda failure: 'an illegal memory access was encountered'
+ at: /ccs/home/malachi/develop/nekRS/3rd_party/AMGX/base/src/amgx_c.cu:2046
+Stack trace:
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : void amgx::(anonymous namespace)::vector_bind<(AMGX_Mode)8465>(AMGX_vector_handle_struct*, AMGX_matrix_handle_struct*)+0x31c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : AMGX_vector_bind_impl()+0x22c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : AMGX_vector_bind()+0x50
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : AMGXsetup()+0x480
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSEMFEMSetup(elliptic_t*)+0x1428
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticPreconditionerSetup(elliptic_t*, ogs_t*)+0x478
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSolveSetup(elliptic_t*)+0x1884
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)+0xa854
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0x1288
+ /ccs/home/malachi/.local/nekrs-amgx/bin/nekrs() [0x10004324]
+ /lib64/power9/libc.so.6 : ()+0x24078
+ /lib64/power9/libc.so.6 : __libc_start_main()+0xb4
+
+Thrust failure: transform: failed to synchronize: cudaErrorIllegalAddress: an illegal memory access was encountered
+File and line number are not available for this exception.
+Caught amgx exception: Trying to setup from the uninitialized matrix
+ at: /ccs/home/malachi/develop/nekRS/3rd_party/AMGX/base/src/solvers/solver.cu:398
+Stack trace:
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::Solver<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::setup(amgx::Operator<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&, bool)+0x890
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::Solver<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::setup_no_throw(amgx::Operator<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&, bool)+0xb4
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::AMG_Solver<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::setup(amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&)+0x90
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::AMG_Solver<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::setup_capi(std::shared_ptr<amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > >)+0xd0
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::AMGX_ERROR amgx::(anonymous namespace)::set_solver_with_shared<(AMGX_Mode)8465, amgx::AMG_Solver, amgx::Matrix>(AMGX_solver_handle_struct*, AMGX_matrix_handle_struct*, amgx::Resources*, amgx::AMGX_ERROR (amgx::AMG_Solver<amgx::TemplateMode<(AMGX_Mode)8465>::Type>::*)(std::shared_ptr<amgx::Matrix<amgx::TemplateMode<(AMGX_Mode)8465>::Type> >))+0x414
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : AMGX_solver_setup()+0x2ac
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : AMGXsetup()+0x458
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSEMFEMSetup(elliptic_t*)+0x1428
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticPreconditionerSetup(elliptic_t*, ogs_t*)+0x478
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSolveSetup(elliptic_t*)+0x1884
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)+0xa854
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0x1288
+ /ccs/home/malachi/.local/nekrs-amgx/bin/nekrs() [0x10004324]
+ /lib64/power9/libc.so.6 : ()+0x24078
+ /lib64/power9/libc.so.6 : __libc_start_main()+0xb4
+
+Caught amgx exception: Cuda failure: 'an illegal memory access was encountered'
+ at: /ccs/home/malachi/develop/nekRS/3rd_party/AMGX/base/src/amgx_c.cu:2046
+Stack trace:
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : void amgx::(anonymous namespace)::vector_bind<(AMGX_Mode)8465>(AMGX_vector_handle_struct*, AMGX_matrix_handle_struct*)+0x31c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : AMGX_vector_bind_impl()+0x22c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : AMGX_vector_bind()+0x50
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : AMGXsetup()+0x46c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSEMFEMSetup(elliptic_t*)+0x1428
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticPreconditionerSetup(elliptic_t*, ogs_t*)+0x478
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSolveSetup(elliptic_t*)+0x1884
+ /ccs/home/malachi/.local/nekrs-amgx/lidone (45.1029s)
+b/libnekrs.so : nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)+0xa854
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0x1288
+ /ccs/home/malachi/.local/nekrs-amgx/bin/nekrs() [0x10004324]
+ /lib64/power9/libc.so.6 : ()+0x24078
+ /lib64/power9/libc.so.6 : __libc_start_main()+0xb4
+
+Caught amgx exception: Cuda failure: 'an illegal memory access was encountered'
+ at: /ccs/home/malachi/develop/nekRS/3rd_party/AMGX/base/src/amgx_c.cu:2046
+Stack trace:
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : void amgx::(anonymous namespace)::vector_bind<(AMGX_Mode)8465>(AMGX_vector_handle_struct*, AMGX_matrix_handle_struct*)+0x31c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : AMGX_vector_bind_impl()+0x22c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : AMGX_vector_bind()+0x50
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : AMGXsetup()+0x480
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSEMFEMSetup(elliptic_t*)+0x1428
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticPreconditionerSetup(elliptic_t*, ogs_t*)+0x478
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSolveSetup(elliptic_t*)+0x1884
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)+0xa854
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0x1288
+ /ccs/home/malachi/.local/nekrs-amgx/bin/nekrs() [0x10004324]
+ /lib64/power9/libc.so.6 : ()+0x24078
+ /lib64/power9/libc.so.6 : __libc_start_main()+0xb4
+
+terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 461
+    Function : malloc
+    Message  : Device: malloc
+               CUDA Error [ 700 ]: CUDA_ERROR_ILLEGAL_ADDRESS
+    Stack
+      13 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      12 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      11 occa::cuda::device::malloc(unsigned long, void const*, occa::json const&)
+      10 occa::device::malloc(long, occa::dtype_t const&, void const*, occa::json const&)
+       9 occa::memory occa::device::malloc<void>(long, void const*, occa::json const&)
+       8 device_t::malloc(long long, int)
+       7 SolutionProjection::SolutionProjection(elliptic_t&, SolutionProjection::ProjectionType, int, int)
+       6 ellipticSolveSetup(elliptic_t*)
+       5 nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)
+       4 nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+       3 /ccs/home/malachi/.local/nekrs-amgx/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 461
+    Function : malloc
+    Message  : Device: malloc
+               CUDA Error [ 700 ]: CUDA_ERROR_ILLEGAL_ADDRESS
+    Stack
+      13 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      12 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      11 occa::cuda::device::malloc(unsigned long, void const*, occa::json const&)
+      10 occa::device::malloc(long, occa::dtype_t const&, void const*, occa::json const&)
+       9 occa::memory occa::device::malloc<void>(long, void const*, occa::json const&)
+       8 device_t::malloc(long long, int)
+       7 SolutionProjection::SolutionProjection(elliptic_t&, SolutionProjection::ProjectionType, int, int)
+       6 ellipticSolveSetup(elliptic_t*)
+       5 nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)
+       4 nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+       3 /ccs/home/malachi/.local/nekrs-amgx/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 461
+    Function : malloc
+    Message  : Device: malloc
+               CUDA Error [ 700 ]: CUDA_ERROR_ILLEGAL_ADDRESS
+    Stack
+      13 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      12 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      11 occa::cuda::device::malloc(unsigned long, void const*, occa::json const&)
+      10 occa::device::malloc(long, occa::dtype_t const&, void const*, occa::json const&)
+       9 occa::memory occa::device::malloc<void>(long, void const*, occa::json const&)
+       8 device_t::malloc(long long, int)
+       7 SolutionProjection::SolutionProjection(elliptic_t&, SolutionProjection::ProjectionType, int, int)
+       6 ellipticSolveSetup(elliptic_t*)
+       5 nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)
+       4 nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+       3 /ccs/home/malachi/.local/nekrs-amgx/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+[c07n06:2906053] *** Process received signal ***
+[c07n06:2906053] Signal: Aborted (6)
+[c07n06:2906053] Signal code:  (-6)
+[c07n06:2906053] [ 0] terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 461
+    Function : malloc
+    Message  : Device: malloc
+               CUDA Error [ 700 ]: CUDA_ERROR_ILLEGAL_ADDRESS
+    Stack
+      13 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      12 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      11 occa::cuda::device::malloc(unsigned long, void const*, occa::json const&)
+      10 occa::device::malloc(long, occa::dtype_t const&, void const*, occa::json const&)
+       9 occa::memory occa::device::malloc<void>(long, void const*, occa::json const&)
+       8 device_t::malloc(long long, int)
+       7 SolutionProjection::SolutionProjection(elliptic_t&, SolutionProjection::ProjectionType, int, int)
+       6 ellipticSolveSetup(elliptic_t*)
+       5 nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)
+       4 nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+       3 /ccs/home/malachi/.local/nekrs-amgx/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+[c07n06:2906054] *** Process received signal ***
+[c07n06:2906054] Signal: Aborted (6)
+[c07n06:2906054] Signal code:  (-6)
+[c07n06:2906054] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[c07n06:2906054] [ 1] terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 461
+    Function : malloc
+    Message  : Device: malloc
+               CUDA Error [ 700 ]: CUDA_ERROR_ILLEGAL_ADDRESS
+    Stack
+      13 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      12 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      11 occa::cuda::device::malloc(unsigned long, void const*, occa::json const&)
+      10 occa::device::malloc(long, occa::dtype_t const&, void const*, occa::json const&)
+       9 occa::memory occa::device::malloc<void>(long, void const*, occa::json const&)
+       8 device_t::malloc(long long, int)
+       7 SolutionProjection::SolutionProjection(elliptic_t&, SolutionProjection::ProjectionType, int, int)
+       6 ellipticSolveSetup(elliptic_t*)
+       5 nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)
+       4 nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+       3 /ccs/home/malachi/.local/nekrs-amgx/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+[c07n06:2906055] *** Process received signal ***
+[c07n06:2906055] Signal: Aborted (6)
+[c07n06:2906055] Signal code:  (-6)
+[c07n06:2906055] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[c07n06:2906055] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x20003e8a3618]
+[c07n06:2906055] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x20003e883a2c]
+[c07n06:2906055] [ 3] terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 461
+    Function : malloc
+    Message  : Device: malloc
+               CUDA Error [ 700 ]: CUDA_ERROR_ILLEGAL_ADDRESS
+    Stack
+      13 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      12 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      11 occa::cuda::device::malloc(unsigned long, void const*, occa::json const&)
+      10 occa::device::malloc(long, occa::dtype_t const&, void const*, occa::json const&)
+       9 occa::memory occa::device::malloc<void>(long, void const*, occa::json const&)
+       8 device_t::malloc(long long, int)
+       7 SolutionProjection::SolutionProjection(elliptic_t&, SolutionProjection::ProjectionType, int, int)
+       6 ellipticSolveSetup(elliptic_t*)
+       5 nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)
+       4 nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+       3 /ccs/home/malachi/.local/nekrs-amgx/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+[c07n06:2906051] *** Process received signal ***
+[c07n06:2906051] Signal: Aborted (6)
+[c07n06:2906051] Signal code:  (-6)
+[c07n06:2906051] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[c07n06:2906051] [ 1] [c07n06:2906050] *** Process received signal ***
+[c07n06:2906050] Signal: Aborted (6)
+[c07n06:2906050] Signal code:  (-6)
+[c07n06:2906050] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[c07n06:2906050] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x20003e8a3618]
+[c07n06:2906050] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x20003e883a2c]
+[c07n06:2906050] [ 3] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x20003e4accc8]
+[c07n06:2906050] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x20003e4a82e4]
+[c07n06:2906050] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x20003e4a83a0]
+[c07n06:2906050] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x20003e4a8868]
+[c07n06:2906050] [ 7] /ccs/home/malachi/.local/nekrs-amgx/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007d4b7c]
+[c07n06:2906050] [ 8] [c07n06:2906052] *** Process received signal ***
+[c07n06:2906052] Signal: Aborted (6)
+[c07n06:2906052] Signal code:  (-6)
+[c07n06:2906052] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[c07n06:2906052] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x20003e8a3618]
+[c07n06:2906052] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x20003e883a2c]
+[c07n06:2906052] [ 3] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x20003e4accc8]
+[c07n06:2906052] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x20003e4a82e4]
+[c07n06:2906052] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x20003e4a83a0]
+[c07n06:2906052] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x20003e4a8868]
+[c07n06:2906052] [ 7] /lib64/power9/libc.so.6(gsignal+0xd8)[0x20003e8a3618]
+[c07n06:2906051] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x20003e883a2c]
+[c07n06:2906051] [ 3] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x20003e4accc8]
+[c07n06:2906051] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x20003e4a82e4]
+[c07n06:2906051] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x20003e4a83a0]
+[c07n06:2906051] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x20003e4a8868]
+[c07n06:2906051] [ 7] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[c07n06:2906053] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x20003e8a3618]
+[c07n06:2906053] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x20003e883a2c]
+[c07n06:2906053] [ 3] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x20003e4accc8]
+[c07n06:2906053] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x20003e4a82e4]
+[c07n06:2906053] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x20003e4a83a0]
+[c07n06:2906053] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x20003e4a8868]
+[c07n06:2906053] [ 7] /ccs/home/malachi/.local/nekrs-amgx/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007d4b7c]
+[c07n06:2906053] [ 8] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x20003e4accc8]
+[c07n06:2906055] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x20003e4a82e4]
+[c07n06:2906055] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x20003e4a83a0]
+[c07n06:2906055] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x20003e4a8868]
+[c07n06:2906055] [ 7] /ccs/home/malachi/.local/nekrs-amgx/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007d4b7c]
+[c07n06:2906055] [ 8] /ccs/home/malachi/.local/nekrs-amgx/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x68)[0x2000007d4d88]
+[c07n06:2906055] [ 9] /ccs/home/malachi/.local/nekrs-amgx/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007d4b7c]
+[c07n06:2906052] [ 8] /ccs/home/malachi/.local/nekrs-amgx/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x68)[0x2000007d4d88]
+[c07n06:2906052] [ 9] /ccs/home/malachi/.local/nekrs-amgx/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x68)[0x2000007d4d88]
+[c07n06:2906050] [ 9] /lib64/power9/libc.so.6(gsignal+0xd8)[0x20003e8a3618]
+[c07n06:2906054] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x20003e883a2c]
+[c07n06:2906054] [ 3] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x20003e4accc8]
+[c07n06:2906054] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x20003e4a82e4]
+[c07n06:2906054] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x20003e4a83a0]
+[c07n06:2906054] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x20003e4a8868]
+[c07n06:2906054] [ 7] /ccs/home/malachi/.local/nekrs-amgx/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007d4b7c]
+[c07n06:2906054] [ 8] /ccs/home/malachi/.local/nekrs-amgx/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007d4b7c]
+[c07n06:2906051] [ 8] /ccs/home/malachi/.local/nekrs-amgx/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x68)[0x2000007d4d88]
+[c07n06:2906051] [ 9] /ccs/home/malachi/.local/nekrs-amgx/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x304)[0x200000743754]
+[c07n06:2906050] [10] /ccs/home/malachi/.local/nekrs-amgx/lib/libocca.so(_ZN4occa4cuda6device6mallocEmPKvRKNS_4jsonE+0x50c)[0x2000007344ec]
+[c07n06:2906050] [11] /ccs/home/malachi/.local/nekrs-amgx/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x304)[0x200000743754]
+[c07n06:2906052] [10] /ccs/home/malachi/.local/nekrs-amgx/lib/libocca.so(_ZN4occa4cuda6device6mallocEmPKvRKNS_4jsonE+0x50c)[0x2000007344ec]
+[c07n06:2906052] [11] /ccs/home/malachi/.local/nekrs-amgx/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x68)[0x2000007d4d88]
+[c07n06:2906053] [ 9] /ccs/home/malachi/.local/nekrs-amgx/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x304)[0x200000743754]
+[c07n06:2906053] [10] /ccs/home/malachi/.local/nekrs-amgx/lib/libocca.so(_ZN4occa4cuda6device6mallocEmPKvRKNS_4jsonE+0x50c)[0x2000007344ec]
+[c07n06:2906053] [11] /ccs/home/malachi/.local/nekrs-amgx/lib/libocca.so(_ZN4occa6device6mallocElRKNS_7dtype_tEPKvRKNS_4jsonE+0xe8)[0x2000005e34d8]
+[c07n06:2906053] [12] /ccs/home/malachi/.local/nekrs-amgx/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x304)[0x200000743754]
+[c07n06:2906055] [10] /ccs/home/malachi/.local/nekrs-amgx/lib/libocca.so(_ZN4occa4cuda6device6mallocEmPKvRKNS_4jsonE+0x50c)[0x2000007344ec]
+[c07n06:2906055] [11] /ccs/home/malachi/.local/nekrs-amgx/lib/libocca.so(_ZN4occa6device6mallocElRKNS_7dtype_tEPKvRKNS_4jsonE+0xe8)[0x2000005e34d8]
+[c07n06:2906055] [12] /ccs/home/malachi/.local/nekrs-amgx/lib/libocca.so(_ZN4occa6device6mallocIvEENS_6memoryElPKvRKNS_4jsonE+0x34)[0x2000005e3b64]
+[c07n06:2906055] [13] /ccs/home/malachi/.local/nekrs-amgx/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x68)[0x2000007d4d88]
+[c07n06:2906054] [ 9] /ccs/home/malachi/.local/nekrs-amgx/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x304)[0x200000743754]
+[c07n06:2906054] [10] /ccs/home/malachi/.local/nekrs-amgx/lib/libocca.so(_ZN4occa4cuda6device6mallocEmPKvRKNS_4jsonE+0x50c)[0x2000007344ec]
+[c07n06:2906054] [11] /ccs/home/malachi/.local/nekrs-amgx/lib/libocca.so(_ZN4occa6device6mallocElRKNS_7dtype_tEPKvRKNS_4jsonE+0xe8)[0x2000005e34d8]
+[c07n06:2906054] [12] /ccs/home/malachi/.local/nekrs-amgx/lib/libocca.so(_ZN4occa6device6mallocIvEENS_6memoryElPKvRKNS_4jsonE+0x34)[0x2000005e3b64]
+[c07n06:2906054] [13] /ccs/home/malachi/.local/nekrs-amgx/lib/libocca.so(_ZN4occa6device6mallocElRKNS_7dtype_tEPKvRKNS_4jsonE+0xe8)[0x2000005e34d8]
+[c07n06:2906050] [12] /ccs/home/malachi/.local/nekrs-amgx/lib/libocca.so(_ZN4occa6device6mallocIvEENS_6memoryElPKvRKNS_4jsonE+0x34)[0x2000005e3b64]
+[c07n06:2906050] [13] /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so(_ZN8device_t6mallocExi+0xdc)[0x2000001a3a7c]
+[c07n06:2906050] [14] /ccs/home/malachi/.local/nekrs-amgx/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x304)[0x200000743754]
+[c07n06:2906051] [10] /ccs/home/malachi/.local/nekrs-amgx/lib/libocca.so(_ZN4occa4cuda6device6mallocEmPKvRKNS_4jsonE+0x50c)[0x2000007344ec]
+[c07n06:2906051] [11] /ccs/home/malachi/.local/nekrs-amgx/lib/libocca.so(_ZN4occa6device6mallocElRKNS_7dtype_tEPKvRKNS_4jsonE+0xe8)[0x2000005e34d8]
+[c07n06:2906051] [12] /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so(_ZN8device_t6mallocExi+0xdc)[0x2000001a3a7c]
+[c07n06:2906055] [14] /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so(_ZN18SolutionProjectionC2ER10elliptic_tNS_14ProjectionTypeEii+0x214)[0x20000025b424]
+[c07n06:2906055] [15] /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so(_Z18ellipticSolveSetupP10elliptic_t+0x1c18)[0x20000025f798]
+[c07n06:2906055] [16] /ccs/home/malachi/.local/nekrs-amgx/lib/libocca.so(_ZN4occa6device6mallocIvEENS_6memoryElPKvRKNS_4jsonE+0x34)[0x2000005e3b64]
+[c07n06:2906053] [13] /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so(_ZN8device_t6mallocExi+0xdc)[0x2000001a3a7c]
+[c07n06:2906053] [14] /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so(_ZN18SolutionProjectionC2ER10elliptic_tNS_14ProjectionTypeEii+0x214)[0x20000025b424]
+[c07n06:2906053] [15] /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so(_Z18ellipticSolveSetupP10elliptic_t+0x1c18)[0x20000025f798]
+[c07n06:2906053] [16] /ccs/home/malachi/.local/nekrs-amgx/lib/libocca.so(_ZN4occa6device6mallocElRKNS_7dtype_tEPKvRKNS_4jsonE+0xe8)[0x2000005e34d8]
+[c07n06:2906052] [12] /ccs/home/malachi/.local/nekrs-amgx/lib/libocca.so(_ZN4occa6device6mallocIvEENS_6memoryElPKvRKNS_4jsonE+0x34)[0x2000005e3b64]
+[c07n06:2906052] [13] /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so(_ZN8device_t6mallocExi+0xdc)[0x2000001a3a7c]
+[c07n06:2906052] [14] /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so(_ZN18SolutionProjectionC2ER10elliptic_tNS_14ProjectionTypeEii+0x214)[0x20000025b424]
+[c07n06:2906050] [15] /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so(_Z18ellipticSolveSetupP10elliptic_t+0x1c18)[0x20000025f798]
+[c07n06:2906050] [16] /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so(_Z8nrsSetupP19ompi_communicator_tR9setupAideP5nrs_t+0xa854)[0x20000013dc54]
+[c07n06:2906050] [17] /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so(_ZN5nekrs5setupEP19ompi_communicator_tS1_iiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_+0x1288)[0x200000112df8]
+[c07n06:2906050] [18] /ccs/home/malachi/.local/nekrs-amgx/bin/nekrs[0x10004324]
+[c07n06:2906050] [19] /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so(_ZN8device_t6mallocExi+0xdc)[0x2000001a3a7c]
+[c07n06:2906054] [14] /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so(_ZN18SolutionProjectionC2ER10elliptic_tNS_14ProjectionTypeEii+0x214)[0x20000025b424]
+[c07n06:2906054] [15] /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so(_Z18ellipticSolveSetupP10elliptic_t+0x1c18)[0x20000025f798]
+[c07n06:2906054] [16] /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so(_Z8nrsSetupP19ompi_communicator_tR9setupAideP5nrs_t+0xa854)[0x20000013dc54]
+[c07n06:2906054] [17] /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so(_ZN5nekrs5setupEP19ompi_communicator_tS1_iiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_+0x1288)[0x200000112df8]
+[c07n06:2906054] [18] /ccs/home/malachi/.local/nekrs-amgx/bin/nekrs[0x10004324]
+[c07n06:2906054] [19] /lib64/power9/libc.so.6(+0x24078)[0x20003e884078]
+[c07n06:2906050] [20] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x20003e884264]
+[c07n06:2906050] *** End of error message ***
+/ccs/home/malachi/.local/nekrs-amgx/lib/libocca.so(_ZN4occa6device6mallocIvEENS_6memoryElPKvRKNS_4jsonE+0x34)[0x2000005e3b64]
+[c07n06:2906051] [13] /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so(_ZN8device_t6mallocExi+0xdc)[0x2000001a3a7c]
+[c07n06:2906051] [14] /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so(_ZN18SolutionProjectionC2ER10elliptic_tNS_14ProjectionTypeEii+0x214)[0x20000025b424]
+[c07n06:2906051] [15] /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so(_Z18ellipticSolveSetupP10elliptic_t+0x1c18)[0x20000025f798]
+[c07n06:2906051] [16] /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so(_Z8nrsSetupP19ompi_communicator_tR9setupAideP5nrs_t+0xa854)[0x20000013dc54]
+[c07n06:2906051] [17] /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so(_ZN5nekrs5setupEP19ompi_communicator_tS1_iiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_+0x1288)[0x200000112df8]
+[c07n06:2906051] [18] /ccs/home/malachi/.local/nekrs-amgx/bin/nekrs[0x10004324]
+[c07n06:2906051] [19] /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so(_Z8nrsSetupP19ompi_communicator_tR9setupAideP5nrs_t+0xa854)[0x20000013dc54]
+[c07n06:2906053] [17] /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so(_ZN5nekrs5setupEP19ompi_communicator_tS1_iiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_+0x1288)[0x200000112df8]
+[c07n06:2906053] [18] /ccs/home/malachi/.local/nekrs-amgx/bin/nekrs[0x10004324]
+[c07n06:2906053] [19] /lib64/power9/libc.so.6(+0x24078)[0x20003e884078]
+[c07n06:2906053] [20] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x20003e884264]
+[c07n06:2906053] *** End of error message ***
+/ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so(_Z8nrsSetupP19ompi_communicator_tR9setupAideP5nrs_t+0xa854)[0x20000013dc54]
+[c07n06:2906055] [17] /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so(_ZN5nekrs5setupEP19ompi_communicator_tS1_iiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_+0x1288)[0x200000112df8]
+[c07n06:2906055] [18] /ccs/home/malachi/.local/nekrs-amgx/bin/nekrs[0x10004324]
+[c07n06:2906055] [19] /lib64/power9/libc.so.6(+0x24078)[0x20003e884078]
+[c07n06:2906055] [20] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x20003e884264]
+[c07n06:2906055] *** End of error message ***
+/lib64/power9/libc.so.6(+0x24078)[0x20003e884078]
+[c07n06:2906054] [20] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x20003e884264]
+[c07n06:2906054] *** End of error message ***
+/ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so(_ZN18SolutionProjectionC2ER10elliptic_tNS_14ProjectionTypeEii+0x214)[0x20000025b424]
+[c07n06:2906052] [15] /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so(_Z18ellipticSolveSetupP10elliptic_t+0x1c18)[0x20000025f798]
+[c07n06:2906052] [16] /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so(_Z8nrsSetupP19ompi_communicator_tR9setupAideP5nrs_t+0xa854)[0x20000013dc54]
+[c07n06:2906052] [17] /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so(_ZN5nekrs5setupEP19ompi_communicator_tS1_iiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_+0x1288)[0x200000112df8]
+[c07n06:2906052] [18] /ccs/home/malachi/.local/nekrs-amgx/bin/nekrs[0x10004324]
+[c07n06:2906052] [19] /lib64/power9/libc.so.6(+0x24078)[0x20003e884078]
+[c07n06:2906052] [20] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x20003e884264]
+[c07n06:2906052] *** End of error message ***
+/lib64/power9/libc.so.6(+0x24078)[0x20003e884078]
+[c07n06:2906051] [20] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x20003e884264]
+[c07n06:2906051] *** End of error message ***
+ERROR:  One or more process (first noticed rank 0) terminated with signal 6 (core dumped)
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@batch4>
+Subject: Job 1661857: <nekRS_tamu_0p18c> in cluster <summit> Exited
+
+Job <nekRS_tamu_0p18c> was submitted from host <login5> by user <malachi> in cluster <summit> at Wed Dec  1 11:57:02 2021
+Job was executed on host(s) <1*batch4>, in queue <batch>, as user <malachi> in cluster <summit> at Wed Dec  1 21:24:25 2021
+                            <42*c07n06>
+</ccs/home/malachi> was used as the home directory.
+</gpfs/alpine/scratch/malachi/csc262/siam-pp-22/67peb/semfem-fp32-1> was used as the working directory.
+Started at Wed Dec  1 21:24:25 2021
+Terminated at Wed Dec  1 21:27:15 2021
+Results reported at Wed Dec  1 21:27:15 2021
+
+The output (if any) is above this job summary.
+

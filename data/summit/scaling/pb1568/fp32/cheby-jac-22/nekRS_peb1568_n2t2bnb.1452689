@@ -1,0 +1,1030 @@
+                 __    ____  _____
+   ____   ___   / /__ / __ \/ ___/
+  / __ \ / _ \ / //_// /_/ /\__ \ 
+ / / / //  __// ,<  / _, _/___/ / 
+/_/ /_/ \___//_/|_|/_/ |_|/____/  v21.1 (63a5a122)
+
+COPYRIGHT (c) 2019-2021 UCHICAGO ARGONNE, LLC
+
+MPI tasks: 132
+
+reading par file ...
+general::filtering is deprecated and might be removed in the future!
+general::filtermodes is deprecated and might be removed in the future!
+general::filterweight is deprecated and might be removed in the future!
+
+using NEKRS_HOME: /ccs/home/malachi/.local/nekrs-next
+using NEKRS_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb1568/cheby-jac-fp32-22/.cache
+using OCCA_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb1568/cheby-jac-fp32-22/.cache/occa/
+
+Initializing device 
+active occa mode: CUDA
+
+building udf ... 
+Consolidate compiler generated dependencies of target UDF
+[100%] Built target UDF
+done (0.227288s)
+loading nek ... 
+done
+loading udf kernels ... done (0.00735401s)
+
+loading kernels ... done (100.791s)
+
+ Reading /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb1568/cheby-jac-fp32-22/peb1568_n2t2bnb.re2                                         
+ reading mesh 
+ reading bc for ifld           1
+ done :: read .re2 file    0.45     sec
+
+Running parCon ... (tol=0.2)
+
+ Error: elementCheck
+Running parCon ... (tol=0.02)
+Running parRSB ...
+Warning: Partitioner only reached a tolerance of 1.280447 given 0.000500 after 50 x 50 iterations in Level=1!
+parRSB finished in 4.39151 s
+
+ reading mesh 
+ reading curved sides 
+ reading bc for ifld           1
+ done :: read .re2 file    0.63     sec
+
+ setup mesh topology
+   Right-handed check complete for      524386 elements. OK.
+gs_setup: 5672495 unique labels shared
+   handle bytes (avg, min, max): 1.42279e+07 13843580 14693580
+   buffer bytes (avg, min, max): 1.41805e+06 1014528 1921808
+   setupds time 5.2070E-01 seconds   0  8    70904907      524386
+ 
+ nElements   max/min/bal: 3973 3972 1.00
+ nMessages   max/min/avg: 25 5 12.79
+ msgSize     max/min/avg: 23433 1 7321.26
+ msgSizeSum  max/min/avg: 120113 63408 88627.91
+ 
+ max multiplicity           44
+ done :: setup mesh topology
+  
+ call usrdat
+ done :: usrdat
+
+ generate geometry data
+ done :: generate geometry data
+  
+ call usrdat2
+ done :: usrdat2
+
+  3.9629E-15  3.9299E-15  7.1054E-15  7.6927E-16  7.6927E-16  9.8206E-16 xyz repair 1
+  3.9629E-15  3.9299E-15  7.1054E-15  6.9253E-15  6.5223E-15  9.3390E-15 xyz repair 2
+  3.7848E-15  3.5527E-15  7.1054E-15  5.8127E-15  6.1523E-15  8.9797E-15 xyz repair 3
+  3.7863E-15  2.8686E-15  3.8168E-15  3.7863E-15  2.8686E-15  3.8168E-15 xyz repair 4
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ verify mesh topology
+  -13.858251128023300        13.858078221547562       Xrange
+  -13.858092645782323        13.858190303122345       Yrange
+  -14.673319816589355        17.691219329833984       Zrange
+ done :: verify mesh topology
+  
+ mesh metrics:
+ GLL grid spacing min/max    : 2.21E-04 3.02E-01
+ scaled Jacobian  min/max/avg: 2.59E-02 9.91E-01 3.71E-01
+ aspect ratio     min/max/avg: 1.12E+00 1.08E+02 1.26E+01
+
+ call usrdat3
+ done :: usrdat3
+
+gridpoints unique/tot:     184172283    268485632
+dofs vel/pr:               175531272    184064426
+ nek setup done in    1.1507E+01 s
+
+ set initial conditions
+ Checking restart options: r5.fld                                                                                                                              
+ nekuic (1) for ifld            1
+ Reading checkpoint data 
+       FILE:/gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb1568/cheby-jac-fp32-22/r5.fld                                                      
+
+        0  2.0000E+01 done :: Read checkpoint data
+                              avg data-throughput =     4.2GB/s
+                              io-nodes =   132
+
+ xyz min    -13.858      -13.858      -14.673    
+ uvwpt min  -6.4231      -7.8486      -7.9142      -20.893       0.0000    
+ PS min      0.0000       0.0000       0.0000      0.99000E+22
+ xyz max     13.858       13.858       17.691    
+ uvwpt max   6.5953       7.1037       10.614       19.461       0.0000    
+ PS max      0.0000       0.0000       0.0000     -0.99000E+22
+ Restart: recompute geom. factors.
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ done :: set initial conditions
+  
+calling nek_userchk ...
+ xyz min    -13.858      -13.858      -14.673    
+ xyz max     13.858       13.858       17.691    
+
+loading mesh from nek ... NboundaryIDs: 4, NboundaryFaces: 178458 done (0.00536427s)
+generating mesh ... Nq: 8 cubNq: 11
+computing geometric factors ... J [1.11222e-05,0.168148] done (0.317152s)
+timing oogs modes: 0.000524625s 0.000296832s 0.000307883s 0.000300408s 0.000313043s 0.00027249s used config: 3.0.1
+min 47% of the local elements are internal
+timing oogs modes: 0.00161527s 0.000771942s 0.000740759s 0.000692511s 0.000554394s 0.000503216s used config: 3.0.1
+loading ns kernels ... done (0.000587492s)
+copying solution from nek
+calling udf_setup ... done
+================ ELLIPTIC SETUP VELOCITY ================
+bID 1 -> bcType fixedValue
+bID 2 -> bcType zeroGradient
+bID 3 -> bcType zeroValue
+bID 4 -> bcType zeroValue
+allNeumann = 0 
+loading elliptic kernels ... done (0.000223062s)
+timing oogs modes: 0.00158869s 0.000690134s 0.00069712s 0.000691902s 0.000535672s 0.000439321s used config: 3.0.1
+timing oogs modes: 0.00159408s 0.000982588s 0.00106607s 0.00105799s 0.000423344s 0.000393384s used config: 3.0.1
+building Jacobi preconditioner ... done (0.366468s)
+done (6.64009s)
+================ ELLIPTIC SETUP PRESSURE ================
+allNeumann = 0 
+loading elliptic kernels ... done (0.000231053s)
+timing oogs modes: 0.000513346s 0.000295814s 0.000303412s 0.000282369s 0.000292955s 0.000272803s used config: 3.0.1
+timing oogs modes: 0.000543478s 0.000471755s 0.00047659s 0.000490966s 0.000378281s 0.000351809s used config: 3.0.1
+building MG preconditioner ... 
+loading elliptic preconditioner kernels ... done (0.000198448s)
+=============BUILDING MULTIGRID LEVEL OF DEGREE 7==================
+timing oogs modes: 0.000502007s 0.000217595s 0.000217067s 0.000221247s 0.000238809s 0.000215259s used config: 3.0.1
+timing oogs modes: 0.000508975s 0.000304639s 0.000302842s 0.000302266s 0.000265305s 0.000248447s used config: 3.0.1
+building Jacobi ... done (0.167876s)
+estimating maxEigenvalue ... 3.629 done (0.626266s)
+=============BUILDING MULTIGRID LEVEL OF DEGREE 5==================
+computing geometric factors ... J [1.11206e-05,0.168147] done (0.124685s)
+loading elliptic preconditioner kernels ... done (0.00025793s)
+done (0.000429358s)
+timing oogs modes: 0.000323152s 0.000179119s 0.000178334s 0.000176853s 0.000216882s 0.000200642s used config: 2.1.0
+timing oogs modes: 0.000348291s 0.00023054s 0.000224217s 0.000227355s 0.000249058s 0.000227338s used config: 2.0.1
+building Jacobi ... done (0.0591195s)
+estimating maxEigenvalue ... 3.07514 done (0.166148s)
+=============BUILDING MULTIGRID LEVEL OF DEGREE 3==================
+computing geometric factors ... J [1.11284e-05,0.16815] done (0.0358777s)
+loading elliptic preconditioner kernels ... done (0.000217232s)
+done (0.000370693s)
+timing oogs modes: 0.000196015s 0.000147255s 0.000143166s 0.000143738s 0.000209533s 0.000188984s used config: 2.0.1
+timing oogs modes: 0.000221685s 0.000172076s 0.000170039s 0.000170278s 0.000242787s 0.000217345s used config: 2.0.1
+building Jacobi ... done (0.0153862s)
+estimating maxEigenvalue ... 2.40752 done (0.104053s)
+=============BUILDING MULTIGRID LEVEL OF DEGREE 1==================
+computing geometric factors ... J [1.11737e-05,0.168688] done (0.00449406s)
+loading elliptic preconditioner kernels ... done (0.000407395s)
+done (0.00111257s)
+timing oogs modes: 0.000130377s 0.000127228s 0.000125548s 0.00012377s 0.000205621s 0.000189308s used config: 2.1.0
+timing oogs modes: 0.000156346s 0.00014967s 0.000148958s 0.000146931s 0.000230189s 0.000211131s used config: 2.1.0
+building full FEM matrix ... done.
+done (0.208821s)
+Setting up AMG...
+
+ Num MPI tasks = 132
+
+ Num OpenMP threads = 1
+
+
+BoomerAMG SETUP PARAMETERS:
+
+ Max levels = 25
+ Num levels = 8
+
+ Strength Threshold = 0.250000
+ Interpolation Truncation Factor = 0.000000
+ Maximum Row Sum Threshold for Dependency Weakening = 0.900000
+
+ Coarsening Type = PMIS 
+ measures are determined locally
+
+ Interpolation = extended+i interpolation
+
+Operator Matrix Information:
+
+             nonzero            entries/row          row sums
+lev    rows  entries sparse   min  max     avg      min         max
+======================================================================
+  0  603488 10696902  0.000     8   91    17.7  -2.083e-07   2.251e+00
+  1  260134  7221564  0.000     9  216    27.8  -3.623e-06   2.478e+00
+  2   84678  2768264  0.000     7  179    32.7  -7.205e-03   3.013e+00
+  3   18911   629317  0.002     9  126    33.3  -1.091e-02   4.751e+00
+  4    3215   122409  0.012    11  132    38.1  -6.091e-03   6.675e+00
+  5     377    13339  0.094    14   83    35.4  -3.318e-03   9.732e+00
+  6      48     1098  0.477    12   42    22.9  -5.453e-04   1.477e+01
+  7       9       75  0.926     7    9     8.3   5.330e-02   1.162e+01
+
+
+Interpolation Matrix Information:
+                      entries/row        min        max            row sums
+lev   rows x cols   min  max  avgW     weight      weight       min         max
+==================================================================================
+  0 603488 x 260134   1    4   2.1  -2.042e-01   1.000e+00   5.563e-01   1.000e+00
+  1 260134 x 84678    1    4   3.1  -1.857e-01   1.021e+00   4.261e-01   1.000e+00
+  2  84678 x 18911    1    4   3.7  -2.045e-01   1.006e+00   2.746e-01   1.006e+00
+  3  18911 x 3215     1    4   3.9  -1.525e-01   1.003e+00   1.755e-01   1.015e+00
+  4   3215 x 377      1    4   4.0   1.228e-02   9.661e-01   1.280e-01   1.007e+00
+  5    377 x 48       1    4   4.0   6.184e-03   7.403e-01   1.034e-01   1.002e+00
+  6     48 x 9        1    4   3.9   1.106e-02   5.427e-01   2.111e-01   1.001e+00
+
+
+     Complexity:    grid = 1.608748
+                operator = 2.005531
+                memory = 2.187071
+
+
+
+
+BoomerAMG SOLVER PARAMETERS:
+
+  Maximum number of cycles:         2 
+  Stopping Tolerance:               0.000000e+00 
+  Cycle type (1 = V, 2 = W, etc.):  1
+
+  Relaxation Parameters:
+   Visiting Grid:                     down   up  coarse
+            Number of sweeps:            1    1     1 
+   Type 0=Jac, 3=hGS, 6=hSGS, 9=GE:     16   16     9 
+   Point types, partial sweeps (1=C, -1=F):
+                  Pre-CG relaxation (down):   0
+                   Post-CG relaxation (up):   0
+                             Coarsest grid:   0
+
+done (0.243212s)
+--------------------Multigrid Report---------------------
+---------------------------------------------------------
+level|    Type    |                 |     Smoother      |
+     |            |                 |                   |
+---------------------------------------------------------
+   0 |    pMG     |   Matrix-free   | Chebyshev+Jacobi  |
+     |            |     Degree  7   |                   |
+   1 |    pMG     |   Matrix-free   | Chebyshev+Jacobi  |
+     |            |     Degree  5   |                   |
+   2 |    pMG     |   Matrix-free   | Chebyshev+Jacobi  |
+     |            |     Degree  3   |                   |
+   3 |    AMG     |   Matrix        | BoomerAMG         |
+     |            |     Degree  1   |                   |
+---------------------------------------------------------
+done (26.8064s)
+done (34.8809s)
+copying solution to nek
+
+settings:
+
+key: FORMAT,                                                  value: 1.0
+key: CONSTANT FLOW RATE,                                      value: FALSE
+key: ELEMENT TYPE,                                            value: 12
+key: ELEMENT MAP,                                             value: ISOPARAMETRIC
+key: MESH DIMENSION,                                          value: 3
+key: NUMBER OF SCALARS,                                       value: 0
+key: SCALAR MAXIMUM ITERATIONS,                               value: 200
+key: TIME INTEGRATOR,                                         value: TOMBO2
+key: MESH INTEGRATION ORDER,                                  value: 3
+key: SUBCYCLING STEPS,                                        value: 2
+key: SUBCYCLING TIME ORDER,                                   value: 4
+key: SUBCYCLING TIME STAGE NUMBER,                            value: 4
+key: CASENAME,                                                value: peb1568_n2t2bnb
+key: UDF OKL FILE,                                            value: peb1568_n2t2bnb.oudf
+key: UDF FILE,                                                value: peb1568_n2t2bnb.udf
+key: NEK USR FILE,                                            value: peb1568_n2t2bnb.usr
+key: MESH FILE,                                               value: peb1568_n2t2bnb.re2
+key: DEVICE NUMBER,                                           value: 0
+key: PLATFORM NUMBER,                                         value: 0
+key: VERBOSE,                                                 value: FALSE
+key: ADVECTION,                                               value: TRUE
+key: ADVECTION TYPE,                                          value: CUBATURE+CONVECTIVE
+key: RESTART FROM FILE,                                       value: 1
+key: SOLUTION OUTPUT INTERVAL,                                value: 0.000000
+key: SOLUTION OUTPUT CONTROL,                                 value: STEPS
+key: REGULARIZATION METHOD,                                   value: RELAXATION
+key: START TIME,                                              value: 2.000000e+01
+key: VELOCITY MAXIMUM ITERATIONS,                             value: 200
+key: VELOCITY BLOCK SOLVER,                                   value: TRUE
+key: VELOCITY KRYLOV SOLVER,                                  value: PCG
+key: VELOCITY BASIS,                                          value: NODAL
+key: VELOCITY PRECONDITIONER,                                 value: JACOBI
+key: VELOCITY DISCRETIZATION,                                 value: CONTINUOUS
+key: STRESSFORMULATION,                                       value: FALSE
+key: ELLIPTIC INTEGRATION,                                    value: NODAL
+key: PRESSURE MAXIMUM ITERATIONS,                             value: 200
+key: GALERKIN COARSE MATRIX,                                  value: FALSE
+key: PRESSURE KRYLOV SOLVER,                                  value: PGMRES+FLEXIBLE
+key: PRESSURE PRECONDITIONER,                                 value: MULTIGRID
+key: PRESSURE DISCRETIZATION,                                 value: CONTINUOUS
+key: PRESSURE BASIS,                                          value: NODAL
+key: AMG SOLVER,                                              value: BOOMERAMG
+key: AMG SOLVER PRECISION,                                    value: FP64
+key: AMG SOLVER LOCATION,                                     value: CPU
+key: PRESSURE PARALMOND CYCLE,                                value: VCYCLE+MULTIPLICATIVE
+key: PRESSURE MULTIGRID COARSE SOLVE,                         value: TRUE
+key: PRESSURE MULTIGRID COARSE SEMFEM,                        value: FALSE
+key: PRESSURE MULTIGRID SMOOTHER,                             value: DAMPEDJACOBI,CHEBYSHEV
+key: PRESSURE MULTIGRID DOWNWARD SMOOTHER,                    value: JACOBI
+key: PRESSURE MULTIGRID UPWARD SMOOTHER,                      value: JACOBI
+key: PRESSURE MULTIGRID CHEBYSHEV DEGREE,                     value: 2
+key: PRESSURE MULTIGRID CHEBYSHEV MIN EIGENVALUE BOUND FACTOR,value: 0.1
+key: PRESSURE MULTIGRID CHEBYSHEV MAX EIGENVALUE BOUND FACTOR,value: 1.1
+key: PRESSURE INITIAL GUESS,                                  value: PROJECTION-ACONJ
+key: PRESSURE RESIDUAL PROJECTION VECTORS,                    value: 10
+key: PRESSURE RESIDUAL PROJECTION START,                      value: 5
+key: PARALMOND SMOOTH COARSEST,                               value: FALSE
+key: ENABLE FLOATCOMMHALF GS SUPPORT,                         value: FALSE
+key: MOVING MESH,                                             value: FALSE
+key: ENABLE OVERLAP,                                          value: TRUE
+key: VARIABLE DT,                                             value: FALSE
+key: THREAD MODEL,                                            value: CUDA
+key: RESTART FILE NAME,                                       value: r5.fld
+key: POLYNOMIAL DEGREE,                                       value: 7
+key: DT,                                                      value: 5.000000e-04
+key: NUMBER TIMESTEPS,                                        value: 200
+key: CUBATURE POLYNOMIAL DEGREE,                              value: 10
+key: HPFRT STRENGTH,                                          value: 2.000000e+02
+key: HPFRT MODES,                                             value: 2.000000e+00
+key: VELOCITY REGULARIZATION METHOD,                          value: RELAXATION
+key: VELOCITY HPFRT MODES,                                    value: 2.000000e+00
+key: VELOCITY HPFRT STRENGTH,                                 value: 2.000000e+02
+key: PRESSURE SOLVER TOLERANCE,                               value: 1.000000e-04
+key: BOOMERAMG ITERATIONS,                                    value: 2
+key: VELOCITY SOLVER TOLERANCE,                               value: 1.000000e-06
+key: DENSITY,                                                 value: 1.000000e+00
+key: VISCOSITY,                                               value: 1.000000e-04
+key: BUILD ONLY,                                              value: FALSE
+key: DATA FILE,                                               value: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb1568/cheby-jac-fp32-22/.cache/udf/udf.okl
+key: CI-MODE,                                                 value: 0
+key: CHECKPOINT OUTPUT MESH,                                  value: FALSE
+
+occa memory usage: 3.19704 GB
+initialization took 169.323 s
+
+timestepping for 200 steps ...
+  P  : iter 039  resNorm00 1.21e+00  resNorm0 1.21e+00  resNorm 9.59e-05
+  UVW: iter 003  resNorm00 1.17e-01  resNorm0 1.17e-01  resNorm 4.27e-07  divErrNorms 9.76e-07 4.95e-01
+step= 1  t= 2.00005000e+01  dt=5.0e-04  C= 2.05  UVW: 3  P: 39  eTimeStep= 2.48e+00s eTime= 2.48140e+00s
+  P  : iter 051  resNorm00 1.50e+00  resNorm0 1.50e+00  resNorm 9.93e-05
+  UVW: iter 003  resNorm00 1.76e-01  resNorm0 1.76e-01  resNorm 2.10e-07  divErrNorms 9.17e-07 4.93e-01
+step= 2  t= 2.00010000e+01  dt=5.0e-04  C= 1.98  UVW: 3  P: 51  eTimeStep= 1.74e+00s eTime= 4.22429e+00s
+  P  : iter 040  resNorm00 3.99e-01  resNorm0 3.99e-01  resNorm 8.74e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.09e-07  divErrNorms 8.65e-07 4.90e-01
+step= 3  t= 2.00015000e+01  dt=5.0e-04  C= 1.93  UVW: 3  P: 40  eTimeStep= 1.35e+00s eTime= 5.57573e+00s
+  P  : iter 036  resNorm00 2.18e-01  resNorm0 2.18e-01  resNorm 9.27e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 8.24e-07 4.87e-01
+step= 4  t= 2.00020000e+01  dt=5.0e-04  C= 1.97  UVW: 3  P: 36  eTimeStep= 1.22e+00s eTime= 6.79582e+00s
+  P  : iter 031  resNorm00 1.71e-01  resNorm0 1.71e-01  resNorm 9.53e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 7.89e-07 4.85e-01
+step= 5  t= 2.00025000e+01  dt=5.0e-04  C= 1.98  UVW: 3  P: 31  eTimeStep= 1.06e+00s eTime= 7.85231e+00s
+  P  : iter 024  resNorm00 1.54e-01  resNorm0 3.45e-02  resNorm 9.61e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 7.60e-07 4.83e-01
+step= 6  t= 2.00030000e+01  dt=5.0e-04  C= 1.98  UVW: 3  P: 24  eTimeStep= 8.43e-01s eTime= 8.69545e+00s
+  P  : iter 020  resNorm00 1.47e-01  resNorm0 1.44e-02  resNorm 9.67e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 7.36e-07 4.82e-01
+step= 7  t= 2.00035000e+01  dt=5.0e-04  C= 1.97  UVW: 3  P: 20  eTimeStep= 7.10e-01s eTime= 9.40564e+00s
+  P  : iter 016  resNorm00 1.43e-01  resNorm0 6.77e-03  resNorm 9.49e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 7.14e-07 4.81e-01
+step= 8  t= 2.00040000e+01  dt=5.0e-04  C= 1.94  UVW: 3  P: 16  eTimeStep= 5.75e-01s eTime= 9.98086e+00s
+  P  : iter 017  resNorm00 1.41e-01  resNorm0 3.44e-03  resNorm 9.38e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 6.95e-07 4.80e-01
+step= 9  t= 2.00045000e+01  dt=5.0e-04  C= 1.89  UVW: 3  P: 17  eTimeStep= 6.05e-01s eTime= 1.05862e+01s
+  P  : iter 016  resNorm00 1.40e-01  resNorm0 1.90e-03  resNorm 9.57e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 6.78e-07 4.79e-01
+step= 10  t= 2.00050000e+01  dt=5.0e-04  C= 1.83  UVW: 3  P: 16  eTimeStep= 5.70e-01s eTime= 1.11562e+01s
+  P  : iter 018  resNorm00 1.39e-01  resNorm0 1.86e-03  resNorm 9.16e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 6.62e-07 4.78e-01
+step= 11  t= 2.00055000e+01  dt=5.0e-04  C= 1.76  UVW: 3  P: 18  eTimeStep= 6.41e-01s eTime= 1.17969e+01s
+  P  : iter 019  resNorm00 1.38e-01  resNorm0 1.51e-03  resNorm 9.42e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 6.48e-07 4.77e-01
+step= 12  t= 2.00060000e+01  dt=5.0e-04  C= 1.69  UVW: 3  P: 19  eTimeStep= 6.68e-01s eTime= 1.24647e+01s
+  P  : iter 015  resNorm00 1.38e-01  resNorm0 1.38e-03  resNorm 9.22e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 6.34e-07 4.77e-01
+step= 13  t= 2.00065000e+01  dt=5.0e-04  C= 1.74  UVW: 3  P: 15  eTimeStep= 5.36e-01s eTime= 1.30007e+01s
+  P  : iter 019  resNorm00 1.37e-01  resNorm0 1.24e-03  resNorm 9.74e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 6.22e-07 4.76e-01
+step= 14  t= 2.00070000e+01  dt=5.0e-04  C= 1.79  UVW: 3  P: 19  eTimeStep= 6.72e-01s eTime= 1.36728e+01s
+  P  : iter 016  resNorm00 1.37e-01  resNorm0 1.32e-03  resNorm 9.91e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 6.10e-07 4.76e-01
+step= 15  t= 2.00075000e+01  dt=5.0e-04  C= 1.82  UVW: 3  P: 16  eTimeStep= 5.74e-01s eTime= 1.42468e+01s
+  P  : iter 015  resNorm00 1.37e-01  resNorm0 8.03e-03  resNorm 9.98e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 5.98e-07 4.76e-01
+step= 16  t= 2.00080000e+01  dt=5.0e-04  C= 1.86  UVW: 3  P: 15  eTimeStep= 5.41e-01s eTime= 1.47877e+01s
+  P  : iter 015  resNorm00 1.37e-01  resNorm0 1.38e-03  resNorm 9.94e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 5.88e-07 4.75e-01
+step= 17  t= 2.00085000e+01  dt=5.0e-04  C= 1.91  UVW: 3  P: 15  eTimeStep= 5.38e-01s eTime= 1.53254e+01s
+  P  : iter 015  resNorm00 1.37e-01  resNorm0 1.34e-03  resNorm 8.90e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 5.77e-07 4.75e-01
+step= 18  t= 2.00090000e+01  dt=5.0e-04  C= 1.95  UVW: 3  P: 15  eTimeStep= 5.46e-01s eTime= 1.58711e+01s
+  P  : iter 019  resNorm00 1.37e-01  resNorm0 9.84e-04  resNorm 9.93e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 5.67e-07 4.75e-01
+step= 19  t= 2.00095000e+01  dt=5.0e-04  C= 1.99  UVW: 3  P: 19  eTimeStep= 6.63e-01s eTime= 1.65336e+01s
+  P  : iter 019  resNorm00 1.37e-01  resNorm0 1.16e-03  resNorm 9.16e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 5.57e-07 4.75e-01
+step= 20  t= 2.00100000e+01  dt=5.0e-04  C= 2.08  UVW: 3  P: 19  eTimeStep= 6.78e-01s eTime= 1.72120e+01s
+  P  : iter 019  resNorm00 1.37e-01  resNorm0 1.22e-03  resNorm 9.70e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 5.48e-07 4.75e-01
+step= 21  t= 2.00105000e+01  dt=5.0e-04  C= 2.24  UVW: 3  P: 19  eTimeStep= 6.66e-01s eTime= 1.78782e+01s
+  P  : iter 017  resNorm00 1.37e-01  resNorm0 1.18e-03  resNorm 9.70e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 5.38e-07 4.75e-01
+step= 22  t= 2.00110000e+01  dt=5.0e-04  C= 2.34  UVW: 3  P: 17  eTimeStep= 6.04e-01s eTime= 1.84817e+01s
+  P  : iter 016  resNorm00 1.37e-01  resNorm0 1.11e-03  resNorm 9.55e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 5.29e-07 4.74e-01
+step= 23  t= 2.00115000e+01  dt=5.0e-04  C= 2.39  UVW: 3  P: 16  eTimeStep= 5.74e-01s eTime= 1.90559e+01s
+  P  : iter 018  resNorm00 1.37e-01  resNorm0 1.04e-03  resNorm 9.53e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 5.20e-07 4.74e-01
+step= 24  t= 2.00120000e+01  dt=5.0e-04  C= 2.37  UVW: 3  P: 18  eTimeStep= 6.36e-01s eTime= 1.96916e+01s
+  P  : iter 016  resNorm00 1.37e-01  resNorm0 9.85e-04  resNorm 9.43e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 5.11e-07 4.74e-01
+step= 25  t= 2.00125000e+01  dt=5.0e-04  C= 2.30  UVW: 3  P: 16  eTimeStep= 5.75e-01s eTime= 2.02671e+01s
+  P  : iter 018  resNorm00 1.37e-01  resNorm0 8.02e-03  resNorm 9.66e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 5.03e-07 4.74e-01
+step= 26  t= 2.00130000e+01  dt=5.0e-04  C= 2.17  UVW: 3  P: 18  eTimeStep= 6.34e-01s eTime= 2.09011e+01s
+  P  : iter 014  resNorm00 1.36e-01  resNorm0 1.28e-03  resNorm 9.44e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 4.94e-07 4.74e-01
+step= 27  t= 2.00135000e+01  dt=5.0e-04  C= 2.02  UVW: 3  P: 14  eTimeStep= 5.04e-01s eTime= 2.14056e+01s
+  P  : iter 016  resNorm00 1.36e-01  resNorm0 1.26e-03  resNorm 9.65e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 4.85e-07 4.74e-01
+step= 28  t= 2.00140000e+01  dt=5.0e-04  C= 2.00  UVW: 3  P: 16  eTimeStep= 5.75e-01s eTime= 2.19805e+01s
+  P  : iter 020  resNorm00 1.36e-01  resNorm0 1.05e-03  resNorm 9.56e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 4.77e-07 4.74e-01
+step= 29  t= 2.00145000e+01  dt=5.0e-04  C= 1.98  UVW: 3  P: 20  eTimeStep= 7.01e-01s eTime= 2.26819e+01s
+  P  : iter 020  resNorm00 1.36e-01  resNorm0 1.35e-03  resNorm 9.56e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 4.68e-07 4.74e-01
+step= 30  t= 2.00150000e+01  dt=5.0e-04  C= 1.96  UVW: 3  P: 20  eTimeStep= 6.98e-01s eTime= 2.33801e+01s
+  P  : iter 020  resNorm00 1.36e-01  resNorm0 1.32e-03  resNorm 9.13e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 4.60e-07 4.74e-01
+step= 31  t= 2.00155000e+01  dt=5.0e-04  C= 1.93  UVW: 3  P: 20  eTimeStep= 7.01e-01s eTime= 2.40806e+01s
+  P  : iter 017  resNorm00 1.36e-01  resNorm0 1.21e-03  resNorm 9.36e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 4.52e-07 4.74e-01
+step= 32  t= 2.00160000e+01  dt=5.0e-04  C= 1.90  UVW: 3  P: 17  eTimeStep= 6.04e-01s eTime= 2.46847e+01s
+  P  : iter 014  resNorm00 1.36e-01  resNorm0 1.10e-03  resNorm 9.71e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 4.43e-07 4.74e-01
+step= 33  t= 2.00165000e+01  dt=5.0e-04  C= 1.87  UVW: 3  P: 14  eTimeStep= 5.06e-01s eTime= 2.51902e+01s
+  P  : iter 018  resNorm00 1.36e-01  resNorm0 1.09e-03  resNorm 9.50e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 4.35e-07 4.74e-01
+step= 34  t= 2.00170000e+01  dt=5.0e-04  C= 1.86  UVW: 3  P: 18  eTimeStep= 6.33e-01s eTime= 2.58232e+01s
+  P  : iter 014  resNorm00 1.36e-01  resNorm0 1.09e-03  resNorm 9.34e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 4.27e-07 4.74e-01
+step= 35  t= 2.00175000e+01  dt=5.0e-04  C= 2.02  UVW: 3  P: 14  eTimeStep= 5.08e-01s eTime= 2.63313e+01s
+  P  : iter 019  resNorm00 1.36e-01  resNorm0 8.04e-03  resNorm 9.97e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 4.18e-07 4.74e-01
+step= 36  t= 2.00180000e+01  dt=5.0e-04  C= 2.22  UVW: 3  P: 19  eTimeStep= 6.68e-01s eTime= 2.69988e+01s
+  P  : iter 015  resNorm00 1.36e-01  resNorm0 1.40e-03  resNorm 9.17e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 4.10e-07 4.74e-01
+step= 37  t= 2.00185000e+01  dt=5.0e-04  C= 2.34  UVW: 3  P: 15  eTimeStep= 5.42e-01s eTime= 2.75404e+01s
+  P  : iter 016  resNorm00 1.36e-01  resNorm0 1.38e-03  resNorm 9.94e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 4.02e-07 4.74e-01
+step= 38  t= 2.00190000e+01  dt=5.0e-04  C= 2.46  UVW: 3  P: 16  eTimeStep= 5.66e-01s eTime= 2.81062e+01s
+  P  : iter 018  resNorm00 1.36e-01  resNorm0 1.27e-03  resNorm 9.26e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 3.94e-07 4.74e-01
+step= 39  t= 2.00195000e+01  dt=5.0e-04  C= 2.58  UVW: 3  P: 18  eTimeStep= 6.33e-01s eTime= 2.87388e+01s
+  P  : iter 020  resNorm00 1.36e-01  resNorm0 1.39e-03  resNorm 9.45e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 3.85e-07 4.74e-01
+step= 40  t= 2.00200000e+01  dt=5.0e-04  C= 2.64  UVW: 3  P: 20  eTimeStep= 6.98e-01s eTime= 2.94367e+01s
+  P  : iter 021  resNorm00 1.37e-01  resNorm0 1.50e-03  resNorm 9.35e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.05e-07  divErrNorms 3.77e-07 4.74e-01
+step= 41  t= 2.00205000e+01  dt=5.0e-04  C= 2.62  UVW: 3  P: 21  eTimeStep= 7.31e-01s eTime= 3.01679e+01s
+  P  : iter 018  resNorm00 1.37e-01  resNorm0 1.31e-03  resNorm 9.58e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 3.69e-07 4.74e-01
+step= 42  t= 2.00210000e+01  dt=5.0e-04  C= 2.55  UVW: 3  P: 18  eTimeStep= 6.36e-01s eTime= 3.08037e+01s
+  P  : iter 020  resNorm00 1.37e-01  resNorm0 1.29e-03  resNorm 9.46e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 3.61e-07 4.74e-01
+step= 43  t= 2.00215000e+01  dt=5.0e-04  C= 2.47  UVW: 3  P: 20  eTimeStep= 6.98e-01s eTime= 3.15019e+01s
+  P  : iter 017  resNorm00 1.37e-01  resNorm0 1.37e-03  resNorm 9.49e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 3.53e-07 4.74e-01
+step= 44  t= 2.00220000e+01  dt=5.0e-04  C= 2.47  UVW: 3  P: 17  eTimeStep= 6.04e-01s eTime= 3.21060e+01s
+  P  : iter 019  resNorm00 1.37e-01  resNorm0 1.30e-03  resNorm 9.77e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 3.44e-07 4.74e-01
+step= 45  t= 2.00225000e+01  dt=5.0e-04  C= 2.43  UVW: 3  P: 19  eTimeStep= 6.61e-01s eTime= 3.27675e+01s
+  P  : iter 021  resNorm00 1.37e-01  resNorm0 8.08e-03  resNorm 9.45e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 3.36e-07 4.74e-01
+step= 46  t= 2.00230000e+01  dt=5.0e-04  C= 2.36  UVW: 3  P: 21  eTimeStep= 7.35e-01s eTime= 3.35023e+01s
+  P  : iter 018  resNorm00 1.37e-01  resNorm0 1.39e-03  resNorm 9.46e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 3.28e-07 4.74e-01
+step= 47  t= 2.00235000e+01  dt=5.0e-04  C= 2.25  UVW: 3  P: 18  eTimeStep= 6.34e-01s eTime= 3.41367e+01s
+  P  : iter 018  resNorm00 1.37e-01  resNorm0 1.29e-03  resNorm 9.74e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 3.20e-07 4.74e-01
+step= 48  t= 2.00240000e+01  dt=5.0e-04  C= 2.13  UVW: 3  P: 18  eTimeStep= 6.35e-01s eTime= 3.47721e+01s
+  P  : iter 019  resNorm00 1.37e-01  resNorm0 1.51e-03  resNorm 9.68e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 3.12e-07 4.74e-01
+step= 49  t= 2.00245000e+01  dt=5.0e-04  C= 1.99  UVW: 3  P: 19  eTimeStep= 6.68e-01s eTime= 3.54403e+01s
+  P  : iter 021  resNorm00 1.37e-01  resNorm0 1.48e-03  resNorm 9.54e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 3.04e-07 4.74e-01
+step= 50  t= 2.00250000e+01  dt=5.0e-04  C= 1.97  UVW: 3  P: 21  eTimeStep= 7.30e-01s eTime= 3.61702e+01s
+  P  : iter 021  resNorm00 1.37e-01  resNorm0 1.40e-03  resNorm 9.17e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 2.96e-07 4.74e-01
+step= 51  t= 2.00255000e+01  dt=5.0e-04  C= 1.98  UVW: 3  P: 21  eTimeStep= 7.35e-01s eTime= 3.69053e+01s
+  P  : iter 016  resNorm00 1.37e-01  resNorm0 1.28e-03  resNorm 9.57e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 2.88e-07 4.74e-01
+step= 52  t= 2.00260000e+01  dt=5.0e-04  C= 1.98  UVW: 3  P: 16  eTimeStep= 5.70e-01s eTime= 3.74753e+01s
+  P  : iter 015  resNorm00 1.37e-01  resNorm0 1.41e-03  resNorm 9.31e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 2.79e-07 4.74e-01
+step= 53  t= 2.00265000e+01  dt=5.0e-04  C= 1.98  UVW: 3  P: 15  eTimeStep= 5.38e-01s eTime= 3.80135e+01s
+  P  : iter 016  resNorm00 1.37e-01  resNorm0 1.27e-03  resNorm 9.98e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.06e-07  divErrNorms 2.71e-07 4.74e-01
+step= 54  t= 2.00270000e+01  dt=5.0e-04  C= 1.96  UVW: 3  P: 16  eTimeStep= 5.71e-01s eTime= 3.85848e+01s
+  P  : iter 015  resNorm00 1.37e-01  resNorm0 1.26e-03  resNorm 9.33e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 2.63e-07 4.74e-01
+step= 55  t= 2.00275000e+01  dt=5.0e-04  C= 1.94  UVW: 3  P: 15  eTimeStep= 5.37e-01s eTime= 3.91217e+01s
+  P  : iter 017  resNorm00 1.37e-01  resNorm0 8.10e-03  resNorm 9.60e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 2.55e-07 4.74e-01
+step= 56  t= 2.00280000e+01  dt=5.0e-04  C= 1.95  UVW: 3  P: 17  eTimeStep= 6.05e-01s eTime= 3.97268e+01s
+  P  : iter 016  resNorm00 1.37e-01  resNorm0 1.48e-03  resNorm 9.70e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 2.47e-07 4.74e-01
+step= 57  t= 2.00285000e+01  dt=5.0e-04  C= 1.98  UVW: 3  P: 16  eTimeStep= 5.73e-01s eTime= 4.02999e+01s
+  P  : iter 015  resNorm00 1.37e-01  resNorm0 1.39e-03  resNorm 9.29e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 2.39e-07 4.74e-01
+step= 58  t= 2.00290000e+01  dt=5.0e-04  C= 2.00  UVW: 3  P: 15  eTimeStep= 5.39e-01s eTime= 4.08392e+01s
+  P  : iter 020  resNorm00 1.37e-01  resNorm0 1.02e-03  resNorm 9.62e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 2.31e-07 4.74e-01
+step= 59  t= 2.00295000e+01  dt=5.0e-04  C= 2.02  UVW: 3  P: 20  eTimeStep= 7.00e-01s eTime= 4.15393e+01s
+  P  : iter 019  resNorm00 1.37e-01  resNorm0 1.23e-03  resNorm 9.33e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 2.23e-07 4.74e-01
+step= 60  t= 2.00300000e+01  dt=5.0e-04  C= 2.03  UVW: 3  P: 19  eTimeStep= 6.66e-01s eTime= 4.22050e+01s
+  P  : iter 020  resNorm00 1.37e-01  resNorm0 1.33e-03  resNorm 9.98e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 2.15e-07 4.74e-01
+step= 61  t= 2.00305000e+01  dt=5.0e-04  C= 2.03  UVW: 3  P: 20  eTimeStep= 7.00e-01s eTime= 4.29046e+01s
+  P  : iter 017  resNorm00 1.37e-01  resNorm0 1.39e-03  resNorm 9.35e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 2.07e-07 4.74e-01
+step= 62  t= 2.00310000e+01  dt=5.0e-04  C= 2.04  UVW: 3  P: 17  eTimeStep= 6.10e-01s eTime= 4.35145e+01s
+  P  : iter 018  resNorm00 1.37e-01  resNorm0 1.32e-03  resNorm 9.81e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 1.99e-07 4.74e-01
+step= 63  t= 2.00315000e+01  dt=5.0e-04  C= 2.03  UVW: 3  P: 18  eTimeStep= 6.35e-01s eTime= 4.41492e+01s
+  P  : iter 018  resNorm00 1.37e-01  resNorm0 1.21e-03  resNorm 9.31e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 1.91e-07 4.74e-01
+step= 64  t= 2.00320000e+01  dt=5.0e-04  C= 2.03  UVW: 3  P: 18  eTimeStep= 6.33e-01s eTime= 4.47825e+01s
+  P  : iter 016  resNorm00 1.37e-01  resNorm0 1.24e-03  resNorm 9.85e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 1.83e-07 4.74e-01
+step= 65  t= 2.00325000e+01  dt=5.0e-04  C= 2.02  UVW: 3  P: 16  eTimeStep= 5.72e-01s eTime= 4.53549e+01s
+  P  : iter 020  resNorm00 1.37e-01  resNorm0 8.15e-03  resNorm 9.52e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 1.75e-07 4.74e-01
+step= 66  t= 2.00330000e+01  dt=5.0e-04  C= 2.01  UVW: 3  P: 20  eTimeStep= 6.97e-01s eTime= 4.60521e+01s
+  P  : iter 015  resNorm00 1.37e-01  resNorm0 1.57e-03  resNorm 9.21e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.07e-07  divErrNorms 1.67e-07 4.74e-01
+step= 67  t= 2.00335000e+01  dt=5.0e-04  C= 2.01  UVW: 3  P: 15  eTimeStep= 5.38e-01s eTime= 4.65902e+01s
+  P  : iter 019  resNorm00 1.37e-01  resNorm0 1.43e-03  resNorm 8.99e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 1.59e-07 4.74e-01
+step= 68  t= 2.00340000e+01  dt=5.0e-04  C= 2.01  UVW: 3  P: 19  eTimeStep= 6.62e-01s eTime= 4.72519e+01s
+  P  : iter 016  resNorm00 1.37e-01  resNorm0 1.52e-03  resNorm 9.85e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 1.52e-07 4.74e-01
+step= 69  t= 2.00345000e+01  dt=5.0e-04  C= 2.00  UVW: 3  P: 16  eTimeStep= 5.67e-01s eTime= 4.78186e+01s
+  P  : iter 021  resNorm00 1.37e-01  resNorm0 1.48e-03  resNorm 9.73e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 1.44e-07 4.74e-01
+step= 70  t= 2.00350000e+01  dt=5.0e-04  C= 1.99  UVW: 3  P: 21  eTimeStep= 7.30e-01s eTime= 4.85489e+01s
+  P  : iter 021  resNorm00 1.37e-01  resNorm0 1.70e-03  resNorm 9.41e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 1.36e-07 4.74e-01
+step= 71  t= 2.00355000e+01  dt=5.0e-04  C= 1.99  UVW: 3  P: 21  eTimeStep= 7.30e-01s eTime= 4.92788e+01s
+  P  : iter 018  resNorm00 1.37e-01  resNorm0 1.50e-03  resNorm 9.32e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 1.28e-07 4.74e-01
+step= 72  t= 2.00360000e+01  dt=5.0e-04  C= 2.00  UVW: 3  P: 18  eTimeStep= 6.35e-01s eTime= 4.99137e+01s
+  P  : iter 017  resNorm00 1.37e-01  resNorm0 1.50e-03  resNorm 9.98e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 1.20e-07 4.74e-01
+step= 73  t= 2.00365000e+01  dt=5.0e-04  C= 2.00  UVW: 3  P: 17  eTimeStep= 6.00e-01s eTime= 5.05137e+01s
+  P  : iter 019  resNorm00 1.37e-01  resNorm0 1.51e-03  resNorm 9.48e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 1.13e-07 4.74e-01
+step= 74  t= 2.00370000e+01  dt=5.0e-04  C= 1.98  UVW: 3  P: 19  eTimeStep= 6.67e-01s eTime= 5.11806e+01s
+  P  : iter 021  resNorm00 1.37e-01  resNorm0 1.68e-03  resNorm 9.51e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 1.05e-07 4.74e-01
+step= 75  t= 2.00375000e+01  dt=5.0e-04  C= 1.95  UVW: 3  P: 21  eTimeStep= 7.36e-01s eTime= 5.19163e+01s
+  P  : iter 023  resNorm00 1.37e-01  resNorm0 8.17e-03  resNorm 9.36e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 9.72e-08 4.74e-01
+step= 76  t= 2.00380000e+01  dt=5.0e-04  C= 1.90  UVW: 3  P: 23  eTimeStep= 7.97e-01s eTime= 5.27132e+01s
+  P  : iter 019  resNorm00 1.37e-01  resNorm0 1.46e-03  resNorm 9.75e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 8.96e-08 4.74e-01
+step= 77  t= 2.00385000e+01  dt=5.0e-04  C= 1.86  UVW: 3  P: 19  eTimeStep= 6.70e-01s eTime= 5.33834e+01s
+  P  : iter 019  resNorm00 1.37e-01  resNorm0 1.33e-03  resNorm 9.97e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 8.20e-08 4.74e-01
+step= 78  t= 2.00390000e+01  dt=5.0e-04  C= 1.83  UVW: 3  P: 19  eTimeStep= 6.62e-01s eTime= 5.40456e+01s
+  P  : iter 019  resNorm00 1.37e-01  resNorm0 1.71e-03  resNorm 9.17e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 7.44e-08 4.74e-01
+step= 79  t= 2.00395000e+01  dt=5.0e-04  C= 1.83  UVW: 3  P: 19  eTimeStep= 6.64e-01s eTime= 5.47097e+01s
+  P  : iter 022  resNorm00 1.37e-01  resNorm0 1.66e-03  resNorm 9.65e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 6.69e-08 4.74e-01
+step= 80  t= 2.00400000e+01  dt=5.0e-04  C= 1.82  UVW: 3  P: 22  eTimeStep= 7.69e-01s eTime= 5.54783e+01s
+  P  : iter 018  resNorm00 1.37e-01  resNorm0 1.38e-03  resNorm 9.46e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 5.94e-08 4.74e-01
+step= 81  t= 2.00405000e+01  dt=5.0e-04  C= 1.81  UVW: 3  P: 18  eTimeStep= 6.38e-01s eTime= 5.61162e+01s
+  P  : iter 019  resNorm00 1.37e-01  resNorm0 1.37e-03  resNorm 9.56e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 5.19e-08 4.74e-01
+step= 82  t= 2.00410000e+01  dt=5.0e-04  C= 1.80  UVW: 3  P: 19  eTimeStep= 6.81e-01s eTime= 5.67972e+01s
+  P  : iter 017  resNorm00 1.37e-01  resNorm0 1.26e-03  resNorm 9.51e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 4.45e-08 4.74e-01
+step= 83  t= 2.00415000e+01  dt=5.0e-04  C= 1.80  UVW: 3  P: 17  eTimeStep= 6.04e-01s eTime= 5.74017e+01s
+  P  : iter 019  resNorm00 1.37e-01  resNorm0 1.13e-03  resNorm 9.79e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 3.72e-08 4.74e-01
+step= 84  t= 2.00420000e+01  dt=5.0e-04  C= 1.79  UVW: 3  P: 19  eTimeStep= 6.65e-01s eTime= 5.80666e+01s
+  P  : iter 014  resNorm00 1.37e-01  resNorm0 1.23e-03  resNorm 9.18e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 2.99e-08 4.74e-01
+step= 85  t= 2.00425000e+01  dt=5.0e-04  C= 1.78  UVW: 3  P: 14  eTimeStep= 5.18e-01s eTime= 5.85851e+01s
+  P  : iter 024  resNorm00 1.37e-01  resNorm0 8.13e-03  resNorm 9.34e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 2.26e-08 4.74e-01
+step= 86  t= 2.00430000e+01  dt=5.0e-04  C= 1.76  UVW: 3  P: 24  eTimeStep= 8.28e-01s eTime= 5.94130e+01s
+  P  : iter 021  resNorm00 1.37e-01  resNorm0 1.33e-03  resNorm 9.67e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 1.54e-08 4.74e-01
+step= 87  t= 2.00435000e+01  dt=5.0e-04  C= 1.75  UVW: 3  P: 21  eTimeStep= 7.32e-01s eTime= 6.01452e+01s
+  P  : iter 022  resNorm00 1.37e-01  resNorm0 1.35e-03  resNorm 9.81e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.08e-07  divErrNorms 8.24e-09 4.74e-01
+step= 88  t= 2.00440000e+01  dt=5.0e-04  C= 1.73  UVW: 3  P: 22  eTimeStep= 7.64e-01s eTime= 6.09090e+01s
+  P  : iter 019  resNorm00 1.37e-01  resNorm0 1.58e-03  resNorm 9.19e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.09e-07  divErrNorms 1.13e-09 4.74e-01
+step= 89  t= 2.00445000e+01  dt=5.0e-04  C= 1.71  UVW: 3  P: 19  eTimeStep= 6.66e-01s eTime= 6.15754e+01s
+  P  : iter 021  resNorm00 1.37e-01  resNorm0 1.79e-03  resNorm 9.76e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.09e-07  divErrNorms 5.91e-09 4.74e-01
+step= 90  t= 2.00450000e+01  dt=5.0e-04  C= 1.68  UVW: 3  P: 21  eTimeStep= 7.35e-01s eTime= 6.23101e+01s
+  P  : iter 023  resNorm00 1.37e-01  resNorm0 1.59e-03  resNorm 9.34e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.09e-07  divErrNorms 1.29e-08 4.74e-01
+step= 91  t= 2.00455000e+01  dt=5.0e-04  C= 1.68  UVW: 3  P: 23  eTimeStep= 7.98e-01s eTime= 6.31082e+01s
+  P  : iter 020  resNorm00 1.37e-01  resNorm0 1.74e-03  resNorm 9.42e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.09e-07  divErrNorms 1.98e-08 4.74e-01
+step= 92  t= 2.00460000e+01  dt=5.0e-04  C= 1.67  UVW: 3  P: 20  eTimeStep= 7.02e-01s eTime= 6.38104e+01s
+  P  : iter 019  resNorm00 1.37e-01  resNorm0 1.51e-03  resNorm 9.71e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.09e-07  divErrNorms 2.67e-08 4.74e-01
+step= 93  t= 2.00465000e+01  dt=5.0e-04  C= 1.66  UVW: 3  P: 19  eTimeStep= 6.68e-01s eTime= 6.44782e+01s
+  P  : iter 018  resNorm00 1.37e-01  resNorm0 1.51e-03  resNorm 9.67e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.09e-07  divErrNorms 3.35e-08 4.74e-01
+step= 94  t= 2.00470000e+01  dt=5.0e-04  C= 1.65  UVW: 3  P: 18  eTimeStep= 6.35e-01s eTime= 6.51131e+01s
+  P  : iter 019  resNorm00 1.37e-01  resNorm0 1.41e-03  resNorm 9.93e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.09e-07  divErrNorms 4.03e-08 4.74e-01
+step= 95  t= 2.00475000e+01  dt=5.0e-04  C= 1.67  UVW: 3  P: 19  eTimeStep= 6.70e-01s eTime= 6.57835e+01s
+  P  : iter 020  resNorm00 1.37e-01  resNorm0 8.09e-03  resNorm 9.96e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.09e-07  divErrNorms 4.69e-08 4.74e-01
+step= 96  t= 2.00480000e+01  dt=5.0e-04  C= 1.67  UVW: 3  P: 20  eTimeStep= 7.00e-01s eTime= 6.64834e+01s
+  P  : iter 016  resNorm00 1.37e-01  resNorm0 1.36e-03  resNorm 9.83e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.09e-07  divErrNorms 5.36e-08 4.74e-01
+step= 97  t= 2.00485000e+01  dt=5.0e-04  C= 1.64  UVW: 3  P: 16  eTimeStep= 5.70e-01s eTime= 6.70533e+01s
+  P  : iter 019  resNorm00 1.37e-01  resNorm0 1.26e-03  resNorm 9.81e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.09e-07  divErrNorms 6.01e-08 4.74e-01
+step= 98  t= 2.00490000e+01  dt=5.0e-04  C= 1.68  UVW: 3  P: 19  eTimeStep= 6.77e-01s eTime= 6.77300e+01s
+  P  : iter 016  resNorm00 1.37e-01  resNorm0 1.36e-03  resNorm 9.58e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.09e-07  divErrNorms 6.66e-08 4.74e-01
+step= 99  t= 2.00495000e+01  dt=5.0e-04  C= 1.73  UVW: 3  P: 16  eTimeStep= 5.71e-01s eTime= 6.83010e+01s
+  P  : iter 021  resNorm00 1.37e-01  resNorm0 1.44e-03  resNorm 9.88e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.09e-07  divErrNorms 7.30e-08 4.74e-01
+step= 100  t= 2.00500000e+01  dt=5.0e-04  C= 1.77  UVW: 3  P: 21  eTimeStep= 7.40e-01s eTime= 6.90412e+01s
+  P  : iter 020  resNorm00 1.37e-01  resNorm0 1.32e-03  resNorm 9.94e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.09e-07  divErrNorms 7.93e-08 4.74e-01
+step= 101  t= 2.00505000e+01  dt=5.0e-04  C= 1.81  UVW: 3  P: 20  eTimeStep= 7.01e-01s eTime= 6.97419e+01s
+  P  : iter 017  resNorm00 1.37e-01  resNorm0 1.16e-03  resNorm 9.66e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.09e-07  divErrNorms 8.55e-08 4.74e-01
+step= 102  t= 2.00510000e+01  dt=5.0e-04  C= 1.84  UVW: 3  P: 17  eTimeStep= 6.06e-01s eTime= 7.03476e+01s
+  P  : iter 012  resNorm00 1.37e-01  resNorm0 1.08e-03  resNorm 9.90e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.09e-07  divErrNorms 9.17e-08 4.74e-01
+step= 103  t= 2.00515000e+01  dt=5.0e-04  C= 1.89  UVW: 3  P: 12  eTimeStep= 4.41e-01s eTime= 7.07887e+01s
+  P  : iter 016  resNorm00 1.37e-01  resNorm0 1.11e-03  resNorm 9.55e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.09e-07  divErrNorms 9.78e-08 4.74e-01
+step= 104  t= 2.00520000e+01  dt=5.0e-04  C= 1.93  UVW: 3  P: 16  eTimeStep= 5.71e-01s eTime= 7.13594e+01s
+  P  : iter 014  resNorm00 1.37e-01  resNorm0 9.89e-04  resNorm 9.60e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.09e-07  divErrNorms 1.04e-07 4.74e-01
+step= 105  t= 2.00525000e+01  dt=5.0e-04  C= 1.97  UVW: 3  P: 14  eTimeStep= 5.07e-01s eTime= 7.18668e+01s
+  P  : iter 018  resNorm00 1.37e-01  resNorm0 8.05e-03  resNorm 9.95e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.09e-07  divErrNorms 1.10e-07 4.74e-01
+step= 106  t= 2.00530000e+01  dt=5.0e-04  C= 2.01  UVW: 3  P: 18  eTimeStep= 6.36e-01s eTime= 7.25024e+01s
+  P  : iter 015  resNorm00 1.37e-01  resNorm0 1.34e-03  resNorm 9.18e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.10e-07  divErrNorms 1.16e-07 4.74e-01
+step= 107  t= 2.00535000e+01  dt=5.0e-04  C= 2.06  UVW: 3  P: 15  eTimeStep= 5.37e-01s eTime= 7.30398e+01s
+  P  : iter 015  resNorm00 1.37e-01  resNorm0 1.31e-03  resNorm 9.52e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.10e-07  divErrNorms 1.21e-07 4.74e-01
+step= 108  t= 2.00540000e+01  dt=5.0e-04  C= 2.11  UVW: 3  P: 15  eTimeStep= 5.35e-01s eTime= 7.35751e+01s
+  P  : iter 018  resNorm00 1.37e-01  resNorm0 1.17e-03  resNorm 9.67e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.10e-07  divErrNorms 1.27e-07 4.74e-01
+step= 109  t= 2.00545000e+01  dt=5.0e-04  C= 2.16  UVW: 3  P: 18  eTimeStep= 6.31e-01s eTime= 7.42063e+01s
+  P  : iter 020  resNorm00 1.37e-01  resNorm0 1.21e-03  resNorm 9.55e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.10e-07  divErrNorms 1.32e-07 4.74e-01
+step= 110  t= 2.00550000e+01  dt=5.0e-04  C= 2.19  UVW: 3  P: 20  eTimeStep= 7.00e-01s eTime= 7.49061e+01s
+  P  : iter 019  resNorm00 1.37e-01  resNorm0 1.29e-03  resNorm 9.79e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.10e-07  divErrNorms 1.38e-07 4.74e-01
+step= 111  t= 2.00555000e+01  dt=5.0e-04  C= 2.22  UVW: 3  P: 19  eTimeStep= 6.68e-01s eTime= 7.55739e+01s
+  P  : iter 017  resNorm00 1.37e-01  resNorm0 1.20e-03  resNorm 9.71e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.10e-07  divErrNorms 1.43e-07 4.74e-01
+step= 112  t= 2.00560000e+01  dt=5.0e-04  C= 2.24  UVW: 3  P: 17  eTimeStep= 5.99e-01s eTime= 7.61726e+01s
+  P  : iter 016  resNorm00 1.37e-01  resNorm0 1.21e-03  resNorm 9.34e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.10e-07  divErrNorms 1.49e-07 4.74e-01
+step= 113  t= 2.00565000e+01  dt=5.0e-04  C= 2.24  UVW: 3  P: 16  eTimeStep= 5.71e-01s eTime= 7.67440e+01s
+  P  : iter 018  resNorm00 1.37e-01  resNorm0 1.12e-03  resNorm 9.27e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.10e-07  divErrNorms 1.54e-07 4.74e-01
+step= 114  t= 2.00570000e+01  dt=5.0e-04  C= 2.23  UVW: 3  P: 18  eTimeStep= 6.35e-01s eTime= 7.73787e+01s
+  P  : iter 015  resNorm00 1.37e-01  resNorm0 1.06e-03  resNorm 9.52e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.10e-07  divErrNorms 1.59e-07 4.74e-01
+step= 115  t= 2.00575000e+01  dt=5.0e-04  C= 2.20  UVW: 3  P: 15  eTimeStep= 5.34e-01s eTime= 7.79126e+01s
+  P  : iter 020  resNorm00 1.37e-01  resNorm0 8.06e-03  resNorm 9.98e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.10e-07  divErrNorms 1.64e-07 4.74e-01
+step= 116  t= 2.00580000e+01  dt=5.0e-04  C= 2.16  UVW: 3  P: 20  eTimeStep= 6.95e-01s eTime= 7.86074e+01s
+  P  : iter 013  resNorm00 1.37e-01  resNorm0 1.23e-03  resNorm 9.95e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.10e-07  divErrNorms 1.69e-07 4.74e-01
+step= 117  t= 2.00585000e+01  dt=5.0e-04  C= 2.13  UVW: 3  P: 13  eTimeStep= 4.69e-01s eTime= 7.90765e+01s
+  P  : iter 018  resNorm00 1.37e-01  resNorm0 1.25e-03  resNorm 9.92e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.10e-07  divErrNorms 1.74e-07 4.74e-01
+step= 118  t= 2.00590000e+01  dt=5.0e-04  C= 2.09  UVW: 3  P: 18  eTimeStep= 6.33e-01s eTime= 7.97097e+01s
+  P  : iter 019  resNorm00 1.37e-01  resNorm0 1.49e-03  resNorm 9.79e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.10e-07  divErrNorms 1.78e-07 4.74e-01
+step= 119  t= 2.00595000e+01  dt=5.0e-04  C= 2.06  UVW: 3  P: 19  eTimeStep= 6.69e-01s eTime= 8.03791e+01s
+  P  : iter 022  resNorm00 1.37e-01  resNorm0 1.49e-03  resNorm 9.34e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.10e-07  divErrNorms 1.83e-07 4.74e-01
+step= 120  t= 2.00600000e+01  dt=5.0e-04  C= 2.03  UVW: 3  P: 22  eTimeStep= 7.59e-01s eTime= 8.11385e+01s
+  P  : iter 020  resNorm00 1.37e-01  resNorm0 1.36e-03  resNorm 8.99e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.10e-07  divErrNorms 1.87e-07 4.74e-01
+step= 121  t= 2.00605000e+01  dt=5.0e-04  C= 2.01  UVW: 3  P: 20  eTimeStep= 7.01e-01s eTime= 8.18393e+01s
+  P  : iter 015  resNorm00 1.37e-01  resNorm0 1.24e-03  resNorm 8.93e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.10e-07  divErrNorms 1.92e-07 4.74e-01
+step= 122  t= 2.00610000e+01  dt=5.0e-04  C= 1.99  UVW: 3  P: 15  eTimeStep= 5.39e-01s eTime= 8.23787e+01s
+  P  : iter 014  resNorm00 1.37e-01  resNorm0 1.22e-03  resNorm 9.63e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.10e-07  divErrNorms 1.96e-07 4.74e-01
+step= 123  t= 2.00615000e+01  dt=5.0e-04  C= 1.97  UVW: 3  P: 14  eTimeStep= 5.08e-01s eTime= 8.28870e+01s
+  P  : iter 018  resNorm00 1.37e-01  resNorm0 1.24e-03  resNorm 9.77e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.10e-07  divErrNorms 2.00e-07 4.74e-01
+step= 124  t= 2.00620000e+01  dt=5.0e-04  C= 1.95  UVW: 3  P: 18  eTimeStep= 6.37e-01s eTime= 8.35237e+01s
+  P  : iter 013  resNorm00 1.37e-01  resNorm0 1.18e-03  resNorm 9.82e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.10e-07  divErrNorms 2.04e-07 4.74e-01
+step= 125  t= 2.00625000e+01  dt=5.0e-04  C= 1.92  UVW: 3  P: 13  eTimeStep= 4.80e-01s eTime= 8.40032e+01s
+  P  : iter 021  resNorm00 1.37e-01  resNorm0 8.08e-03  resNorm 9.14e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.08e-07 4.74e-01
+step= 126  t= 2.00630000e+01  dt=5.0e-04  C= 1.89  UVW: 3  P: 21  eTimeStep= 7.30e-01s eTime= 8.47329e+01s
+  P  : iter 014  resNorm00 1.37e-01  resNorm0 1.33e-03  resNorm 9.98e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.12e-07 4.74e-01
+step= 127  t= 2.00635000e+01  dt=5.0e-04  C= 1.88  UVW: 3  P: 14  eTimeStep= 5.02e-01s eTime= 8.52351e+01s
+  P  : iter 018  resNorm00 1.37e-01  resNorm0 1.32e-03  resNorm 9.25e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.16e-07 4.74e-01
+step= 128  t= 2.00640000e+01  dt=5.0e-04  C= 1.90  UVW: 3  P: 18  eTimeStep= 6.37e-01s eTime= 8.58724e+01s
+  P  : iter 017  resNorm00 1.37e-01  resNorm0 1.66e-03  resNorm 9.62e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.19e-07 4.74e-01
+step= 129  t= 2.00645000e+01  dt=5.0e-04  C= 1.90  UVW: 3  P: 17  eTimeStep= 6.09e-01s eTime= 8.64813e+01s
+  P  : iter 021  resNorm00 1.37e-01  resNorm0 1.58e-03  resNorm 9.25e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.23e-07 4.74e-01
+step= 130  t= 2.00650000e+01  dt=5.0e-04  C= 1.88  UVW: 3  P: 21  eTimeStep= 7.28e-01s eTime= 8.72095e+01s
+  P  : iter 019  resNorm00 1.37e-01  resNorm0 1.40e-03  resNorm 9.94e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.26e-07 4.74e-01
+step= 131  t= 2.00655000e+01  dt=5.0e-04  C= 1.87  UVW: 3  P: 19  eTimeStep= 6.64e-01s eTime= 8.78730e+01s
+  P  : iter 018  resNorm00 1.37e-01  resNorm0 1.34e-03  resNorm 9.42e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.30e-07 4.74e-01
+step= 132  t= 2.00660000e+01  dt=5.0e-04  C= 1.86  UVW: 3  P: 18  eTimeStep= 6.34e-01s eTime= 8.85068e+01s
+  P  : iter 015  resNorm00 1.37e-01  resNorm0 1.26e-03  resNorm 9.72e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.33e-07 4.74e-01
+step= 133  t= 2.00665000e+01  dt=5.0e-04  C= 1.86  UVW: 3  P: 15  eTimeStep= 5.39e-01s eTime= 8.90461e+01s
+  P  : iter 018  resNorm00 1.37e-01  resNorm0 1.23e-03  resNorm 9.87e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.36e-07 4.74e-01
+step= 134  t= 2.00670000e+01  dt=5.0e-04  C= 1.92  UVW: 3  P: 18  eTimeStep= 6.38e-01s eTime= 8.96841e+01s
+  P  : iter 018  resNorm00 1.37e-01  resNorm0 1.27e-03  resNorm 9.20e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.39e-07 4.74e-01
+step= 135  t= 2.00675000e+01  dt=5.0e-04  C= 1.98  UVW: 3  P: 18  eTimeStep= 6.34e-01s eTime= 9.03179e+01s
+  P  : iter 018  resNorm00 1.37e-01  resNorm0 8.11e-03  resNorm 9.57e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.42e-07 4.74e-01
+step= 136  t= 2.00680000e+01  dt=5.0e-04  C= 2.03  UVW: 3  P: 18  eTimeStep= 6.36e-01s eTime= 9.09541e+01s
+  P  : iter 018  resNorm00 1.37e-01  resNorm0 1.54e-03  resNorm 9.41e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.44e-07 4.74e-01
+step= 137  t= 2.00685000e+01  dt=5.0e-04  C= 2.07  UVW: 3  P: 18  eTimeStep= 6.34e-01s eTime= 9.15885e+01s
+  P  : iter 015  resNorm00 1.37e-01  resNorm0 1.33e-03  resNorm 9.95e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.47e-07 4.75e-01
+step= 138  t= 2.00690000e+01  dt=5.0e-04  C= 2.11  UVW: 3  P: 15  eTimeStep= 5.38e-01s eTime= 9.21263e+01s
+  P  : iter 021  resNorm00 1.37e-01  resNorm0 1.12e-03  resNorm 9.19e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.50e-07 4.75e-01
+step= 139  t= 2.00695000e+01  dt=5.0e-04  C= 2.15  UVW: 3  P: 21  eTimeStep= 7.33e-01s eTime= 9.28590e+01s
+  P  : iter 019  resNorm00 1.37e-01  resNorm0 1.33e-03  resNorm 9.43e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.52e-07 4.75e-01
+step= 140  t= 2.00700000e+01  dt=5.0e-04  C= 2.20  UVW: 3  P: 19  eTimeStep= 6.65e-01s eTime= 9.35242e+01s
+  P  : iter 021  resNorm00 1.37e-01  resNorm0 1.43e-03  resNorm 9.53e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.54e-07 4.75e-01
+step= 141  t= 2.00705000e+01  dt=5.0e-04  C= 2.24  UVW: 3  P: 21  eTimeStep= 7.32e-01s eTime= 9.42565e+01s
+  P  : iter 014  resNorm00 1.37e-01  resNorm0 1.24e-03  resNorm 9.52e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.56e-07 4.75e-01
+step= 142  t= 2.00710000e+01  dt=5.0e-04  C= 2.28  UVW: 3  P: 14  eTimeStep= 5.07e-01s eTime= 9.47637e+01s
+  P  : iter 013  resNorm00 1.37e-01  resNorm0 1.13e-03  resNorm 9.35e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.59e-07 4.75e-01
+step= 143  t= 2.00715000e+01  dt=5.0e-04  C= 2.30  UVW: 3  P: 13  eTimeStep= 4.69e-01s eTime= 9.52322e+01s
+  P  : iter 015  resNorm00 1.37e-01  resNorm0 1.11e-03  resNorm 8.94e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.61e-07 4.75e-01
+step= 144  t= 2.00720000e+01  dt=5.0e-04  C= 2.32  UVW: 3  P: 15  eTimeStep= 5.34e-01s eTime= 9.57664e+01s
+  P  : iter 015  resNorm00 1.37e-01  resNorm0 1.07e-03  resNorm 9.21e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.62e-07 4.75e-01
+step= 145  t= 2.00725000e+01  dt=5.0e-04  C= 2.33  UVW: 3  P: 15  eTimeStep= 5.35e-01s eTime= 9.63014e+01s
+  P  : iter 016  resNorm00 1.37e-01  resNorm0 8.10e-03  resNorm 9.92e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.64e-07 4.75e-01
+step= 146  t= 2.00730000e+01  dt=5.0e-04  C= 2.33  UVW: 3  P: 16  eTimeStep= 5.70e-01s eTime= 9.68715e+01s
+  P  : iter 012  resNorm00 1.37e-01  resNorm0 1.49e-03  resNorm 9.28e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.66e-07 4.75e-01
+step= 147  t= 2.00735000e+01  dt=5.0e-04  C= 2.33  UVW: 3  P: 12  eTimeStep= 4.38e-01s eTime= 9.73097e+01s
+  P  : iter 016  resNorm00 1.37e-01  resNorm0 1.33e-03  resNorm 9.60e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.67e-07 4.75e-01
+step= 148  t= 2.00740000e+01  dt=5.0e-04  C= 2.32  UVW: 3  P: 16  eTimeStep= 5.65e-01s eTime= 9.78745e+01s
+  P  : iter 018  resNorm00 1.37e-01  resNorm0 1.39e-03  resNorm 9.55e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.69e-07 4.75e-01
+step= 149  t= 2.00745000e+01  dt=5.0e-04  C= 2.29  UVW: 3  P: 18  eTimeStep= 6.31e-01s eTime= 9.85054e+01s
+  P  : iter 022  resNorm00 1.37e-01  resNorm0 1.42e-03  resNorm 9.22e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.70e-07 4.75e-01
+step= 150  t= 2.00750000e+01  dt=5.0e-04  C= 2.26  UVW: 3  P: 22  eTimeStep= 7.61e-01s eTime= 9.92666e+01s
+  P  : iter 017  resNorm00 1.37e-01  resNorm0 1.32e-03  resNorm 9.50e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.71e-07 4.75e-01
+step= 151  t= 2.00755000e+01  dt=5.0e-04  C= 2.23  UVW: 3  P: 17  eTimeStep= 6.18e-01s eTime= 9.98845e+01s
+  P  : iter 016  resNorm00 1.37e-01  resNorm0 1.24e-03  resNorm 9.85e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.72e-07 4.75e-01
+step= 152  t= 2.00760000e+01  dt=5.0e-04  C= 2.18  UVW: 3  P: 16  eTimeStep= 5.67e-01s eTime= 1.00451e+02s
+  P  : iter 016  resNorm00 1.37e-01  resNorm0 1.12e-03  resNorm 9.88e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.73e-07 4.75e-01
+step= 153  t= 2.00765000e+01  dt=5.0e-04  C= 2.12  UVW: 3  P: 16  eTimeStep= 5.72e-01s eTime= 1.01024e+02s
+  P  : iter 019  resNorm00 1.37e-01  resNorm0 1.27e-03  resNorm 9.32e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.74e-07 4.75e-01
+step= 154  t= 2.00770000e+01  dt=5.0e-04  C= 2.12  UVW: 3  P: 19  eTimeStep= 6.65e-01s eTime= 1.01689e+02s
+  P  : iter 015  resNorm00 1.37e-01  resNorm0 1.14e-03  resNorm 9.35e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.75e-07 4.75e-01
+step= 155  t= 2.00775000e+01  dt=5.0e-04  C= 2.11  UVW: 3  P: 15  eTimeStep= 5.38e-01s eTime= 1.02227e+02s
+  P  : iter 021  resNorm00 1.37e-01  resNorm0 8.11e-03  resNorm 9.46e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.76e-07 4.75e-01
+step= 156  t= 2.00780000e+01  dt=5.0e-04  C= 2.09  UVW: 3  P: 21  eTimeStep= 7.34e-01s eTime= 1.02961e+02s
+  P  : iter 014  resNorm00 1.37e-01  resNorm0 1.50e-03  resNorm 9.85e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.76e-07 4.75e-01
+step= 157  t= 2.00785000e+01  dt=5.0e-04  C= 2.06  UVW: 3  P: 14  eTimeStep= 5.04e-01s eTime= 1.03465e+02s
+  P  : iter 018  resNorm00 1.37e-01  resNorm0 1.32e-03  resNorm 9.27e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.77e-07 4.75e-01
+step= 158  t= 2.00790000e+01  dt=5.0e-04  C= 2.03  UVW: 3  P: 18  eTimeStep= 6.36e-01s eTime= 1.04101e+02s
+  P  : iter 017  resNorm00 1.37e-01  resNorm0 1.71e-03  resNorm 9.93e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.77e-07 4.75e-01
+step= 159  t= 2.00795000e+01  dt=5.0e-04  C= 2.05  UVW: 3  P: 17  eTimeStep= 6.03e-01s eTime= 1.04704e+02s
+  P  : iter 022  resNorm00 1.37e-01  resNorm0 1.60e-03  resNorm 9.34e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.77e-07 4.75e-01
+step= 160  t= 2.00800000e+01  dt=5.0e-04  C= 2.08  UVW: 3  P: 22  eTimeStep= 7.60e-01s eTime= 1.05464e+02s
+  P  : iter 017  resNorm00 1.37e-01  resNorm0 1.36e-03  resNorm 9.66e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.77e-07 4.75e-01
+step= 161  t= 2.00805000e+01  dt=5.0e-04  C= 2.10  UVW: 3  P: 17  eTimeStep= 6.04e-01s eTime= 1.06068e+02s
+  P  : iter 015  resNorm00 1.37e-01  resNorm0 1.31e-03  resNorm 9.81e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.77e-07 4.75e-01
+step= 162  t= 2.00810000e+01  dt=5.0e-04  C= 2.12  UVW: 3  P: 15  eTimeStep= 5.36e-01s eTime= 1.06604e+02s
+  P  : iter 015  resNorm00 1.37e-01  resNorm0 1.06e-03  resNorm 9.10e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.77e-07 4.75e-01
+step= 163  t= 2.00815000e+01  dt=5.0e-04  C= 2.14  UVW: 3  P: 15  eTimeStep= 5.39e-01s eTime= 1.07143e+02s
+  P  : iter 018  resNorm00 1.37e-01  resNorm0 1.26e-03  resNorm 9.87e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.77e-07 4.75e-01
+step= 164  t= 2.00820000e+01  dt=5.0e-04  C= 2.16  UVW: 3  P: 18  eTimeStep= 6.35e-01s eTime= 1.07777e+02s
+  P  : iter 017  resNorm00 1.37e-01  resNorm0 1.16e-03  resNorm 9.54e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.77e-07 4.75e-01
+step= 165  t= 2.00825000e+01  dt=5.0e-04  C= 2.17  UVW: 3  P: 17  eTimeStep= 5.99e-01s eTime= 1.08377e+02s
+  P  : iter 019  resNorm00 1.37e-01  resNorm0 8.12e-03  resNorm 9.39e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.77e-07 4.75e-01
+step= 166  t= 2.00830000e+01  dt=5.0e-04  C= 2.18  UVW: 3  P: 19  eTimeStep= 6.61e-01s eTime= 1.09037e+02s
+  P  : iter 016  resNorm00 1.37e-01  resNorm0 1.38e-03  resNorm 9.70e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.77e-07 4.75e-01
+step= 167  t= 2.00835000e+01  dt=5.0e-04  C= 2.19  UVW: 3  P: 16  eTimeStep= 5.75e-01s eTime= 1.09612e+02s
+  P  : iter 017  resNorm00 1.37e-01  resNorm0 1.30e-03  resNorm 9.22e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.76e-07 4.75e-01
+step= 168  t= 2.00840000e+01  dt=5.0e-04  C= 2.19  UVW: 3  P: 17  eTimeStep= 5.99e-01s eTime= 1.10211e+02s
+  P  : iter 018  resNorm00 1.37e-01  resNorm0 1.27e-03  resNorm 9.81e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.75e-07 4.75e-01
+step= 169  t= 2.00845000e+01  dt=5.0e-04  C= 2.20  UVW: 3  P: 18  eTimeStep= 6.32e-01s eTime= 1.10843e+02s
+  P  : iter 019  resNorm00 1.37e-01  resNorm0 1.35e-03  resNorm 9.89e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.75e-07 4.75e-01
+step= 170  t= 2.00850000e+01  dt=5.0e-04  C= 2.19  UVW: 3  P: 19  eTimeStep= 6.63e-01s eTime= 1.11507e+02s
+  P  : iter 023  resNorm00 1.37e-01  resNorm0 1.55e-03  resNorm 8.63e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.74e-07 4.75e-01
+step= 171  t= 2.00855000e+01  dt=5.0e-04  C= 2.19  UVW: 3  P: 23  eTimeStep= 7.91e-01s eTime= 1.12298e+02s
+  P  : iter 014  resNorm00 1.37e-01  resNorm0 1.33e-03  resNorm 8.97e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.73e-07 4.75e-01
+step= 172  t= 2.00860000e+01  dt=5.0e-04  C= 2.18  UVW: 3  P: 14  eTimeStep= 5.06e-01s eTime= 1.12804e+02s
+  P  : iter 013  resNorm00 1.37e-01  resNorm0 1.17e-03  resNorm 9.86e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.72e-07 4.75e-01
+step= 173  t= 2.00865000e+01  dt=5.0e-04  C= 2.17  UVW: 3  P: 13  eTimeStep= 4.71e-01s eTime= 1.13276e+02s
+  P  : iter 015  resNorm00 1.37e-01  resNorm0 1.04e-03  resNorm 8.88e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.72e-07 4.75e-01
+step= 174  t= 2.00870000e+01  dt=5.0e-04  C= 2.16  UVW: 3  P: 15  eTimeStep= 5.36e-01s eTime= 1.13811e+02s
+  P  : iter 016  resNorm00 1.37e-01  resNorm0 1.11e-03  resNorm 9.54e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.70e-07 4.75e-01
+step= 175  t= 2.00875000e+01  dt=5.0e-04  C= 2.15  UVW: 3  P: 16  eTimeStep= 5.73e-01s eTime= 1.14384e+02s
+  P  : iter 013  resNorm00 1.37e-01  resNorm0 8.14e-03  resNorm 9.82e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.69e-07 4.75e-01
+step= 176  t= 2.00880000e+01  dt=5.0e-04  C= 2.13  UVW: 3  P: 13  eTimeStep= 4.70e-01s eTime= 1.14854e+02s
+  P  : iter 014  resNorm00 1.37e-01  resNorm0 1.48e-03  resNorm 9.74e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.68e-07 4.75e-01
+step= 177  t= 2.00885000e+01  dt=5.0e-04  C= 2.11  UVW: 3  P: 14  eTimeStep= 5.01e-01s eTime= 1.15355e+02s
+  P  : iter 015  resNorm00 1.37e-01  resNorm0 1.31e-03  resNorm 9.50e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.67e-07 4.75e-01
+step= 178  t= 2.00890000e+01  dt=5.0e-04  C= 2.08  UVW: 3  P: 15  eTimeStep= 5.36e-01s eTime= 1.15891e+02s
+  P  : iter 019  resNorm00 1.37e-01  resNorm0 1.07e-03  resNorm 9.38e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.66e-07 4.75e-01
+step= 179  t= 2.00895000e+01  dt=5.0e-04  C= 2.06  UVW: 3  P: 19  eTimeStep= 6.67e-01s eTime= 1.16558e+02s
+  P  : iter 019  resNorm00 1.37e-01  resNorm0 1.19e-03  resNorm 9.27e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.64e-07 4.75e-01
+step= 180  t= 2.00900000e+01  dt=5.0e-04  C= 2.03  UVW: 3  P: 19  eTimeStep= 6.64e-01s eTime= 1.17222e+02s
+  P  : iter 019  resNorm00 1.37e-01  resNorm0 1.25e-03  resNorm 9.25e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.63e-07 4.75e-01
+step= 181  t= 2.00905000e+01  dt=5.0e-04  C= 1.99  UVW: 3  P: 19  eTimeStep= 6.61e-01s eTime= 1.17883e+02s
+  P  : iter 015  resNorm00 1.37e-01  resNorm0 1.33e-03  resNorm 9.83e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.61e-07 4.75e-01
+step= 182  t= 2.00910000e+01  dt=5.0e-04  C= 1.96  UVW: 3  P: 15  eTimeStep= 5.38e-01s eTime= 1.18422e+02s
+  P  : iter 017  resNorm00 1.37e-01  resNorm0 1.26e-03  resNorm 9.59e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.60e-07 4.75e-01
+step= 183  t= 2.00915000e+01  dt=5.0e-04  C= 1.92  UVW: 3  P: 17  eTimeStep= 6.07e-01s eTime= 1.19029e+02s
+  P  : iter 016  resNorm00 1.37e-01  resNorm0 1.16e-03  resNorm 9.65e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.58e-07 4.75e-01
+step= 184  t= 2.00920000e+01  dt=5.0e-04  C= 1.89  UVW: 3  P: 16  eTimeStep= 5.71e-01s eTime= 1.19600e+02s
+  P  : iter 014  resNorm00 1.37e-01  resNorm0 1.05e-03  resNorm 9.83e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.56e-07 4.75e-01
+step= 185  t= 2.00925000e+01  dt=5.0e-04  C= 1.91  UVW: 3  P: 14  eTimeStep= 5.09e-01s eTime= 1.20108e+02s
+  P  : iter 021  resNorm00 1.37e-01  resNorm0 8.11e-03  resNorm 9.78e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.54e-07 4.75e-01
+step= 186  t= 2.00930000e+01  dt=5.0e-04  C= 1.92  UVW: 3  P: 21  eTimeStep= 7.33e-01s eTime= 1.20841e+02s
+  P  : iter 015  resNorm00 1.37e-01  resNorm0 1.28e-03  resNorm 9.78e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.53e-07 4.75e-01
+step= 187  t= 2.00935000e+01  dt=5.0e-04  C= 1.94  UVW: 3  P: 15  eTimeStep= 5.37e-01s eTime= 1.21378e+02s
+  P  : iter 018  resNorm00 1.37e-01  resNorm0 1.29e-03  resNorm 9.99e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.51e-07 4.75e-01
+step= 188  t= 2.00940000e+01  dt=5.0e-04  C= 1.95  UVW: 3  P: 18  eTimeStep= 6.33e-01s eTime= 1.22011e+02s
+  P  : iter 016  resNorm00 1.37e-01  resNorm0 1.81e-03  resNorm 9.48e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.49e-07 4.75e-01
+step= 189  t= 2.00945000e+01  dt=5.0e-04  C= 1.96  UVW: 3  P: 16  eTimeStep= 5.70e-01s eTime= 1.22581e+02s
+  P  : iter 021  resNorm00 1.37e-01  resNorm0 1.67e-03  resNorm 9.52e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.47e-07 4.75e-01
+step= 190  t= 2.00950000e+01  dt=5.0e-04  C= 1.97  UVW: 3  P: 21  eTimeStep= 7.28e-01s eTime= 1.23309e+02s
+  P  : iter 019  resNorm00 1.37e-01  resNorm0 1.32e-03  resNorm 9.46e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.45e-07 4.75e-01
+step= 191  t= 2.00955000e+01  dt=5.0e-04  C= 1.98  UVW: 3  P: 19  eTimeStep= 6.64e-01s eTime= 1.23973e+02s
+  P  : iter 016  resNorm00 1.37e-01  resNorm0 1.27e-03  resNorm 9.78e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.43e-07 4.75e-01
+step= 192  t= 2.00960000e+01  dt=5.0e-04  C= 1.98  UVW: 3  P: 16  eTimeStep= 5.69e-01s eTime= 1.24543e+02s
+  P  : iter 015  resNorm00 1.37e-01  resNorm0 1.17e-03  resNorm 9.57e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.40e-07 4.75e-01
+step= 193  t= 2.00965000e+01  dt=5.0e-04  C= 1.99  UVW: 3  P: 15  eTimeStep= 5.36e-01s eTime= 1.25078e+02s
+  P  : iter 017  resNorm00 1.37e-01  resNorm0 1.41e-03  resNorm 9.46e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.38e-07 4.75e-01
+step= 194  t= 2.00970000e+01  dt=5.0e-04  C= 1.99  UVW: 3  P: 17  eTimeStep= 6.04e-01s eTime= 1.25682e+02s
+  P  : iter 015  resNorm00 1.37e-01  resNorm0 1.15e-03  resNorm 9.70e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.36e-07 4.75e-01
+step= 195  t= 2.00975000e+01  dt=5.0e-04  C= 1.99  UVW: 3  P: 15  eTimeStep= 5.37e-01s eTime= 1.26219e+02s
+  P  : iter 019  resNorm00 1.37e-01  resNorm0 8.11e-03  resNorm 9.66e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.34e-07 4.75e-01
+step= 196  t= 2.00980000e+01  dt=5.0e-04  C= 1.99  UVW: 3  P: 19  eTimeStep= 6.64e-01s eTime= 1.26883e+02s
+  P  : iter 015  resNorm00 1.37e-01  resNorm0 1.39e-03  resNorm 9.96e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.31e-07 4.75e-01
+step= 197  t= 2.00985000e+01  dt=5.0e-04  C= 1.99  UVW: 3  P: 15  eTimeStep= 5.35e-01s eTime= 1.27418e+02s
+  P  : iter 016  resNorm00 1.37e-01  resNorm0 1.35e-03  resNorm 9.90e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.29e-07 4.75e-01
+step= 198  t= 2.00990000e+01  dt=5.0e-04  C= 2.00  UVW: 3  P: 16  eTimeStep= 5.77e-01s eTime= 1.27995e+02s
+  P  : iter 020  resNorm00 1.37e-01  resNorm0 1.26e-03  resNorm 9.89e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.27e-07 4.75e-01
+step= 199  t= 2.00995000e+01  dt=5.0e-04  C= 2.00  UVW: 3  P: 20  eTimeStep= 6.99e-01s eTime= 1.28695e+02s
+  P  : iter 020  resNorm00 1.37e-01  resNorm0 1.42e-03  resNorm 9.68e-05
+  UVW: iter 003  resNorm00 1.75e-01  resNorm0 1.75e-01  resNorm 2.11e-07  divErrNorms 2.24e-07 4.75e-01
+step= 200  t= 2.01000000e+01  dt=5.0e-04  C= 2.00  UVW: 3  P: 20  eTimeStep= 6.95e-01s eTime= 1.29390e+02s
+
+        0  2.0100E+01 Write checkpoint
+       FILE:/gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb1568/cheby-jac-fp32-22/peb1568_n2t2bnb0.f00001                                     
+ min/max:  -13.858       13.858      -13.858       13.858      -14.673       17.691    
+ min/max:  -9.6846       7.5010      -7.6380       6.5452      -6.7996       8.9643    
+ min/max:  -19.196       17.144    
+
+        0  2.0100E+01 done :: Write checkpoint
+                              file size =      7.6    GB
+                              avg data-throughput =     8.8GB/s
+                              io-nodes =   132
+
+step=  200 runtime statistics
+
+  setup                 1.69323e+02s (1.31)
+    loadKernels         1.00791e+02s (0.78)
+  checkpointing         8.77260e-01s (0.01)
+  udfExecuteStep        1.91136e-03s (0.00)
+  solve step min/max    4.38153e-01s / 8.28028e-01s (first 10 steps excluded)
+  total solve           1.29390e+02s
+    makef               5.42392e+00s (0.04)
+    velocitySolve       2.53053e+00s (0.02)
+    pressureSolve       1.20909e+02s (0.93)
+      preconditioner    1.12096e+02s (0.87)
+        pMG smoother    2.62058e+01s (0.20)
+        coarse grid     7.34527e+01s (0.57)
+      projection        5.24926e-01s (0.00)
+    udfProperties       1.62474e-03s (0.00)
+
+elapsedTime: 301.604 s
+End
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@batch4>
+Subject: Job 1452689: <nekRS_peb1568_n2t2bnb> in cluster <summit> Done
+
+Job <nekRS_peb1568_n2t2bnb> was submitted from host <login1> by user <malachi> in cluster <summit> at Sat Sep 25 13:36:38 2021
+Job was executed on host(s) <1*batch4>, in queue <batch>, as user <malachi> in cluster <summit> at Sun Sep 26 03:32:53 2021
+                            <42*h22n15>
+                            <42*h22n16>
+                            <42*h22n17>
+                            <42*h24n01>
+                            <42*h26n10>
+                            <42*h26n11>
+                            <42*h26n13>
+                            <42*h33n01>
+                            <42*h33n02>
+                            <42*h36n06>
+                            <42*h36n07>
+                            <42*h36n12>
+                            <42*h36n13>
+                            <42*h36n14>
+                            <42*h36n15>
+                            <42*h36n17>
+                            <42*h36n18>
+                            <42*h37n02>
+                            <42*h37n08>
+                            <42*h37n09>
+                            <42*h37n10>
+                            <42*h37n12>
+</ccs/home/malachi> was used as the home directory.
+</gpfs/alpine/scratch/malachi/csc262/siam-pp-22/pb1568/cheby-jac-fp32-22> was used as the working directory.
+Started at Sun Sep 26 03:32:53 2021
+Terminated at Sun Sep 26 03:38:18 2021
+Results reported at Sun Sep 26 03:38:18 2021
+
+The output (if any) is above this job summary.
+

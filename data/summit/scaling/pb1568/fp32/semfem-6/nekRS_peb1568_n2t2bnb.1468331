@@ -1,0 +1,218 @@
+                 __    ____  _____
+   ____   ___   / /__ / __ \/ ___/
+  / __ \ / _ \ / //_// /_/ /\__ \ 
+ / / / //  __// ,<  / _, _/___/ / 
+/_/ /_/ \___//_/|_|/_/ |_|/____/  v21.1.1 (5dfe46bf)
+
+COPYRIGHT (c) 2019-2021 UCHICAGO ARGONNE, LLC
+
+MPI tasks: 36
+
+reading par file ...
+general::filtering is deprecated and might be removed in the future!
+general::filtermodes is deprecated and might be removed in the future!
+general::filterweight is deprecated and might be removed in the future!
+
+using NEKRS_HOME: /ccs/home/malachi/.local/nekrs
+using NEKRS_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb1568/semfem-fp32-6/.cache
+using OCCA_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb1568/semfem-fp32-6/.cache/occa/
+
+Initializing device 
+active occa mode: CUDA
+
+building udf ... 
+Consolidate compiler generated dependencies of target UDF
+[100%] Built target UDF
+done (0.35788s)
+skip building nekInterface (SIZE has not changed)
+loading nek ... 
+done
+loading udf kernels ... done (0.0557549s)
+
+loading kernels ... done (2.17879s)
+
+ Reading /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb1568/semfem-fp32-6/peb1568_n2t2bnb.re2                                             
+ reading mesh 
+ reading bc for ifld           1
+ done :: read .re2 file     2.7     sec
+
+Running parCon ... (tol=0.2)
+
+ Error: elementCheck
+Running parCon ... (tol=0.02)
+Running parRSB ...
+Warning: Partitioner only reached a tolerance of 1.268793 given 0.000500 after 50 x 50 iterations in Level=1!
+Warning: Partitioner only reached a tolerance of 0.103978 given 0.000090 after 50 x 50 iterations in Level=3!
+parRSB finished in 8.90335 s
+
+ reading mesh 
+ reading curved sides 
+ reading bc for ifld           1
+ done :: read .re2 file     3.6     sec
+
+ setup mesh topology
+   Right-handed check complete for      524386 elements. OK.
+gs_setup: 3262894 unique labels shared
+   handle bytes (avg, min, max): 5.0123e+07 49320524 50927868
+   buffer bytes (avg, min, max): 2.95103e+06 2153904 3793536
+   setupds time 1.7097E+00 seconds   0  8    70904907      524386
+ 
+ nElements   max/min/bal: 14567 14566 1.00
+ nMessages   max/min/avg: 20 5 9.67
+ msgSize     max/min/avg: 62151 1 20453.08
+ msgSizeSum  max/min/avg: 237096 134619 184439.11
+ 
+ max multiplicity           44
+ done :: setup mesh topology
+  
+ call usrdat
+ done :: usrdat
+
+ generate geometry data
+ done :: generate geometry data
+  
+ call usrdat2
+ done :: usrdat2
+
+  3.9629E-15  3.9299E-15  7.1054E-15  7.6927E-16  7.6927E-16  9.8206E-16 xyz repair 1
+  3.9629E-15  3.9299E-15  7.1054E-15  6.9253E-15  6.5223E-15  9.3390E-15 xyz repair 2
+  3.5527E-15  3.5527E-15  7.1054E-15  5.9808E-15  6.1523E-15  8.9797E-15 xyz repair 3
+  2.6787E-15  2.8910E-15  2.9916E-15  2.6787E-15  2.8910E-15  2.9916E-15 xyz repair 4
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ verify mesh topology
+  -13.858251128023300        13.858078221547562       Xrange
+  -13.858092645782323        13.858190303122345       Yrange
+  -14.673319816589355        17.691219329833984       Zrange
+ done :: verify mesh topology
+  
+ mesh metrics:
+ GLL grid spacing min/max    : 2.21E-04 3.02E-01
+ scaled Jacobian  min/max/avg: 2.59E-02 9.91E-01 3.71E-01
+ aspect ratio     min/max/avg: 1.12E+00 1.08E+02 1.26E+01
+
+ call usrdat3
+ done :: usrdat3
+
+gridpoints unique/tot:     184172283    268485632
+dofs vel/pr:               175531272    184064426
+ nek setup done in    3.0441E+01 s
+
+ set initial conditions
+ Checking restart options: r5.fld                                                                                                                              
+ nekuic (1) for ifld            1
+ Reading checkpoint data 
+       FILE:/gpfs/alpine/csc262/scratch/malachi/siam-pp-22/pb1568/semfem-fp32-6/r5.fld                                                          
+
+        0  2.0000E+01 done :: Read checkpoint data
+                              avg data-throughput =     0.7GB/s
+                              io-nodes =    36
+
+ xyz min    -13.858      -13.858      -14.673    
+ uvwpt min  -6.4231      -7.8486      -7.9142      -20.893       0.0000    
+ PS min      0.0000       0.0000       0.0000      0.99000E+22
+ xyz max     13.858       13.858       17.691    
+ uvwpt max   6.5953       7.1037       10.614       19.461       0.0000    
+ PS max      0.0000       0.0000       0.0000     -0.99000E+22
+ Restart: recompute geom. factors.
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ done :: set initial conditions
+  
+calling nek_userchk ...
+ xyz min    -13.858      -13.858      -14.673    
+ xyz max     13.858       13.858       17.691    
+
+loading mesh from nek ... NboundaryIDs: 4, NboundaryFaces: 178458 done (0.0016106s)
+generating mesh ... Nq: 8 cubNq: 11
+computing geometric factors ... J [1.11222e-05,0.168148] done (0.835583s)
+timing oogs modes: 0.000946083s 0.000609054s 0.000560886s 0.00056048s 0.000393454s 0.000373463s used config: 3.0.1
+min 68% of the local elements are internal
+timing oogs modes: 0.00352316s 0.00173549s 0.00160808s 0.00165333s 0.0010799s 0.00107271s used config: 3.0.1
+loading ns kernels ... done (0.000446404s)
+copying solution from nek
+calling udf_setup ... done
+================ ELLIPTIC SETUP VELOCITY ================
+bID 1 -> bcType fixedValue
+bID 2 -> bcType zeroGradient
+bID 3 -> bcType zeroValue
+bID 4 -> bcType zeroValue
+allNeumann = 0 
+loading elliptic kernels ... done (0.000158006s)
+timing oogs modes: 0.00348604s 0.00166087s 0.00158986s 0.0015895s 0.00110476s 0.00109702s used config: 3.0.1
+timing oogs modes: 0.00361293s 0.00271282s 0.00286529s 0.00269279s 0.00139475s 0.00137374s used config: 3.0.1
+building Jacobi preconditioner ... done (0.229424s)
+done (1.4253s)
+================ ELLIPTIC SETUP PRESSURE ================
+allNeumann = 0 
+loading elliptic kernels ... done (0.000173469s)
+timing oogs modes: 0.000973223s 0.000604484s 0.0006162s 0.000572375s 0.000385556s 0.000375008s used config: 3.0.1
+timing oogs modes: 0.00108625s 0.00134787s 0.00130669s 0.00131349s 0.000759609s 0.000754925s used config: 3.0.1
+setup SEMFEM preconditioner ... 
+building matrix ... done (25.3074s)
+AMGX version 2.2.0.132-opensource
+Built on Sep 30 2021, 18:24:45
+Compiled with CUDA Runtime 11.0, using CUDA driver 11.0
+Using CUDA-Aware MPI (GPU Direct) communicator...
+Thrust failure: transform: failed to synchronize: cudaErrorIllegalAddress: an illegal memory access was encountered
+File and line number are not available for this exception.
+Caught amgx exception: Cuda failure: 'an illegal memory access was encountered'
+ at: /ccs/home/malachi/develop/nekRS/3rd_party/AMGX/base/src/amgx_c.cu:2046
+Stack trace:
+ /ccs/home/malachi/.local/nekrs/lib/libamgxsh.so : void amgx::(anonymous namespace)::vector_bind<(AMGX_Mode)8465>(AMGX_vector_handle_struct*, AMGX_matrix_handle_struct*)+0x324
+ /ccs/home/malachi/.local/nekrs/lib/libamgxsh.so : AMGX_vector_bind_impl()+0x22c
+ /ccs/home/malachi/.local/nekrs/lib/libamgxsh.so : AMGX_vector_bind()+0x50
+ /ccs/home/malachi/.local/nekrs/lib/libnekrs.so : AMGXsetup()+0x434
+ /ccs/home/malachi/.local/nekrs/lib/libnekrs.so : ellipticSEMFEMSetup(elliptic_t*)+0x128c
+ /ccs/home/malachi/.local/nekrs/lib/libnekrs.so : ellipticPreconditionerSetup(elliptic_t*, ogs_t*)+0x5c8
+ /ccs/home/malachi/.local/nekrs/lib/libnekrs.so : ellipticSolveSetup(elliptic_t*)+0x1e98
+ /ccs/home/malachi/.local/nekrs/lib/libnekrs.so : nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)+0xa344
+ /ccs/home/malachi/.local/nekrs/lib/libnekrs.so : nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0x12dc
+ /ccs/home/malachi/.local/nekrs/bin/nekrs() [0x100043cc]
+ /lib64/power9/libc.so.6 : ()+0x24078
+ /lib64/power9/libc.so.6 : __libc_start_main()+0xb4
+
+Caught amgx exception: Cuda failure: 'an illegal memory access was encountered'
+ at: /ccs/home/malachi/develop/nekRS/3rd_party/AMGX/base/src/amgx_c.cu:2046
+Stack trace:
+ /ccs/home/malachi/.local/nekrs/lib/libamgxsh.so : void amgx::(anonymous namespace)::vector_bind<(AMGX_Mode)8465>(AMGX_vector_handle_struct*, AMGX_matrix_handle_struct*)+0x324
+ /ccs/home/malachi/.local/nekrs/lib/libamgxsh.so : AMGX_vector_bind_impl()+0x22c
+ /ccs/home/malachi/.local/nekrs/lib/libamgxsh.so : AMGX_vector_bind()+0x50
+ /ccs/home/malachi/.local/nekrs/lib/libnekrs.so : AMGXsetup()+0x448
+ /ccs/home/malachi/.local/nekrs/lib/libnekrs.so : ellipticSEMFEMSetup(elliptic_t*)+0x128c
+ /ccs/home/malachi/.local/nekrs/lib/libnekrs.so : ellipticPreconditionerSetup(elliptic_t*, ogs_t*)+0x5c8
+ /ccs/home/malachi/.local/nekrs/lib/libnekrs.so : ellipticSolveSetup(elliptic_t*)+0x1e98
+ /ccs/home/malachi/.local/nekrs/lib/libnekrs.so : nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)+0xa344
+ /ccs/home/malachi/.local/nekrs/lib/libnekrs.so : nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0x12dc
+ /ccs/home/malachi/.local/nekrs/bin/nekrs() [0x100043cc]
+ /lib64/power9/libc.so.6 : ()+0x24078
+ /lib64/power9/libc.so.6 : __libc_start_main()+0xb4
+
+User defined signal 2
+ERROR:  One or more process (first noticed rank 12) terminated with signal 12
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@batch4>
+Subject: Job 1468331: <nekRS_peb1568_n2t2bnb> in cluster <summit> Exited
+
+Job <nekRS_peb1568_n2t2bnb> was submitted from host <login1> by user <malachi> in cluster <summit> at Thu Sep 30 18:46:43 2021
+Job was executed on host(s) <1*batch4>, in queue <batch>, as user <malachi> in cluster <summit> at Thu Sep 30 18:55:48 2021
+                            <42*h14n13>
+                            <42*h20n14>
+                            <42*h20n15>
+                            <42*h21n08>
+                            <42*h21n11>
+                            <42*h21n12>
+</ccs/home/malachi> was used as the home directory.
+</gpfs/alpine/scratch/malachi/csc262/siam-pp-22/pb1568/semfem-fp32-6> was used as the working directory.
+Started at Thu Sep 30 18:55:48 2021
+Terminated at Thu Sep 30 19:26:19 2021
+Results reported at Thu Sep 30 19:26:19 2021
+
+The output (if any) is above this job summary.
+

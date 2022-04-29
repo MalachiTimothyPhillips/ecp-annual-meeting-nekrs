@@ -1,0 +1,334 @@
+                 __    ____  _____
+   ____   ___   / /__ / __ \/ ___/
+  / __ \ / _ \ / //_// /_/ /\__ \ 
+ / / / //  __// ,<  / _, _/___/ / 
+/_/ /_/ \___//_/|_|/_/ |_|/____/  v21.2.0 (89cacef2)
+
+COPYRIGHT (c) 2019-2021 UCHICAGO ARGONNE, LLC
+
+MPI tasks: 6
+
+reading par file ...
+general::extrapolation is deprecated and might be removed in the future!
+general::filtering is deprecated and might be removed in the future!
+general::filtermodes is deprecated and might be removed in the future!
+general::filterweight is deprecated and might be removed in the future!
+
+using NEKRS_HOME: /ccs/home/malachi/.local/nekrs
+using NEKRS_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/67peb/cheby-jac-fp32-1/.cache
+using OCCA_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/67peb/cheby-jac-fp32-1/.cache/occa/
+
+Initializing device 
+active occa mode: CUDA
+
+building udf ... 
+Consolidate compiler generated dependencies of target UDF
+[100%] Built target UDF
+done (1.05277s)
+skip building nekInterface (SIZE requires no update)
+loading nek ... 
+done
+loading udf kernels ... done (0.197198s)
+
+loading kernels ... done (3.73181s)
+
+ Reading /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/67peb/cheby-jac-fp32-1/tamu_0p18c.re2                                                
+ reading mesh 
+ reading bc for ifld           1
+ done :: read .re2 file     3.7     sec
+
+Running parCon ... (tol=0.2)
+
+ Error: elementCheck
+Running parCon ... (tol=0.02)
+Running parRSB ...
+Warning: Partition created 1/2 (min/max) disconnected components.
+parRSB finished in 4.9408 s
+
+ reading mesh 
+ reading curved sides 
+ reading bc for ifld           1
+ done :: read .re2 file     5.2     sec
+
+ setup mesh topology
+   Right-handed check complete for      122284 elements. OK.
+gs_setup: 410008 unique labels shared
+   handle bytes (avg, min, max): 6.71469e+07 66336492 67627052
+   buffer bytes (avg, min, max): 2.2017e+06 1674352 3097328
+   setupds time 2.5080E+00 seconds   0  8    16986272      122284
+ 
+ nElements   max/min/bal: 20381 20380 1.00
+ nMessages   max/min/avg: 5 2 4.00
+ msgSize     max/min/avg: 67751 1208 35942.00
+ msgSizeSum  max/min/avg: 193583 104647 137606.33
+ 
+ max multiplicity           40
+ done :: setup mesh topology
+  
+ call usrdat
+ done :: usrdat
+
+ generate geometry data
+ done :: generate geometry data
+  
+ call usrdat2
+ done :: usrdat2
+
+  1.0032E-02  1.9209E-02  2.9060E-02  1.2212E-16  1.2212E-16  3.7881E-16 xyz repair 1
+  1.0032E-02  1.9209E-02  2.9060E-02  1.0032E-02  1.9967E-02  3.0732E-02 xyz repair 2
+  8.8818E-16  8.8818E-16  1.2596E-15  1.3541E-15  1.0657E-15  2.2181E-15 xyz repair 3
+  2.8804E-16  4.0923E-16  1.2511E-15  2.8804E-16  4.0923E-16  1.2511E-15 xyz repair 4
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ verify mesh topology
+  -2.2000000476837158        2.2000000476837158       Xrange
+  -2.2000000476837158        2.1999990940093994       Yrange
+  -4.9200000762939453        6.8239998817443865       Zrange
+ done :: verify mesh topology
+  
+ mesh metrics:
+ GLL grid spacing min/max    : 4.02E-05 1.45E-01
+ scaled Jacobian  min/max/avg: 5.97E-03 9.70E-01 3.80E-01
+ aspect ratio     min/max/avg: 1.17E+00 2.04E+02 1.32E+01
+
+ call usrdat3
+ done :: usrdat3
+
+gridpoints unique/tot:      43399616     62609408
+dofs vel/pr:                40502973     43385013
+ nek setup done in    3.2970E+01 s
+
+ set initial conditions
+ Checking restart options: tamu_0p18c0.f00015                                                                                                                  
+ nekuic (1) for ifld            1
+ Reading checkpoint data 
+       FILE:/gpfs/alpine/csc262/scratch/malachi/siam-pp-22/67peb/cheby-jac-fp32-1/tamu_0p18c0.f00015                                            
+
+        0  1.0675E+01 done :: Read checkpoint data
+                              avg data-throughput =     0.1GB/s
+                              io-nodes =     6
+
+ xyz min    -2.2000      -2.2000      -4.9200    
+ uvwpt min  -7.4729      -8.2644      -6.1606      -35.724       0.0000    
+ PS min      0.0000       0.0000       0.0000      0.99000E+22
+ xyz max     2.2000       2.2000       6.8240    
+ uvwpt max   7.8275       7.4214       9.7114       35.572       0.0000    
+ PS max      0.0000       0.0000       0.0000     -0.99000E+22
+ Restart: recompute geom. factors.
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ done :: set initial conditions
+  
+calling nek_userchk ...
+
+loading mesh from nek ... NboundaryIDs: 3, NboundaryFaces: 59412 done (0.00183622s)
+generating mesh ... Nq: 8 cubNq: 11
+computing geometric factors ... J [4.74776e-08,0.00660784] done (1.37043s)
+timing oogs modes: 0.000933475s 0.00067203s 0.000668872s 0.000669821s 0.00048846s 0.00047615s used config: 3.0.1
+min 80% of the local elements are internal
+timing oogs modes: 0.00285989s 0.00194638s 0.00189808s 0.00189464s 0.00141622s 0.00140542s used config: 3.0.1
+loading ns kernels ... done (0.000179055s)
+copying solution from nek
+calling udf_setup ... done
+copying solution to nek
+================ ELLIPTIC SETUP VELOCITY ================
+bID 1 -> bcType fixedValue
+bID 2 -> bcType zeroGradient
+bID 3 -> bcType zeroValue
+allNeumann = 0 
+loading elliptic kernels ... done (9.2042e-05s)
+timing oogs modes: 0.00287877s 0.00194466s 0.00187122s 0.00186971s 0.00141431s 0.00141352s used config: 3.0.1
+timing oogs modes: 0.00315804s 0.00348652s 0.00333874s 0.00344373s 0.0018729s 0.0018587s used config: 3.0.1
+building Jacobi preconditioner ... done (0.029564s)
+done (0.880969s)
+================ ELLIPTIC SETUP PRESSURE ================
+allNeumann = 0 
+loading elliptic kernels ... done (0.000102216s)
+timing oogs modes: 0.000733845s 0.000667671s 0.000677627s 0.000675032s 0.000474839s 0.0004739s used config: 3.0.1
+timing oogs modes: 0.00128381s 0.00142228s 0.00140589s 0.00142565s 0.000846056s 0.000840518s used config: 3.0.1
+building MG preconditioner ... 
+loading elliptic preconditioner kernels ... done (6.866e-05s)
+=============BUILDING MULTIGRID LEVEL OF DEGREE 7==================
+timing oogs modes: 0.000686779s 0.000382304s 0.000370459s 0.000371991s 0.000238983s 0.000237492s used config: 3.0.1
+timing oogs modes: 0.000742786s 0.000760459s 0.000757814s 0.000761885s 0.000456209s 0.000456945s used config: 3.0.0
+estimating maxEigenvalue ... 3.76469 done (0.259289s)
+=============BUILDING MULTIGRID LEVEL OF DEGREE 5==================
+computing geometric factors ... J [4.74776e-08,0.00660784] done (0.519929s)
+loading elliptic preconditioner kernels ... done (0.000105502s)
+done (0.0261504s)
+timing oogs modes: 0.00046894s 0.000260818s 0.000254897s 0.000261225s 0.000183863s 0.000175541s used config: 3.0.1
+timing oogs modes: 0.000432045s 0.00044691s 0.000443917s 0.000439938s 0.000252043s 0.00024593s used config: 3.0.1
+estimating maxEigenvalue ... 3.22821 done (0.125687s)
+=============BUILDING MULTIGRID LEVEL OF DEGREE 3==================
+computing geometric factors ... J [4.74776e-08,0.00660784] done (0.153748s)
+loading elliptic preconditioner kernels ... done (8.9728e-05s)
+done (0.013936s)
+timing oogs modes: 0.000227003s 0.000178128s 0.000180141s 0.000177805s 0.000185189s 0.000166119s used config: 3.0.1
+timing oogs modes: 0.000251864s 0.000236196s 0.000235262s 0.000239174s 0.000201206s 0.000200791s used config: 3.0.1
+estimating maxEigenvalue ... 2.37133 done (0.0477945s)
+=============BUILDING MULTIGRID LEVEL OF DEGREE 1==================
+computing geometric factors ... J [4.73877e-08,0.00660786] done (0.0204665s)
+loading elliptic preconditioner kernels ... done (8.5144e-05s)
+done (0.00624598s)
+timing oogs modes: 0.000119491s 0.000121508s 0.000120194s 0.000120949s 0.00016638s 0.000155271s used config: 1.0.0
+timing oogs modes: 0.000150259s 0.000164298s 0.000159632s 0.000160149s 0.000193408s 0.000181565s used config: 1.0.0
+building full FEM matrix ... done.
+done (0.593295s)
+Setting up AMG...
+
+ Num MPI tasks = 6
+
+ Num OpenMP threads = 1
+
+
+BoomerAMG SETUP PARAMETERS:
+
+ Max levels = 25
+ Num levels = 8
+
+ Strength Threshold = 0.250000
+ Interpolation Truncation Factor = 0.000000
+ Maximum Row Sum Threshold for Dependency Weakening = 0.900000
+
+ Coarsening Type = PMIS 
+ measures are determined locally
+
+ Interpolation = extended+i interpolation
+
+Operator Matrix Information:
+
+             nonzero            entries/row          row sums
+lev    rows  entries sparse   min  max     avg      min         max
+======================================================================
+  0  151659  2453707  0.000     7   83    16.2  -1.423e-07   1.569e+00
+  1   67996  1794818  0.000     7  199    26.4  -1.776e-07   1.572e+00
+  2   22905   590443  0.001     6  177    25.8  -1.019e-03   1.822e+00
+  3    5922   123692  0.004     4  119    20.9  -3.245e-03   1.663e+00
+  4    1318    31060  0.018     5  162    23.6  -3.274e-03   2.016e+00
+  5     264     6540  0.094     6  128    24.8  -3.805e-04   2.469e+00
+  6      37      605  0.442     7   37    16.4   7.868e-06   2.808e+00
+  7       1        1  1.000     1    1     1.0   2.088e+00   2.088e+00
+
+
+Interpolation Matrix Information:
+                      entries/row        min        max            row sums
+lev   rows x cols   min  max  avgW     weight      weight       min         max
+==================================================================================
+  0 151659 x 67996    1    4   2.3  -1.126e-01   1.000e+00   4.065e-01   1.000e+00
+  1  67996 x 22905    1    4   2.9  -2.216e-01   1.015e+00   2.410e-01   1.000e+00
+  2  22905 x 5922     1    4   3.5  -2.407e-02   1.003e+00   2.068e-01   1.003e+00
+  3   5922 x 1318     1    4   3.7   7.689e-03   1.004e+00   1.116e-01   1.005e+00
+  4   1318 x 264      0    4   3.9   1.149e-02   1.000e+00   0.000e+00   1.007e+00
+  5    264 x 37       0    4   3.0  -4.242e-02   1.042e+00   0.000e+00   1.004e+00
+  6     37 x 1        1    1   1.0   1.868e-01   9.999e-01   1.868e-01   1.000e+00
+
+
+     Complexity:    grid = 1.649108
+                operator = 2.038086
+                memory = 2.241720
+
+
+
+
+BoomerAMG SOLVER PARAMETERS:
+
+  Maximum number of cycles:         2 
+  Stopping Tolerance:               0.000000e+00 
+  Cycle type (1 = V, 2 = W, etc.):  1
+
+  Relaxation Parameters:
+   Visiting Grid:                     down   up  coarse
+            Number of sweeps:            1    1     1 
+   Type 0=Jac, 3=hGS, 6=hSGS, 9=GE:     16   16     9 
+   Point types, partial sweeps (1=C, -1=F):
+                  Pre-CG relaxation (down):   0
+                   Post-CG relaxation (up):   0
+                             Coarsest grid:   0
+
+done (0.543971s)
+--------------------Multigrid Report---------------------
+---------------------------------------------------------
+level|    Type    |                 |     Smoother      |
+     |            |                 |                   |
+---------------------------------------------------------
+   0 |    pMG     |   Matrix-free   | Chebyshev+Jacobi  |
+     |            |     Degree  7   |                   |
+   1 |    pMG     |   Matrix-free   | Chebyshev+Jacobi  |
+     |            |     Degree  5   |                   |
+   2 |    pMG     |   Matrix-free   | Chebyshev+Jacobi  |
+     |            |     Degree  3   |                   |
+   3 |    AMG     |   Matrix        | BoomerAMG         |
+     |            |     Degree  1   |                   |
+---------------------------------------------------------
+done (15.6248s)
+terminate called after throwing an instance of 'occa::exception'
+  what():  
+---[ Error ]--------------------------------------------------------------------
+    File     : /ccs/home/malachi/develop/nekRS/3rd_party/occa/src/occa/internal/modes/cuda/device.cpp
+    Line     : 461
+    Function : malloc
+    Message  : Device: malloc
+               CUDA Error [ 2 ]: CUDA_ERROR_OUT_OF_MEMORY
+    Stack
+      13 occa::error(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      12 occa::cuda::error(cudaError_enum, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+      11 occa::cuda::device::malloc(unsigned long, void const*, occa::json const&)
+      10 occa::device::malloc(long, occa::dtype_t const&, void const*, occa::json const&)
+       9 occa::memory occa::device::malloc<void>(long, void const*, occa::json const&)
+       8 device_t::malloc(long long, int)
+       7 SolutionProjection::SolutionProjection(elliptic_t&, SolutionProjection::ProjectionType, int, int)
+       6 ellipticSolveSetup(elliptic_t*)
+       5 nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)
+       4 nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+       3 /ccs/home/malachi/.local/nekrs/bin/nekrs()
+       2 /lib64/power9/libc.so.6(+0x24078)
+       1 /lib64/power9/libc.so.6(__libc_start_main+0xb4)
+================================================================================
+
+[c27n06:1873920] *** Process received signal ***
+[c27n06:1873920] Signal: Aborted (6)
+[c27n06:1873920] Signal code:  (-6)
+[c27n06:1873920] [ 0] linux-vdso64.so.1(__kernel_sigtramp_rt64+0x0)[0x2000000504d8]
+[c27n06:1873920] [ 1] /lib64/power9/libc.so.6(gsignal+0xd8)[0x2000023f3618]
+[c27n06:1873920] [ 2] /lib64/power9/libc.so.6(abort+0x164)[0x2000023d3a2c]
+[c27n06:1873920] [ 3] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x158)[0x200001faccc8]
+[c27n06:1873920] [ 4] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(+0xb82e4)[0x200001fa82e4]
+[c27n06:1873920] [ 5] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(_ZSt9terminatev+0x20)[0x200001fa83a0]
+[c27n06:1873920] [ 6] /sw/summit/gcc/9.1.0-alpha+20190716/lib64/libstdc++.so.6(__cxa_throw+0x78)[0x200001fa8868]
+[c27n06:1873920] [ 7] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa8_messageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS7_S7_iS7_+0x18c)[0x2000007d4b5c]
+[c27n06:1873920] [ 8] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_iS7_+0x68)[0x2000007d4d68]
+[c27n06:1873920] [ 9] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda5errorE14cudaError_enumRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_iS9_+0x304)[0x200000743734]
+[c27n06:1873920] [10] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa4cuda6device6mallocEmPKvRKNS_4jsonE+0x50c)[0x2000007344cc]
+[c27n06:1873920] [11] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocElRKNS_7dtype_tEPKvRKNS_4jsonE+0xe8)[0x2000005e34b8]
+[c27n06:1873920] [12] /ccs/home/malachi/.local/nekrs/lib/libocca.so(_ZN4occa6device6mallocIvEENS_6memoryElPKvRKNS_4jsonE+0x34)[0x2000005e3b44]
+[c27n06:1873920] [13] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN8device_t6mallocExi+0xdc)[0x2000001a2d7c]
+[c27n06:1873920] [14] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN18SolutionProjectionC2ER10elliptic_tNS_14ProjectionTypeEii+0x29c)[0x200000259bdc]
+[c27n06:1873920] [15] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z18ellipticSolveSetupP10elliptic_t+0x1c18)[0x20000025dec8]
+[c27n06:1873920] [16] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_Z8nrsSetupP19ompi_communicator_tR9setupAideP5nrs_t+0xa854)[0x20000013cf54]
+[c27n06:1873920] [17] /ccs/home/malachi/.local/nekrs/lib/libnekrs.so(_ZN5nekrs5setupEP19ompi_communicator_tS1_iiiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_+0x1288)[0x2000001120f8]
+[c27n06:1873920] [18] /ccs/home/malachi/.local/nekrs/bin/nekrs[0x100042a4]
+[c27n06:1873920] [19] /lib64/power9/libc.so.6(+0x24078)[0x2000023d4078]
+[c27n06:1873920] [20] /lib64/power9/libc.so.6(__libc_start_main+0xb4)[0x2000023d4264]
+[c27n06:1873920] *** End of error message ***
+ERROR:  One or more process (first noticed rank 2) terminated with signal 6 (core dumped)
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@batch1>
+Subject: Job 1661816: <nekRS_tamu_0p18c> in cluster <summit> Exited
+
+Job <nekRS_tamu_0p18c> was submitted from host <login5> by user <malachi> in cluster <summit> at Wed Dec  1 11:42:40 2021
+Job was executed on host(s) <1*batch1>, in queue <batch>, as user <malachi> in cluster <summit> at Wed Dec  1 21:19:36 2021
+                            <42*c27n06>
+</ccs/home/malachi> was used as the home directory.
+</gpfs/alpine/scratch/malachi/csc262/siam-pp-22/67peb/cheby-jac-fp32-1> was used as the working directory.
+Started at Wed Dec  1 21:19:36 2021
+Terminated at Wed Dec  1 21:21:42 2021
+Results reported at Wed Dec  1 21:21:42 2021
+
+The output (if any) is above this job summary.
+

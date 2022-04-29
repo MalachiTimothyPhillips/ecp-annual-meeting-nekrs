@@ -1,0 +1,225 @@
+                 __    ____  _____
+   ____   ___   / /__ / __ \/ ___/
+  / __ \ / _ \ / //_// /_/ /\__ \ 
+ / / / //  __// ,<  / _, _/___/ / 
+/_/ /_/ \___//_/|_|/_/ |_|/____/  v21.2.0 (89cacef2)
+
+COPYRIGHT (c) 2019-2021 UCHICAGO ARGONNE, LLC
+
+MPI tasks: 24
+
+reading par file ...
+
+using NEKRS_HOME: /ccs/home/malachi/.local/nekrs-amgx
+using NEKRS_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/kershaw/fixed-size/eps-0.05/semfem-p-3/.cache
+using OCCA_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/kershaw/fixed-size/eps-0.05/semfem-p-3/.cache/occa/
+
+Initializing device 
+active occa mode: CUDA
+
+building udf ... 
+Consolidate compiler generated dependencies of target UDF
+[100%] Built target UDF
+done (2.65334s)
+skip building nekInterface (SIZE requires no update)
+loading nek ... 
+done
+loading udf kernels ... done (0.0175855s)
+
+loading kernels ... done (4.02208s)
+
+ Reading /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/kershaw/fixed-size/eps-0.05/semfem-p-3/kershaw.re2                                   
+ reading mesh 
+ reading bc for ifld           1
+ done :: read .re2 file     55.     sec
+
+Running parCon ... (tol=0.2)
+Running parRSB ...
+Warning: Partitioner only reached a tolerance of 2.377549 given 0.000500 after 50 x 50 iterations in Level=1!
+Warning: Partitioner only reached a tolerance of 0.581747 given 0.000080 after 50 x 50 iterations in Level=3!
+parRSB finished in 45.0633 s
+
+ reading mesh 
+ reading bc for ifld           1
+ done :: read .re2 file     69.     sec
+
+ setup mesh topology
+   Right-handed check complete for     2406104 elements. OK.
+gs_setup: 1386115 unique labels shared
+   handle bytes (avg, min, max): 6.22437e+07 61614900 62940452
+   buffer bytes (avg, min, max): 1.88293e+06 1480896 2367008
+   setupds time 4.6364E+00 seconds   0  4    46201995     2406104
+ 
+ nElements   max/min/bal: 100255 100254 1.00
+ nMessages   max/min/avg: 16 3 8.08
+ msgSize     max/min/avg: 48433 1 17255.58
+ msgSizeSum  max/min/avg: 147938 92556 117683.08
+ 
+ max multiplicity            8
+ done :: setup mesh topology
+  
+ call usrdat
+ epsy=   5.0000000000000003E-002 epsz=   5.0000000000000003E-002
+ done :: usrdat
+
+ generate geometry data
+ done :: generate geometry data
+  
+ call usrdat2
+ done :: usrdat2
+
+  1.1102E-16  1.1102E-16  1.1102E-16  1.1102E-16  1.1102E-16  1.1102E-16 xyz repair 1
+  5.5511E-17  1.1102E-16  1.1102E-16  1.3847E-16  1.1247E-16  1.2050E-16 xyz repair 2
+  5.5511E-17  1.1102E-16  5.5511E-17  1.2050E-16  1.2050E-16  1.2050E-16 xyz repair 3
+  5.5511E-17  5.5511E-17  5.5511E-17  5.5511E-17  5.5511E-17  5.5511E-17 xyz repair 4
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ verify mesh topology
+ -0.50000000000000000       0.50000000000000000       Xrange
+ -0.50000000000000000       0.50000000000000000       Yrange
+ -0.50000000000000000       0.50000000000000000       Zrange
+ done :: verify mesh topology
+  
+ mesh metrics:
+ GLL grid spacing min/max    : 1.03E-04 2.71E-02
+ scaled Jacobian  min/max/avg: 2.20E-01 1.00E+00 8.97E-01
+ aspect ratio     min/max/avg: 1.02E+00 1.09E+02 1.50E+01
+
+ call usrdat3
+ done :: usrdat3
+
+gridpoints unique/tot:      65450827    153990656
+dofs vel/pr:                65450827     64481201
+ nek setup done in    1.9240E+02 s
+
+ set initial conditions
+ nekuic (1) for ifld            1
+ call nekuic for vel  
+ xyz min   -0.50000     -0.50000     -0.50000    
+ uvwpt min  -1.0000      0.81025E-06  0.78417E-06   0.0000       0.0000    
+ PS min      0.0000       0.0000       0.0000      0.99000E+22
+ xyz max    0.50000      0.50000      0.50000    
+ uvwpt max   1.0000       1.0000       1.0000       0.0000       0.0000    
+ PS max      0.0000       0.0000       0.0000     -0.99000E+22
+ done :: set initial conditions
+  
+calling nek_userchk ...
+
+loading mesh from nek ... NboundaryIDs: 1, NboundaryFaces: 107736 done (0.00966758s)
+generating mesh ... Nq: 4 cubNq: 5
+computing geometric factors ... J [1.29878e-10,1.97544e-07] done (0.75557s)
+timing oogs modes: 0.000675054s 0.000528295s 0.00051712s 0.000514774s 0.000372477s 0.000355064s used config: 3.0.1
+min 84% of the local elements are internal
+timing oogs modes: 0.00284845s 0.00147298s 0.00144038s 0.00142906s 0.00105551s 0.00105214s used config: 3.0.1
+loading ns kernels ... done (0.000229146s)
+copying solution from nek
+calling udf_setup ... done
+copying solution to nek
+================ ELLIPTIC SETUP VELOCITY ================
+bID 1 -> bcType zeroGradient
+allNeumann = 0 
+loading elliptic kernels ... done (0.00013868s)
+timing oogs modes: 0.00232897s 0.00148813s 0.00144788s 0.00145519s 0.00105585s 0.001052s used config: 3.0.1
+timing oogs modes: 0.0025499s 0.0024098s 0.00238447s 0.00236174s 0.0012191s 0.0012067s used config: 3.0.1
+building Jacobi preconditioner ... done (0.165011s)
+done (1.12997s)
+================ ELLIPTIC SETUP PRESSURE ================
+WARNING: Cannot find oudf function: pressureDirichletConditions!
+allNeumann = 0 
+loading elliptic kernels ... done (0.000146893s)
+timing oogs modes: 0.000671815s 0.000536594s 0.000534268s 0.000526471s 0.0003659s 0.000360867s used config: 3.0.1
+timing oogs modes: 0.000918586s 0.000998831s 0.000991284s 0.00100466s 0.000571589s 0.000567154s used config: 3.0.1
+setup SEMFEM preconditioner ... 
+building matrix ... done (14.663s)
+AMGX version 2.2.0.132-opensource
+Built on Dec  1 2021, 10:12:57
+Compiled with CUDA Runtime 11.0, using CUDA driver 11.0
+Using CUDA-Aware MPI (GPU Direct) communicator...
+Caught amgx exception: Cuda failure: 'an illegal memory access was encountered'
+ at: /ccs/home/malachi/develop/nekRS/3rd_party/AMGX/base/src/csr_multiply_sm70.cu:2110
+Stack trace:
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::CSR_Multiply_Sm70<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::compute_values_RAP_sparse_add(amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&, amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > const&, std::vector<amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >, std::allocator<amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > > >&, std::vector<amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >, std::allocator<amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > > >&, std::vector<amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >, std::allocator<amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > > >&, std::vector<amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >, std::allocator<amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > > >&, int)+0xe30
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::CSR_Multiply_Impl<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::sparse_add(amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&, amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > const&, std::vector<amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >, std::allocator<amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > > >&, std::vector<amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >, std::allocator<amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > > >&, std::vector<amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >, std::allocator<amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > > >&, std::vector<amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >, std::allocator<amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > > >&)+0x330
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::CSR_Multiply_Impl<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::RAP_sparse_add(amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&, amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > const&, std::vector<amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >, std::allocator<amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > > >&, std::vector<amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >, std::allocator<amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > > >&, std::vector<amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >, std::allocator<amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > > >&, std::vector<amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >, std::allocator<amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > > >&)+0x9c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::CSR_Multiply<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::csr_RAP_sparse_add(amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&, amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > const&, std::vector<amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >, std::allocator<amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > > >&, std::vector<amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >, std::allocator<amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > > >&, std::vector<amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >, std::allocator<amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > > >&, std::vector<amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >, std::allocator<amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > > >&, void*)+0xac
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::DistributedArranger<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::exchange_RAP_ext(amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&, amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&, amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&, amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&, amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)0, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&, amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)8, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&, amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)0, (AMGX_VecPrecision)2, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&, amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)0, (AMGX_VecPrecision)8, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&, amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)8, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&, amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)0, (AMGX_VecPrecision)8, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&, amgx::Vector<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)8, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&, int, long, void*)+0x858
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::classical::Classical_AMG_Level<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::computeAOperator_1x1_distributed()+0xd2c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::classical::Classical_AMG_Level_Base<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::computeAOperator_distributed()+0x5c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::classical::Classical_AMG_Level_Base<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::createCoarseMatrices()+0x200
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::AMG_Level<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >* amgx::AMG_Setup<(AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2>::setup<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >(amgx::AMG<(AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2>*, amgx::AMG_Level<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >*&, int, bool)+0x4c8
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : void amgx::AMG_Setup<(AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2>::setup<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2>, (AMGX_MemorySpace)1, (AMGX_MemorySpace)0>(amgx::AMG<(AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2>*, amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&)+0x124
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::AMG<(AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2>::setup(amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&)+0x120
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::AlgebraicMultigrid_Solver<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::solver_setup(bool)+0x5c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::Solver<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::setup(amgx::Operator<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&, bool)+0x23c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::Solver<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::setup_no_throw(amgx::Operator<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&, bool)+0xb4
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::AMG_Solver<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::setup(amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >&)+0x90
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::AMG_Solver<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> >::setup_capi(std::shared_ptr<amgx::Matrix<amgx::TemplateConfig<(AMGX_MemorySpace)1, (AMGX_VecPrecision)1, (AMGX_MatPrecision)1, (AMGX_IndPrecision)2> > >)+0xd0
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : amgx::AMGX_ERROR amgx::(anonymous namespace)::set_solver_with_shared<(AMGX_Mode)8465, amgx::AMG_Solver, amgx::Matrix>(AMGX_solver_handle_struct*, AMGX_matrix_handle_struct*, amgx::Resources*, amgx::AMGX_ERROR (amgx::AMG_Solver<amgx::TemplateMode<(AMGX_Mode)8465>::Type>::*)(std::shared_ptr<amgx::Matrix<amgx::TemplateMode<(AMGX_Mode)8465>::Type> >))+0x414
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : AMGX_solver_setup()+0x2ac
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : AMGXsetup()+0x458
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSEMFEMSetup(elliptic_t*)+0x1428
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticPreconditionerSetup(elliptic_t*, ogs_t*)+0x478
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSolveSetup(elliptic_t*)+0x1884
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)+0xa854
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0x1288
+ /ccs/home/malachi/.local/nekrs-amgx/bin/nekrs() [0x10004324]
+ /lib64/power9/libc.so.6 : ()+0x24078
+ /lib64/power9/libc.so.6 : __libc_start_main()+0xb4
+
+Caught amgx exception: Cuda failure: 'an illegal memory access was encountered'
+ at: /ccs/home/malachi/develop/nekRS/3rd_party/AMGX/base/src/amgx_c.cu:2046
+Stack trace:
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : void amgx::(anonymous namespace)::vector_bind<(AMGX_Mode)8465>(AMGX_vector_handle_struct*, AMGX_matrix_handle_struct*)+0x31c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : AMGX_vector_bind_impl()+0x22c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : AMGX_vector_bind()+0x50
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : AMGXsetup()+0x46c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSEMFEMSetup(elliptic_t*)+0x1428
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticPreconditionerSetup(elliptic_t*, ogs_t*)+0x478
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSolveSetup(elliptic_t*)+0x1884
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)+0xa854
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0x1288
+ /ccs/home/malachi/.local/nekrs-amgx/bin/nekrs() [0x10004324]
+ /lib64/power9/libc.so.6 : ()+0x24078
+ /lib64/power9/libc.so.6 : __libc_start_main()+0xb4
+
+Caught amgx exception: Cuda failure: 'an illegal memory access was encountered'
+ at: /ccs/home/malachi/develop/nekRS/3rd_party/AMGX/base/src/amgx_c.cu:2046
+Stack trace:
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : void amgx::(anonymous namespace)::vector_bind<(AMGX_Mode)8465>(AMGX_vector_handle_struct*, AMGX_matrix_handle_struct*)+0x31c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : AMGX_vector_bind_impl()+0x22c
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libamgxsh.so : AMGX_vector_bind()+0x50
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : AMGXsetup()+0x480
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSEMFEMSetup(elliptic_t*)+0x1428
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticPreconditionerSetup(elliptic_t*, ogs_t*)+0x478
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : ellipticSolveSetup(elliptic_t*)+0x1884
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nrsSetup(ompi_communicator_t*, setupAide&, nrs_t*)+0xa854
+ /ccs/home/malachi/.local/nekrs-amgx/lib/libnekrs.so : nekrs::setup(ompi_communicator_t*, ompi_communicator_t*, int, int, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0x1288
+ /ccs/home/malachi/.local/nekrs-amgx/bin/nekrs() [0x10004324]
+ /lib64/power9/libc.so.6 : ()+0x24078
+ /lib64/power9/libc.so.6 : __libc_start_main()+0xb4
+
+User defined signal 2
+ERROR:  One or more process (first noticed rank 0) terminated with signal 12
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@batch5>
+Subject: Job 1664428: <nekRS_kershaw> in cluster <summit> Exited
+
+Job <nekRS_kershaw> was submitted from host <login2> by user <malachi> in cluster <summit> at Thu Dec  2 12:13:55 2021
+Job was executed on host(s) <1*batch5>, in queue <batch>, as user <malachi> in cluster <summit> at Thu Dec  2 13:08:24 2021
+                            <42*b15n13>
+                            <42*b15n14>
+                            <42*b15n15>
+                            <42*b31n15>
+</ccs/home/malachi> was used as the home directory.
+</gpfs/alpine/scratch/malachi/csc262/siam-pp-22/kershaw/fixed-size/eps-0.05/semfem-p-3> was used as the working directory.
+Started at Thu Dec  2 13:08:24 2021
+Terminated at Thu Dec  2 13:33:55 2021
+Results reported at Thu Dec  2 13:33:55 2021
+
+The output (if any) is above this job summary.
+

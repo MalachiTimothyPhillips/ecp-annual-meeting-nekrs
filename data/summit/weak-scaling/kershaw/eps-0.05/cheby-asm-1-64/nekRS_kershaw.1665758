@@ -1,0 +1,123 @@
+                 __    ____  _____
+   ____   ___   / /__ / __ \/ ___/
+  / __ \ / _ \ / //_// /_/ /\__ \ 
+ / / / //  __// ,<  / _, _/___/ / 
+/_/ /_/ \___//_/|_|/_/ |_|/____/  v21.2.0 (89cacef2)
+
+COPYRIGHT (c) 2019-2021 UCHICAGO ARGONNE, LLC
+
+MPI tasks: 384
+
+reading par file ...
+
+using NEKRS_HOME: /ccs/home/malachi/.local/nekrs-amgx
+using NEKRS_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/kershaw/weak-scaling-study/eps-0.05/cheby-asm-1-64/.cache
+using OCCA_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/kershaw/weak-scaling-study/eps-0.05/cheby-asm-1-64/.cache/occa/
+
+Initializing device 
+active occa mode: CUDA
+
+building udf ... 
+Consolidate compiler generated dependencies of target UDF
+[100%] Built target UDF
+done (0.310138s)
+skip building nekInterface (SIZE requires no update)
+loading nek ... 
+done
+loading udf kernels ... done (0.0112333s)
+
+loading kernels ... done (2.71997s)
+
+ Reading /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/kershaw/weak-scaling-study/eps-0.05/cheby-asm-1-64/kershaw.re2                       
+ reading mesh 
+ done :: read .re2 file    0.73     sec
+
+Running parCon ... (tol=0.2)
+
+ Error: elementCheck
+Running parCon ... (tol=0.02)
+
+ Error: elementCheck
+ERROR:  find_con failed!  ierr=384 
+  
+an error occured: dying ...
+  
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@batch2>
+Subject: Job 1665758: <nekRS_kershaw> in cluster <summit> Exited
+
+Job <nekRS_kershaw> was submitted from host <login3> by user <malachi> in cluster <summit> at Thu Dec  2 21:39:52 2021
+Job was executed on host(s) <1*batch2>, in queue <batch>, as user <malachi> in cluster <summit> at Thu Dec  2 22:25:55 2021
+                            <42*b32n10>
+                            <42*b32n11>
+                            <42*b32n12>
+                            <42*b32n13>
+                            <42*b32n14>
+                            <42*b32n15>
+                            <42*b32n16>
+                            <42*b32n17>
+                            <42*b32n18>
+                            <42*b33n01>
+                            <42*b33n02>
+                            <42*b33n03>
+                            <42*b33n04>
+                            <42*b33n05>
+                            <42*b33n06>
+                            <42*b33n07>
+                            <42*b33n08>
+                            <42*b33n09>
+                            <42*b33n10>
+                            <42*b33n11>
+                            <42*b33n12>
+                            <42*b33n13>
+                            <42*b33n14>
+                            <42*b33n15>
+                            <42*b33n16>
+                            <42*b33n17>
+                            <42*b33n18>
+                            <42*b34n01>
+                            <42*b34n02>
+                            <42*b34n03>
+                            <42*b34n04>
+                            <42*b34n05>
+                            <42*b34n06>
+                            <42*b34n07>
+                            <42*b34n08>
+                            <42*b34n09>
+                            <42*b34n10>
+                            <42*b34n11>
+                            <42*b34n12>
+                            <42*b34n13>
+                            <42*b34n14>
+                            <42*b34n15>
+                            <42*b34n16>
+                            <42*b34n17>
+                            <42*b34n18>
+                            <42*b35n01>
+                            <42*b35n02>
+                            <42*b35n03>
+                            <42*b35n04>
+                            <42*b35n05>
+                            <42*b35n06>
+                            <42*b35n07>
+                            <42*b35n08>
+                            <42*b35n09>
+                            <42*b35n10>
+                            <42*b35n11>
+                            <42*b35n12>
+                            <42*b35n13>
+                            <42*b35n14>
+                            <42*b35n15>
+                            <42*b35n16>
+                            <42*b35n17>
+                            <42*b35n18>
+                            <42*b36n01>
+</ccs/home/malachi> was used as the home directory.
+</gpfs/alpine/scratch/malachi/csc262/siam-pp-22/kershaw/weak-scaling-study/eps-0.05/cheby-asm-1-64> was used as the working directory.
+Started at Thu Dec  2 22:25:55 2021
+Terminated at Thu Dec  2 22:26:47 2021
+Results reported at Thu Dec  2 22:26:47 2021
+
+The output (if any) is above this job summary.
+

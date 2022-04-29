@@ -1,0 +1,194 @@
+                 __    ____  _____
+   ____   ___   / /__ / __ \/ ___/
+  / __ \ / _ \ / //_// /_/ /\__ \ 
+ / / / //  __// ,<  / _, _/___/ / 
+/_/ /_/ \___//_/|_|/_/ |_|/____/  v21.1 (63a5a122)
+
+COPYRIGHT (c) 2019-2021 UCHICAGO ARGONNE, LLC
+
+MPI tasks: 144
+
+reading par file ...
+general::filtering is deprecated and might be removed in the future!
+general::filtermodes is deprecated and might be removed in the future!
+general::filterweight is deprecated and might be removed in the future!
+
+using NEKRS_HOME: /ccs/home/malachi/.local/nekrs-next
+using NEKRS_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/debugging/ramesh/for_malachi_07.07.2021/semfem-fp32-24/.cache
+using OCCA_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/debugging/ramesh/for_malachi_07.07.2021/semfem-fp32-24/.cache/occa/
+
+Initializing device 
+active occa mode: CUDA
+
+building udf ... 
+[100%] Built target UDF
+done (0.346691s)
+loading nek ... 
+done
+loading udf kernels ... done (0.0342837s)
+
+loading kernels ... done (74.7432s)
+
+ Reading /gpfs/alpine/csc262/scratch/malachi/debugging/ramesh/for_malachi_07.07.2021/semfem-fp32-24/BoeingSpeedBump.re2                      
+ reading mesh 
+ reading bc for ifld           1
+ done :: read .re2 file    0.77     sec
+
+Running parCon ... (tol=0.2)
+Running parRSB ...
+parRSB finished in 2.489 s
+
+ reading mesh 
+ reading bc for ifld           1
+ done :: read .re2 file    0.41     sec
+
+ setup mesh topology
+   Right-handed check complete for      884736 elements. OK.
+gs_setup: 10678766 unique labels shared
+   handle bytes (avg, min, max): 3.67353e+07 35728756 37323012
+   buffer bytes (avg, min, max): 2.42622e+06 1752608 2842016
+   setupds time 1.0838E+00 seconds   0 10   193667760      884736
+ 
+ nElements   max/min/bal: 6144 6144 1.00
+ nMessages   max/min/avg: 16 5 12.35
+ msgSize     max/min/avg: 42086 1 12945.57
+ msgSizeSum  max/min/avg: 177626 109538 151638.90
+ 
+ max multiplicity            8
+ done :: setup mesh topology
+  
+ call usrdat
+ done :: usrdat
+
+ generate geometry data
+ done :: generate geometry data
+  
+ call usrdat2
+ done :: usrdat2
+
+  1.1102E-16  1.1102E-16  3.4694E-18  1.1102E-16  1.1102E-16  3.4694E-18 xyz repair 1
+  1.1102E-16  5.5511E-17  3.4694E-18  1.9631E-16  1.2486E-16  5.5569E-18 xyz repair 2
+  1.1102E-16  5.5511E-17  1.7347E-18  1.7124E-16  1.0656E-16  4.7191E-18 xyz repair 3
+  1.3878E-17  2.7756E-17  0.0000E+00  1.3878E-17  2.7756E-17  0.0000E+00 xyz repair 4
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ verify mesh topology
+  -1.0000000000000000        1.0000000000000000       Xrange
+   0.0000000000000000       0.49999999999999994       Yrange
+  -2.0000000000000000E-002   1.9999999999999997E-002  Zrange
+ done :: verify mesh topology
+  
+ mesh metrics:
+ GLL grid spacing min/max    : 8.34E-07 2.99E-03
+ scaled Jacobian  min/max/avg: 9.96E-01 1.00E+00 9.99E-01
+ aspect ratio     min/max/avg: 6.25E+00 2.55E+02 2.81E+01
+
+ call usrdat3
+ done :: usrdat3
+
+gridpoints unique/tot:     646652592    884736000
+dofs vel/pr:               644972544    646465536
+ nek setup done in    9.0946E+01 s
+
+ set initial conditions
+ Checking restart options: restart.fld                                                                                                                         
+ nekuic (1) for ifld            1
+ Reading checkpoint data 
+       FILE:/gpfs/alpine/csc262/scratch/malachi/debugging/ramesh/for_malachi_07.07.2021/semfem-fp32-24/restart.fld                              
+
+        0  5.6655E+00 done :: Read checkpoint data
+                              avg data-throughput =     6.1GB/s
+                              io-nodes =   144
+
+ xyz min    -1.0000       0.0000     -0.20000E-01
+ uvwpt min -0.72948     -0.95219     -0.81901     -0.84723       0.0000    
+ PS min      0.0000       0.0000       0.0000      0.99000E+22
+ xyz max     1.0000      0.50000      0.20000E-01
+ uvwpt max   1.7463       1.0337      0.86181      0.53046       0.0000    
+ PS max      0.0000       0.0000       0.0000     -0.99000E+22
+ Restart: recompute geom. factors.
+ regenerate geometry data           1
+ done :: regenerate geometry data           1
+  
+ done :: set initial conditions
+  
+calling nek_userchk ...
+           y_p+   3.8011E-04   6.9435E-01   3.0104E-02
+
+
+loading mesh from nek ... NboundaryIDs: 4, NboundaryFaces: 41472 done (0.00170757s)
+generating mesh ... Nq: 10 cubNq: 14
+computing geometric factors ... J [1.10033e-11,9.81776e-09] done (1.04723s)
+timing oogs modes: 0.00074742s 0.000487773s 0.000499304s 0.000514944s 0.000386743s 0.000295927s used config: 3.0.1
+min 69% of the local elements are internal
+timing oogs modes: 0.00252143s 0.00135957s 0.00135613s 0.0013571s 0.000861386s 0.000851387s used config: 3.0.1
+loading ns kernels ... done (0.000646895s)
+copying solution from nek
+calling udf_setup ... done
+================ ELLIPTIC SETUP VELOCITY ================
+bID 1 -> bcType fixedValue
+bID 2 -> bcType zeroGradient
+bID 3 -> bcType zeroValue
+bID 4 -> bcType zeroYValue/zeroGradient
+allNeumann = 0 
+loading elliptic kernels ... done (0.000221168s)
+timing oogs modes: 0.00237165s 0.00136901s 0.00139167s 0.0013465s 0.000854959s 0.000850451s used config: 3.0.1
+timing oogs modes: 0.00244707s 0.00235806s 0.00225743s 0.00225794s 0.00108248s 0.00107307s used config: 3.0.1
+building Jacobi preconditioner ... done (0.262929s)
+done (4.66721s)
+================ ELLIPTIC SETUP PRESSURE ================
+allNeumann = 0 
+loading elliptic kernels ... done (0.000248517s)
+timing oogs modes: 0.00072748s 0.000522153s 0.000513776s 0.000500636s 0.000314205s 0.000288042s used config: 3.0.1
+timing oogs modes: 0.000946701s 0.00111652s 0.00109237s 0.00107425s 0.000627605s 0.000619588s used config: 3.0.1
+setup SEMFEM preconditioner ... 
+building matrix ... done (21.608s)
+AMGX version 2.2.0.132-opensource
+Built on Sep 22 2021, 17:25:35
+Compiled with CUDA Runtime 11.0, using CUDA driver 11.0
+Using CUDA-Aware MPI (GPU Direct) communicator...
+User defined signal 2
+ERROR:  One or more process (first noticed rank 36) terminated with signal 12
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@batch4>
+Subject: Job 1454236: <nekRS_BoeingSpeedBump> in cluster <summit> Exited
+
+Job <nekRS_BoeingSpeedBump> was submitted from host <login5> by user <malachi> in cluster <summit> at Sun Sep 26 15:02:25 2021
+Job was executed on host(s) <1*batch4>, in queue <batch>, as user <malachi> in cluster <summit> at Sun Sep 26 15:03:33 2021
+                            <42*b34n01>
+                            <42*b34n02>
+                            <42*c09n13>
+                            <42*c09n14>
+                            <42*c09n15>
+                            <42*c09n16>
+                            <42*c27n10>
+                            <42*c27n11>
+                            <42*c27n12>
+                            <42*c27n13>
+                            <42*c27n14>
+                            <42*c27n15>
+                            <42*c27n16>
+                            <42*c27n17>
+                            <42*c27n18>
+                            <42*c28n01>
+                            <42*c28n02>
+                            <42*c28n03>
+                            <42*c28n04>
+                            <42*c28n05>
+                            <42*c28n06>
+                            <42*c28n07>
+                            <42*c28n08>
+                            <42*c33n02>
+</ccs/home/malachi> was used as the home directory.
+</gpfs/alpine/scratch/malachi/csc262/debugging/ramesh/for_malachi_07.07.2021/semfem-fp32-24> was used as the working directory.
+Started at Sun Sep 26 15:03:33 2021
+Terminated at Sun Sep 26 15:19:03 2021
+Results reported at Sun Sep 26 15:19:03 2021
+
+The output (if any) is above this job summary.
+

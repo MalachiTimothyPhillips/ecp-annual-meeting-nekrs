@@ -1,0 +1,71 @@
+                 __    ____  _____
+   ____   ___   / /__ / __ \/ ___/
+  / __ \ / _ \ / //_// /_/ /\__ \ 
+ / / / //  __// ,<  / _, _/___/ / 
+/_/ /_/ \___//_/|_|/_/ |_|/____/  v21.2.0 (e5b872de)
+
+COPYRIGHT (c) 2019-2021 UCHICAGO ARGONNE, LLC
+
+MPI tasks: 18
+
+reading par file ...
+general::extrapolation is deprecated and might be removed in the future!
+general::filtering is deprecated and might be removed in the future!
+general::filtermodes is deprecated and might be removed in the future!
+general::filterweight is deprecated and might be removed in the future!
+
+using NEKRS_HOME: /ccs/home/malachi/.local/nekrs-tuner
+using NEKRS_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/67peb/auto-fp32-3/.cache
+using OCCA_CACHE_DIR: /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/67peb/auto-fp32-3/.cache/occa/
+
+Initializing device 
+active occa mode: CUDA
+
+building udf ... 
+Consolidate compiler generated dependencies of target UDF
+[100%] Built target UDF
+done (0.329184s)
+skip building nekInterface (SIZE requires no update)
+loading nek ... 
+done
+loading udf kernels ... done (0.0868631s)
+
+loading kernels ... done (2.94944s)
+
+ Reading /gpfs/alpine/csc262/scratch/malachi/siam-pp-22/67peb/auto-fp32-3/tamu_0p18c.re2                                                     
+ERROR (proc 0000, src/fcrystal.c:94): comm_init_check: passed P=3482013472, but MPI_Comm_size gives P=18
+ERROR (proc 0003, src/fcrystal.c:94): comm_init_check: passed P=4132559392, but MPI_Comm_size gives P=18
+ERROR (proc 0007, src/fcrystal.c:94): comm_init_check: passed P=4270359280, but MPI_Comm_size gives P=18
+ERROR (proc 0009, src/fcrystal.c:94): comm_init_check: passed P=3227843824, but MPI_Comm_size gives P=18
+ERROR (proc 0004, src/fcrystal.c:94): comm_init_check: passed P=4077440784, but MPI_Comm_size gives P=18
+ERROR (proc 0010, src/fcrystal.c:94): comm_init_check: passed P=3733726384, but MPI_Comm_size gives P=18
+ERROR (proc 0001, src/fcrystal.c:94): comm_init_check: passed P=3361209376, but MPI_Comm_size gives P=18
+ERROR (proc 0011, src/fcrystal.c:94): comm_init_check: passed P=3384873728, but MPI_Comm_size gives P=18
+ERROR (proc 0005, src/fcrystal.c:94): comm_init_check: passed P=3849141120, but MPI_Comm_size gives P=18
+ERROR (proc 0008, src/fcrystal.c:94): comm_init_check: passed P=3735750400, but MPI_Comm_size gives P=18
+ERROR (proc 0002, src/fcrystal.c:94): comm_init_check: passed P=3420556992, but MPI_Comm_size gives P=18
+ERROR (proc 0006, src/fcrystal.c:94): comm_init_check: passed P=3926498464, but MPI_Comm_size gives P=18
+ERROR (proc 0012, src/fcrystal.c:94): comm_init_check: passed P=3992965200, but MPI_Comm_size gives P=18
+ERROR (proc 0013, src/fcrystal.c:94): comm_init_check: passed P=4001412144, but MPI_Comm_size gives P=18
+ERROR (proc 0014, src/fcrystal.c:94): comm_init_check: passed P=3523146240, but MPI_Comm_size gives P=18
+ERROR (proc 0015, src/fcrystal.c:94): comm_init_check: passed P=3312445728, but MPI_Comm_size gives P=18
+ERROR (proc 0016, src/fcrystal.c:94): comm_init_check: passed P=4119389760, but MPI_Comm_size gives P=18
+ERROR (proc 0017, src/fcrystal.c:94): comm_init_check: passed P=3611372848, but MPI_Comm_size gives P=18
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@batch4>
+Subject: Job 1667322: <nekRS_tamu_0p18c> in cluster <summit> Exited
+
+Job <nekRS_tamu_0p18c> was submitted from host <login5> by user <malachi> in cluster <summit> at Fri Dec  3 10:01:50 2021
+Job was executed on host(s) <1*batch4>, in queue <batch>, as user <malachi> in cluster <summit> at Fri Dec  3 10:10:50 2021
+                            <42*f34n09>
+                            <42*g25n07>
+                            <42*g25n08>
+</ccs/home/malachi> was used as the home directory.
+</gpfs/alpine/scratch/malachi/csc262/siam-pp-22/67peb/auto-fp32-3> was used as the working directory.
+Started at Fri Dec  3 10:10:50 2021
+Terminated at Fri Dec  3 10:11:22 2021
+Results reported at Fri Dec  3 10:11:22 2021
+
+The output (if any) is above this job summary.
+
