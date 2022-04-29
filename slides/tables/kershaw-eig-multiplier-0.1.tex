@@ -1,0 +1,19 @@
+\begin{table}
+\centering
+\begin{tabular}{||c| c c c c c c c c||}
+  \hline
+  $\lambda_{min}\backslash \lambda_{max}$ & $0.9 \tilde\lambda$ & $0.95 \tilde\lambda$ & $1.0 \tilde\lambda$ & $1.05 \tilde\lambda$ & $1.1 \tilde\lambda$ & $1.15 \tilde\lambda$ & $1.2 \tilde\lambda$ & $1.3 \tilde\lambda$  \\ 
+\hline\hline
+$0.0 \tilde\lambda$ & 1000 & 1000 & 1000 & 1000 & 1000 & 1000 & 1000 & 1000 \\ 
+$0.025 \tilde\lambda$ & 1000 & 1000 & 1000 & 135 & 89 & 81 & 71 & 61 \\ 
+$0.05 \tilde\lambda$ & 1000 & 1000 & 121 & 62 & 57 & 53 & 51 & 51 \\ 
+$0.1 \tilde\lambda$ & 1000 & 106 & 56 & 54 & 52 & 51 & 52 & 53 \\ 
+$0.15 \tilde\lambda$ & 113 & 57 & 55 & 54 & 54 & 54 & 55 & 56 \\ 
+$0.2 \tilde\lambda$ & 60 & 58 & 57 & 57 & 57 & 58 & 59 & 60 \\ 
+\hline
+\end{tabular}
+\caption{
+  Kershaw ($\varepsilon=0.1, E=26^3, p=7$) iteration counts required to reduce the residual by $10^8$.
+  Preconditioner is $p=7,3,1$ p-multigrid V-cycle with a 2nd order Chebyshev-accelerated ASM smoother.
+  \label{table:kershaw-eig-multiplier-0.1}}
+\end{table}

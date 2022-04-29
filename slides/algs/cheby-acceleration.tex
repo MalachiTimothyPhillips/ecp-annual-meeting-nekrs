@@ -1,0 +1,15 @@
+\begin{algorithm}[H]\tiny
+  \caption{Chebyshev smoother}
+  \label{alg:cheby}
+  \begin{algorithmic}
+    \STATE{$\theta = \dfrac 1 2 (\lambda_{max}+\lambda_{min})$, $\delta= \dfrac 1 2 (\lambda_{max}-\lambda_{min})$, $\sigma = \dfrac \theta \delta$, $\rho_1 = \dfrac 1 \sigma$}
+    \STATE{$ r =  \mathbf S( \mathbf b -  \mathbf A  \mathbf x)$, $ \mathbf d_1 = \dfrac 1 \theta r$, $ \mathbf x_1 =  \mathbf 0$}
+    \FOR{$k=1,\dots,\texttt{chebyshevOrder}$}
+      \STATE{$ \mathbf x_{k+1} =  \mathbf x_k +  \mathbf d_k$}
+      \STATE{$ \mathbf r_{k+1} =  \mathbf r_k -  \mathbf S  \mathbf A  \mathbf d_k$, $\rho_{k+1} = \dfrac{1}{2\sigma-\rho_k}$}
+      \STATE{$ \mathbf d_{k+1}=\rho_{k+1}\rho_k  \mathbf d_k + \dfrac {2\rho_{k+1}}{\delta}  \mathbf r_{k+1}$}
+    \ENDFOR
+    \STATE{$ \mathbf x_{k+1} =  \mathbf x_k +  \mathbf d_k$}
+    \RETURN{$ \mathbf x_{k+1}$}
+  \end{algorithmic}
+\end{algorithm}

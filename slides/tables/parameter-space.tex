@@ -1,0 +1,62 @@
+\begin{table*}[h] \footnotesize
+\centering
+%\begin{subtable}{\textwidth}\centering
+%\begin{tabular}{|l | l|}
+%\hline
+%& Parameters \\
+%\hline
+%Krylov Solver & flexible CG, GMRES\\
+%GMRES & restart size, classical/modified Gram-Schmidt\\
+%\hline
+%Preconditioners & pMG, SEMFEM\\
+%\hline
+%pMG & cycle type, schedule, smoother, coarse grid solver, coarse grid discretization\\
+%\hspace*{.15in}Cycle Type & V,W,F-cycle \\
+%\hspace*{.15in}Schedule & all levels, by halfs, two-level, $\ldots$ \\
+%\hspace*{.15in}Smoother & Gauss-Seidel, Jacobi, ASM, RAS, Chebyshev-acceleration \\
+%\hspace*{0.3in}ASM/RAS & amount of overlap, local subdomain solve techniques (FDM), weights\\
+%\hspace*{0.3in}Chebyshev-acceleration & Order, spectral bounds\\
+%\hspace*{.15in}Coarse grid & direct solve, AMG, smooth\\
+%\hspace*{.3in}AMG & cycle type, smoothers, interpolators, coarsening type, strength threshold\\
+%\hspace*{.15in}Coarse grid discretization & Galerkin, non-Galerkin\\
+%\hline
+%SEMFEM & low-order discretization, AMG solver settings\\
+%\hspace*{.15in}AMG & cycle type, smoothers, interpolators, coarsening type, strength threshold\\
+%\hline
+%\end{tabular}
+%\caption{
+%  \small
+%  True solver parameter space.
+%  \label{table:parameter-space}
+%}
+%\end{subtable}
+%\begin{subtable}{\textwidth}\centering
+\begin{tabular}{|l | l|}
+\hline
+& Parameters \\
+\hline
+Solver & preconditioned GMRES\\
+\hline
+Preconditioner & pMG, SEMFEM \\
+\multirow{2}{*}{\hspace*{.15in} pMG} & $p=7$: Cheby-ASM(2),(7,3,1), Cheby-RAS(2), (7,3,1), Cheby-Jac(2), (7,5,3,1)\\
+                                     & $p=9$: Cheby-ASM(2),(9,5,1), Cheby-RAS(2), (9,5,1), Cheby-Jac(2), (9,7,5,1)\\
+\hspace*{0.3in} Coarse grid & single boomerAMG V-cycle\\
+\hspace*{.15in} SEMFEM & single AmgX V-cycle\\
+\hline
+\end{tabular}
+
+\vspace{-0.25cm}
+\caption{
+  \small
+  Solver parameter space considered in the auto-tuner.
+  A pMG preconditioner using an $\eta$-order Chebyshev-accelerated $\xi$ smoother with
+  a multigrid schedule of $\Pi$ is denoted as Cheby-$\xi$($\eta$),$\Pi$.
+  \label{table:auto-tuner-parameter-space}
+}
+%\end{subtable}
+%\caption{
+%  \small
+%  Solver parameter space.
+%  \label{table:parameter-space-tables}
+%}
+\end{table*}

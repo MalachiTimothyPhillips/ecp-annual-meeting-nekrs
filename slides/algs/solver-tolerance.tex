@@ -1,0 +1,57 @@
+%\documentclass{article}
+%\usepackage[ruled,vlined]{algorithm2e}
+%\usepackage{caption}
+%\usepackage{amsmath}
+%\begin{document}
+\newcommand{\divUErr}[1]{\vert\vert (Q_T - \nabla \cdot \mathbf u)_{{#1}}\vert\vert_2}
+\begin{algorithm}
+   \SetAlgoLined
+   \DontPrintSemicolon
+   \KwIn{
+     $\alpha$, maximum L2 divergence error, $\divUErr{*} \le \alpha$;\\
+     \\
+     $\beta$, maximum relative increase in L2 divergence error, $\dfrac{\divUErr{\tau_2}}{\divUErr{\tau_1}} \le \beta$;\\
+     \\
+     $\tau_{max}$, maximum solver tolerance;\\
+     $\tau_{i}$, current solver tolerance;\\
+     $n_f$, frequency to adjust tolerance;\\
+     $\mu>1$, solver tolerance multiplier to increase/decrease tolerance by;\\
+     $n$, current step;\\
+   }
+   \KwOut{
+     $\tau$, the new solver tolerance;\\
+     Solution state $(\mathbf u,P)$ ;
+   }
+
+    \uIf{$n\mod{n_f} = 0$}{
+      $\tau_1 = \tau_{i}$\;
+      Run step at $\tau_1$\;
+      \uIf{$\divUErr{\tau_1} > \alpha$}{
+        $\tau_2 = \dfrac{\tau_1}{\mu}$\;
+        Run step at $\tau_2$\;
+      }
+      \uElse{
+        $\tau_2 = \min{(\mu\tau_1, \tau_{max})}$\;
+        Run step at $\tau_2$\;
+        \uIf{
+          $\divUErr{\tau_2} > \alpha$ or
+          $\dfrac{\divUErr{\tau_2}}{\divUErr{\tau_1}} > \beta$
+        }{
+          $\tau_2 = \tau_1$\;
+          Run step at $\tau_2$\;
+        }
+      }
+      Increment $n$\;
+      return $\tau_2$\;
+    }
+    \uElse{
+      Run step at $\tau_{i}$\;
+      \;
+      // Don't update the solver tolerances\;
+      Increment $n$\;
+      return $\tau_i$\;
+    }
+
+    \caption{\label{alg:solver-tolerance}Adjust solver tolerance}
+\end{algorithm}
+%\end{document}

@@ -1,0 +1,26 @@
+\begin{table}\footnotesize
+\centering
+\begin{tabular}{|l | l|}
+\hline
+& Parameters \\
+\hline
+Solver & preconditioned GMRES\\
+\hline
+Preconditioner & pMG, SEMFEM \\
+\multirow{2}{*}{\hspace*{.15in} pMG} & $p=7$: Cheby-ASM/RAS(2),(7,3,1), Cheby-Jac(2), (7,5,3,1)\\
+                                     & $p=9$: Cheby-ASM/RAS(2),(9,5,1), Cheby-Jac(2), (9,7,5,1)\\
+\hspace*{0.3in} Coarse grid & single boomerAMG V-cycle\\
+\hspace*{.15in} SEMFEM & single AmgX V-cycle\\
+\hline
+\end{tabular}
+
+\vspace{-0.25cm}
+\captionsetup{labelformat=empty}
+\caption{
+  \small
+  Solver parameter space considered in the tuner.
+  A pMG preconditioner using an $\eta$-order Chebyshev-accelerated $\xi$ smoother with
+  a multigrid schedule of $\Pi$ is denoted as Cheby-$\xi$($\eta$),$\Pi$.
+  \label{table:auto-tuner-parameter-space}
+}
+\end{table}

@@ -1,0 +1,58 @@
+\begin{table*} \footnotesize
+\centering
+\begin{tabular}{||c| c c c ||}
+  \hline
+  %& \multicolumn{3}{c ||}{Mesh Quality Metrics}\\
+  %\cline{2-4}
+  Case Name & GLL Spacing (min/max) & Scaled Jacobian (min/max/avg) & Aspect Ratio (min/max/avg)\\
+  %\hline\hline
+  \hline \rule{0pt}{2.5ex}
+  146 pebble
+    &  $1.01\times 10^{-3}$ / .32
+    & $4.31\times 10^{-2}$ / .977 / .419
+    & 1.07 / 56.9 / 7.14 \\
+  1568 pebble
+    & $2.21\times 10^{-4}$ / .3
+    & $2.59\times 10^{-2}$ / .99 / .371
+    & 1.12 / 108 / 12.6 \\
+  67 pebble
+    & $4.02\times 10^{-5}$ / .145
+    & $5.97\times 10^{-3}$ / .970 / .38
+    & 1.17 / 204 / 13.2 \\
+  Boeing Speed Bump
+    & $8.34\times 10^{-7}$ / $2.99\times 10 ^{-3}$
+    & .996 / 1 / 0.999
+    & 6.25 / 255 / 28.1 \\
+\hline
+\end{tabular}
+\vspace{-0.1cm}
+\caption{
+  \small
+  Mesh quality metrics for cases from Fig. \ref{fig:ns_cases}.
+  \label{table:mesh-metrics}
+}
+\end{table*}
+
+%# bsb
+%mesh metrics:
+%GLL grid spacing min/max    : 8.34E-07 2.99E-03
+%scaled Jacobian  min/max/avg: 9.96E-01 1.00E+00 9.99E-01
+%aspect ratio     min/max/avg: 6.25E+00 2.55E+02 2.81E+01
+%# pb67
+%mesh metrics:
+%GLL grid spacing min/max    : 4.02E-05 1.45E-01
+%scaled Jacobian  min/max/avg: 5.97E-03 9.70E-01 3.80E-01
+%aspect ratio     min/max/avg: 1.17E+00 2.04E+02 1.32E+01
+%
+%## pb146
+%mesh metrics:
+%GLL grid spacing min/max    : 1.01E-03 3.20E-01
+%scaled Jacobian  min/max/avg: 4.31E-02 9.77E-01 4.19E-01
+%aspect ratio     min/max/avg: 1.07E+00 5.69E+01 7.14E+00
+%
+%## pb1568
+%mesh metrics:
+%GLL grid spacing min/max    : 2.21E-04 3.02E-01
+%scaled Jacobian  min/max/avg: 2.59E-02 9.91E-01 3.71E-01
+%aspect ratio     min/max/avg: 1.12E+00 1.08E+02 1.26E+01
+%

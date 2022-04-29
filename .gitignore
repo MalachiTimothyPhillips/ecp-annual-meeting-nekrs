@@ -1,4 +1,18 @@
 *.swp
+*latex.out*
+*-blx.bib
+*.aux
+*.fdb_latexmk
+*.fls
+*.out
+*.run.xml
+*.synctex(busy)
+*.synctex.gz
+*.nav
+*.snm
+*.toc
+*.bbl
+*.blg
 
 
 # Byte-compiled / optimized / DLL files

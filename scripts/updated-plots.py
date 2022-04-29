@@ -356,7 +356,7 @@ if __name__ == "__main__":
     plt.savefig("../figs/pb1568-scaling.png",dpi=300)
     return
   
-  #bsb()
+  bsb()
   pb146()
-  #pb1568()
-  #pb67()
+  pb1568()
+  pb67()

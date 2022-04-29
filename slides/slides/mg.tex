@@ -1,0 +1,36 @@
+\begin{frame}{Multigrid}
+  \begin{columns}
+    \begin{column}{0.6\textwidth}
+      \input{algs/v-cycle}
+      \vspace{-0.5cm}
+      Smoother choices:
+      \begin{itemize}
+        \item Damped Jacobi
+        \item Schwarz
+        \item Chebyshev Jacobi smoothing
+        \item \em{Chebyshev Schwarz smoothing}
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \begin{figure}
+        %\begin{flushright}
+        {\setlength{\unitlength}{\textwidth}
+        \begin{picture}(1, 1.75)
+          \put(0,0){\includegraphics[height=0.8\textheight]{../figs/multigrid.png}}
+          %\qbezier(0.2,1)(0.0,0.8)(0.2,0.6)
+          \put(0.55, 1.2){\vector(0,-1){0.2}}
+          \put(0.55, 0.6){\vector(0,-1){0.2}}
+          \put(0.6, 1.1){\large Smooth}
+          \put(0.6, 0.5){\large Coarsen}
+        \end{picture}
+        }
+        %\end{flushright}
+        %\vspace{-0.8cm}
+        %\caption{\label{fig:mg-demo}
+        %  \small
+        %  Multigrid
+        %}
+      \end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}

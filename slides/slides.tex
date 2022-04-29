@@ -1,0 +1,119 @@
+\documentclass{beamer}
+%\usetheme{metropolis}
+\input{shared}
+\usepackage[export]{adjustbox}
+\usepackage[style=authortitle,backend=bibtex]{biblatex}
+\addbibresource{paper.bib}
+\usepackage{enumitem}
+\setlistdepth{9}
+
+\setlist[itemize,1]{label=$\bullet$}
+\setlist[itemize,2]{label=$\bullet$}
+\setlist[itemize,3]{label=$\bullet$}
+\setlist[itemize,4]{label=$\bullet$}
+\setlist[itemize,5]{label=$\bullet$}
+\setlist[itemize,6]{label=$\bullet$}
+\setlist[itemize,7]{label=$\bullet$}
+\setlist[itemize,8]{label=$\bullet$}
+\setlist[itemize,9]{label=$\bullet$}
+
+\renewlist{itemize}{itemize}{9}
+%\usepackage{enumitem}
+%\usepackage{natbib}
+
+% re-state institute in Beamer form
+\author{
+Malachi Phillips\inst{1}
+  \and
+Stefan Kerkemeier\inst{2}
+  \and
+Paul Fischer\inst{1,2,3}
+}
+
+\institute[shortinst]{
+  \inst{1} Department of Computer Science, University of Illinois at Urbana-Champaign
+  \and
+  \inst{2} Mathematics and Computer Science, Argonne National Laboratory, Lemont, IL 60439
+  \and
+  \inst{3} Department of Mechanical Science and Engineering, University of Illinois at Urbana-Champaign
+}
+
+\usepackage{float} %figure inside minipage
+
+% useful defines
+\def\dO{\partial \Omega}
+\def\Oh{{\hat \Omega}}
+\def\uu{{\underline u}}
+\def\ur{{\underline r}}
+\def\us{{\underline s}}
+\def\uf{{\underline f}}
+\def\tlam {{\tilde \lambda}}
+
+\begin{document}
+\date{}
+%\maketitle
+
+\begin{frame}{Poisson}
+  \begin{itemize}
+    \item Poisson solve encompasses the majority of the solution time.
+    \item Spectral element (SE): $E$ elements with polynomial degree $p$, $n\approx E p^3$ unknowns and $\mathcal O(Ep^6)$ nonzeros.
+    \begin{itemize}
+      \item Matrix-free is a must: exploit tensor-product-sum factorization, $\mathcal O(Ep^4)$ cost to apply matrix-vector product \footcite{deville_high-order_2002}.
+      \item Poor conditioning of system: $\kappa(A)\sim\mathcal O(h^{-p})$ requires preconditioning.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+%--------------------------------------------------------------------------
+% Structure of talk
+%--------------------------------------------------------------------------
+%\input{slides/structure} % Not needed for a 15 minute talk...
+
+%--------------------------------------------------------------------------
+% Overview of preconditioning techniques
+%--------------------------------------------------------------------------
+\input{slides/overview}
+
+%--------------------------------------------------------------------------
+% SEMFEM Preconditioner
+%--------------------------------------------------------------------------
+\input{slides/semfem}
+
+%--------------------------------------------------------------------------
+% Multigrid Preconditioner and Smoothers
+%--------------------------------------------------------------------------
+%\input{slides/mg}
+
+%--------------------------------------------------------------------------
+% Schwarz Smoothing Algorithm
+%--------------------------------------------------------------------------
+\input{slides/schwarz}
+
+%--------------------------------------------------------------------------
+% Chebyshev Smoothing Algorithm
+%--------------------------------------------------------------------------
+\input{slides/cheby-alg}
+
+%--------------------------------------------------------------------------
+% Test cases
+%--------------------------------------------------------------------------
+\input{slides/cases}
+
+%--------------------------------------------------------------------------
+% Results
+%--------------------------------------------------------------------------
+\input{slides/how-to-read}
+\input{slides/boeing-speed-bump-scaling}
+\input{slides/pebble-scaling}
+
+%--------------------------------------------------------------------------
+% Acknowledgements
+%--------------------------------------------------------------------------
+%\input{slides/acknowledgements}
+
+%--------------------------------------------------------------------------
+% Citations
+%--------------------------------------------------------------------------
+%\input{slides/citations}
+
+\end{document}

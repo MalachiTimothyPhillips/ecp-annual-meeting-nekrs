@@ -1,0 +1,23 @@
+\begin{frame}{Solvers}
+  \begin{itemize}
+    \item Solution projection for initial guess generation \footcite{fischer_projection_1998}
+    \item Krylov subspace projection methods:
+    \begin{itemize}
+      \item flexible PCG
+      \item PGMRES
+    \end{itemize}
+    \item Preconditioners:
+    \begin{itemize}
+      \item Low-order operator preconditioning (SEMFEM)
+      \item Geometric $p$-Multigrid (pMG), requiring a smoother:
+      \begin{itemize}
+        \item Additive Schwarz (ASM) and restrictive additive Schwarz (RAS)
+        \item Chebyshev polynomial smoothing
+        \begin{itemize}
+          \item Jacobi
+          \item ASM, RAS
+        \end{itemize}
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+\end{frame}

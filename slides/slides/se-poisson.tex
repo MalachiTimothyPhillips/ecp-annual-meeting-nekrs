@@ -1,0 +1,25 @@
+\begin{frame}{Spectral Element Poisson}
+  \begin{itemize}
+  \item Poisson PDE:
+  \begin{align*}
+    -\nabla^2 u = f \text{ for } u,f \in \Omega \subset \mathbb R^3 \mapsto \mathbb R.
+    \label{eqn:poisson}
+  \end{align*}
+  \item Weak form:
+  {\em  Find $u \in X_0^p$ such that,}
+  \begin{align*}
+    (\nabla v, \nabla u)_p = (v,f)_p 
+  \;\;
+  \forall v \in X_0^p.
+  \end{align*}
+  \item Results in linear system:
+  \begin{align*}
+    \mathbf A \mathbf u = \mathbf B \mathbf f,
+  \end{align*}
+  with
+  $\mathbf B_{ij} := (\phi_i,\phi_j)_p$, and 
+  $\mathbf A_{ij} := (\nabla \phi_i, \nabla \phi_j)_p$.  
+
+  \item Poor conditioning: $\kappa(A)\sim\mathcal O(h^{-p})$
+  \end{itemize}
+\end{frame}

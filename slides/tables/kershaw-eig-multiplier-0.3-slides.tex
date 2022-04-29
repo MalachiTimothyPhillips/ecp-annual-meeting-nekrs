@@ -1,0 +1,31 @@
+\def\tlam {{\tilde \lambda}}
+%\vspace*{.01in}
+%\def\tlam {{\vspace*{.11in}{\tilde \lambda}}}
+\begin{table}
+\small
+\centering
+\begin{tabular}{||c|c c c c c c||}
+  \hline
+  $\lambda_{min}\backslash \lambda_{max}$ & \rule{0pt}{2.5ex}
+$0.9 \tlam$ & $0.95 \tlam$ & $1.0 \tlam$ & $1.1 \tlam$ & $1.2 \tlam$ & $1.3 \tlam$\\ 
+\hline\hline \rule{0pt}{2.5ex}
+$0.0   \tlam$ & - & - & - & - & - & - \\
+$0.025 \tlam$ & - & - & - & 110  & 64   & 48 \\
+$0.05  \tlam$ & - & - & - & 50   & 40   & 38 \\
+$0.1   \tlam$ & - & - & 124  & 40   & 38   & 38 \\
+$0.2   \tlam$ & 159  & 45   & 43   & 42   & 43   & 44 \\
+$0.25  \tlam$ & 47   & 45   & 44   & 44   & 45   & 46 \\
+\hline
+\end{tabular}
+\captionsetup{labelformat=empty}
+\caption{\small
+%Kershaw ($\varepsilon=0.3, E=24^3, p=7$) iteration counts required to reduce
+%the residual by $10^8$.  Preconditioner is $p=7,3,1$ p-multigrid V-cycle with a
+%2nd-order Chebyshev-accelerated ASM smoother.
+Iteration counts for the ($\lambda_{min},\lambda_{max}$) sensitivity study.
+Omitted entries failed to converge in 1000 iterations.
+%Smoothing is based on 2nd-order Chebyshev-accelerated ASM with the pMG schedule
+%$p=7,3,1$.  The test case is the Kershaw problem ($\varepsilon=0.3, E=24^3,
+%p =7$) with relative residual tolerance $10^{-8}$.
+\label{table:kershaw-eig-multiplier-0.3}}
+\end{table}

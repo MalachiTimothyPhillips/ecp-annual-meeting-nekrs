@@ -1,0 +1,9 @@
+\begin{frame}{Results}
+  \begin{itemize}
+    \item All results on Summit (42 IBM Power9 CPUs, 6 NVIDIA V100 GPUs per node).
+    \item Each of the $P$ ranks are assigned one GPU, 6 GPUs per node (unless $P<6$).
+    \item At coarsest level, solve using one BoomerAMG V-cycles \footcite{henson_boomeramg_2002}
+    \item pMG (7,3,1), Cheby-ASM(2) denotes pMG preconditioning with a 2nd-order Chebyshev-accelerated ASM smoother with %three
+    $p=7$, $p=3$, and $p=1$ as multigrid levels.
+  \end{itemize}
+\end{frame}

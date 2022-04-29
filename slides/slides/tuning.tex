@@ -1,0 +1,17 @@
+\begin{frame}{Tuning}
+  %\input{tables/par-space-slides.tex}
+  %\vspace{-0.5cm}
+  \begin{itemize}
+    \item There is no single optimal preconditioning strategy.
+    \item Tuning should be done by the software, not the user.
+    \item In large-scale fluid mechanics applications, any tuning overhead is amortized over $10^4$--$10^5$ Poisson solves.
+    \item Auto-tuning of preconditioners considered by \cite{imakura_auto-tuning_2012,yamada2018preconditioner,brown_tuning_2021}.
+    \item A primitive exhaustive search over a few reasonable preconditioner setups recovers performance in the 67 pebble case.
+    %\item In \cite{fischer_highly_2021}, gain a factor 2.8 speedup in time-per-step for a
+    %      352,000-pebble-bed simulation ($n$=51B gridpoints).
+    %\item Perform exhaustive search over table parameters (4 evaluations)
+    %\begin{itemize}
+    %  \item Selects reasonable preconditioner: e.g., SEMFEM for 67 pebble
+    %\end{itemize}
+  \end{itemize}
+\end{frame}

@@ -1,0 +1,13 @@
+\begin{algorithm}[H]\small
+   \caption{Multigrid V-cycle}
+   \label{alg:V-cycle}
+   \begin{algorithmic}
+    \STATE{$\mathbf x = \mathbf x + \mathbf M^{-1} (\mathbf b - \mathbf A\mathbf x)$ // smooth}
+    \STATE{$\mathbf r = \mathbf b - \mathbf A \mathbf x$ // re-evaluate residual}
+    \STATE{$\mathbf r_C = \mathbf P^T \mathbf r$ // coarsen }
+    \STATE{$\mathbf e_C = \mathbf A_C^{-1} \mathbf r_C$ // solve/re-apply V-cycle }
+    \STATE{$\mathbf e = \mathbf P \mathbf e_C$ // prolongate }
+    \STATE{$\mathbf x = \mathbf x + \mathbf e$ // update solution }
+    \STATE{$\mathbf x = \mathbf x + \mathbf M^{-1}(\mathbf b - A\mathbf x)$ // post smoothing }
+   \end{algorithmic}
+\end{algorithm}

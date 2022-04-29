@@ -1,0 +1,29 @@
+\begin{table*} \footnotesize
+\centering
+\begin{tabular}{||c|| c| c| c| c| c| c| c||}
+  \hline
+  Case & $P$ ($n/P$) & Auto & Best & $T_p$ & $S_D$ & $S_B$ & $S_W$\\
+  \hline\hline
+  146 pebble  & 6  (3.55M) & Cheby-RAS(2),(7,3,1)  &  Cheby-RAS(2),(7,5,3,1)  & .170 & 1.07 & 0.89 & 2.71\\
+  146 pebble  & 12 (1.78M) & Cheby-RAS(2),(7,3,1)  &  Cheby-RAS(2),(7,5,3,1)  & .118 & 1.08 & 0.94 & 3.3\\
+  146 pebble  & 18 (1.18M) & Cheby-RAS(2),(7,3,1)  &  Cheby-RAS(2),(7,5,3,1)  & .112 & 1.21 & 0.91 & 2.5\\
+  \hline
+  1568 pebble & 48 (3.75M) & Cheby-Jac(2),(7,3,1)  &  SEMFEM                  & .503 & 0.47 & 0.45 & 1.13\\
+  1568 pebble & 72 (2.5M)  & Cheby-Jac(2),(7,3,1)  &  SEMFEM                  & .469 & 0.42 & 0.4  & 1.11\\
+  1568 pebble & 96 (1.87M) & Cheby-Jac(3),(7,3,1)  &  SEMFEM                  & .321 & 0.59 & 0.47 & 1.5\\
+\hline
+\end{tabular}
+\caption{
+  \small
+  Auto tuner results from evaluation at timestep 1000.
+  Initial guess generation through projection is used during evaluation.
+  $T_p$ is the minimum time per solve from the auto tuner.
+  $S_D$ is the speedup relative to the default preconditioner,
+  2nd order Chebyshev-accelerated ASM with schedule $(7,3,1)$.
+  The worst preconditioner is 2nd order Chebyshev-accelerated Jacobi with 2
+  coarse grid iterations with schedule $(7,5,3,1)$.
+  $S_W$ is the speedup relative to the worst preconditioner.
+  $S_B$ is the speedup relative to the best from the strong scaling study
+  in Figure \ref{fig:scaling-study}.
+  \label{table:auto-preco-proj}}
+\end{table*}
