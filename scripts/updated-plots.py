@@ -97,7 +97,7 @@ if __name__ == "__main__":
       E,
       p,
       plotter=custom_plotter)
-    axs.set_title("$P=96:432$, Cheby-RAS wins", fontsize="x-large")
+    axs.set_title("$P=96:432$, pMG, Cheby-RAS wins", fontsize="x-large")
 
     # Add processor counts
     def custom_texter(*args, **kwargs):
@@ -116,13 +116,11 @@ if __name__ == "__main__":
       texter=custom_texter)
 
     axs.grid(which="both")
-    axs.set_ylabel("Gridpoints / (time per solve * node)")
-    axs.set_xlabel("Time per solve (s)")
+    axs.set_ylabel("Gridpoints / (time per pressure solve * node)")
+    axs.set_xlabel("Time per pressure solve (s)")
   
     tickMarks = [0.3,0.4,0.5,0.6,0.7,1.0,2.0]
     tickMarkLabels = [str(np.round(x,1)) for x in tickMarks]
-    axs.set_xticks(tickMarks)
-    axs.set_xticklabels(tickMarkLabels, rotation=30)
 
     def my_plotter(xdat,ydat):
       axs.semilogx(xdat,ydat,color="black",linestyle="--")
@@ -139,11 +137,15 @@ if __name__ == "__main__":
     axs.annotate("$P=288$", xy=(0.3, 0.25), xytext=(0.2,0.1), xycoords='axes fraction', fontsize="medium",
       arrowprops=dict(facecolor='black', width=1, headwidth=5))
 
+    axs.set_xticks(tickMarks)
+    axs.set_xticklabels(tickMarkLabels, rotation=30)
+
 
     plt.tight_layout()
     #plt.subplots_adjust(right=0.78)
     handles, labels = axs.get_legend_handles_labels()
-    fig.legend(handles, labels, bbox_to_anchor=(0.65, 0.62), loc='center left', borderaxespad=0., fontsize="small")
+    #fig.legend(handles, labels, bbox_to_anchor=(0.65, 0.62), loc='center left', borderaxespad=0., fontsize="small")
+    fig.legend(handles, labels, bbox_to_anchor=(0.50, 0.8), loc='center left', borderaxespad=0., fontsize="large")
     #fig.legend(handles, labels)
 
     #plt.show()
@@ -168,15 +170,15 @@ if __name__ == "__main__":
       E,
       p,
       plotter=custom_plotter)
-    axs.set_title("$P=3:18$, Cheby-RAS wins", fontsize="x-large")
+    axs.set_title("$P=3:18$, pMG, Cheby-RAS wins", fontsize="x-large")
 
     # Add processor counts
     def custom_texter(*args, **kwargs):
       x, y, string = args
       if "3" in string:
-        axs.text(x + 0.025, y, string, **kwargs, fontsize="large")
+        axs.text(x + (-2.5)*0.025, y, string, **kwargs, fontsize="large")
       if "18" in string:
-        axs.text(x - 0.025, y - 1e7, string, **kwargs, fontsize="large")
+        axs.text(x - 0.45*0.025, y - 1e7, string, **kwargs, fontsize="large")
       return
 
     add_processor_counts(path,
@@ -186,9 +188,24 @@ if __name__ == "__main__":
       p,
       texter=custom_texter)
 
+    def my_plotter(xdat,ydat):
+      axs.semilogx(xdat,ydat,color="black",linestyle="--")
+      return
+    gather_constant_rank_data(path,
+      common.methodToName,
+      precisions,
+      E,
+      p,
+      2,
+      plotter=my_plotter)
+    
+    # add annotation
+    axs.annotate("$P=12$", xy=(0.25, 0.3), xytext=(0.2,0.1), xycoords='axes fraction', fontsize="medium",
+      arrowprops=dict(facecolor='black', width=1, headwidth=5))
+
     axs.grid(which="both")
-    axs.set_ylabel("Gridpoints / (time per solve * node)")
-    axs.set_xlabel("Time per solve (s)")
+    axs.set_ylabel("Gridpoints / (time per pressure solve * node)")
+    axs.set_xlabel("Time per pressure solve (s)")
   
     tickMarks = [0.1,0.2,0.3,0.4,0.5,0.6,0.8]
     tickMarkLabels = [str(np.round(x,1)) for x in tickMarks]
@@ -197,7 +214,8 @@ if __name__ == "__main__":
 
     plt.tight_layout()
     handles, labels = axs.get_legend_handles_labels()
-    fig.legend(handles, labels, bbox_to_anchor=(0.65, 0.65), loc='center left', borderaxespad=0., fontsize="small")
+    #fig.legend(handles, labels, bbox_to_anchor=(0.65, 0.65), loc='center left', borderaxespad=0., fontsize="small")
+    fig.legend(handles, labels, bbox_to_anchor=(0.50, 0.8), loc='center left', borderaxespad=0., fontsize="large")
 
     #plt.show()
     plt.savefig("../figs/pb146-scaling.png",dpi=300)
@@ -239,8 +257,23 @@ if __name__ == "__main__":
       texter=custom_texter)
 
     axs.grid(which="both")
-    axs.set_ylabel("Gridpoints / (time per solve * node)")
-    axs.set_xlabel("Time per solve (s)")
+    axs.set_ylabel("Gridpoints / (time per pressure solve * node)")
+    axs.set_xlabel("Time per pressure solve (s)")
+
+    def my_plotter(xdat,ydat):
+      axs.semilogx(xdat,ydat,color="black",linestyle="--")
+      return
+    gather_constant_rank_data(path,
+      common.methodToName,
+      precisions,
+      E,
+      p,
+      3,
+      plotter=my_plotter)
+    
+    # add annotation
+    axs.annotate("$P=18$", xy=(0.25, 0.45), xytext=(0.2,0.1), xycoords='axes fraction', fontsize="medium",
+      arrowprops=dict(facecolor='black', width=1, headwidth=5))
   
     tickMarks = [0.1,0.2,0.3,0.4,0.5,0.6,0.8]
     tickMarkLabels = [str(np.round(x,1)) for x in tickMarks]
@@ -249,7 +282,8 @@ if __name__ == "__main__":
 
     plt.tight_layout()
     handles, labels = axs.get_legend_handles_labels()
-    fig.legend(handles, labels, bbox_to_anchor=(0.225, 0.5), loc='center left', borderaxespad=0., fontsize="medium")
+    #fig.legend(handles, labels, bbox_to_anchor=(0.225, 0.5), loc='center left', borderaxespad=0., fontsize="medium")
+    fig.legend(handles, labels, bbox_to_anchor=(0.50, 0.8), loc='center left', borderaxespad=0., fontsize="large")
 
     #plt.show()
     plt.savefig("../figs/pb67-scaling.png",dpi=300)
@@ -279,7 +313,7 @@ if __name__ == "__main__":
       if "24" in string:
         axs.text(x - 0.075, y - 1e7, string, **kwargs, fontsize="large")
       if "96" in string:
-        axs.text(x - 0.025, y - 1e7, string, **kwargs, fontsize="large")
+        axs.text(x + 1*0.01, y + 0*1e7, string, **kwargs, fontsize="large")
       return
 
     add_processor_counts(path,
@@ -290,23 +324,39 @@ if __name__ == "__main__":
       texter=custom_texter)
 
     axs.grid(which="both")
-    axs.set_ylabel("Gridpoints / (time per solve * node)")
-    axs.set_xlabel("Time per solve (s)")
+    axs.set_ylabel("Gridpoints / (time per pressure solve * node)")
+    axs.set_xlabel("Time per pressure solve (s)")
   
     tickMarks = np.linspace(0.2,0.8,num=7)
     tickMarkLabels = [str(np.round(x,1)) for x in tickMarks]
+
+    def my_plotter(xdat,ydat):
+      axs.semilogx(xdat,ydat,color="black",linestyle="--")
+      return
+    gather_constant_rank_data(path,
+      common.methodToName,
+      precisions,
+      E,
+      p,
+      12,
+      plotter=my_plotter)
+    
+    # add annotation
+    axs.annotate("$P=72$", xy=(0.25, 0.45), xytext=(0.2,0.1), xycoords='axes fraction', fontsize="medium",
+      arrowprops=dict(facecolor='black', width=1, headwidth=5))
+
     axs.set_xticks(tickMarks)
     axs.set_xticklabels(tickMarkLabels, rotation=30)
 
     plt.tight_layout()
     handles, labels = axs.get_legend_handles_labels()
-    fig.legend(handles, labels, bbox_to_anchor=(0.65, 0.65), loc='center left', borderaxespad=0., fontsize="medium")
+    fig.legend(handles, labels, bbox_to_anchor=(0.50, 0.8), loc='center left', borderaxespad=0., fontsize="large")
 
     #plt.show()
     plt.savefig("../figs/pb1568-scaling.png",dpi=300)
     return
   
   #bsb()
-  #pb146()
+  pb146()
   #pb1568()
-  pb67()
+  #pb67()
