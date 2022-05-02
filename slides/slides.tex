@@ -59,7 +59,8 @@ Paul Fischer\inst{1,2,3}
     \item Spectral element (SE): $E$ elements with polynomial degree $p$, $n\approx E p^3$ unknowns and $\mathcal O(Ep^6)$ nonzeros.
     \begin{itemize}
       \item Matrix-free is a must: exploit tensor-product-sum factorization, $\mathcal O(Ep^4)$ cost to apply matrix-vector product \footcite{deville_high-order_2002}.
-      \item Poor conditioning of system: $\kappa(A)\sim\mathcal O(h^{-p})$ requires preconditioning.
+      \item Fast solvers require preconditioning.
+      %\item Poor conditioning of system: $\kappa(A)\sim\mathcal O(h^{-p})$ requires preconditioning.
     \end{itemize}
   \end{itemize}
 \end{frame}
