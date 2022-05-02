@@ -1,0 +1,17 @@
+\begin{table}
+\centering
+\begin{tabular}{||c |c c c c||}
+\hline
+& $t_{SEMFEM}$ & $t_{pMG}$ & Ratio & $P$ \\
+\hline
+Speed bump & 0.43 & 0.28 & 1.54 & 288 \\
+146 pebble & 0.21 & 0.12 & 1.75 & 12 \\
+1568 pebble & 0.18 & 0.19 & 0.95 & 72 \\
+67 pebble\footnote{tet-to-hex mesh} & 0.12 & 0.47 & 0.26 & 18 \\
+\hline
+\end{tabular}
+\caption{
+  Ratio of SEMFEM time to best pMG (fixed P)
+  \label{table:solver-time-ratio}
+}
+\end{table}
