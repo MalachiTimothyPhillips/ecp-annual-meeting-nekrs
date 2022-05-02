@@ -1,8 +1,8 @@
 \begin{frame}{Chebyshev Smoothing}
 \begin{itemize}
-  \item Construct Chebyshev polynomial of $\mathbf {SA}$ minimum in interval $[\lambda_{min}, \lambda_{max}]$.
+  \item Construct Chebyshev polynomial of $\mathbf {SA}$ minimum in interval $[\lambda_{min}, \lambda_{max}]$
   \item Max eigenvalue estimate $\tilde{\lambda}$ obtained with 10 Arnoldi iterations,
-        $(\lambda_{max}, \lambda_{min}) = (1.1,0.1)\tilde{\lambda}$.
+        $(\lambda_{max}, \lambda_{min}) = (1.1,0.1)\tilde{\lambda}$
   \item $\mathbf S = \operatorname{invDiag}(A)$ \footcite{adams_parallel_2003, Kronbichler2019}, or, more recently, a Schwarz smoother \footcite{phillips-tuning-2022}
   \begin{itemize}
     \item Chebyshev-acceleration \emph{robustifies} point wise smoother (Jacobi)
